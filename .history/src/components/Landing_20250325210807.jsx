@@ -9,15 +9,7 @@ function Landing(){
            {/* Content */}
            <div className="relative w-[100vw] h-[100vh]">
                 <nav className="flex flex-row items-center justify-evenly w-[100vw] h-auto">
-                    <h1>logo</h1>
-                    <div className="flex flex-row items-center justify-evenly gap-[1rem]">
-                        <h1>New</h1>
-                        <h1>Men</h1>
-                        <h1>Women</h1>
-                        <h1>collection</h1>
-                        <h1>Trends</h1>
-                    </div>
-                    <button>login</button>
+                    h1
                 </nav>
            </div>
         </>
