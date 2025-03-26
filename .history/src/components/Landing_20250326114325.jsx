@@ -10,7 +10,7 @@ function Landing(){
            {/* Content */}
            <div className="relative py-[2rem] w-[100vw] h-[100vh]">
                 <nav className="flex flex-row items-center justify-between px-[3rem] w-[100vw] h-[2rem]">
-                         <button className="font-extrabold font-serif text-lg">shoppey</button>
+                         <button className="font-extrabold font-serif text-l">shoppey</button>
                     <div className="flex font-bold font-serif flex-row items-center justify-evenly gap-[2rem]">
                         <button className="cursor-pointer hover:border-b-2 border-b-black">New</button>
                         <button className="cursor-pointer hover:border-b-2 border-b-black">Men</button>
@@ -18,7 +18,7 @@ function Landing(){
                         <button className="cursor-pointer hover:border-b-2 border-b-black">Collection</button>
                         <button className="cursor-pointer hover:border-b-2 border-b-black">Trends</button>
                     </div>
-                    <button className="font-bold font-serif cursor-pointer border-2 border-black px-[0.5rem] py-[0.2rem] hover:text-[#b48068] hover:bg-black">LOGIN</button>
+                    <button className="font-bold font-serif cursor-pointer">login</button>
                 </nav>
            </div>
            </div>

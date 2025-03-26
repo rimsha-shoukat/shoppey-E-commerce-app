@@ -18,7 +18,7 @@ function Landing(){
                         <button className="cursor-pointer hover:border-b-2 border-b-black">Collection</button>
                         <button className="cursor-pointer hover:border-b-2 border-b-black">Trends</button>
                     </div>
-                    <button className="font-bold font-serif cursor-pointer border-2 border-black px-[0.5rem] py-[0.2rem] hover:text-[#b48068] hover:bg-black">LOGIN</button>
+                    <button className="font-bold font-serif cursor-pointer border-2 border-black px-[">LOGIN</button>
                 </nav>
            </div>
            </div>
