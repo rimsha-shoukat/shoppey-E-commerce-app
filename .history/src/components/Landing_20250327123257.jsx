@@ -10,7 +10,7 @@ function Landing(){
             {/* Background Image */}
            <img className="absolute w-[100vw] h-[100vh]" src={landingBg} alt="landing Image"/> 
            {/* Content */}
-           <div className="relative flex flex-col gap-[2rem] pt-[2rem] w-[100vw] h-[100vh]">
+           <div className="relative flex flex-col gap-[2rem] py-[2rem] w-[100vw] h-[100vh]">
                 <nav className="flex flex-row items-center justify-between px-[3rem] w-[100vw] h-[2%]">
                         <button className="font-extrabold font-serif text-lg">shoppey</button>
                     <div className="flex font-bold font-serif flex-row items-center justify-evenly gap-[2rem]">
@@ -22,14 +22,14 @@ function Landing(){
                     </div>
                     <button className="font-bold font-serif cursor-pointer border-2 border-black px-[0.5rem] py-[0.2rem] hover:text-[#b48068] hover:bg-black">LOGIN</button>
                 </nav>
-                <main className="flex flex-row overflow-hidden items-center justify-between w-[100%] h-[98%]">
-                    <section className="w-[50%] h-[100%] flex items-center justify-center">
+                <main className="flex flex-row items-center justify-center w-[100%] h-[98%]">
+                    <section className="w-[50%] h-auto flex items-center justify-center">
                         <div className="w-auto h-auto flex flex-col items-start justify-start gap-[2rem]">
-                        <h1 className="text-[clamp(2.3rem,3.5vw,5rem)] font-semibold font-serif text-nowrap select-none">Picked Every Item <br/> With Care, You <br/> Must Try</h1>
-                        <button className="text-[1.3rem] text-nowrap font-bold font-serif cursor-pointer border-2 border-black px-[0.5rem] text-[#b48068] hover:bg-transparent hover:text-black bg-black">see collection <RiArrowRightDoubleFill className="inline text-[1.6rem]"/></button>
+                        <h1 className="text-[clamp(1rem,4.vw,5rem)] font-semibold font-serif text-nowrap select-none">Picked Every Item <br/> With Care, You <br/> Must Try</h1>
+                        <button className="text-[1.2rem] text-nowrap font-bold font-serif cursor-pointer border-2 border-black px-[0.5rem] hover:text-[#b48068] hover:bg-black">see collection <RiArrowRightDoubleFill className="inline text-[1.6rem]"/></button>
                         </div>
                     </section>
-                    <img className="w-[50%] h-[100%] rounded-bl-[10rem] overflow-hidden" src={sideImg} alt="side-img" />
+                    <img className="w-[43%] h-[100%] rounded-bl-[10rem]" src={sideImg} alt="side-img" />
                 </main>
            </div>
            </div>
