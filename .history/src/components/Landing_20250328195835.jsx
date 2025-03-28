@@ -12,7 +12,7 @@ function Landing(){
            <img className="absolute w-[100vw] h-[100vh]" src={landingBg} alt="landing Image"/> 
            {/* Content */}
            <div className="relative flex flex-col gap-[2rem] pt-[2rem] max-[710px]:pt-[0rem] w-[100vw] h-[100vh]">
-                <nav className="flex  flex-row items-center justify-between pt-[1rem] px-[3rem] w-[100vw] h-[6%]">
+                <nav className="flex  flex-row items-center justify-between pt-[1rem]  px-[3rem] w-[100vw] max-[710px]:h-[4%] h-[6%]">
                         <button className="font-extrabold font-serif text-lg">shoppey</button>
                     <div className="flex max-[710px]:hidden font-bold font-serif flex-row items-center justify-evenly gap-[2rem]">
                         <button className="cursor-pointer hover:border-b-2 border-b-black">New</button>
@@ -25,7 +25,7 @@ function Landing(){
                     <TbLayoutNavbarExpand className="hidden cursor-pointer text-2xl max-[710px]:block"/>
                 </nav>
         
-                <main className="flex flex-row max-[710px]:flex-col max-[710px]:gap-[1rem] overflow-hidden items-center justify-between w-[100%] h-[94%]">
+                <main className="flex flex-row max-[710px]:flex-col max-[710px]:gap-[1rem] overflow-hidden items-center justify-between w-[100%] max-[710px]:h-[96%] h-[94%]">
                     <section className="w-[50%] h-[100%] max-[710px]:h-auto flex items-center justify-center">
                         <div className="w-auto h-auto flex flex-col items-start justify-start max-[710px]:gap-[1rem] gap-[2rem]">
                         <h1 className="text-[clamp(2.2rem,3.5vw,5rem)] font-semibold font-serif text-nowrap select-none">Picked Every Item <br/> With Care, You <br/> Must Try</h1>
