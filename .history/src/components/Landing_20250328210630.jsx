@@ -23,7 +23,7 @@ function Landing(){
                             <button className="cursor-pointer max-[710px]:hover:bg-black max-[710px]:px-[4rem] max-[710px]:hover:text-[#b48068] max-[710px]:hover:border-none max-[710px]:w-[100%] max-[710px]:py-[1rem] hover:border-b-2 border-b-black">Women</button>
                             <button className="cursor-pointer max-[710px]:hover:bg-black max-[710px]:px-[4rem] max-[710px]:hover:text-[#b48068] max-[710px]:hover:border-none max-[710px]:w-[100%] max-[710px]:py-[1rem] hover:border-b-2 border-b-black">Collection</button>
                             <button className="cursor-pointer max-[710px]:hover:bg-black max-[710px]:px-[4rem] max-[710px]:hover:text-[#b48068] max-[710px]:hover:border-none max-[710px]:w-[100%] max-[710px]:py-[1rem] hover:border-b-2 border-b-black">Trends</button>
-                            <button className="font-bold font-serif cursor-pointer border-2 max-[710px]:px-[4rem] border-black px-[0.5rem] py-[0.2rem] hover:text-[#b48068] hover:bg-black max-[710px]:hover:bg-black max-[710px]:hover:text-[#b48068] max-[710px]:border-none max-[710px]:w-[100%] max-[710px]:py-[1rem]">LOGIN</button>
+                            <button className="font-bold font-serif cursor-pointer border-2 max-[710px]:px-[4rem] border-black px-[0.5rem] py-[0.2rem] hover:text-[#b48068] hover:bg-black max-[710px]:hover:bg-bla1k max-[710px]:hover:text-[#b48068] max-[710px]:border-none max-[710px]:w-[100%] max-[710px]:py-[1rem]">LOGIN</button>
                         </div>
                     </div>
                 </nav>
