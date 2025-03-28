@@ -11,7 +11,7 @@ function Landing(){
             {/* Background Image */}
            <img className="absolute w-[100vw] h-[100vh]" src={landingBg} alt="landing Image"/> 
            {/* Content */}
-           <div className="relative flex flex-col gap-[2rem] pt-[2rem] max-[710px]:pt-[0rem] w-[100vw] h-[100vh]">
+           <div className="relative flex flex-col gap-[2rem] pt-[2rem]  w-[100vw] h-[100vh]">
                 <nav className="flex  flex-row items-center justify-between pt-[1rem] max-[710px]:pt-[0rem] px-[3rem] w-[100vw] max-[710px]:h-[4%] h-[6%]">
                         <button className="font-extrabold font-serif text-lg">shoppey</button>
                     <div className="flex max-[710px]:hidden font-bold font-serif flex-row items-center justify-evenly gap-[2rem]">
