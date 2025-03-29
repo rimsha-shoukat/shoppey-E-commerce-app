@@ -17,7 +17,7 @@ function Landing(){
            <div className="relative flex flex-col gap-[2rem] pt-[1rem] max-[710px]:pt-[0rem] w-[100vw] h-[100vh]">
                 <nav className="flex  flex-row items-center justify-between pt-[1rem] px-[3rem] w-[100vw] h-[6%]">
                         <button className="font-extrabold font-serif text-lg">shoppey</button>
-                        <div className="static max-[710px]:w-auto w-[80%]">
+                        <div className="static">
                         <TbLayoutNavbarExpand onClick={ () => navView ? setNavView(false) : setNavView(true)} className="hidden cursor-pointer text-2xl max-[710px]:block"/>
                         <div className={`flex max-[710px]:flex-col max-[710px]:w-[85%] max-[710px]:h-auto max-[710px]:${navView ? 'block' : 'hidden'} max-[710px]:right-[3rem] max-[710px]:absolute max-[710px]:bg-[#b48068] font-bold font-serif flex-row items-center justify-evenly max-[710px]:gap-[0rem] gap-[2rem]`}>
                             <button className="cursor-pointer max-[710px]:hover:bg-black max-[710px]:w-[100%] max-[710px]:hover:text-[#b48068] max-[710px]:hover:border-none max-[710px]:py-[1rem] hover:border-b-2 border-b-black">New</button>
@@ -25,7 +25,7 @@ function Landing(){
                             <button className="cursor-pointer max-[710px]:hover:bg-black max-[710px]:w-[100%] max-[710px]:hover:text-[#b48068] max-[710px]:hover:border-none max-[710px]:py-[1rem] hover:border-b-2 border-b-black">Women</button>
                             <button className="cursor-pointer max-[710px]:hover:bg-black max-[710px]:w-[100%] max-[710px]:hover:text-[#b48068] max-[710px]:hover:border-none max-[710px]:py-[1rem] hover:border-b-2 border-b-black">Collection</button>
                             <button className="cursor-pointer max-[710px]:hover:bg-black max-[710px]:w-[100%] max-[710px]:hover:text-[#b48068] max-[710px]:hover:border-none max-[710px]:py-[1rem] hover:border-b-2 border-b-black">Trends</button>
-                            <button className="font-bold font-serif cursor-pointer border-2 border-black max-[710px]:w-[100%]  px-[0.5rem] py-[0.2rem] hover:text-[#b48068] hover:bg-black max-[710px]:hover:bg-black max-[710px]:hover:text-[#b48068] max-[710px]:border-none max-[710px]:py-[1rem]">LOGIN</button>
+                            <button className="font-bold font-serif cursor-pointer border-2 border-black px-[0.5rem] py-[0.2rem] hover:text-[#b48068] hover:bg-black max-[710px]:hover:bg-black max-[710px]:hover:text-[#b48068] max-[710px]:border-none max-[710px]:py-[1rem]">LOGIN</button>
                         </div>
                     </div>
                 </nav>

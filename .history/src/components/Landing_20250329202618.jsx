@@ -17,7 +17,7 @@ function Landing(){
            <div className="relative flex flex-col gap-[2rem] pt-[1rem] max-[710px]:pt-[0rem] w-[100vw] h-[100vh]">
                 <nav className="flex  flex-row items-center justify-between pt-[1rem] px-[3rem] w-[100vw] h-[6%]">
                         <button className="font-extrabold font-serif text-lg">shoppey</button>
-                        <div className="static max-[710px]:w-auto w-[80%]">
+                        <div className="static ma w-[70%]">
                         <TbLayoutNavbarExpand onClick={ () => navView ? setNavView(false) : setNavView(true)} className="hidden cursor-pointer text-2xl max-[710px]:block"/>
                         <div className={`flex max-[710px]:flex-col max-[710px]:w-[85%] max-[710px]:h-auto max-[710px]:${navView ? 'block' : 'hidden'} max-[710px]:right-[3rem] max-[710px]:absolute max-[710px]:bg-[#b48068] font-bold font-serif flex-row items-center justify-evenly max-[710px]:gap-[0rem] gap-[2rem]`}>
                             <button className="cursor-pointer max-[710px]:hover:bg-black max-[710px]:w-[100%] max-[710px]:hover:text-[#b48068] max-[710px]:hover:border-none max-[710px]:py-[1rem] hover:border-b-2 border-b-black">New</button>
