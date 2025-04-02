@@ -1,4 +1,5 @@
 import React from 'react'
+import New from "../assets/discountNew.png";
 
 function newCollection(){
     return(

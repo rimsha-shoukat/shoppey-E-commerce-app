@@ -1,10 +1,11 @@
 import React from 'react'
+import New from "../assets/discountNew.png";
 
 function newCollection(){
     return(
         <>
-            <section className="w-[100%] h-auto flex flex-row items-center justify-center py-[3rem]">
-                <img src="" alt="" />
+            <section className="w-[80%] h-auto flex flex-row pb-[5rem]">
+                <img className=" " src={New} alt="" />
                 <div>
                     <h1></h1>
                     <p></p>
