@@ -8,7 +8,7 @@ function Discount(){
     return(
         <>
         <div className="w-[100%] h-auto py-[5rem] flex flex-row max-[710px]:flex-col max-[710px]:gap-[1rem] items-center justify-evenly">
-            <section className='w-[25%] max-[890px]:w-[30%] max-[710px]:w-[50%] h-auto bg-gray-300 p-[1rem] max-[460px]:w-[70%]'>
+            <section className='w-[25%] max-[890px]:w-[30%] max-[710px]:w-[50%] h-auto bg-gray-300 p-[1rem] '>
                 <img className="h-[10rem] w-[100%] scale-105 rotate-x-5 -rotate-y-10" src={Men} alt="Men discount" />  
                 <div className='pt-[0.65rem]'>
                 <h1 className="font-bold text-2xl">40% OFF</h1>
