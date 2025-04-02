@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaArrowRightLong } from "react-icons/fa6";
+
 import Men from "../assets/discountMen.png";
 import Women from "../assets/discountwomen.png";
 import New from "../assets/discountNew.png";

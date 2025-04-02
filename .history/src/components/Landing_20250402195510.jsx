@@ -34,7 +34,7 @@ function Landing(){
                     <section className="w-[50%] h-[100%] max-[710px]:h-auto flex items-center justify-center">
                         <div className="w-auto h-auto flex flex-col items-start justify-start max-[710px]:gap-[1rem] gap-[2rem]">
                         <h1 className="text-[clamp(2.2rem,3.5vw,5rem)] font-semibold font-serif text-nowrap select-none">Picked Every Item <br/> With Care, You <br/> Must Try</h1>
-                        <button className="group hover:transition-all duration-700 ease-in-out text-[1.3rem] text-nowrap font-bold font-serif cursor-pointer border-2 border-black px-[0.5rem] text-[#b48068] hover:bg-transparent hover:text-black bg-black">see collection<RiArrowRightDoubleFill className="inline text-[1.6rem] group-hover:translate-x-2 transition-all duration-700 ease-in-out"/></button>
+                        <button className="hover:transition-all duration-700 ease-in-out text-[1.3rem] text-nowrap font-bold font-serif cursor-pointer border-2 border-black px-[0.5rem] text-[#b48068] hover:bg-transparent hover:text-black bg-black">see collection <RiArrowRightDoubleFill className="inline text-[1.6rem] "/></button>
                         </div>
                     </section>
                     <img className="w-[50%] h-[100%] max-[710px]:w-[70%] max-[560px]:w-[90%] max-[360px]:w-[100%] px-[2rem] rounded-bl-[10rem] overflow-hidden" src={sideImg} alt="side-img" />
