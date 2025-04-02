@@ -19,7 +19,7 @@ function Discount(){
                 <div className="pb-[0.65rem]">
                 <h1 className="font-bold text-2xl">60% OFF</h1>
                 <p className='font-semibold'>WOMEN COLLECTION</p>
-                <button className='group font-semibold hover:bg-pink-400 rounded-sm pr-[0.75rem] py-[0.3rem] cursor-pointer transition-all duration-700 ease-in-out delay-150 hover:pl-[0.3rem]'>Go To Collection <FaArrowRightLong className='inline group-hover:translate-x-2 hover:bg-gray-200 transition-all duration-700 ease-in-out delay-150'/></button>
+                <button className='group font-semibold hover:bg-g rounded-sm pr-[0.75rem] py-[0.3rem] cursor-pointer transition-all duration-700 ease-in-out delay-150 hover:pl-[0.3rem]'>Go To Collection <FaArrowRightLong className='inline group-hover:translate-x-2 hover:bg-gray-200 transition-all duration-700 ease-in-out delay-150'/></button>
                 </div>
                 <img src={landingBg} alt="" />
             </section>
@@ -28,7 +28,7 @@ function Discount(){
                 <div className="pt-[0.65rem]">
                 <h1 className="font-bold text-2xl">30% OFF</h1>
                 <p className='font-semibold'>NEW COLLECTION</p>
-                <button className='group font-semibold hover:bg-yellow-200 rounded-sm pr-[0.75rem] py-[0.3rem] cursor-pointer transition-all duration-700 ease-in-out delay-150 hover:pl-[0.3rem]'>Go To Collection <FaArrowRightLong className='inline group-hover:translate-x-2 hover:bg-gray-200 transition-all duration-700 ease-in-out delay-150'/></button>
+                <button className='group font-semibold hover:bg-gray-200 rounded-sm pr-[0.75rem] py-[0.3rem] cursor-pointer transition-all duration-700 ease-in-out delay-150 hover:pl-[0.3rem]'>Go To Collection <FaArrowRightLong className='inline group-hover:translate-x-2 hover:bg-gray-200 transition-all duration-700 ease-in-out delay-150'/></button>
                 </div>
             </section>
         </div>
