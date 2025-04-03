@@ -33,7 +33,7 @@ function Landing(){
                 <main className="flex flex-row max-[710px]:flex-col max-[710px]:gap-[1rem] overflow-hidden items-center justify-between w-[100%] h-[94%]">
                     <section className="w-[50%] h-[100%] max-[710px]:h-auto flex items-center justify-center">
                         <div className="w-auto h-auto flex flex-col items-start justify-start max-[710px]:gap-[1rem] gap-[2rem]">
-                        <h1 className="text-[clamp(2.2rem,3.5vw,5rem)] font-semibold font-serif text-nowrap max-[360px]:text-[1.8rem] select-none">Picked Every Item <br/> With Care, You <br/> Must Try</h1>
+                        <h1 className="text-[clamp(2.2rem,3.5vw,5rem)] font-semibold font-serif text-nowrap max-[360px]:text-[] select-none">Picked Every Item <br/> With Care, You <br/> Must Try</h1>
                         <button className="group hover:transition-all duration-700 ease-in-out text-[1.3rem] text-nowrap font-bold font-serif cursor-pointer border-2 border-black px-[0.5rem] text-[#b48068] hover:bg-transparent hover:text-black bg-black">see collection<RiArrowRightDoubleFill className="inline text-[1.6rem] group-hover:translate-x-2 transition-all duration-700 ease-in-out"/></button>
                         </div>
                     </section>
