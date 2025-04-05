@@ -11,7 +11,7 @@ function BestSeller(){
                     <p className="select-none text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, quia esse saepe sunt facilis neque Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, quia esse saepe sunt facilis neque iusto porro rem consequuntur, ab minima iste nemo quidem temporibus iure excepturi ipsam perferendis sequi.</p>
                     <button className="bg-[#8f5e36] px-[0.65rem] py-[0.5rem] rounded-md cursor-pointer">SEE MORE</button>
                 </article>
-                <section className="flex flex-col gap-[2rem] w-[65%]">
+                <section className="flex flex-col items-center justify-center gap-[2rem] w-[65%]">
                   <section className="flex flex-row items-center justify-center w-[100%] gap-[2rem]">
                   <div className="w-auto h-auto bg-white leading-4">
                     <img  className="w-[16rem] h-[16rem]" src={demo} alt="" />

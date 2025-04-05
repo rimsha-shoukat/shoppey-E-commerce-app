@@ -6,13 +6,13 @@ function BestSeller(){
     return (
         <>
            <section className="flex flex-row items-center justify-center gap-[1rem] w-[100%] h-auto py-[4rem] bg-[#251201]">
-                <article className="container flex flex-col items-start justify-start gap-[1rem] pl-[3rem] w-[35%] text-white">
+                <article className="container flex flex-col items-start justify-start gap-[1rem] pl-[3rem] w-[70%] text-white">
                     <h1 className="text-5xl select-none">Best Seller <br/> Product</h1>
                     <p className="select-none text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, quia esse saepe sunt facilis neque Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, quia esse saepe sunt facilis neque iusto porro rem consequuntur, ab minima iste nemo quidem temporibus iure excepturi ipsam perferendis sequi.</p>
-                    <button className="bg-[#8f5e36] px-[0.65rem] py-[0.5rem] rounded-md cursor-pointer">SEE MORE</button>
+                    <button>SEE MORE</button>
                 </article>
-                <section className="flex flex-col gap-[2rem] w-[65%]">
-                  <section className="flex flex-row items-center justify-center w-[100%] gap-[2rem]">
+                <section className="flex flex-col gap-[2rem] w-[60%]">
+                  <div className="flex flex-row w-[100%] gap-[2rem]">
                   <div className="w-auto h-auto bg-white leading-4">
                     <img  className="w-[16rem] h-[16rem]" src={demo} alt="" />
                     <div className="p-[1rem]">
@@ -37,13 +37,13 @@ function BestSeller(){
                         <p>Price $50</p>
                     </div>
                   </div>
-                  </section> 
-                  <section>
+                  </div> 
+                  <div>
                     <button>*</button>
                     <button>*</button>
                     <button>*</button>
                     <button>*</button>
-                  </section>
+                  </div>
                 </section>
            </section>
         </>
