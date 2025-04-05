@@ -5,7 +5,7 @@ import demo from "../assets/newCollection.png";
 function BestSeller(){
     return (
         <>
-           <section className="flex flex-row items-center justify-center gap-[2rem] w-[100%] h-auto py-[4rem] bg-[#251201]">
+           <section className="flex flex-row items-center justify-center gap-[rem] w-[100%] h-auto py-[4rem] bg-[#251201]">
                 <article className="container flex flex-col items-start justify-start gap-[1rem] pl-[3rem] w-[40%] text-white">
                     <h1 className="text-7xl font-bold select-none">Best Seller <br/> Product</h1>
                     <p className="select-none text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, quia esse saepe sunt facilis neque Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, quia esse saepe sunt facilis neque iusto porro rem consequuntur, ab minima iste nemo quidem temporibus iure excepturi ipsam perferendis sequi.</p>
