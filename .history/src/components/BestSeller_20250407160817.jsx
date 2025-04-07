@@ -30,113 +30,53 @@ let collection = [
     "name":"Fashion wear",
     "price": "20"
   },{
-    "id" : 1,
+    "id" : 0,
     "image": img2,
     "stars" : 5,
     "name":"Fashion wear",
-    "price": "22"
-  },{
-    "id" : 2,
-    "image": img3,
-    "stars" : 4,
-    "name":"Fashion wear",
     "price": "20"
   },{
-    "id" : 3,
-    "image": img4,
-    "stars" : 5,
-    "name":"Fashion wear",
-    "price": "24"
-  },{
-    "id" : 4,
-    "image": img5,
-    "stars" : 5,
-    "name":"Fashion wear",
-    "price": "26"
-  },{
-    "id" : 5,
+    "id" : 0,
     "image": img2,
-    "stars" : 4,
-    "name":"Fashion wear",
-    "price": "20"
-  },{
-    "id" : 5,
-    "image": img6,
-    "stars" : 4,
-    "name":"Fashion wear",
-    "price": "18"
-  },{
-    "id" : 6,
-    "image": img7,
-    "stars" : 5,
-    "name":"Fashion wear",
-    "price": "21"
-  },{
-    "id" : 7,
-    "image": img8,
-    "stars" : 5,
-    "name":"Fashion wear",
-    "price": "25"
-  },{
-    "id" : 8,
-    "image": img9,
-    "stars" : 5,
-    "name":"Fashion wear",
-    "price": "26"
-  },{
-    "id" : 9,
-    "image": img10,
-    "stars" : 4,
-    "name":"Fashion wear",
-    "price": "25"
-  },{
-    "id" : 10,
-    "image": img11,
-    "stars" : 5,
-    "name":"Fashion wear",
-    "price": "25"
-  },{
-    "id" : 11,
-    "image": img12,
-    "stars" : 5,
-    "name":"Fashion wear",
-    "price": "23"
-  },{
-    "id" : 12,
-    "image": img13,
-    "stars" : 4,
-    "name":"Fashion wear",
-    "price": "19"
-  },{
-    "id" : 13,
-    "image": img14,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "20"
   },{
-    "id" : 14,
-    "image": img15,
-    "stars" : 4,
-    "name":"Fashion wear",
-    "price": "22"
-  },{
-    "id" : 15,
-    "image": img16,
+    "id" : 0,
+    "image": img2,
     "stars" : 5,
     "name":"Fashion wear",
-    "price": "26"
+    "price": "20"
   },{
-    "id" : 16,
-    "image": img17,
+    "id" : 0,
+    "image": img2,
     "stars" : 5,
     "name":"Fashion wear",
-    "price": "23"
+    "price": "20"
   },{
-    "id" : 17,
-    "image": img18,
-    "stars" : 4,
+    "id" : 0,
+    "image": img2,
+    "stars" : 5,
     "name":"Fashion wear",
-    "price": "24"
+    "price": "20"
+  },{
+    "id" : 0,
+    "image": img2,
+    "stars" : 5,
+    "name":"Fashion wear",
+    "price": "20"
+  },{
+    "id" : 0,
+    "image": img2,
+    "stars" : 5,
+    "name":"Fashion wear",
+    "price": "20"
+  },{
+    "id" : 0,
+    "image": img2,
+    "stars" : 5,
+    "name":"Fashion wear",
+    "price": "20"
   }
 ]
 

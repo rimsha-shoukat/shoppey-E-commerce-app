@@ -136,7 +136,7 @@ let collection = [
     "image": img18,
     "stars" : 4,
     "name":"Fashion wear",
-    "price": "24"
+    "price": "20"
   }
 ]
 
