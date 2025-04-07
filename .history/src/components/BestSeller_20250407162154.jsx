@@ -55,6 +55,12 @@ let collection = [
     "price": "26"
   },{
     "id" : 5,
+    "image": img2,
+    "stars" : 4,
+    "name":"Fashion wear",
+    "price": "20"
+  },{
+    "id" : 5,
     "image": img6,
     "stars" : 4,
     "name":"Fashion wear",
@@ -130,7 +136,7 @@ let collection = [
     "image": img18,
     "stars" : 4,
     "name":"Fashion wear",
-    "price": "24"
+    "price": "2"
   }
 ]
 

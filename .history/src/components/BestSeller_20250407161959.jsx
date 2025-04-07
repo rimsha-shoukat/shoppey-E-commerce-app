@@ -55,24 +55,30 @@ let collection = [
     "price": "26"
   },{
     "id" : 5,
+    "image": img2,
+    "stars" : 4,
+    "name":"Fashion wear",
+    "price": "20"
+  },{
+    "id" : 6,
     "image": img6,
     "stars" : 4,
     "name":"Fashion wear",
     "price": "18"
   },{
-    "id" : 6,
+    "id" : 7,
     "image": img7,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "21"
   },{
-    "id" : 7,
+    "id" : 8,
     "image": img8,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "25"
   },{
-    "id" : 8,
+    "id" : 9,
     "image": img9,
     "stars" : 5,
     "name":"Fashion wear",

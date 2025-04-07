@@ -55,48 +55,54 @@ let collection = [
     "price": "26"
   },{
     "id" : 5,
+    "image": img2,
+    "stars" : 4,
+    "name":"Fashion wear",
+    "price": "20"
+  },{
+    "id" : 6,
     "image": img6,
     "stars" : 4,
     "name":"Fashion wear",
     "price": "18"
   },{
-    "id" : 6,
+    "id" : 7,
     "image": img7,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "21"
   },{
-    "id" : 7,
+    "id" : 8,
     "image": img8,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "25"
   },{
-    "id" : 8,
+    "id" : 9,
     "image": img9,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "26"
   },{
-    "id" : 9,
+    "id" : 10,
     "image": img10,
     "stars" : 4,
     "name":"Fashion wear",
     "price": "25"
   },{
-    "id" : 10,
+    "id" : 11,
     "image": img11,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "25"
   },{
-    "id" : 11,
+    "id" : 12,
     "image": img12,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "23"
   },{
-    "id" : 12,
+    "id" : 13,
     "image": img13,
     "stars" : 4,
     "name":"Fashion wear",
