@@ -33,10 +33,10 @@ function Slider(){
     let Rating = [];
 
     for(let i = 0; i < 5; i++){
-      if(i < item.stars){
-        Rating.push(<RiStarSFill key={`filled-${item.id}-${i}`} />)
+      if(i < c.stars){
+        Rating.push(<RiStarSFill />)
       }else {
-        Rating.push(<ImStarEmpty key={`empty-${item.id}-${i}`} />)
+        Rating.push(<ImStarEmpty />)
       }
     }
     return (

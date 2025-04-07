@@ -36,7 +36,7 @@ function Slider(){
       if(i < item.stars){
         Rating.push(<RiStarSFill key={`filled-${item.id}-${i}`} />)
       }else {
-        Rating.push(<ImStarEmpty key={`empty-${item.id}-${i}`} />)
+        Rating.push(<ImStarEmpty key={`fille-${item.id}-${i}`} />)
       }
     }
     return (

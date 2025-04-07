@@ -8,13 +8,13 @@ let collection = [
   {
     "id" : 0,
     "image": demo,
-    "stars" : 4,
+    "stars" : "4",
     "name":"collection",
     "price": "2"
   },{
     "id" : 1,
     "image": demo,
-    "stars" : 3,
+    "stars" : "3",
     "name":"collection",
     "price": "2"
   },{
@@ -22,23 +22,25 @@ let collection = [
     "image": demo,
     "stars" : "5",
     "name":"collection",
-    "price": 2
+    "price": "2"
   }
 ]
+
+let Rating = [];
+let j = 0;
+while (j < collectio)
+for(let i = 0; i < 5; i++){
+  if(i < collection.stars){
+    Rating.push(<RiStarSFill />)
+  }else {
+    Rating.push(<ImStarEmpty />)
+  }
+}
 
 function Slider(){
   return (
     <section className="flex flex-row items-center justify-center w-[100%] gap-[3rem] pt-[2rem]">
    { collection.map((item) => {
-    let Rating = [];
-
-    for(let i = 0; i < 5; i++){
-      if(i < item.stars){
-        Rating.push(<RiStarSFill key={`filled-${item.id}-${i}`} />)
-      }else {
-        Rating.push(<ImStarEmpty key={`empty-${item.id}-${i}`} />)
-      }
-    }
     return (
         <div key={item.id} className="w-auto h-auto bg-white leading-4">
           <img  className="w-[16rem] h-[13rem] drop-shadow-lg" src={item.image} alt="" />

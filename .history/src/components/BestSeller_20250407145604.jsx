@@ -26,19 +26,23 @@ let collection = [
   }
 ]
 
+let Rating = [];
+let j = 0;
+whi (j < 3){
+  for(let i = 0; i < 5; i++){
+  if(i < collection[j].stars){
+    Rating.push(<RiStarSFill />)
+  }else {
+    Rating.push(<ImStarEmpty />)
+  }
+}
+}
+
+
 function Slider(){
   return (
     <section className="flex flex-row items-center justify-center w-[100%] gap-[3rem] pt-[2rem]">
    { collection.map((item) => {
-    let Rating = [];
-
-    for(let i = 0; i < 5; i++){
-      if(i < item.stars){
-        Rating.push(<RiStarSFill key={`filled-${item.id}-${i}`} />)
-      }else {
-        Rating.push(<ImStarEmpty key={`empty-${item.id}-${i}`} />)
-      }
-    }
     return (
         <div key={item.id} className="w-auto h-auto bg-white leading-4">
           <img  className="w-[16rem] h-[13rem] drop-shadow-lg" src={item.image} alt="" />
