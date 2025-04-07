@@ -5,18 +5,6 @@ import img3 from "../assets/seller3.png";
 import img4 from "../assets/seller4.png";
 import img5 from "../assets/seller5.png";
 import img6 from "../assets/seller6.png";
-import img7 from "../assets/seller7.png";
-import img8 from "../assets/seller8.png";
-import img9 from "../assets/seller9.png";
-import img10 from "../assets/seller10.png";
-import img11 from "../assets/seller11.png";
-import img12 from "../assets/seller12.png";
-import img13 from "../assets/seller13.png";
-import img14 from "../assets/seller14.png";
-import img15 from "../assets/seller15.png";
-import img16 from "../assets/seller16.png";
-import img17 from "../assets/seller17.png";
-import img18 from "../assets/seller18.png";
 
 import { RiStarSFill } from "react-icons/ri";
 import { ImStarEmpty } from "react-icons/im";
