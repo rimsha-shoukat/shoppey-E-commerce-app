@@ -175,7 +175,7 @@ function BestSeller(){
       const updateItemsPerPage = () => {
           if ((window.innerWidth < 1185)&&(window.innerWidth > 695)) {
               setItemsPerPage(2);
-          }else if(window.innerWidth <= 790){
+          }else if(window.innerWidth <= 765){
               setItemsPerPage(1);
           }else {
               setItemsPerPage(3);

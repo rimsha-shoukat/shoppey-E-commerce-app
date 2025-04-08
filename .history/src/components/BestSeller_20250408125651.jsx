@@ -137,7 +137,7 @@ let collection = [
 function Slider(props){
 
   return (
-    <section className="flex flex-row items-center justify-center w-[100%] gap-[2rem] max-[860px]:gap-[0.65rem] pt-[2rem]">
+    <section className="flex flex-row items-center justify-center w-[100%] gap-[2rem]  pt-[2rem]">
    { collection.slice(props.start, props.end).map((item) => {
     let Rating = [];
 
@@ -175,7 +175,7 @@ function BestSeller(){
       const updateItemsPerPage = () => {
           if ((window.innerWidth < 1185)&&(window.innerWidth > 695)) {
               setItemsPerPage(2);
-          }else if(window.innerWidth <= 790){
+          }else if(window.innerWidth <= 765){
               setItemsPerPage(1);
           }else {
               setItemsPerPage(3);

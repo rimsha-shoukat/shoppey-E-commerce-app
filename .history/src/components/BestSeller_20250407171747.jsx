@@ -137,7 +137,7 @@ let collection = [
 function Slider(props){
 
   return (
-    <section className="flex flex-row items-center justify-center w-[100%] gap-[2rem] max-[860px]:gap-[0.65rem] pt-[2rem]">
+    <section className="flex flex-row items-center justify-center w-[100%] gap-[3rem] pt-[2rem]">
    { collection.slice(props.start, props.end).map((item) => {
     let Rating = [];
 
@@ -150,14 +150,14 @@ function Slider(props){
     }
 
     return (
-        <div key={item.id} className="w-auto h-auto bg-white">
-          <img  className="w-[16rem] h-[15rem] drop-shadow-lg" src={item.image} alt="" />
-          <div className="p-[0.3rem] select-none leading-6">
-            <span className="flex flex-row text-[1.2rem]">
+        <div key={item.id} className="w-auto h-auto bg-white leading-4">
+          <img  className="w-[16rem] h-[13rem] drop-shadow-lg" src={item.image} alt="" />
+          <div className="p-[1rem] select-none">
+            <span className="flex flex-row text-[1.2rem] text-[#ffff00]">
               {Rating}
             </span>
-            <h1 className="text-[1rem] font-bold">{item.name}</h1>
-            <p className='text-[1rem] font-semibold'>Price: ${item.price}</p>
+            <h1>{item.name}</h1>
+            <p>Price: ${item.price}</p>
           </div>
         </div>
   )})}
@@ -175,7 +175,7 @@ function BestSeller(){
       const updateItemsPerPage = () => {
           if ((window.innerWidth < 1185)&&(window.innerWidth > 695)) {
               setItemsPerPage(2);
-          }else if(window.innerWidth <= 790){
+          }else if(window.innerWidth <= 765){
               setItemsPerPage(1);
           }else {
               setItemsPerPage(3);
@@ -197,20 +197,20 @@ function BestSeller(){
 
     return (
         <>
-           <section className="flex flex-row items-center justify-center gap-[1rem] w-[100%] h-auto py-[4rem] bg-[#251201]">
-                <article className="container flex flex-col items-start justify-start gap-[1rem] max-[860px]:pl-[0.65rem] pl-[3rem] w-[30%] text-white">
-                    <h1 className="text-6xl text-nowrap max-[1016px]:text-5xl font-bold select-none">Best Seller <br/> Item</h1>
-                    <p className="select-none max-[1016px]:text-sm text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, quia esse saepe sunt facilis neque Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, quia esse saepe sunt facilis neque iusto porro rem consequuntur, ab minima iste nemo quidem temporibus iure excepturi ipsam perferendis sequi.</p>
+           <section className="flex flex-row max-[710px]:flex-col items-center justify-center gap-[2rem] w-[100%] h-auto py-[4rem] bg-[#251201]">
+                <article className="container flex flex-col items-start justify-start gap-[1rem] pl-[3rem] w-[40%] text-white">
+                    <h1 className="text-7xl font-bold select-none max-[976px]:text-5xl">Best Seller <br/> Item</h1>
+                    <p className="select-none text-justify max-[976px]:text-sm">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, quia esse saepe sunt facilis neque Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, quia esse saepe sunt facilis neque iusto porro rem consequuntur, ab minima iste nemo quidem temporibus iure excepturi ipsam perferendis sequi.</p>
                     <button className="hover:bg-white drop-shadow-lg transition-all duration-700 delay-150 ease-in-out hover:text-[#251201] bg-[#8f5e36] px-[0.65rem] py-[0.4rem] hover:font-bold rounded-md cursor-pointer">SEE MORE</button>
                 </article>
-                <section className="flex flex-col gap-[2rem] w-[70%] overflow-hidden">
+                <section className="flex flex-col gap-[2rem] w-[60%] overflow-hidden">
                  <Slider start={currentIndex} end={currentIndex + itemsPerPage} />
-                <section className="max-[1185px]:justify-center flex flex-row items-start justify-start">
+                <section className="">
                   {Array.from({ length: Math.ceil(collection.length / itemsPerPage) }).map((_, index) => (
                       <button
                           key={index}
                           onClick={() => handleClick(index)}
-                          className={`w-[0.6rem] h-[0.6rem] cursor-pointer ml-1 rounded-full ${currentIndex === index * itemsPerPage ? 'bg-white' : 'bg-transparent'} border-white border-[0.1rem]`}
+                          className={`w-[0.8rem] h-[0.8rem] cursor-pointer ml-1 rounded-full ${currentIndex === index * itemsPerPage ? 'bg-transparent' : 'bg-white'} border-white border-2`}
                       ></button>
                   ))}
                   </section>

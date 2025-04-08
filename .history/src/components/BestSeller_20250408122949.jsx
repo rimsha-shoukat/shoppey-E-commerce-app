@@ -137,7 +137,7 @@ let collection = [
 function Slider(props){
 
   return (
-    <section className="flex flex-row items-center justify-center w-[100%] gap-[2rem] max-[860px]:gap-[0.65rem] pt-[2rem]">
+    <section className="flex flex-row items-center justify-center w-[100%] gap-[2rem] pt-[2rem]">
    { collection.slice(props.start, props.end).map((item) => {
     let Rating = [];
 
@@ -150,9 +150,9 @@ function Slider(props){
     }
 
     return (
-        <div key={item.id} className="w-auto h-auto bg-white">
-          <img  className="w-[16rem] h-[15rem] drop-shadow-lg" src={item.image} alt="" />
-          <div className="p-[0.3rem] select-none leading-6">
+        <div key={item.id} className="w-auto h-auto bg-white leading-4">
+          <img  className="w-[14rem] h-[14rem] drop-shadow-lg" src={item.image} alt="" />
+          <div className="p-[0.rem] select-none leading-6">
             <span className="flex flex-row text-[1.2rem]">
               {Rating}
             </span>
@@ -175,7 +175,7 @@ function BestSeller(){
       const updateItemsPerPage = () => {
           if ((window.innerWidth < 1185)&&(window.innerWidth > 695)) {
               setItemsPerPage(2);
-          }else if(window.innerWidth <= 790){
+          }else if(window.innerWidth <= 765){
               setItemsPerPage(1);
           }else {
               setItemsPerPage(3);
@@ -197,13 +197,13 @@ function BestSeller(){
 
     return (
         <>
-           <section className="flex flex-row items-center justify-center gap-[1rem] w-[100%] h-auto py-[4rem] bg-[#251201]">
-                <article className="container flex flex-col items-start justify-start gap-[1rem] max-[860px]:pl-[0.65rem] pl-[3rem] w-[30%] text-white">
-                    <h1 className="text-6xl text-nowrap max-[1016px]:text-5xl font-bold select-none">Best Seller <br/> Item</h1>
-                    <p className="select-none max-[1016px]:text-sm text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, quia esse saepe sunt facilis neque Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, quia esse saepe sunt facilis neque iusto porro rem consequuntur, ab minima iste nemo quidem temporibus iure excepturi ipsam perferendis sequi.</p>
+           <section className="flex flex-row max-[976px]:flex-col items-center justify-center gap-[1rem] w-[100%] h-auto py-[4rem] bg-[#251201]">
+                <article className="container flex flex-col items-start justify-start gap-[1rem] pl-[3rem] w-[40%] text-white">
+                    <h1 className="text-7xl font-bold select-none">Best Seller <br/> Item</h1>
+                    <p className="select-none text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, quia esse saepe sunt facilis neque Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, quia esse saepe sunt facilis neque iusto porro rem consequuntur, ab minima iste nemo quidem temporibus iure excepturi ipsam perferendis sequi.</p>
                     <button className="hover:bg-white drop-shadow-lg transition-all duration-700 delay-150 ease-in-out hover:text-[#251201] bg-[#8f5e36] px-[0.65rem] py-[0.4rem] hover:font-bold rounded-md cursor-pointer">SEE MORE</button>
                 </article>
-                <section className="flex flex-col gap-[2rem] w-[70%] overflow-hidden">
+                <section className="flex flex-col gap-[2rem] w-[60%] overflow-hidden">
                  <Slider start={currentIndex} end={currentIndex + itemsPerPage} />
                 <section className="max-[1185px]:justify-center flex flex-row items-start justify-start">
                   {Array.from({ length: Math.ceil(collection.length / itemsPerPage) }).map((_, index) => (
