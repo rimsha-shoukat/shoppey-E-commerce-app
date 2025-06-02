@@ -32,7 +32,7 @@ function Deal(){
                 </section>
                 {/* image section */}
                 <section class="w-[50%]">
-                    {/* img */}
+                    im
                 </section>
             </div>
           </section>

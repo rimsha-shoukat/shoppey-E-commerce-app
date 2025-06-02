@@ -10,7 +10,7 @@ function Deal(){
             {/* content */}
             <div className="relative w-[100%] h-auto flex flex-row items-center justify-between">
                 {/* content section */}
-                <section className="flex flex-col items-start justify-center gap-6 p-[6rem] w-[50%] h-auto">
+                <section className="flex flex-col items-start justify-center p-[6rem] w-[50%] h-auto">
                     <h1>Deal Of The Day</h1>
                     <p>Lorem ipsum dolor sit amet. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, itaque. Lorem ipsum dolor sit amet.</p>
                     {/* timer */}
@@ -28,12 +28,10 @@ function Deal(){
                             <p>time</p>
                         </span>
                     </div>
-                    <button>shop now</button>
+                    <button></button>
                 </section>
                 {/* image section */}
-                <section class="w-[50%]">
-                    {/* img */}
-                </section>
+                <section></section>
             </div>
           </section>
         </>

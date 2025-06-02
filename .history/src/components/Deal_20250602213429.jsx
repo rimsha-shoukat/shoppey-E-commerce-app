@@ -31,9 +31,7 @@ function Deal(){
                     <button>shop now</button>
                 </section>
                 {/* image section */}
-                <section class="w-[50%]">
-                    {/* img */}
-                </section>
+                <section class="w-[50%] flex items-end"></section>
             </div>
           </section>
         </>
