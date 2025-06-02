@@ -151,7 +151,7 @@ function Slider(props){
 
     return (
         <div key={item.id} className="w-auto h-auto bg-white">
-          <img  className="w-[14rem] h-[13rem] drop-shadow-lg" src={item.image} alt="" />
+          <img  className="w-[1rem] h-[15rem] drop-shadow-lg" src={item.image} alt="" />
           <div className="p-[0.3rem] select-none leading-6">
             <span className="flex flex-row text-[1.2rem]">
               {Rating}

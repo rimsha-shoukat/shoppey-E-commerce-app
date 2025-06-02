@@ -12,7 +12,7 @@ function App(){
      <Discount />
      <Collection />
      <BestSeller />
-     <Deal />
+     <
     </>
   )
 }
