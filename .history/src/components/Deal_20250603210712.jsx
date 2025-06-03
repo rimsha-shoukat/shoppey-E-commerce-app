@@ -15,20 +15,20 @@ function Deal(){
                     <p>Lorem ipsum dolor sit amet. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, itaque. Lorem ipsum dolor sit amet.</p>
                     {/* timer */}
                     <div className="flex flex-row items-start justify-between gap-10 h-auto mt-6">
-                        <span className="w-[4.5rem] h-[4.5rem] bg-[#eee2ca] flex flex-col items-center justify-center gap-[1.2rem]">
-                            <h1 className="text-[2.3rem] font-bold leading-4">08</h1>
-                            <p className="font-semibold leading-0">Hours</p>
+                        <span className="w-[5rem] h-[5rem] bg-[#eee2ca]">
+                            <h1 className="text-[2.3rem] font-bold">03</h1>
+                            <p className="font-semibold leading-0">Day</p>
                         </span>
-                        <span className="w-[4.5rem] h-[4.5rem] bg-[#eee2ca] flex flex-col items-center justify-center gap-[1.2rem]">
-                            <h1 className="text-[2.3rem] font-bold leading-4">03</h1>
-                            <p className="font-semibold leading-0">Minutes</p>
+                        <span className="w-[5rem] h-[5rem] bg-[#eee2ca]">
+                            <h1 className="text-[2.3rem] font-bold">03</h1>
+                            <p className="font-semibold leading-0">Hour</p>
                         </span>
-                        <span className="w-[4.5rem] h-[4.5rem] bg-[#eee2ca] flex flex-col items-center justify-center gap-[1.2rem]">
-                            <h1 className="text-[2.3rem] font-bold leading-4">34</h1>
-                            <p className="font-semibold leading-0">Seconds</p>
+                        <span className="w-[5rem] h-[5rem] bg-[#eee2ca]">
+                            <h1 className="text-[2.3rem] font-bold">03</h1>
+                            <p className="font-semibold">Min</p>
                         </span>
                     </div>
-                    <button className="mt-6 cursor-pointer px-6 py-2 bg-[#251201] text-[#eee2ca] font-[1.2rem]">SHOP NOW</button>
+                    <button>shop now</button>
                 </section>
                 {/* image section */}
                 <section class="w-[50%]">

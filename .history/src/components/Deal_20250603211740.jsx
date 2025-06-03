@@ -28,7 +28,7 @@ function Deal(){
                             <p className="font-semibold leading-0">Seconds</p>
                         </span>
                     </div>
-                    <button className="mt-6 cursor-pointer px-6 py-2 bg-[#251201] text-[#eee2ca] font-[1.2rem]">SHOP NOW</button>
+                    <button className="mt-4 px-6 py-4 bg-[#251201] text-[#eee2ca] fo">shop now</button>
                 </section>
                 {/* image section */}
                 <section class="w-[50%]">

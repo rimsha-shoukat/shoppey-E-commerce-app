@@ -23,12 +23,12 @@ function Deal(){
                             <h1 className="text-[2.3rem] font-bold leading-4">03</h1>
                             <p className="font-semibold leading-0">Minutes</p>
                         </span>
-                        <span className="w-[4.5rem] h-[4.5rem] bg-[#eee2ca] flex flex-col items-center justify-center gap-[1.2rem]">
+                        <span className="w-[4.5rem] h-[4.5rem] bg-[#eee2ca] flex flex-col items-center justify-center gap-4">
                             <h1 className="text-[2.3rem] font-bold leading-4">34</h1>
                             <p className="font-semibold leading-0">Seconds</p>
                         </span>
                     </div>
-                    <button className="mt-6 cursor-pointer px-6 py-2 bg-[#251201] text-[#eee2ca] font-[1.2rem]">SHOP NOW</button>
+                    <button>shop now</button>
                 </section>
                 {/* image section */}
                 <section class="w-[50%]">
