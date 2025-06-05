@@ -11,7 +11,7 @@ function Deal(){
             {/* content */}
             <div className="relative w-[100%] h-[100%] flex flex-row items-center justify-between text-[#251201]">
                 {/* content section */}
-                <section className="flex flex-col items-start justify-center gap-4 pl-[4rem] pb-[6rem] pt-[4rem] w-[50%] h-auto select-none font-serif">
+                <section className="flex flex-col items-start justify-center gap-4 pl-[6rem] py-[6.5rem] w-[50%] h-auto select-none font-serif">
                     <h1 className="text-[4.3rem] font-bold">Deal Of The Day</h1>
                     <p>Lorem ipsum dolor sit amet. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, itaque. Lorem ipsum dolor sit amet.</p>
                     {/* timer */}

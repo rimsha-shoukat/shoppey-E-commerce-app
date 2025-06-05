@@ -201,7 +201,7 @@ function BestSeller(){
                 <article className="container flex flex-col items-start justify-start gap-[2rem] max-[860px]:pl-[0.65rem] pl-[3rem] w-[40%] max-[750px]:w-[50%] max-[440px]:w-[80%] text-white">
                     <h1 className="text-6xl text-nowrap max-[1016px]:text-5xl max-[750px]:text-6xl max-[510px]:text-5xl font-bold select-none">Best Seller Item</h1>
                     <p className="select-none max-[1016px]:text-sm max-[750px]:text-md text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, quia esse saepe sunt facilis neque Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, quia esse saepe sunt facilis neque iusto porro rem consequuntur, ab minima iste nemo quidem temporibus iure excepturi ipsam perferendis sequi.</p>
-                    <button className="hover:transition-all duration-700 delay-150 ease-in-out hover:text-[#8f5e36] font-bold cursor-pointer">SEE MORE</button>
+                    <button className="drop-shadow-lg hoover:transition-all duration-700 delay-150 ease-in-out hover:text-[#8f5e36] font-bold cursor-pointer">SEE MORE</button>
                 </article>
                 <section className="flex flex-col gap-[2rem] w-[60%] max-[440px]:w-[90%] overflow-hidden">
                  <Slider start={currentIndex} end={currentIndex + itemsPerPage} />

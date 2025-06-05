@@ -11,7 +11,7 @@ function Deal(){
             {/* content */}
             <div className="relative w-[100%] h-[100%] flex flex-row items-center justify-between text-[#251201]">
                 {/* content section */}
-                <section className="flex flex-col items-start justify-center gap-4 pl-[4rem] pb-[6rem] pt-[4rem] w-[50%] h-auto select-none font-serif">
+                <section className="flex flex-col items-start justify-center gap-4 pl-[6rem] py-[6.5rem] w-[50%] h-auto select-none font-serif">
                     <h1 className="text-[4.3rem] font-bold">Deal Of The Day</h1>
                     <p>Lorem ipsum dolor sit amet. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, itaque. Lorem ipsum dolor sit amet.</p>
                     {/* timer */}
@@ -32,9 +32,9 @@ function Deal(){
                     <button className="mt-[2rem] hover:transition-all duration-700 ease-in-out cursor-pointer px-6 py-2 bg-[#251201] text-[#eee2ca] font-bold text-[1.2rem] hover:bg-[#eee2ca] hover:text-[#251201]">SHOP NOW</button>
                 </section>
                 {/* image section */}
-                <section className="w-[50%] px-[4rem] pt-[6rem]">
+                <section className="w-[50%] ">
                     {/* img */}
-                    <img class="w-[100%] h-[90%]" src={sideImg} alt="side Image" />
+                    <img class="w-[40%] h-[90%]" src={sideImg} alt="side Image" />
                 </section>
             </div>
           </section>
