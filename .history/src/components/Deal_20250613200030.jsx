@@ -5,7 +5,7 @@ import sideImg from "../assets/seller13.png";
 function Deal(){
     return (
         <>
-          <section className="relative w-[100%] h-[88vh] max-[1170px]:h-[65vh] overflow-hidden max-[710px]:h-auto">
+          <section className="relative w-[100%] h-[88vh]  max-[1170px]:h-[65vh] overflow-hidden max-[710px]:h-auto">
             {/* background */}
             <img className="absolute w-[100%] h-[100%]" src={background} alt="Image"/> 
             {/* content */}

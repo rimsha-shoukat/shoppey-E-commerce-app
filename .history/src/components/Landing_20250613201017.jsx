@@ -18,9 +18,9 @@ function Landing(){
                 <nav className="flex flex-row items-center justify-between pt-[1rem] px-[3rem] w-[100%] h-[6%]">
                         <button className="font-extrabold font-serif text-lg">shoppey</button>
                         <div className="static max-[710px]:w-auto w-[80%]">
-                        <TbLayoutNavbarExpand onClick={ () => setNavView(!navView)} className="hidden cursor-pointer text-2xl max-[710px]:block"/>
+                        <TbLayoutNavbarExpand onClick={ () => setNavView(true)} className="hidden cursor-pointer text-2xl max-[710px]:block"/>
 
-                        <div className={`flex max-[710px]:flex-col max-[710px]:w-[85%] max-[710px]:h-auto ${navView ? 'block' : 'hidden'} max-[710px]:right-[3rem] max-[710px]:absolute max-[710px]:bg-[#b48068] font-bold font-serif flex-row items-center justify-evenly max-[710px]:gap-[0rem] gap-[2rem]`}>
+                        <div className={`flex max-[710px]:flex-col max-[710px]:w-[85%] max-[710px]:h-auto max-[710px]:${navView ? 'hidden' : 'block'} max-[710px]:right-[3rem] max-[710px]:absolute max-[710px]:bg-[#b48068] font-bold font-serif flex-row items-center justify-evenly max-[710px]:gap-[0rem] gap-[2rem]`}>
                             <button className="cursor-pointer hover:transition-all duration-700 ease-in-out max-[710px]:hover:bg-black max-[710px]:w-[100%] max-[710px]:hover:text-[#b48068] max-[710px]:hover:border-none max-[710px]:py-[1rem] hover:border-b-2 border-b-black">New</button>
                             <button className="cursor-pointer hover:transition-all duration-700 ease-in-out max-[710px]:hover:bg-black max-[710px]:w-[100%] max-[710px]:hover:text-[#b48068] max-[710px]:hover:border-none max-[710px]:py-[1rem] hover:border-b-2 border-b-black">Men</button>
                             <button className="cursor-pointer hover:transition-all duration-700 ease-in-out max-[710px]:hover:bg-black max-[710px]:w-[100%] max-[710px]:hover:text-[#b48068] max-[710px]:hover:border-none max-[710px]:py-[1rem] hover:border-b-2 border-b-black">Women</button>
