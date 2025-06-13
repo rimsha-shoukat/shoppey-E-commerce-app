@@ -4,7 +4,7 @@ import Discount from "./components/Discount.jsx"
 import Collection from "./components/newCollection.jsx"
 import BestSeller from "./components/BestSeller.jsx"
 import Deal from "./components/Deal.jsx"
-import Product from "./components/Product.jsx"
+import Produ from "./components/Product.jsx"
 
 function App(){
   return(
@@ -14,7 +14,7 @@ function App(){
      <Collection />
      <BestSeller />
      <Deal />
-     <Product />
+     <Items />
     </>
   )
 }

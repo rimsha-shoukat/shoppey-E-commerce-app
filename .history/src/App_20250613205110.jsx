@@ -14,7 +14,7 @@ function App(){
      <Collection />
      <BestSeller />
      <Deal />
-     <Product />
+     < />
     </>
   )
 }
