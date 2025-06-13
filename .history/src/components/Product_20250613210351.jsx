@@ -1,6 +1,5 @@
 import React from 'react';
 import { FaSliders } from "react-icons/fa6";
-import demo from "../assets/seller13.png";
 
 function Product(){
     return(
@@ -15,19 +14,7 @@ function Product(){
                 <button>Trends</button>
                 <button><FaSliders /> Filter</button>
             </section>
-            {/* Product section */}
-            <section>
-                <img src={demo} alt="" />
-                <img src={demo} alt="" />
-                <img src={demo} alt="" />
-                <img src={demo} alt="" />
-                <img src={demo} alt="" />
-                <img src={demo} alt="" />
-                <img src={demo} alt="" />
-                <img src={demo} alt="" />
-                <img src={demo} alt="" />
-                <img src={demo} alt="" />
-            </section>
+            
          </div>
         </>
     )

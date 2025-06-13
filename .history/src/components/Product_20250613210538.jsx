@@ -17,16 +17,7 @@ function Product(){
             </section>
             {/* Product section */}
             <section>
-                <img src={demo} alt="" />
-                <img src={demo} alt="" />
-                <img src={demo} alt="" />
-                <img src={demo} alt="" />
-                <img src={demo} alt="" />
-                <img src={demo} alt="" />
-                <img src={demo} alt="" />
-                <img src={demo} alt="" />
-                <img src={demo} alt="" />
-                <img src={demo} alt="" />
+                <img src={d} alt="" />
             </section>
          </div>
         </>
