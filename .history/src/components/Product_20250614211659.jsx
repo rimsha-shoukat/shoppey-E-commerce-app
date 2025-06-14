@@ -25,9 +25,9 @@ function Product(){
             </section>
 
             {/* Product slider */}
-            <section className="w-auto h-auto flex flex-row gap-2 items-center justify-center">
-                <FaAnglesLeft className="text-[1.5rem] text-gray-300 hover:text-gray-400 cursor-pointer" />
-                <div className="grid grid-rows-2 gap-2 mt-6 overflow-hidden w-auto p-2 inset-shadow-sm inset-shadow-gray-200">
+            <section className="w-auto h-auto flex flex-row gap-2 items-center justify-center inset-shadow-sm inset-shadow-indigo-500">
+                <FaAnglesLeft className="text-[1.5rem] text-[#251201] text-shadow-lg/30 cursor-pointer" />
+                <div className="grid grid-rows-2 gap-2 mt-6 overflow-hidden w-auto p">
                 <div className="flex flex-row gap-2 items-center justify-between">
 
                     <div className="flex flex-col w-auto h-auto shadow-lg">
@@ -135,7 +135,7 @@ function Product(){
                     </div>
                 </div>
                 </div>
-                <FaAnglesRight className="text-[1.5rem] text-gray-300 hover:text-gray-400 cursor-pointer" />
+                <FaAnglesRight className="text-[1.5rem] text-[#251201] text-shadow-lg/30 cursor-pointer" />
             </section>
          </div>
         </>

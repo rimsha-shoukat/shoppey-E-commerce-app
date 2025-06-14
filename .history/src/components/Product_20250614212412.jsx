@@ -135,7 +135,7 @@ function Product(){
                     </div>
                 </div>
                 </div>
-                <FaAnglesRight className="text-[1.5rem] text-gray-300 hover:text-gray-400 cursor-pointer" />
+                <FaAnglesRight className="text-[1.5rem] text-gray-300 cursor-pointer" />
             </section>
          </div>
         </>
