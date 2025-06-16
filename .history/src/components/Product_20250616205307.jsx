@@ -304,16 +304,14 @@ let Items = [
     "stars" : 5,
     "name":"Fashion wear",
     "price": "23",
-    "cat": "men",
-    "rank": "trend"
+    "cat": "men"
   },{
     "id" : 35,
     "image": img18,
     "stars" : 4,
     "name":"Fashion wear",
     "price": "24",
-    "cat": "women",
-    "rank": "new"
+    "cat": "women"
   }
 ]
 

@@ -288,32 +288,28 @@ let Items = [
     "stars" : 4,
     "name":"Fashion wear",
     "price": "22",
-    "cat": "men",
-    "rank": "new"
+    "cat": "men"
   },{
     "id" : 33,
     "image": img16,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "26",
-    "cat": "women",
-    "rank": "trend"
+    "cat": "women"
   },{
     "id" : 34,
     "image": img17,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "23",
-    "cat": "men",
-    "rank": "trend"
+    "cat": "men"
   },{
     "id" : 35,
     "image": img18,
     "stars" : 4,
     "name":"Fashion wear",
     "price": "24",
-    "cat": "women",
-    "rank": "new"
+    "cat": "women"
   }
 ]
 

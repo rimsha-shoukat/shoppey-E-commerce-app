@@ -32,288 +32,252 @@ let Items = [
     "stars" : 5,
     "name":"Fashion wear",
     "price": "20",
-    "cat": "men",
-    "rank": "new"
+    "cat": "men"
   },{
     "id" : 1,
     "image": img2,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "22",
-    "cat": "men",
-    "rank": "trend"
+    "cat": "men"
   },{
     "id" : 2,
     "image": img3,
     "stars" : 4,
     "name":"Fashion wear",
     "price": "20",
-    "cat": "men",
-    "rank": "new"
+    "cat": "men"
   },{
     "id" : 3,
     "image": img4,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "24",
-    "cat": "men",
-    "rank": "trend"
+    "cat": "men"
   },{
     "id" : 4,
     "image": img5,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "26",
-    "cat": "men",
-    "rank": "new"
+    "cat": "men"
   },{
     "id" : 5,
     "image": img6,
     "stars" : 4,
     "name":"Fashion wear",
     "price": "18",
-    "cat": "men",
-    "rank": "new"
+    "cat": "men"
   },{
     "id" : 6,
     "image": img7,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "21",
-    "cat": "men",
-    "rank": "new"
+    "cat": "men"
   },{
     "id" : 7,
     "image": img8,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "25",
-    "cat": "men",
-    "rank": "new"
+    "cat": "men"
   },{
     "id" : 8,
     "image": img9,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "26",
-    "cat": "men",
-    "rank": "new"
+    "cat": "men"
   },{
     "id" : 9,
     "image": img10,
     "stars" : 4,
     "name":"Fashion wear",
     "price": "25",
-    "cat": "men",
-    "rank": "new"
+    "cat": "men"
   },{
     "id" : 10,
     "image": img11,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "25",
-    "cat": "men",
-    "rank": "new"
+    "cat": "men"
   },{
     "id" : 11,
     "image": img12,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "23",
-    "cat": "men",
-    "rank": "trend"
+    "cat": "men"
   },{
     "id" : 12,
     "image": img13,
     "stars" : 4,
     "name":"Fashion wear",
     "price": "19",
-    "cat": "men",
-    "rank": "trend"
+    "cat": "men"
   },{
     "id" : 13,
     "image": img14,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "20",
-    "cat": "men",
-    "rank": "trend"
+    "cat": "men"
   },{
     "id" : 14,
     "image": img15,
     "stars" : 4,
     "name":"Fashion wear",
     "price": "22",
-    "cat": "men",
-    "rank": "trend"
+    "cat": "men"
   },{
     "id" : 15,
     "image": img16,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "26",
-    "cat": "women",
-    "rank": "trend"
+    "cat": "women"
   },{
     "id" : 16,
     "image": img17,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "23",
-    "cat": "women",
-    "rank": "trend"
+    "cat": "women"
   },{
     "id" : 17,
     "image": img18,
     "stars" : 4,
     "name":"Fashion wear",
     "price": "24",
-    "cat": "women",
-    "rank": "trend"
+    "cat": "women"
   },  {
     "id" : 18,
     "image": img1,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "20",
-    "cat": "women",
-    "rank": "trend"
+    "cat": "women"
   },{
     "id" : 19,
     "image": img2,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "22",
-    "cat": "women",
-    "rank": "trend"
+    "cat": "women"
   },{
     "id" : 20,
     "image": img3,
     "stars" : 4,
     "name":"Fashion wear",
     "price": "20",
-    "cat": "women",
-    "rank": "trend"
+    "cat": "women"
   },{
     "id" : 21,
     "image": img4,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "24",
-    "cat": "women",
-    "rank": "new"
+    "cat": "women"
   },{
     "id" : 22,
     "image": img5,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "26",
-    "cat": "women",
-    "rank": "new"
+    "cat": "women"
   },{
     "id" : 23,
     "image": img6,
     "stars" : 4,
     "name":"Fashion wear",
     "price": "18",
-    "cat": "women",
-    "rank": "new"
+    "cat": "women"
   },{
     "id" : 24,
     "image": img7,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "21",
-    "cat": "women",
-    "rank": "new"
+    "cat": "women"
   },{
     "id" : 25,
     "image": img8,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "25",
-    "cat": "women",
-    "rank": "trend"
+    "cat": "women"
   },{
     "id" : 26,
     "image": img9,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "26",
-    "cat": "women",
-    "rank": "new"
+    "cat": "women"
   },{
     "id" : 27,
     "image": img10,
     "stars" : 4,
     "name":"Fashion wear",
     "price": "25",
-    "cat": "women",
-    "rank": "new"
+    "cat": "women"
   },{
     "id" : 28,
     "image": img11,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "25",
-    "cat": "women",
-    "rank": "trend"
+    "cat": "women"
   },{
     "id" : 29,
     "image": img12,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "23",
-    "cat": "women",
-    "rank": "trend"
+    "cat": "women"
   },{
     "id" : 30,
     "image": img13,
     "stars" : 4,
     "name":"Fashion wear",
     "price": "19",
-    "cat": "women",
-    "rank": "trend"
+    "cat": "wmen"
   },{
     "id" : 31,
     "image": img14,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "20",
-    "cat": "women",
-    "rank": "new"
+    "cat": "men"
   },{
     "id" : 32,
     "image": img15,
     "stars" : 4,
     "name":"Fashion wear",
     "price": "22",
-    "cat": "men",
-    "rank": "new"
+    "cat": "men"
   },{
     "id" : 33,
     "image": img16,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "26",
-    "cat": "women",
-    "rank": "trend"
+    "cat": "men"
   },{
     "id" : 34,
     "image": img17,
     "stars" : 5,
     "name":"Fashion wear",
     "price": "23",
-    "cat": "men",
-    "rank": "trend"
+    "cat": "men"
   },{
     "id" : 35,
     "image": img18,
     "stars" : 4,
     "name":"Fashion wear",
     "price": "24",
-    "cat": "women",
-    "rank": "new"
+    "cat": "men"
   }
 ]
 

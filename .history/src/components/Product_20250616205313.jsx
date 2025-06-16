@@ -312,8 +312,7 @@ let Items = [
     "stars" : 4,
     "name":"Fashion wear",
     "price": "24",
-    "cat": "women",
-    "rank": "new"
+    "cat": "women"
   }
 ]
 
