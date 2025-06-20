@@ -1,5 +1,6 @@
 import React from "react";
 import { FaSliders } from "react-icons/fa6";
+import demo from "../assets/seller13.png";
 import img1 from "../assets/seller1.png";
 import img2 from "../assets/seller2.png";
 import img3 from "../assets/seller3.png";

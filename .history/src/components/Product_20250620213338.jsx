@@ -1,5 +1,6 @@
-import React from "react";
+import {React,useRef, useState, useEffect} from "react";
 import { FaSliders } from "react-icons/fa6";
+import demo from "../assets/seller13.png";
 import img1 from "../assets/seller1.png";
 import img2 from "../assets/seller2.png";
 import img3 from "../assets/seller3.png";
@@ -18,6 +19,7 @@ import img15 from "../assets/seller15.png";
 import img16 from "../assets/seller16.png";
 import img17 from "../assets/seller17.png";
 import img18 from "../assets/seller18.png";
+
 
 import { RiStarSFill } from "react-icons/ri";
 import { ImStarEmpty } from "react-icons/im";
