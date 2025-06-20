@@ -317,33 +317,11 @@ let Items = [
   }
 ]
 
-const Slider1 = () => {
-  return (
-      <div className="flex flex-row gap-4 items-center justify-between cursor-grab select-none scroll-smooth overflow-x-scroll overflow-y-hidden"
-      style = {{
-        scrollbarWidth: 'none',
-        msOverflowStyle: 'none',
-      }}
-      >
-        {Items.map((item,i) => (
-          <div key={i} className="flex flex-col flex-shrink-0 w-auto h-auto shadow-lg">
-          <img className="w-[14.5rem] h-[13rem]" src={item.image} alt="demo" />
-          <div className="flex flex-col p-2 bg-white">
-            <div className="flex flex-row text-yellow-400 text-[1.3rem] mb-[0.2rem]">
-                <RiStarSFill/><RiStarSFill/><RiStarSFill/><ImStarEmpty/><ImStarEmpty/>
-            </div>
-            <h1 className="font-semibold text-[1rem]">Item Name</h1>
-            <p>$233.98</p>
-          </div>
-          </div>
-        ))}
-      </div>
-  )
-}
+const Slider = () => {
 
-const Slider2 = () => {
+
   return (
-      <div className="flex flex-row gap-4 items-center justify-between cursor-grab select-none scroll-smooth overflow-x-scroll overflow-y-hidden"
+      <div className="flex flex-row gap-2 items-center justify-between cursor-grab select-none scroll-smooth overflow-x-scroll overflow-y-hidden"
       style = {{
         scrollbarWidth: 'none',
         msOverflowStyle: 'none',
@@ -351,7 +329,7 @@ const Slider2 = () => {
       >
         {Items.map((item,i) => (
           <div key={i} className="flex flex-col flex-shrink-0 w-auto h-auto shadow-lg">
-          <img className="w-[14.5rem] h-[13rem]" src={item.image} alt="demo" />
+          <img className="w-[14rem] h-[13rem]" src={item.image} alt="demo" />
           <div className="flex flex-col p-2 bg-white">
             <div className="flex flex-row text-yellow-400 text-[1.3rem] mb-[0.2rem]">
                 <RiStarSFill/><RiStarSFill/><RiStarSFill/><ImStarEmpty/><ImStarEmpty/>
@@ -384,8 +362,63 @@ const Slider2 = () => {
 
             {/* Product slider */}
             <section className="w-auto h-auto flex flex-row gap-2 items-center justify-center">
-                <Slider1/>
-                <Slider2/>
+                <FaAnglesLeft className="text-[1.5rem] text-gray-300 hover:text-gray-400 cursor-pointer" />
+                <div className="grid grid-rows-2 gap-2 mt-6 overflow-hidden w-auto p-2 inset-shadow-sm inset-shadow-gray-200">
+                <Slider/>
+                <div className="flex flex-row gap-2 items-center justify-between">
+                    <div className="flex flex-col w-auto h-auto shadow-lg">
+                    <img className="w-[14rem] h-[13rem]" src={demo} alt="demo" />
+                    <div className="flex flex-col p-2 bg-white">
+                        <div className="flex flex-row text-yellow-400 text-[1.3rem] mb-[0.2rem]">
+                            <RiStarSFill/><RiStarSFill/><RiStarSFill/><ImStarEmpty/><ImStarEmpty/>
+                        </div>
+                        <h1 className="font-semibold text-[1rem]">Item Name</h1>
+                        <p>$233.98</p>
+                    </div>
+                    </div>
+                    <div className="flex flex-col w-auto h-auto shadow-lg">
+                    <img className="w-[14rem] h-[13rem]" src={demo} alt="demo" />
+                    <div className="flex flex-col p-2 bg-white">
+                        <div className="flex flex-row text-yellow-400 text-[1.3rem] mb-[0.2rem]">
+                            <RiStarSFill/><RiStarSFill/><RiStarSFill/><ImStarEmpty/><ImStarEmpty/>
+                        </div>
+                        <h1 className="font-semibold text-[1rem]">Item Name</h1>
+                        <p>$233.98</p>
+                    </div>
+                    </div>
+                    <div className="flex flex-col w-auto h-auto shadow-lg">
+                    <img className="w-[14rem] h-[13rem]" src={demo} alt="demo" />
+                    <div className="flex flex-col p-2 bg-white">
+                        <div className="flex flex-row text-yellow-400 text-[1.3rem] mb-[0.2rem]">
+                            <RiStarSFill/><RiStarSFill/><RiStarSFill/><ImStarEmpty/><ImStarEmpty/>
+                        </div>
+                        <h1 className="font-semibold text-[1rem]">Item Name</h1>
+                        <p>$233.98</p>
+                    </div>
+                    </div>
+                    <div className="flex flex-col w-auto h-auto shadow-lg">
+                    <img className="w-[14rem] h-[13rem]" src={demo} alt="demo" />
+                    <div className="flex flex-col p-2 bg-white">
+                        <div className="flex flex-row text-yellow-400 text-[1.3rem] mb-[0.2rem]">
+                            <RiStarSFill/><RiStarSFill/><RiStarSFill/><ImStarEmpty/><ImStarEmpty/>
+                        </div>
+                        <h1 className="font-semibold text-[1rem]">Item Name</h1>
+                        <p>$233.98</p>
+                    </div>
+                    </div>
+                    <div className="flex flex-col w-auto h-auto shadow-lg">
+                    <img className="w-[14rem] h-[13rem]" src={demo} alt="demo" />
+                    <div className="flex flex-col p-2 bg-white">
+                        <div className="flex flex-row text-yellow-400 text-[1.3rem] mb-[0.2rem]">
+                            <RiStarSFill/><RiStarSFill/><RiStarSFill/><ImStarEmpty/><ImStarEmpty/>
+                        </div>
+                        <h1 className="font-semibold text-[1rem]">Item Name</h1>
+                        <p>$233.98</p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <FaAnglesRight className="text-[1.5rem] text-gray-300 hover:text-gray-400 cursor-pointer" />
             </section>
          </div>
         </>

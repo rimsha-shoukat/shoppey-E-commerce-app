@@ -384,8 +384,7 @@ const Slider2 = () => {
 
             {/* Product slider */}
             <section className="w-auto h-auto flex flex-row gap-2 items-center justify-center">
-                <Slider1/>
-                <Slider2/>
+                <Slider1
             </section>
          </div>
         </>
