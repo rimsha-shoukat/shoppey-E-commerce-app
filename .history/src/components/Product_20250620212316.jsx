@@ -383,10 +383,10 @@ const Slider2 = () => {
             </section>
 
             {/* Product slider */}
-              <section className="grid grid-rows-2 gap-2 mt-6 overflow-hidden w-auto p-4 inset-shadow-sm inset-shadow-gray-200">
+                <div className="grid grid-rows-2 gap-2 mt-6 overflow-hidden w-auto p-2 inset-shadow-sm inset-shadow-gray-200">
                 <Slider1/>
                 <Slider2/>
-              </section>
+                </div>
          </div>
         </>
     )

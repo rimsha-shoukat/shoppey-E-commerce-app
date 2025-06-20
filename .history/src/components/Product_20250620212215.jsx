@@ -383,10 +383,13 @@ const Slider2 = () => {
             </section>
 
             {/* Product slider */}
-              <section className="grid grid-rows-2 gap-2 mt-6 overflow-hidden w-auto p-4 inset-shadow-sm inset-shadow-gray-200">
-                <Slider1/>
-                <Slider2/>
-              </section>
+            <section className="w-auto h-auto flex flex-row gap-2 items-center justify-center">
+                <div className="grid grid-rows-2 gap-2 mt-6 overflow-hidden w-auto p-2 inset-shadow-sm inset-shadow-gray-200">
+                <Slider/>
+                
+                </div>
+                <FaAnglesRight className="text-[1.5rem] text-gray-300 hover:text-gray-400 cursor-pointer" />
+            </section>
          </div>
         </>
     )
