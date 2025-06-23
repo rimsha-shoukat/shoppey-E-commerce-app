@@ -5,6 +5,7 @@ import Collection from "./components/newCollection.jsx"
 import BestSeller from "./components/BestSeller.jsx"
 import Deal from "./components/Deal.jsx"
 import Product from "./components/Product.jsx"
+import About from "./components/About.jsx"
 
 function App(){
   return(
@@ -15,6 +16,7 @@ function App(){
      <BestSeller />
      <Deal />
      <Product />
+     <About />
     </>
   )
 }
