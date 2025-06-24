@@ -103,7 +103,7 @@ const UserSlider = ()=> {
                         <div key={i} className="flex flex-col w-[19rem] h-auto flex-shrink-0 items-center shadow-md p-4 justify-between gap-2 bg-[#eee2ca] rounded-md border-2 border-[#c8967d] font-sans">
                             <p className="font-semibold">{user.intro}</p>
                             <p className="text-sm text-justify">{user.review}</p>
-                            <img  className="w-[5.5rem] h-[5rem] rounded-full" src={user.img}/>
+                            <img  className="w-[5rem] h-[5rem] rounded-full" src={user.img}/>
                             <h1 className="font-bold text-[1.3rem] leading-2 mt-2">{user.name}</h1>
                             <h1 className="font-italic text-[1.2rem]">{user.rank}</h1>
                         </div>
@@ -115,7 +115,7 @@ const UserSlider = ()=> {
 function About(){
     return(
         <>
-            <section className="flex flex-col w-[100%] h-auto overflow-hidden select-none items-center max-[440px]:p-[0.8rem] justify-between gap-2 p-[2rem] font-serif">
+            <section className="flex flex-col w-[100%] h-auto overflow-hidden  items-center max-[440px]:p-[0.8rem] justify-between gap-2 p-[2rem] font-serif">
                 <h1 className="text-[clamp(1.2rem,4vw,4rem)] font-bold">What People Say About Us</h1>
                 <p className="text-sm max-[533px]:hidden">Lorem ipsum dolor sit amet. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, itaque. Lorem ipsum dolor sit amet.</p>
                 {/* rating slider section */}

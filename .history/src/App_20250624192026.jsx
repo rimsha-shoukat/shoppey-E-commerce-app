@@ -18,7 +18,6 @@ function App(){
      <Deal />
      <Product />
      <About />
-     <Social />
     </>
   )
 }
