@@ -24,7 +24,7 @@ function Social(){
                     <h1 className="cursor-pointer font-semibold">COLLECTION</h1>
                     <h1 className="cursor-pointer font-semibold">TREND</h1>
                 </div>
-                <h1 className="mt-[1rem]">copyright@rkCodex</h1>
+                <h1 className="mt-[6rem]">copyright@rkCodex</h1>
             </section>
         </>
     )

@@ -16,7 +16,7 @@ function Social(){
                     <img className="w-[15.5rem] h-[13rem]" src={img4} alt="" />
                     <img className="w-[15.5rem] h-[13rem]" src={img5} alt="" />
                 </div>
-                <h1 className="absolute px-[2rem] py-[1rem] bg-[#eee2ca] border text-[1.2rem] font-semibold border-[#c8967d] mt-[1rem]">Follow us on social media</h1>
+                <h1 className="absolute px-[2rem] py-[1rem] bg-[#eee2ca] border text-[1.2rem] font-semibold border-[#c8967d] mt-[1re]">Follow us on social media</h1>
                 <div className="flex flex-row items-center justify-evenly w-[100%] h-auto mt-[3rem]">
                     <h1 className="cursor-pointer font-semibold">NEW</h1>
                     <h1 className="cursor-pointer font-semibold">WOMEN</h1>
@@ -24,7 +24,7 @@ function Social(){
                     <h1 className="cursor-pointer font-semibold">COLLECTION</h1>
                     <h1 className="cursor-pointer font-semibold">TREND</h1>
                 </div>
-                <h1 className="mt-[1rem]">copyright@rkCodex</h1>
+                <h1 className="mt-[6rem]">copyright@rkCodex</h1>
             </section>
         </>
     )
