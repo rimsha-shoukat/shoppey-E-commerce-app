@@ -7,9 +7,16 @@ import { BrowserRouter } from "react-router";
 // npm run dev
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
+   <BrowserRouter>
   <StrictMode>
     <App />
   </StrictMode>
   </BrowserRouter>,
 )
+
+
+ReactDOM.createRoot(root).render(
+ 
+    <App />
+  
+);

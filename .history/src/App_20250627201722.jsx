@@ -1,5 +1,4 @@
 import './App.css'
-import { Routes, Route } from 'react-router-dom'
 import Landing from './components/Landing.jsx'
 import Discount from "./components/Discount.jsx"
 import Collection from "./components/newCollection.jsx"
@@ -26,7 +25,7 @@ function App(){
           <Social />
         </>
       } />
-      <Route path="/SignIU" element={<SignIU />} />
+      <Route path="/Sin" element={<SignIU />} />
     </Routes>
     </>
   )

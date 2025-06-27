@@ -1,5 +1,6 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
+
 import Landing from './components/Landing.jsx'
 import Discount from "./components/Discount.jsx"
 import Collection from "./components/newCollection.jsx"
