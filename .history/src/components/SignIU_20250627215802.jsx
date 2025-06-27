@@ -5,7 +5,7 @@ function SignIU(){
     return(
         <>
         <main className="relative flex flex-row-reverse items-center justify-center w-[100%] h-[100vh] select-none font-serif">
-            <section className="relative left-[10.5rem] w-[28rem] h-[32rem] rounded-xl border-0 shadow-xl z-2">
+            <section className="relative left-[10rem] w-[28rem] h-[32rem] rounded-xl border-0 shadow-lg z-2">
                 <img className="absolute w-[100%] h-[100%] rounded-xl shadow-lg" src={background} /> 
                 <div className="relative w-[100%] h-[100%] flex flex-col items-center justify-center gap-2">
                 <h1 className="font-bold text-[2.3rem]">Welcome Back!</h1>
