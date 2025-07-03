@@ -20,7 +20,7 @@ function SignIU(){
                 <button onClick={() => setLogIn(!logIn)} className="cursor-pointer text-[1.5rem] shadow-md px-[3rem] py-[0.55rem] font-bold rounded-full bg-white/50 mt-[3rem]">SIGN IN</button>
                 </div>
             </section>
-            <section className="absolute -left-[10.5rem] max-[800px]:left-[2rem] max-[800px]:bottom-[4rem] max-[440px]:left-0 max-[440px]:w-[100vw] w-[22rem] h-[26rem] bg-[#eee2ca] rounded-xl border-0 shadow-xl  z-4">
+            <section className="absolute -left-[10.5rem] max-[800px]:left-[2rem] max-[800px]:bottom-[5rem] max-[440px]:left-0 max-[440px]:w-[100vw] w-[22rem] h-[26rem] bg-[#eee2ca] rounded-xl border-0 shadow-xl  z-4">
                 <div className={`${logIn? 'block' : 'hidden'} w-[100%] h-[100%] flex flex-col items-center justify-center gap-[1rem]`}>
                     <h1 className="text-[2rem] font-bold text-[#251201] mb-[2rem]">Sign In</h1>
                     <input className="w-[70%] bg-white/30 px-[0.5rem] py-[0.35rem] text-[1.1rem]" placeholder="Email" type="email" />
