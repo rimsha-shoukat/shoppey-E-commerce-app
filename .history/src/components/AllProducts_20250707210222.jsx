@@ -36,7 +36,7 @@ function AllProducts() {
             </div>
     </section>
 
-    <section className="flex flex-row w-[100%] h-auto items-start justify-start gap-4 px-4 py-6">
+    <section className="flex flex-row w-[100%] h-auto items-start justify-start gap-2 px-4 py-6">
       <div className="flex flex-col items-start justify-start p-4 w-[18%] h-auto rounded-md ring-2 ring-[#b48068]">
         <button className="font-extrabold font-serif text-xl cursor-pointer hover:text-gray-500">shoppey</button>
         <button className="font-extrabold font-serif text-xl cursor-pointer hover:text-gray-500">shoppey</button>
@@ -46,14 +46,14 @@ function AllProducts() {
         <button className="font-extrabold font-serif text-xl cursor-pointer hover:text-gray-500">shoppey</button>
       </div>
       <div className="columns-5 w-[82%] h-auto">
-        <img className="w-full rounded-[1rem] mb-4 h-auto" src={img1} />
-        <img className="w-full rounded-[1rem] mb-4 h-auto" src={img2} />
-        <img className="w-full rounded-[1rem] mb-4 h-auto" src={img3} />
-        <img className="w-full rounded-[1rem] mb-4 h-auto" src={img4} />
-        <img className="w-full rounded-[1rem] mb-4 h-auto" src={img5} />
-        <img className="w-full rounded-[1rem] mb-4 h-auto" src={img6} />
-        <img className="w-full rounded-[1rem] mb-4 h-auto" src={img7} />
-        <img className="w-full rounded-[1rem] mb-4 h-auto" src={img8} />
+        <img className="w-full h-auto" src={img1} />
+        <img className="w-full h-auto" src={img2} />
+        <img className="w-full h-auto" src={img3} />
+        <img className="w-full h-auto" src={img4} />
+        <img className="w-full h-auto" src={img5} />
+        <img className="w-full h-auto" src={img6} />
+        <img className="w-full h-auto" src={img7} />
+        <img className="w-full h-auto" src={img8} />
       </div>
     </section>
 

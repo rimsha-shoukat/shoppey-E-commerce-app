@@ -14,10 +14,10 @@ import img7 from "../assets/seller7.png";
 import img8 from "../assets/seller8.png";
 import img9 from "../assets/seller9.png";
 
-function AllProducts() {
+const AllProducts = () => {
   return (
     <>
-    <div className="w-[100%] h-auto font-serif">
+    <section className="w-[100vw] h-auto p-0 m-0 font-serif flex flex-col items-center justify-center overflow-hidden">
 
     <section className="flex flex-row items-center py-2 px-6 justify-between w-[100%] h-auto">
         <Link to="/">
@@ -32,32 +32,54 @@ function AllProducts() {
            <h1 className="font-bold text-2xl">Explore All Products</h1>
             <div className=" flex flex-row items-center justify-center w-[100%] gap-2">
                 <input type="text" placeholder="Search" className="w-[50%] max-[550px]:w-[90%] h-[2.5rem] px-4 rounded-full  border-none bg-white/50 text-black placeholder:text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#b48068]" />
-                <BiSearch className="font-bold cursor-pointer text-2xl hover:text-[#b48068]"/>
+                <BiSearch className="font-bold cursor-pointer text-2xl hover:text-white/50"/>
             </div>
     </section>
 
-    <section className="flex flex-row w-[100%] h-auto items-start justify-start gap-4 px-4 py-6">
-      <div className="flex flex-col items-start justify-start p-4 w-[18%] h-auto rounded-md ring-2 ring-[#b48068]">
+    <section className="flex flex-col w-[100%] h-auto items-center justify-center gap-2 p-6">
+      <section className="flex flex-col items-center justify-center w-[30%] h-auto">
         <button className="font-extrabold font-serif text-xl cursor-pointer hover:text-gray-500">shoppey</button>
         <button className="font-extrabold font-serif text-xl cursor-pointer hover:text-gray-500">shoppey</button>
         <button className="font-extrabold font-serif text-xl cursor-pointer hover:text-gray-500">shoppey</button>
         <button className="font-extrabold font-serif text-xl cursor-pointer hover:text-gray-500">shoppey</button>
         <button className="font-extrabold font-serif text-xl cursor-pointer hover:text-gray-500">shoppey</button>
         <button className="font-extrabold font-serif text-xl cursor-pointer hover:text-gray-500">shoppey</button>
-      </div>
-      <div className="columns-5 w-[82%] h-auto">
-        <img className="w-full rounded-[1rem] mb-4 h-auto" src={img1} />
-        <img className="w-full rounded-[1rem] mb-4 h-auto" src={img2} />
-        <img className="w-full rounded-[1rem] mb-4 h-auto" src={img3} />
-        <img className="w-full rounded-[1rem] mb-4 h-auto" src={img4} />
-        <img className="w-full rounded-[1rem] mb-4 h-auto" src={img5} />
-        <img className="w-full rounded-[1rem] mb-4 h-auto" src={img6} />
-        <img className="w-full rounded-[1rem] mb-4 h-auto" src={img7} />
-        <img className="w-full rounded-[1rem] mb-4 h-auto" src={img8} />
-      </div>
+      </section>
+      <section classNAme="grid grid-cols-3 items-center gap-2 justify-center w-[70%] h-auto">
+        <img className="w-[100px] h-auto" src={img1} />
+        <img className="w-[100px] h-auto" src={img2} />
+        <img className="w-[100px] h-auto" src={img3} />
+        <img className="w-[100px] h-auto" src={img4} />
+        <img className="w-[100px] h-auto" src={img5} />
+        <img className="w-[100px] h-auto" src={img6} />
+        <img className="w-[100px] h-auto" src={img7} />
+        <img className="w-[100px] h-auto" src={img8} />
+        <img className="w-[100px] h-auto" src={img9} />
+        <img className="w-[100px] h-auto" src={img1} />
+        <img className="w-[100px] h-auto" src={img2} />
+        <img className="w-[100px] h-auto" src={img3} />
+        <img className="w-[100px] h-auto" src={img4} />
+        <img className="w-[100px] h-auto" src={img5} />
+        <img className="w-[100px] h-auto" src={img6} />
+        <img className="w-[100px] h-auto" src={img1} />
+        <img className="w-[100px] h-auto" src={img1} />
+        <img className="w-[100px] h-auto" src={img1} />
+        <img className="w-[100px] h-auto" src={img1} />
+        <img className="w-[100px] h-auto" src={img1} />
+        <img className="w-[100px] h-auto" src={img1} />
+        <img className="w-[100px] h-auto" src={img1} />
+        <img className="w-[100px] h-auto" src={img1} />
+        <img className="w-[100px] h-auto" src={img1} />
+        <img className="w-[100px] h-auto" src={img1} />
+        <img className="w-[100px] h-auto" src={img1} />
+        <img className="w-[100px] h-auto" src={img1} />
+        <img className="w-[100px] h-auto" src={img1} />
+        <img className="w-[100px] h-auto" src={img1} />
+        <img className="w-[100px] h-auto" src={img1} />
+      </section>
     </section>
 
-    </div>
+    </section>
     </>
   );
 };

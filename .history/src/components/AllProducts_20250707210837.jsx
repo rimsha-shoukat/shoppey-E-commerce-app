@@ -46,14 +46,14 @@ function AllProducts() {
         <button className="font-extrabold font-serif text-xl cursor-pointer hover:text-gray-500">shoppey</button>
       </div>
       <div className="columns-5 w-[82%] h-auto">
-        <img className="w-full rounded-[1rem] mb-4 h-auto" src={img1} />
-        <img className="w-full rounded-[1rem] mb-4 h-auto" src={img2} />
-        <img className="w-full rounded-[1rem] mb-4 h-auto" src={img3} />
-        <img className="w-full rounded-[1rem] mb-4 h-auto" src={img4} />
-        <img className="w-full rounded-[1rem] mb-4 h-auto" src={img5} />
-        <img className="w-full rounded-[1rem] mb-4 h-auto" src={img6} />
-        <img className="w-full rounded-[1rem] mb-4 h-auto" src={img7} />
-        <img className="w-full rounded-[1rem] mb-4 h-auto" src={img8} />
+        <img className="w-full r h-auto" src={img1} />
+        <img className="w-full r h-auto" src={img2} />
+        <img className="w-full r h-auto" src={img3} />
+        <img className="w-full r h-auto" src={img4} />
+        <img className="w-full r h-auto" src={img5} />
+        <img className="w-full r h-auto" src={img6} />
+        <img className="w-full r h-auto" src={img7} />
+        <img className="w-full r h-auto" src={img8} />
       </div>
     </section>
 
