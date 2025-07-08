@@ -37,7 +37,7 @@ function AllProducts() {
                 </div>
         </section>
 
-        <section className="columns-5 mt-[1rem] w-[100%] h-auto p-4 max-[780px]:columns-4 max-[600px]:columns-3 max-[450px]:columns-2">
+        <section className="columns-5 mt-[2rem] w-[100%] h-auto px-4 max-[780px]:columns-4 max-[600px]:columns-3 max-[450px]:columns-2">
           <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[0.1px_0.1px_0.1rem_#dd957a]" src={img7} />
           <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[0.1px_0.1px_0.1rem_#dd957a]" src={img1} />
           <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[0.1px_0.1px_0.1rem_#dd957a]" src={img2} />
