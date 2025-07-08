@@ -28,7 +28,6 @@ function AllProducts() {
                 <FaCartShopping className="cursor-pointer hover:text-gray-500" />
             </div>
         </section>
-
         <section className="flex flex-col items-center justify-center w-[100%] p-6 h-auto bg-linear-to-l from-[#dd957a] to-[#eee2ca] gap-2">
               <h1 className="font-bold text-2xl">Explore All Products</h1>
                 <div className=" flex flex-row items-center justify-center w-[100%] gap-2">
@@ -37,18 +36,18 @@ function AllProducts() {
                 </div>
         </section>
 
-        <section className="columns-5 mt-[2rem] w-[100%] h-auto px-6">
-          <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[0.1px_0.1px_0.1rem_#dd957a]" src={img7} />
-          <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[0.1px_0.1px_0.1rem_#dd957a]" src={img1} />
-          <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[0.1px_0.1px_0.1rem_#dd957a]" src={img2} />
-          <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[0.1px_0.1px_0.1rem_#dd957a]" src={img3} />
-          <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[0.1px_0.1px_0.1rem_#dd957a]" src={img4} />
-          <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[0.1px_0.1px_0.1rem_#dd957a]" src={img5} />
-          <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[0.1px_0.1px_0.1rem_#dd957a]" src={img6} />
-          <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[0.1px_0.1px_0.1rem_#dd957a]" src={img8} />
-          <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[0.1px_0.1px_0.1rem_#dd957a]" src={img9} />
-          <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[0.1px_0.1px_0.1rem_#dd957a]" src={img3} />
-          <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[0.1px_0.1px_0.1rem_#dd957a]" src={img4} />
+        <section className="columns-5 w-[100%] h-auto px-6">
+          <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[1px_1px_0.5rem_1rem_#b48068]" src={img7} />
+          <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[1px_1px_0.5rem_1rem_#b48068]" src={img1} />
+          <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[1px_1px_0.5rem_1rem_#b48068]" src={img2} />
+          <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[1px_1px_0.5rem_1rem_#b48068]" src={img3} />
+          <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[1px_1px_0.5rem_1rem_#b48068]" src={img4} />
+          <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[1px_1px_0.5rem_1rem_#b48068]" src={img5} />
+          <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[1px_1px_0.5rem_1rem_#b48068]" src={img6} />
+          <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[1px_1px_0.5rem_1rem_#b48068]" src={img8} />
+          <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[1px_1px_0.5rem_1rem_#b48068]" src={img9} />
+          <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[1px_1px_0.5rem_1rem_#b48068]" src={img3} />
+          <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[1px_1px_0.5rem_1rem_#b48068]" src={img4} />
         </section>
       </div>
     </>
