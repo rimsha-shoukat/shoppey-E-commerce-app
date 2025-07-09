@@ -10,7 +10,7 @@ import About from "./components/About.jsx"
 import Social from "./components/Social.jsx"
 import SignIU from "./components/SignIU.jsx"
 import AllProducts from "./components/AllProducts.jsx"
-import ProductDetail from "./components/ProductDetail.jsx"
+import ProductDetail from "./components/.jsx"
 
 function App(){
   return(
@@ -30,7 +30,6 @@ function App(){
       } />
       <Route path="/SignIU" element={<SignIU />} />
       <Route path="/AllProducts" element={<AllProducts />} />
-      <Route path="/ProductDetail" element={<ProductDetail />} />
     </Routes>
     </>
   )

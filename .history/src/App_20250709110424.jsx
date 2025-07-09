@@ -30,7 +30,6 @@ function App(){
       } />
       <Route path="/SignIU" element={<SignIU />} />
       <Route path="/AllProducts" element={<AllProducts />} />
-      <Route path="/ProductDetail" element={<ProductDetail />} />
     </Routes>
     </>
   )

@@ -44,9 +44,8 @@ function Landing(){
                         </Link>
                         </div>
                     </section>
-                    <Link to="/ProductDetail" className="w-[50%] h-[100%] max-[710px]:w-[70%] max-[560px]:w-[90%] max-[360px]:w-[100%] px-[2rem] rounded-bl-[10rem] overflow-hidden">
-                    <img className="w-[100%] h-[100%] px-[2rem] rounded-bl-[10rem] overflow-hidden" src={sideImg} alt="side-img" />
-                    </Link>
+                    <Link>
+                    <img className="w-[50%] h-[100%] max-[710px]:w-[70%] max-[560px]:w-[90%] max-[360px]:w-[100%] px-[2rem] rounded-bl-[10rem] overflow-hidden" src={sideImg} alt="side-img" />
                 </main>
            </div>
            </div>
