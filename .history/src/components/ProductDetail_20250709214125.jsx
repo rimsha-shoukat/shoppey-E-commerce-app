@@ -33,14 +33,14 @@ function ProductDetail(){
                             <button className="cursor-pointer">+</button>
                         </div>
                         <div className="flex flex-row items-center justify-center gap-[1rem] mb-8">
-                            <button className="w-[2.5rem] h-[2.5rem] rounded-full shadow-[0.5px_0.5px_2px] cursor-pointer">XS</button>
+                            <button className="w-[2.5rem] h-[2.5rem] rounded-full shadow-[0.5px_0.5px_3px] cursor-pointer">XS</button>
                             <button className="w-[2.5rem] h-[2.5rem] rounded-full shadow-[0.5px_0.5px_2px] cursor-pointer">S</button>
                             <button className="w-[2.5rem] h-[2.5rem] rounded-full shadow-[0.5px_0.5px_2px] cursor-pointer">M</button>
                             <button className="w-[2.5rem] h-[2.5rem] rounded-full shadow-[0.5px_0.5px_2px] cursor-pointer">L</button>
                         </div>
                         <div className="flex flex-row items-center justify-center gap-[1rem]">
-                        <button className="h-[3rem] w-[8rem] rounded-md shadow-[0.5px_0.5px_2px] cursor-pointer">Add to cart</button>
-                        <button className="h-[3rem] w-[3rem] rounded-md shadow-[0.5px_0.5px_2px] cursor-pointer">Save</button>
+                        <button className="h-[3rem] w-[8rem] rounded-md shadow-md cursor-pointer">Add to cart</button>
+                        <button className="h-[3rem] w-[3rem] rounded-md shadow-md cursor-pointer">Save</button>
                         </div>
                     </div>
                  </section>
