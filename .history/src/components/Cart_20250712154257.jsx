@@ -6,4 +6,4 @@ function Cart(){
     )
 }
 
-export default Cart;
+export de

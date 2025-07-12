@@ -5,5 +5,3 @@ function Cart(){
         <>Hello cart</>
     )
 }
-
-export default Cart;

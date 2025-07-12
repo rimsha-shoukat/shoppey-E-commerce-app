@@ -11,7 +11,7 @@ import Social from "./components/Social.jsx"
 import SignIU from "./components/SignIU.jsx"
 import AllProducts from "./components/AllProducts.jsx"
 import ProductDetail from "./components/ProductDetail.jsx"
-import Cart from "./components/Cart.jsx"
+import Cart from "./components/P.jsx"
 
 function App(){
   return(
