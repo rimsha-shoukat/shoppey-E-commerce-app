@@ -3,7 +3,7 @@ import { Products } from "./AllProducts.jsx"
 
 
 
-const Slider = ({Items}) => {
+const Slider = () => {
   return (
       <div className="flex flex-row gap-4 items-center justify-between select-none scroll-smooth overflow-x-scroll overflow-y-hidden"
       style = {{
@@ -11,7 +11,7 @@ const Slider = ({Items}) => {
         msOverflowStyle: 'none',
       }}
       >
-        {Items.map((item) => (
+        {slide1.map((item) => (
           <div key={item.id} className="flex flex-col flex-shrink-0 w-auto h-auto shadow-lg">
           <img className="w-[14.5rem] h-[13rem]" src={item.src} alt="demo" />
           <div className="flex flex-col p-2 pt-2 bg-white w-[14.5rem] h-[6rem]">
@@ -45,14 +45,12 @@ const Slider = ({Items}) => {
           }else if(buttonName == 'TRENDS'){
             console.log('trends products');
             newFilter = Products.filter(item => item.trend === true);
-          }else{
-            newFilter = Products;
           }
           setFilterProducts(newFilter);
       };
 
         const slide1 = filterProducts.filter(item => item.id % 2 === 0);
-        const slide2 = filterProducts.filter(item => item.id % 2 !== 0);
+        const slide1 = filterProducts.filter(item => item.id % 2 !== 0);
 
     return(
         <>
@@ -74,8 +72,8 @@ const Slider = ({Items}) => {
             </section>
             {/* Product slider */}
               <section className="grid grid-rows-2 gap-2 mt-6 overflow-hidden w-auto p-4 inset-shadow-sm inset-shadow-gray-200">
-                <Slider Items={slide1}/>
-                <Slider Items={slide2}/>
+                <Slider1/>
+                <Slider2/>
               </section>
          </div>
         </>

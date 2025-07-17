@@ -45,8 +45,6 @@ const Slider = ({Items}) => {
           }else if(buttonName == 'TRENDS'){
             console.log('trends products');
             newFilter = Products.filter(item => item.trend === true);
-          }else{
-            newFilter = Products;
           }
           setFilterProducts(newFilter);
       };

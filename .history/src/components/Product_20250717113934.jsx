@@ -45,14 +45,12 @@ const Slider = ({Items}) => {
           }else if(buttonName == 'TRENDS'){
             console.log('trends products');
             newFilter = Products.filter(item => item.trend === true);
-          }else{
-            newFilter = Products;
           }
           setFilterProducts(newFilter);
       };
 
         const slide1 = filterProducts.filter(item => item.id % 2 === 0);
-        const slide2 = filterProducts.filter(item => item.id % 2 !== 0);
+        const slide1 = filterProducts.filter(item => item.id % 2 !== 0);
 
     return(
         <>
@@ -74,8 +72,8 @@ const Slider = ({Items}) => {
             </section>
             {/* Product slider */}
               <section className="grid grid-rows-2 gap-2 mt-6 overflow-hidden w-auto p-4 inset-shadow-sm inset-shadow-gray-200">
-                <Slider Items={slide1}/>
-                <Slider Items={slide2}/>
+                <Slider1/>
+                <Slider2/>
               </section>
          </div>
         </>

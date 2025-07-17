@@ -45,14 +45,12 @@ const Slider = ({Items}) => {
           }else if(buttonName == 'TRENDS'){
             console.log('trends products');
             newFilter = Products.filter(item => item.trend === true);
-          }else{
-            newFilter = Products;
           }
           setFilterProducts(newFilter);
       };
 
         const slide1 = filterProducts.filter(item => item.id % 2 === 0);
-        const slide2 = filterProducts.filter(item => item.id % 2 !== 0);
+        const slide1 = filterProducts.filter(item => item.id % 2 !== 0);
 
     return(
         <>
