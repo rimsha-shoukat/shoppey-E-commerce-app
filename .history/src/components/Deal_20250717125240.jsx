@@ -8,32 +8,19 @@ function Deal(){
 
     useEffect( () => {
         const timer = setInterval(() => {
-            setTime(prevTime => {
-                let {hour, mint, sec} = prevTime;
+            setTime(timer => {
+                let {hour, mint, sec} = timer;
                 if(sec > 0){
                     sec--;
                 }else{
                     if(mint > 0){
                         mint--;
-                        sec = 59;
-                    }else{
-                        if(hour > 0){
-                            hour--;
-                            mint = 59;
-                            sec = 59;
-                        }else {
-                            clearInterval(timer);
-                            return { hour: 0, mint: 0, sec: 0 }; 
-                        }
+                        sec(59;
                     }
                 }
-                return { hour, mint, sec };
-            });
-        }, 1000);
-        return () => clearInterval(timer); 
-    }, []);
-
-    const formatTime = (time) => (time < 10 ? `0${time}` : time);
+            })
+        })
+    }, [])
 
     return (
         <>
@@ -49,15 +36,15 @@ function Deal(){
                     {/* timer */}
                     <div className="flex flex-row items-start justify-between gap-10 max-[390px]:gap-4 h-auto mt-6 max-[700px]:mt-2">
                         <span className="w-[4.8rem] h-[4.8rem] bg-[#eee2ca] flex flex-col items-center justify-center gap-[1.5rem] hover:shadow-lg">
-                            <h1 className="text-[2.3rem] font-bold leading-6">{formatTime(time.hour)}</h1>
+                            <h1 className="text-[2.3rem] font-bold leading-6">{hour}</h1>
                             <p className="font-semibold leading-0">Hours</p>
                         </span>
                         <span className="w-[4.8rem] h-[4.8rem] bg-[#eee2ca] flex flex-col items-center justify-center gap-[1.5rem] hover:shadow-lg">
-                            <h1 className="text-[2.3rem] font-bold leading-6">{formatTime(time.mint)}</h1>
+                            <h1 className="text-[2.3rem] font-bold leading-6">{mint}</h1>
                             <p className="font-semibold leading-0">Minutes</p>
                         </span>
                         <span className="w-[4.8rem] h-[4.8rem] bg-[#eee2ca] flex flex-col items-center justify-center gap-[1.5rem] hover:shadow-lg">
-                            <h1 className="text-[2.3rem] font-bold leading-6">{formatTime(time.sec)}</h1>
+                            <h1 className="text-[2.3rem] font-bold leading-6">{sec}</h1>
                             <p className="font-semibold leading-0">Seconds</p>
                         </span>
                     </div>

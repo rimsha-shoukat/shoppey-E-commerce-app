@@ -53,11 +53,11 @@ function Deal(){
                             <p className="font-semibold leading-0">Hours</p>
                         </span>
                         <span className="w-[4.8rem] h-[4.8rem] bg-[#eee2ca] flex flex-col items-center justify-center gap-[1.5rem] hover:shadow-lg">
-                            <h1 className="text-[2.3rem] font-bold leading-6">{formatTime(time.mint)}</h1>
+                            <h1 className="text-[2.3rem] font-bold leading-6">{formatTime(time.hou)}</h1>
                             <p className="font-semibold leading-0">Minutes</p>
                         </span>
                         <span className="w-[4.8rem] h-[4.8rem] bg-[#eee2ca] flex flex-col items-center justify-center gap-[1.5rem] hover:shadow-lg">
-                            <h1 className="text-[2.3rem] font-bold leading-6">{formatTime(time.sec)}</h1>
+                            <h1 className="text-[2.3rem] font-bold leading-6">{sec}</h1>
                             <p className="font-semibold leading-0">Seconds</p>
                         </span>
                     </div>
