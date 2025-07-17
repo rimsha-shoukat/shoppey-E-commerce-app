@@ -62,9 +62,8 @@ function Deal(){
                             <p className="font-semibold leading-0">Seconds</p>
                         </span>
                     </div>
-                    <Link to="/AllProducts">
-                     <button className="mt-[2rem] max-[700px]:mt-4 hover:transition-all duration-700 ease-in-out cursor-pointer px-6 max-[900px]:px-4 py-2  bg-[#251201] text-[#eee2ca] font-bold text-[1.2rem] max-[900px]:text-[1rem] hover:bg-[#eee2ca] hover:text-[#251201]">SHOP NOW</button>
-                    </Link>
+                    <Link to="/product">
+                    <button className="mt-[2rem] max-[700px]:mt-4 hover:transition-all duration-700 ease-in-out cursor-pointer px-6 max-[900px]:px-4 py-2  bg-[#251201] text-[#eee2ca] font-bold text-[1.2rem] max-[900px]:text-[1rem] hover:bg-[#eee2ca] hover:text-[#251201]">SHOP NOW</button>
                 </section>
                 {/* image section */}
                 <section className="w-[45%] max-[1100px]:w-[50%] max-[710px]:w-[60%] max-[460px]:w-[80%] h-[100%] flex items-end justify-end">
