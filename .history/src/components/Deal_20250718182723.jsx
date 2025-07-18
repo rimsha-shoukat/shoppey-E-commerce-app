@@ -7,7 +7,7 @@ import { Products } from "./AllProducts.jsx"
 function Deal(){
     
     const [time, setTime] = useState({ hour: 8, mint: 3, sec: 34 });
-    const [imageIndex, setImageIndex] = useState(0);
+    cons
     const dealItems = Products.filter(item => item.deal === true);
 
     useEffect( () => {
@@ -35,15 +35,11 @@ function Deal(){
             });
         }, 1000);
 
-        const imageInterval = setInterval(() => {
-            setImageIndex(prevIndex => (prevIndex + 1) % dealItems.length);
-        }, 2000);
+        const imageInterval = seInterval(() => {
+            
+        })
 
-        return () => {
-            clearInterval(timer);
-            clearInterval(imageInterval);
-        };
-
+        return () => clearInterval(timer); 
     }, []);
 
     const formatTime = (time) => (time < 10 ? `0${time}` : time);
@@ -81,8 +77,8 @@ function Deal(){
                 {/* image section */}
                 <section className="w-[45%] max-[1100px]:w-[50%] max-[710px]:w-[60%] max-[460px]:w-[80%] h-[100%] flex items-end justify-end">
                     {/* images */}
-                    
-                    <img className="w-[100%] h-[100%] px-[4rem] max-[900px]:pl-[2rem] max-[900px]:pr-0 max-[700px]:pl-0 overflow-hidden pt-[6rem] max-[710px]:pt-4" src={dealItems[imageIndex].src} alt="deal" />
+            
+                    <img className="w-[100%] h-[100%] px-[4rem] max-[900px]:pl-[2rem] max-[900px]:pr-0 max-[700px]:pl-0 overflow-hidden pt-[6rem] max-[710px]:pt-4" src={sideImg} alt="side Image" />
 
                 </section>
             </div>
