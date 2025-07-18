@@ -1,27 +1,159 @@
 import {React, useState, useEffect} from "react";
+import { RiStarSFill } from "react-icons/ri";
+import { ImStarEmpty } from "react-icons/im";
 import { Products } from "./AllProducts.jsx"
 
+
+
+
+let collection = [
+  {
+    "id" : 0,
+    "image": img1,
+    "stars" : 5,
+    "name":"Fashion wear",
+    "price": "20"
+  },{
+    "id" : 1,
+    "image": img2,
+    "stars" : 5,
+    "name":"Fashion wear",
+    "price": "22"
+  },{
+    "id" : 2,
+    "image": img3,
+    "stars" : 4,
+    "name":"Fashion wear",
+    "price": "20"
+  },{
+    "id" : 3,
+    "image": img4,
+    "stars" : 5,
+    "name":"Fashion wear",
+    "price": "24"
+  },{
+    "id" : 4,
+    "image": img5,
+    "stars" : 5,
+    "name":"Fashion wear",
+    "price": "26"
+  },{
+    "id" : 5,
+    "image": img6,
+    "stars" : 4,
+    "name":"Fashion wear",
+    "price": "18"
+  },{
+    "id" : 6,
+    "image": img7,
+    "stars" : 5,
+    "name":"Fashion wear",
+    "price": "21"
+  },{
+    "id" : 7,
+    "image": img8,
+    "stars" : 5,
+    "name":"Fashion wear",
+    "price": "25"
+  },{
+    "id" : 8,
+    "image": img9,
+    "stars" : 5,
+    "name":"Fashion wear",
+    "price": "26"
+  },{
+    "id" : 9,
+    "image": img10,
+    "stars" : 4,
+    "name":"Fashion wear",
+    "price": "25"
+  },{
+    "id" : 10,
+    "image": img11,
+    "stars" : 5,
+    "name":"Fashion wear",
+    "price": "25"
+  },{
+    "id" : 11,
+    "image": img12,
+    "stars" : 5,
+    "name":"Fashion wear",
+    "price": "23"
+  },{
+    "id" : 12,
+    "image": img13,
+    "stars" : 4,
+    "name":"Fashion wear",
+    "price": "19"
+  },{
+    "id" : 13,
+    "image": img14,
+    "stars" : 5,
+    "name":"Fashion wear",
+    "price": "20"
+  },{
+    "id" : 14,
+    "image": img15,
+    "stars" : 4,
+    "name":"Fashion wear",
+    "price": "22"
+  },{
+    "id" : 15,
+    "image": img16,
+    "stars" : 5,
+    "name":"Fashion wear",
+    "price": "26"
+  },{
+    "id" : 16,
+    "image": img17,
+    "stars" : 5,
+    "name":"Fashion wear",
+    "price": "23"
+  },{
+    "id" : 17,
+    "image": img18,
+    "stars" : 4,
+    "name":"Fashion wear",
+    "price": "24"
+  }
+]
+
 function Slider(props){
+
   return (
     <section className="flex flex-row items-center justify-center w-[100%] gap-[1.5rem] pt-[2rem] font-serif">
-      {props.products.slice(props.start, props.end).map((item) => {
+   { collection.slice(props.start, props.end).map((item) => {
+    let Rating = [];
+
+    for(let i = 0; i < 5; i++){
+      if(i < item.stars){
+        Rating.push(<RiStarSFill className="text-yellow-400 text-[1.5rem]" key={`filled-${item.id}-${i}`} />)
+      }else {
+        Rating.push(<ImStarEmpty className="text-yellow-400 text-[1.2rem] mt-[0.1rem]" key={`empty-${item.id}-${i}`} />)
+      }
+    }
+
     return (
         <div key={item.id} className="w-auto h-auto bg-white">
-          <img  className="w-[16rem] h-[15rem] drop-shadow-lg" src={item.src} alt="img" />
-          <div className="p-[0.5rem] select-none w-[16rem] h-[5rem]">
-            <h1 className="text-[1rem] font-semibold leading-5 pb-[0.25rem]">{item.name}</h1>
+          <img  className="w-[16rem] h-[15rem] drop-shadow-lg" src={item.image} alt="" />
+          <div className="p-[0.5rem] select-none leading-6 pb-[0.2rem]">
+            <span className="flex flex-row">
+              {Rating}
+            </span>
+            <h1 className="text-[1rem] font-semibold">{item.name}</h1>
             <p className='text-[1rem]'>${item.price}</p>
           </div>
         </div>
   )})}
+
     </section>
   );
 }
 
+
 function BestSeller(){
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(3); 
-  const bestSeller = Products.filter((items) => (items.trend == true && items.new == true));
 
   useEffect(() => {
       const updateItemsPerPage = () => {
@@ -56,9 +188,9 @@ function BestSeller(){
                     <button className="hover:transition-all mt-2 duration-700 delay-150 ease-in-out hover:text-[#8f5e36] font-bold cursor-pointer">SEE MORE</button>
                 </article>
                 <section className="flex flex-col gap-[2rem] w-[65%] max-[1250px]:w-[60%] max-[920px]:w-[90%] overflow-hidden">
-                 <Slider start={currentIndex} end={currentIndex + itemsPerPage} products={bestSeller} />
+                 <Slider start={currentIndex} end={currentIndex + itemsPerPage} />
                 <section className="max-[1185px]:justify-center flex flex-row items-start justify-start mt-[2rem]">
-                  {Array.from({ length: Math.ceil(bestSeller.length / itemsPerPage) }).map((_, index) => (
+                  {Array.from({ length: Math.ceil(collection.length / itemsPerPage) }).map((_, index) => (
                       <button
                           key={index}
                           onClick={() => handleClick(index)}

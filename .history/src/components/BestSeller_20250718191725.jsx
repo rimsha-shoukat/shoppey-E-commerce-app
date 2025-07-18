@@ -9,7 +9,7 @@ function Slider(props){
         <div key={item.id} className="w-auto h-auto bg-white">
           <img  className="w-[16rem] h-[15rem] drop-shadow-lg" src={item.src} alt="img" />
           <div className="p-[0.5rem] select-none w-[16rem] h-[5rem]">
-            <h1 className="text-[1rem] font-semibold leading-5 pb-[0.25rem]">{item.name}</h1>
+            <h1 className="text-[1rem] font-semibold leading-5 pb-[0.3rem]">{item.name}</h1>
             <p className='text-[1rem]'>${item.price}</p>
           </div>
         </div>

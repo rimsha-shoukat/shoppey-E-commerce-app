@@ -4,12 +4,12 @@ import { Products } from "./AllProducts.jsx"
 function Slider(props){
   return (
     <section className="flex flex-row items-center justify-center w-[100%] gap-[1.5rem] pt-[2rem] font-serif">
-      {props.products.slice(props.start, props.end).map((item) => {
+      {props..slice(props.start, props.end).map((item) => {
     return (
         <div key={item.id} className="w-auto h-auto bg-white">
           <img  className="w-[16rem] h-[15rem] drop-shadow-lg" src={item.src} alt="img" />
-          <div className="p-[0.5rem] select-none w-[16rem] h-[5rem]">
-            <h1 className="text-[1rem] font-semibold leading-5 pb-[0.25rem]">{item.name}</h1>
+          <div className="p-[0.5rem] select-none leading-6 w-[16rem] h-[4rem] pb-[0.2rem]">
+            <h1 className="text-[1rem] font-semibold">{item.name}</h1>
             <p className='text-[1rem]'>${item.price}</p>
           </div>
         </div>

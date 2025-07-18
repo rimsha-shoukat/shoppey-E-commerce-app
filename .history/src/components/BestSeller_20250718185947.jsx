@@ -4,12 +4,12 @@ import { Products } from "./AllProducts.jsx"
 function Slider(props){
   return (
     <section className="flex flex-row items-center justify-center w-[100%] gap-[1.5rem] pt-[2rem] font-serif">
-      {props.products.slice(props.start, props.end).map((item) => {
+      {Products.slice(props.start, props.end).map((item) => {
     return (
         <div key={item.id} className="w-auto h-auto bg-white">
           <img  className="w-[16rem] h-[15rem] drop-shadow-lg" src={item.src} alt="img" />
-          <div className="p-[0.5rem] select-none w-[16rem] h-[5rem]">
-            <h1 className="text-[1rem] font-semibold leading-5 pb-[0.25rem]">{item.name}</h1>
+          <div className="p-[0.5rem] select-none leading-6 pb-[0.2rem]">
+            <h1 className="text-[1rem] font-semibold">{item.name}</h1>
             <p className='text-[1rem]'>${item.price}</p>
           </div>
         </div>
@@ -21,8 +21,7 @@ function Slider(props){
 function BestSeller(){
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(3); 
-  const bestSeller = Products.filter((items) => (items.trend == true && items.new == true));
-
+  const b
   useEffect(() => {
       const updateItemsPerPage = () => {
           if ((window.innerWidth < 1250)&&(window.innerWidth > 695)) {
@@ -56,9 +55,9 @@ function BestSeller(){
                     <button className="hover:transition-all mt-2 duration-700 delay-150 ease-in-out hover:text-[#8f5e36] font-bold cursor-pointer">SEE MORE</button>
                 </article>
                 <section className="flex flex-col gap-[2rem] w-[65%] max-[1250px]:w-[60%] max-[920px]:w-[90%] overflow-hidden">
-                 <Slider start={currentIndex} end={currentIndex + itemsPerPage} products={bestSeller} />
+                 <Slider start={currentIndex} end={currentIndex + itemsPerPage} />
                 <section className="max-[1185px]:justify-center flex flex-row items-start justify-start mt-[2rem]">
-                  {Array.from({ length: Math.ceil(bestSeller.length / itemsPerPage) }).map((_, index) => (
+                  {Array.from({ length: Math.ceil(Products.length / itemsPerPage) }).map((_, index) => (
                       <button
                           key={index}
                           onClick={() => handleClick(index)}
