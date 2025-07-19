@@ -54,9 +54,8 @@ function BestSeller(){
                 <article className="container flex flex-col items-start justify-start gap-[2rem] max-[920px]:pl-0 pl-[2rem] w-[35%] max-[1250px]:w-[40%] max-[920px]:w-[80%] text-white">
                     <h1 className="text-[clamp(2.5rem,4.5vw,5rem)] font-bold select-none leading-14">Best Seller Product</h1>
                     <p className="select-none max-[1343px]:text-sm max-[860px]:text-md text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, quia esse saepe sunt facilis neque Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, quia esse saepe sunt facilis neque iusto porro rem consequuntur, ab minima iste nemo quidem temporibus iure excepturi ipsam perferendis sequi.</p>
-                    <Link to="/AllProducts">
+                    
                     <button className="hover:transition-all mt-2 duration-700 delay-150 ease-in-out hover:text-[#8f5e36] font-bold cursor-pointer">SEE MORE</button>
-                    </Link>
                 </article>
                 <section className="flex flex-col gap-[2rem] w-[65%] max-[1250px]:w-[60%] max-[920px]:w-[90%] overflow-hidden">
                  <Slider start={currentIndex} end={currentIndex + itemsPerPage} products={bestSeller} />

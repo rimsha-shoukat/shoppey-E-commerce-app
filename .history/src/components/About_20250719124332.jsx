@@ -238,7 +238,7 @@ const Reviews = ()=> {
                     msOverflowStyle: 'none',
                 }}>
                     {customers.map((user,i) => (
-                        <div key={i} className="flex flex-col w-[19rem] h-[16rem] flex-shrink-0 items-center shadow-md p-4 justify-between gap-2 bg-[#eee2ca] rounded-md border-2 border-[#c8967d] font-sans">
+                        <div key={i} className="flex flex-col w-[19rem] h-[20rem] flex-shrink-0 items-center shadow-md p-4 justify-between gap-2 bg-[#eee2ca] rounded-md border-2 border-[#c8967d] font-sans">
                             <p className="font-semibold leading-5">{user.intro}</p>
                             <p className="text-sm text-justify mb-2">{user.review}</p>
                             <img  className="w-[5.5rem] h-[5.5rem] rounded-full" src={user.img}/>

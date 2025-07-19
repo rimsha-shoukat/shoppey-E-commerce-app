@@ -238,10 +238,10 @@ const Reviews = ()=> {
                     msOverflowStyle: 'none',
                 }}>
                     {customers.map((user,i) => (
-                        <div key={i} className="flex flex-col w-[19rem] h-[16rem] flex-shrink-0 items-center shadow-md p-4 justify-between gap-2 bg-[#eee2ca] rounded-md border-2 border-[#c8967d] font-sans">
-                            <p className="font-semibold leading-5">{user.intro}</p>
-                            <p className="text-sm text-justify mb-2">{user.review}</p>
-                            <img  className="w-[5.5rem] h-[5.5rem] rounded-full" src={user.img}/>
+                        <div key={i} className="flex flex-col w-[19rem] h-auto flex-shrink-0 items-center shadow-md p-4 justify-between gap-2 bg-[#eee2ca] rounded-md border-2 border-[#c8967d] font-sans">
+                            <p className="font-semibold">{user.intro}</p>
+                            <p className="text-sm text-justify">{user.review}</p>
+                            <img  className="w-[5.5rem] h-[5rem] rounded-full" src={user.img}/>
                             <h1 className="font-bold text-[1.3rem] leading-2 mt-2">{user.name}</h1>
                             <h1 className="font-italic text-[1.2rem]">{user.rank}</h1>
                         </div>
@@ -258,7 +258,7 @@ function About(){
                 <p className="text-sm max-[533px]:hidden">Lorem ipsum dolor sit amet. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, itaque. Lorem ipsum dolor sit amet.</p>
                 {/* rating slider section */}
                 <div className="grid grid-rows-1 overflow-hidden mt-6 p-4 w-auto">
-                    <Reviews />
+                    <UserSlider />
                 </div>
             </section>
         </>
