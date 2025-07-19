@@ -60,12 +60,12 @@ function BestSeller(){
                 </article>
                 <section className="flex flex-col gap-[2rem] w-[65%] max-[1250px]:w-[60%] max-[920px]:w-[90%] overflow-hidden">
                  <Slider start={currentIndex} end={currentIndex + itemsPerPage} products={bestSeller} />
-                <section className="max-[1185px]:justify-center flex flex-row items-start flex-wrap gap-2 justify-start mt-[2rem]">
+                <section className="max-[1185px]:justify-center flex flex-row items-start flex-wrap justify-start mt-[2rem]">
                   {Array.from({ length: Math.ceil(bestSeller.length / itemsPerPage) }).map((_, index) => (
                       <button
                           key={index}
                           onClick={() => handleClick(index)}
-                          className={`w-[0.6rem] h-[0.6rem] cursor-pointer rounded-full ${currentIndex === index * itemsPerPage ? 'bg-white' : 'bg-transparent'} border-white border-[0.1rem]`}
+                          className={`w-[0.6rem] h-[0.6rem] cursor-pointer ml-1 rounded-full ${currentIndex === index * itemsPerPage ? 'bg-white' : 'bg-transparent'} border-white border-[0.1rem]`}
                       ></button>
                   ))}
                   </section>

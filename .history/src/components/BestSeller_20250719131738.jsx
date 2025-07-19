@@ -65,7 +65,7 @@ function BestSeller(){
                       <button
                           key={index}
                           onClick={() => handleClick(index)}
-                          className={`w-[0.6rem] h-[0.6rem] cursor-pointer rounded-full ${currentIndex === index * itemsPerPage ? 'bg-white' : 'bg-transparent'} border-white border-[0.1rem]`}
+                          className={`w-[0.6rem] h-[0.6rem] cursor-pointer ml-1 rounded-full ${currentIndex === index * itemsPerPage ? 'bg-white' : 'bg-transparent'} border-white border-[0.1rem]`}
                       ></button>
                   ))}
                   </section>
