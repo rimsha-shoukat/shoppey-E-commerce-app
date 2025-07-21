@@ -13,8 +13,8 @@ function Social(){
                     <img className="w-[15.5rem] h-[12rem]" src={img1} alt="youtube" />
                     <img className="w-[15.5rem] h-[12rem]" src={img3} alt="pinterest" />
                     <img className="w-[15.5rem] h-[12rem]" src={img4} alt="facebook" />
-                    <img className="w-[15.5rem] h-[12rem]" src={img2} alt="telegram" />
-                    <img className="w-[15.5rem] h-[12rem]" src={img5} alt="google" />
+                    <img className="w-[15.5rem] h-[12rem]" src={img2} alt="" />
+                    <img className="w-[15.5rem] h-[12rem]" src={img5} alt="" />
                 </div>
             <h1 className="absolute px-[1.45rem] py-[0.65rem] bg-[#eee2ca] border text-[1rem] font-semibold border-[#c8967d] bottom-[5.7rem]">Follow us on social media</h1>
                 <div className="flex flex-row items-center justify-evenly w-[100%] h-auto mt-[2rem] max-[440px]:text-xs">
