@@ -1,9 +1,9 @@
 import React from "react"
 import img1 from "../assets/s1.jpeg";
 import img2 from "../assets/s2.jpeg";
-import img3 from "../assets/s3.jpeg";
-import img4 from "../assets/s4.jpeg";
-import img5 from "../assets/s5.jpeg";
+import img3 from "../assets/s.jpeg";
+import img4 from "../assets/s.jpeg";
+import img5 from "../assets/s.jpeg";
 
 function Social(){
     return(
