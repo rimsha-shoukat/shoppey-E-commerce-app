@@ -59,9 +59,8 @@ function ProductDetail(){
                  </section>
                  <section className="columns-5 w-[100%] p-4 h-auto mt-4 max-[900px]:columns-4 max-[660px]:columns-3 max-[500px]:columns-2">
                     {products.map((item) => (
-                        <Link key={item.id} to={`/ProductDetail/${item.id}`}>
-                          <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[0.1px_0.1px_0.1rem_#dd957a]" src={item.src} />
-                        </Link>
+                        
+                        <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[0.1px_0.1px_0.1rem_#dd957a]" src={item.src} />
                     ))}
                  </section>
             </div>

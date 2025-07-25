@@ -3,6 +3,7 @@ import { Products } from "./AllProducts.jsx"
 import { Link } from 'react-router-dom';
 
 
+
 const Slider = ({Items}) => {
   return (
       <div className="flex flex-row gap-4 items-center justify-between select-none scroll-smooth overflow-x-scroll overflow-y-hidden"
