@@ -46,9 +46,7 @@ function Save(){
                 <h1 className="text-[2rem] max-[400px]:text-[1rem] font-bold leading-5 mt-4">You may like</h1>
                 <section className="columns-5 w-[100%] p-4 max-[400px]:p-2 h-auto max-[900px]:columns-4 max-[660px]:columns-3 max-[500px]:columns-2">
                     {Products.map((item) => (
-                    <Link key={item.id} to={`/ProductDetail/${item.id}`}>
-                      <img key={item.id} className="w-full rounded-[1rem] mb-6 max-[400px]:mb-4 h-auto shadow-[0.1px_0.1px_0.1rem_#dd957a]" src={item.src} />
-                    </Link>
+                      <img key className="w-full rounded-[1rem] mb-6 max-[400px]:mb-4 h-auto shadow-[0.1px_0.1px_0.1rem_#dd957a]" src={item.src} />
                     ))}
                 </section>
                 
