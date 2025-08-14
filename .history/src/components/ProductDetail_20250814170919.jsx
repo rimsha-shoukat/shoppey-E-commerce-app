@@ -14,11 +14,16 @@ function ProductDetail(){
     const image = Products.find(img => img.id === parseInt(id));
     const products = Products.filter(item => item.category === image.category);
     const[num, setNum] = useState(1);
-
-    const[select, setSelect] = useState('M');
-    const selectSize = (e) => {
-        setSelect(e.target.innerText);
+    let currentSelected = document.querySelector('[data-size="m"]')
+    function selectSize(button){
+        const allButtons = document.querySelectorAll('.selected-btn');
+        allButtons.forEach(btn => {
+            btn.classList.remove('bg-gray-500', 'text-white');
+        });
+        button.target.classList.add('bg-gray-500', 'text-white');
+        currentSelected = button.target;
     }
+    
 
     return(
         <>
@@ -52,10 +57,10 @@ function ProductDetail(){
                             <FaPlus onClick={num < 10 ? () => setNum(num + 1) : null} className="cursor-pointer hover:text-gray-700"/>
                         </div>
                         <div className="flex flex-row items-center justify-center gap-[1rem] mb-6">
-                            <button onClick={(e) => selectSize(e)} className={`w-[2.5rem] h-[2.5rem] ${select === 'XS' ? 'bg-gray-500 text-white' : ''} hover:shadow-[0.5px_0.5px_3px] hover:shadow-gray-800 rounded-full shadow-[0.5px_0.5px_2px] cursor-pointer`}>XS</button>
-                            <button onClick={(e) => selectSize(e)} className={`w-[2.5rem] h-[2.5rem] ${select === 'S' ? 'bg-gray-500 text-white' : ''} hover:shadow-[0.5px_0.5px_3px] hover:shadow-gray-800 rounded-full shadow-[0.5px_0.5px_2px] cursor-pointer`}>S</button>
-                            <button onClick={(e) => selectSize(e)} className={`w-[2.5rem] h-[2.5rem] ${select === 'M' ? 'bg-gray-500 text-white' : ''} hover:shadow-[0.5px_0.5px_3px] hover:shadow-gray-800 rounded-full shadow-[0.5px_0.5px_2px] cursor-pointer`}>M</button>
-                            <button onClick={(e) => selectSize(e)} className={`w-[2.5rem] h-[2.5rem] ${select === 'L' ? 'bg-gray-500 text-white' : ''} hover:shadow-[0.5px_0.5px_3px] hover:shadow-gray-800 rounded-full shadow-[0.5px_0.5px_2px] cursor-pointer`}>L</button>
+                            <button onClick={() => selectSize(this)} data-size='xs' className="selected-btn w-[2.5rem] h-[2.5rem] hover:bg-gray-500 hover:shadow-[0.5px_0.5px_3px] hover:shadow-gray-800 hover:text-white rounded-full shadow-[0.5px_0.5px_2px] cursor-pointer">XS</button>
+                            <button onClick={() => selectSize(this)} data-size='s' className="selected-btn w-[2.5rem] h-[2.5rem] hover:bg-gray-500 hover:shadow-[0.5px_0.5px_3px] hover:shadow-gray-800 hover:text-white rounded-full shadow-[0.5px_0.5px_2px] cursor-pointer">S</button>
+                            <button onClick={() => selectSize(this)} data-size='m' className="selected-btn w-[2.5rem] h-[2.5rem] hover:bg-gray-500 hover:shadow-[0.5px_0.5px_3px] hover:shadow-gray-800 hover:text-white rounded-full shadow-[0.5px_0.5px_2px] cursor-pointer">M</button>
+                            <button onClick={() => selectSize(this)} data-size='l' className="selected-btn w-[2.5rem] h-[2.5rem] hover:bg-gray-500 hover:shadow-[0.5px_0.5px_3px] hover:shadow-gray-800 hover:text-white rounded-full shadow-[0.5px_0.5px_2px] cursor-pointer">L</button>
                         </div>
                         <div className="flex flex-row items-center justify-center gap-[2rem]">
                         <button className="px-[2rem] py-[10px] rounded-md text-nowrap shadow-[0.5px_0.5px_2px] hover:shadow-[0.5px_0.5px_3px] hover:shadow-gray-800 hover:bg-gray-500 hover:text-white cursor-pointer">Add to cart</button>
