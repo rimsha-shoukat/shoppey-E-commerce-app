@@ -24,7 +24,7 @@ const Saves = () => {
                             <h1 className="text-[1.3rem] leading-5 font-bold max-[400px]:text-[0.85rem] max-[400px]:font-semibold">{item.name}</h1>
                             <div className="flex flex-row items-center justify-between gap-4">
                                 <p className="text-md font-semibold text-nowrap max-[400px]:text-sm">Size: {item.size}</p>
-                                <p className="text-md font-semibold text-nowrap max-[400px]:text-sm">${item.price}</p>
+                                <p className="text-md font-semibold text-nowrap max-[400px]:text-sm">$450.34</p>
                             </div>
                         </div>
                         <div className="flex flex-row items-start justify-start gap-4 max-[400px]:gap-2">

@@ -28,11 +28,9 @@ function ProductDetail(){
     const[addToSave, setAddToSave] = useState(SaveItems.some(img => img.id === image.id));
 
     useEffect(() => {
-        setNum(1);
-        setSelect('M');
         setAddToCart(CartItems.some(img => img.id === image.id));
         setAddToSave(SaveItems.some(img => img.id === image.id));
-    }, [id]);
+    }, []);
 
     const AddedToCart = (img) => {
         if(!addToCart){

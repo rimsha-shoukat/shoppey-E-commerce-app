@@ -18,6 +18,7 @@ function ProductDetail(){
     const image = Products.find(img => img.id === parseInt(id));
     const products = Products.filter(item => item.category === image.category);
     const[num, setNum] = useState(1);
+
     const[select, setSelect] = useState('M');
 
     const selectSize = (e) => {
@@ -28,11 +29,9 @@ function ProductDetail(){
     const[addToSave, setAddToSave] = useState(SaveItems.some(img => img.id === image.id));
 
     useEffect(() => {
-        setNum(1);
-        setSelect('M');
         setAddToCart(CartItems.some(img => img.id === image.id));
         setAddToSave(SaveItems.some(img => img.id === image.id));
-    }, [id]);
+    }, [image]);
 
     const AddedToCart = (img) => {
         if(!addToCart){
@@ -55,18 +54,19 @@ function ProductDetail(){
     const AddedToSave = (img) => {
         if(!addToSave){
             setAddToSave(true);
-            SaveItems.push({
+            Cart.push({
               id: img.id,
               name: img.name,
               price: img.price,
               src: img.src,
+              discount: img.discount,
               size: select,
+              quantity: num
             });
             alert('Added to save');
         } else {
             alert('Already added to save');
         }
-        console.log(SaveItems);
     }
 
     return(

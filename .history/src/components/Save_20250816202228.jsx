@@ -18,13 +18,13 @@ const Saves = () => {
         <section className="w-[100%] h-auto flex flex-col items-center justify-center">
             {SaveItems.map((item) => (
                 <div key={item.id} className="w-auto flex flex-row items-center justify-start py-6 max-[600px]:py-2 gap-4 max-[600px]:gap-2 border-t-2 border-t-gray-400">
-                    <img className="w-[8rem] h-[8rem] max-[400px]:w-[6rem] max-[400px]:h-[6rem] rounded-sm" src={item.src} />
+                    <img className="w-[8rem] h-[8rem] max-[400px]:w-[6rem] max-[400px]:h-[6rem] rounded-sm" src={img1} />
                     <div className="flex flex-row max-[600px]:flex-col max-[600px]:gap-4 items-start justify-between gap-[3rem] ">
                         <div className="flex flex-col items-start justify-start gap-2">
-                            <h1 className="text-[1.3rem] leading-5 font-bold max-[400px]:text-[0.85rem] max-[400px]:font-semibold">{item.name}</h1>
+                            <h1 className="text-[1.3rem] leading-5 font-bold max-[400px]:text-[0.85rem] max-[400px]:font-semibold">Jeans with pockets</h1>
                             <div className="flex flex-row items-center justify-between gap-4">
-                                <p className="text-md font-semibold text-nowrap max-[400px]:text-sm">Size: {item.size}</p>
-                                <p className="text-md font-semibold text-nowrap max-[400px]:text-sm">${item.price}</p>
+                                <p className="text-md font-semibold text-nowrap max-[400px]:text-sm">Size: M</p>
+                                <p className="text-md font-semibold text-nowrap max-[400px]:text-sm">$450.34</p>
                             </div>
                         </div>
                         <div className="flex flex-row items-start justify-start gap-4 max-[400px]:gap-2">

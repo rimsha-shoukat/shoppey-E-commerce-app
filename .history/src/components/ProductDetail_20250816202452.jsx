@@ -18,6 +18,7 @@ function ProductDetail(){
     const image = Products.find(img => img.id === parseInt(id));
     const products = Products.filter(item => item.category === image.category);
     const[num, setNum] = useState(1);
+
     const[select, setSelect] = useState('M');
 
     const selectSize = (e) => {
@@ -28,11 +29,11 @@ function ProductDetail(){
     const[addToSave, setAddToSave] = useState(SaveItems.some(img => img.id === image.id));
 
     useEffect(() => {
-        setNum(1);
-        setSelect('M');
         setAddToCart(CartItems.some(img => img.id === image.id));
         setAddToSave(SaveItems.some(img => img.id === image.id));
-    }, [id]);
+        setSelect('M');
+        setNum(1);
+    }, [image,]);
 
     const AddedToCart = (img) => {
         if(!addToCart){
