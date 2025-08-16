@@ -1,4 +1,4 @@
-import React , { useState , useEffect } from "react";
+import React , { useState } from "react";
 import { FaRegUser } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
@@ -10,63 +10,23 @@ import { FaRegHeart } from "react-icons/fa6";
 import { Products } from "./AllProducts.jsx"
 import { useParams } from 'react-router-dom';
 
-export const Cart = [];
-export const Save = [];
-
 function ProductDetail(){
     const { id } = useParams();
     const image = Products.find(img => img.id === parseInt(id));
     const products = Products.filter(item => item.category === image.category);
     const[num, setNum] = useState(1);
-
+    const Cart = [];
+    const Save = [];
+    const[addToCart, setAddToCart] = useState(false);
+    const[addToCart, setAddToCart] = useState(false);
     const[select, setSelect] = useState('M');
 
     const selectSize = (e) => {
         setSelect(e.target.innerText);
     }
 
-    const[addToCart, setAddToCart] = useState(Cart.some(img => img.id === image.id));
-    const[addToSave, setAddToSave] = useState(Save.some(img => img.id === image.id));
-
-    useEffect(() => {
-        setAddToCart(Cart.some(img => img.id === image.id));
-        setAddToSave(Save.some(img => img.id === image.id));
-    }, [image]);
-
     const AddedToCart = (img) => {
-        if(!addToCart){
-            setAddToCart(true);
-            Cart.push({
-              id: img.id,
-              name: img.name,
-              price: img.price,
-              src: img.src,
-              discount: img.discount,
-              size: select,
-              quantity: num
-            });
-            alert('Added to cart');
-        } else {
-            alert('Already added to cart');
-        }
-    }
 
-    const AddedToSave = (img) => {
-        if(!addToSave){
-            setAddToSave(true);
-            Cart.push({
-              id: img.id,
-              name: img.name,
-              price: img.price,
-              src: img.src,
-              discount: img.discount,
-              size: select,
-              quantity: num
-            });
-            alert('Added to save');
-        } else {
-            alert('Already added to save');
-        }
     }
 
     return(
@@ -101,14 +61,14 @@ function ProductDetail(){
                             <FaPlus onClick={num < 10 ? () => setNum(num + 1) : null} className="cursor-pointer hover:text-gray-700"/>
                         </div>
                         <div className="flex flex-row items-center justify-center gap-[1rem] mb-6">
-                            <button onClick={ (e) => selectSize(e) } className={`w-[2.5rem] h-[2.5rem] ${select === 'XS' ? 'bg-gray-500 text-white' : ''} hover:shadow-[0.5px_0.5px_3px] hover:shadow-gray-800 rounded-full shadow-[0.5px_0.5px_2px] cursor-pointer`}>XS</button>
-                            <button onClick={ (e) => selectSize(e) } className={`w-[2.5rem] h-[2.5rem] ${select === 'S' ? 'bg-gray-500 text-white' : ''} hover:shadow-[0.5px_0.5px_3px] hover:shadow-gray-800 rounded-full shadow-[0.5px_0.5px_2px] cursor-pointer`}>S</button>
-                            <button onClick={ (e) => selectSize(e) } className={`w-[2.5rem] h-[2.5rem] ${select === 'M' ? 'bg-gray-500 text-white' : ''} hover:shadow-[0.5px_0.5px_3px] hover:shadow-gray-800 rounded-full shadow-[0.5px_0.5px_2px] cursor-pointer`}>M</button>
-                            <button onClick={ (e) => selectSize(e) } className={`w-[2.5rem] h-[2.5rem] ${select === 'L' ? 'bg-gray-500 text-white' : ''} hover:shadow-[0.5px_0.5px_3px] hover:shadow-gray-800 rounded-full shadow-[0.5px_0.5px_2px] cursor-pointer`}>L</button>
+                            <button onClick={(e) => selectSize(e)} className={`w-[2.5rem] h-[2.5rem] ${select === 'XS' ? 'bg-gray-500 text-white' : ''} hover:shadow-[0.5px_0.5px_3px] hover:shadow-gray-800 rounded-full shadow-[0.5px_0.5px_2px] cursor-pointer`}>XS</button>
+                            <button onClick={(e) => selectSize(e)} className={`w-[2.5rem] h-[2.5rem] ${select === 'S' ? 'bg-gray-500 text-white' : ''} hover:shadow-[0.5px_0.5px_3px] hover:shadow-gray-800 rounded-full shadow-[0.5px_0.5px_2px] cursor-pointer`}>S</button>
+                            <button onClick={(e) => selectSize(e)} className={`w-[2.5rem] h-[2.5rem] ${select === 'M' ? 'bg-gray-500 text-white' : ''} hover:shadow-[0.5px_0.5px_3px] hover:shadow-gray-800 rounded-full shadow-[0.5px_0.5px_2px] cursor-pointer`}>M</button>
+                            <button onClick={(e) => selectSize(e)} className={`w-[2.5rem] h-[2.5rem] ${select === 'L' ? 'bg-gray-500 text-white' : ''} hover:shadow-[0.5px_0.5px_3px] hover:shadow-gray-800 rounded-full shadow-[0.5px_0.5px_2px] cursor-pointer`}>L</button>
                         </div>
-                        <div className="flex flex-row items-center justify-center gap-[2rem]"> 
-                        <button onClick={ () => AddedToCart(image) } className={`px-[2rem] py-[10px] rounded-md text-nowrap shadow-[0.5px_0.5px_2px] hover:shadow-[0.5px_0.5px_3px] hover:shadow-gray-800 hover:bg-gray-500 hover:text-white cursor-pointer`}>{addToCart ? 'Added to cart' : 'Add to cart'}</button>
-                        <button onClick={ () => AddedToSave(image) } className={`p-[10px] rounded-md shadow-[0.5px_0.5px_2px] hover:shadow-[0.5px_0.5px_3px] hover:shadow-gray-800 hover:bg-gray-500 hover:text-white cursor-pointer font-light text-[1.5rem]`}>{addToSave ? <FaBookmark /> : <FaRegBookmark /> }</button>
+                        <div className="flex flex-row items-center justify-center gap-[2rem]">
+                        <button onClick={() => AddedToCart(image.id)} className={`px-[2rem] py-[10px] rounded-md text-nowrap shadow-[0.5px_0.5px_2px] hover:shadow-[0.5px_0.5px_3px] hover:shadow-gray-800 hover:bg-gray-500 hover:text-white cursor-pointer`}>{addToCart ? 'Added to cart' : 'Add to cart'}</button>
+                        <button onClick={() => SavedToCart(image.id)} className={`p-[10px] rounded-md shadow-[0.5px_0.5px_2px] hover:shadow-[0.5px_0.5px_3px] hover:shadow-gray-800 hover:bg-gray-500 hover:text-white cursor-pointer font-light text-[1.5rem]`}>{addToSave ? <FaBookmark /> : <FaRegBookmark /> }</button>
                         </div>
                     </div>
                  </section>
