@@ -30,8 +30,8 @@ const Saves = () => {
                             </div>
                         </div>
                         <div className="flex flex-row items-start justify-start gap-4">
-                            <button className="px-[1rem] py-[0.5rem] hover:font-bold max-[600px]:px-0 max-[600px]:py-0 max-[600px]:text-blue-700 max-[600px]:bg-transparent rounded-md cursor-pointer border-none max-[400px]:text-sm bg-blue-700 hover:bg-transparent hover:text-blue-900 text-nowrap">Add to cart</button>
-                            <button className="px-[1rem] py-[0.5rem] hover:font-bold max-[600px]:px-0 max-[600px]:py-0 max-[600px]:text-red-600 max-[600px]:bg-transparent rounded-md cursor-pointer border-none max-[400px]:text-sm bg-red-600 hover:bg-transparent hover:text-red-800">Remove</button>
+                            <button className="px-[1rem] py-[0.5rem] max-[600px]:px-0 max-[600px]:py-0 max-[600px]:text-blue-700 max-[600px]:bg-transparent rounded-md cursor-pointer border-none max-[400px]:text-sm bg-blue-700 hover:bg-transparent hover:text-blue-900 text-nowrap">Add to cart</button>
+                            <button className="px-[1rem] py-[0.5rem] max-[600px]:px-0 max-[600px]:py-0 max-[600px]:text-red-600 max-[600px]:bg-transparent rounded-md cursor-pointer border-none max-[400px]:text-sm bg-red-600 hover:bg-transparent hover:text-red-800">Remove</button>
                         </div>
                     </div>  
                 </div>

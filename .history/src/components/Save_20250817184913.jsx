@@ -23,15 +23,15 @@ const Saves = () => {
                     </Link>
                     <div className="flex flex-row max-[600px]:flex-col max-[600px]:gap-4 items-start justify-between gap-[3rem] ">
                         <div className="flex flex-col items-start justify-start gap-2">
-                            <h1 className="text-[1.3rem] leading-7 max-[750px]:text-[1rem] max-[750px]:leading-5 w-[20rem] max-[750px]:w-[14rem] max-[650px]:w-[10rem] max-[600px]:w-[18rem] max-[440px]:w-[15rem] max-[400px]:w-[12rem] max-[320px]:w-[10rem] overflow-hidden font-bold max-[400px]:text-[0.85rem] max-[400px]:font-semibold">{item.name}</h1>
+                            <h1 className="text-[1.3rem] max-[750px]:text-[1rem] leading-7 w-[20rem] max-[750px]:w-[14rem] max-[650px]:w-[10rem] max-[600px]:w-[18rem] max-[440px]:w-[15rem] max-[400px]:w-[10rem] overflow-hidden font-bold max-[400px]:text-[0.85rem] max-[400px]:font-semibold">{item.name}</h1>
                             <div className="flex flex-row items-center justify-between gap-4">
                                 <p className="text-md text-nowrap max-[400px]:text-sm">Size: {item.size}</p>
                                 <p className="text-md text-nowrap max-[400px]:text-sm">${item.price}</p>
                             </div>
                         </div>
-                        <div className="flex flex-row items-start justify-start gap-4">
-                            <button className="px-[1rem] py-[0.5rem] hover:font-bold max-[600px]:px-0 max-[600px]:py-0 max-[600px]:text-blue-700 max-[600px]:bg-transparent rounded-md cursor-pointer border-none max-[400px]:text-sm bg-blue-700 hover:bg-transparent hover:text-blue-900 text-nowrap">Add to cart</button>
-                            <button className="px-[1rem] py-[0.5rem] hover:font-bold max-[600px]:px-0 max-[600px]:py-0 max-[600px]:text-red-600 max-[600px]:bg-transparent rounded-md cursor-pointer border-none max-[400px]:text-sm bg-red-600 hover:bg-transparent hover:text-red-800">Remove</button>
+                        <div className="flex flex-row items-start justify-start gap-4 max-[400px]:gap-2">
+                            <button className="px-[1rem] py-[0.5rem] max-[600px]:px-0 max-[600px]:py-0 max-[600px]:text-red-700 rounded-md cursor-pointer border-none max-[400px]:px-[0.5rem] max-[400px]:py-[0.3rem] max-[400px]:text-sm bg-blue-700 text-nowrap">Add to cart</button>
+                            <button className="px-[1rem] py-[0.5rem] max-[600px]:px-0 max-[600px]:py-0 max-[600px]:text-red-700 rounded-md cursor-pointer border-none max-[400px]:px-[0.5rem] max-[400px]:py-[0.3rem] max-[400px]:text-sm bg-red-600">Remove</button>
                         </div>
                     </div>  
                 </div>
