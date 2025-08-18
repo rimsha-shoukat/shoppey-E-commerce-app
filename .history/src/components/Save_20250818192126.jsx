@@ -10,29 +10,28 @@ import { CartItems } from "./ProductDetail.jsx";
 const Saves = ({ saveItemsList, setSaveItemsList }) => {
 
 useEffect(() => {
+    console.log("Saved items updated:", saveItemsList);
 }, [saveItemsList]);
 
 const addToCart = (id) => {
-    const item = saveItemsList.find(product => product.id === id);
-        if (item) {
-        if (!CartItems.some(cartItem => cartItem.id === id)) {
-            CartItems.push(item);
-            alert('Added to cart');
-        } else {
-            alert('Already in cart');
-        }
+    const item = CartItems.find(product => product.id === id);
+    if (item) {
+        alert(`Already ${item.name} in cart`);
+    }else{
+        CartItems.push(item);
+        alert('added to cart');
     }
 };
 
 const removeFromSave = (id) => {
     const itemIndex = saveItemsList.findIndex(product => product.id === id);
-        if (itemIndex !== -1) {
-            const item = saveItemsList[itemIndex];
-            const updatedItems = [...saveItemsList];
-            updatedItems.splice(itemIndex, 1);
-            setSaveItemsList(updatedItems);
-            alert(`Removed ${item.name} from saved items`);
-        }
+    if (itemIndex !== -1) {
+        const item = saveItemsList[itemIndex];
+        const updatedItems = [...saveItemsList];
+        updatedItems.splice(itemIndex, 1);
+        setSaveItemsList(updatedItems);
+        alert(`Removed ${item.name} from saved items`);
+    }
     }
 
     if (saveItemsList.length === 0) {

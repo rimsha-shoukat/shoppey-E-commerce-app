@@ -1,50 +1,30 @@
-import React , { useState, useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 import { FaRegUser } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 import { Products } from "./AllProducts.jsx";
 import { SaveItems } from "./ProductDetail.jsx";
-import { CartItems } from "./ProductDetail.jsx";
-
-
-const Saves = ({ saveItemsList, setSaveItemsList }) => {
-
-useEffect(() => {
-}, [saveItemsList]);
 
 const addToCart = (id) => {
-    const item = saveItemsList.find(product => product.id === id);
-        if (item) {
-        if (!CartItems.some(cartItem => cartItem.id === id)) {
-            CartItems.push(item);
-            alert('Added to cart');
-        } else {
-            alert('Already in cart');
-        }
-    }
-};
 
-const removeFromSave = (id) => {
-    const itemIndex = saveItemsList.findIndex(product => product.id === id);
-        if (itemIndex !== -1) {
-            const item = saveItemsList[itemIndex];
-            const updatedItems = [...saveItemsList];
-            updatedItems.splice(itemIndex, 1);
-            setSaveItemsList(updatedItems);
-            alert(`Removed ${item.name} from saved items`);
-        }
-    }
+}
 
-    if (saveItemsList.length === 0) {
+const removeFromsav = (id) => {
+    
+}
+
+const Saves = () => {
+    if (SaveItems.length === 0) {
         return (
             <div className="w-[100%] h-auto flex flex-col items-center justify-center">
-                <h1 className="text-2xl font-bold">Nothing In Saved Items</h1>
+                <h1 className="text-2xl font-bold">No Saved Items</h1>
             </div>
         );
     }
+
     return (
         <section className="w-[100%] h-auto flex flex-col items-center justify-center">
-            {saveItemsList.map((item) => (
+            {SaveItems.map((item) => (
                 <div key={item.id} className="w-auto flex flex-row items-center justify-start py-6 max-[600px]:py-2 gap-4 max-[600px]:gap-2 border-t-2 border-t-gray-400">
                     <Link key={item.id} to={`/ProductDetail/${item.id}`}>
                     <img key={item.id} className="w-[8rem] h-[8rem] max-[400px]:w-[6rem] max-[400px]:h-[6rem] rounded-sm" src={item.src} />
@@ -69,7 +49,6 @@ const removeFromSave = (id) => {
 }
 
 function Save(){
-    const [saveItemsList, setSaveItemsList] = useState(SaveItems || []);
 
     return(
         <>
@@ -88,7 +67,7 @@ function Save(){
                 <section className="mb-2 flex flex-col items-center justify-center w-[100%] p-8 h-auto bg-linear-to-l from-[#dd957a] to-[#eee2ca]">
                     <h1 className="font-bold text-2xl">Saved Items</h1>
                 </section>
-                <Saves saveItemsList={saveItemsList} setSaveItemsList={setSaveItemsList} />
+                <Saves/>
                 {/* <section className="w-[100%] h-auto flex flex-col items-center justify-center">
                     <div className="w-auto flex flex-row items-center justify-start py-6 max-[600px]:py-2 gap-4 max-[600px]:gap-2 border-t-2 border-t-gray-400">
                         <img className="w-[8rem] h-[8rem] max-[400px]:w-[6rem] max-[400px]:h-[6rem] rounded-sm" src={img1} />

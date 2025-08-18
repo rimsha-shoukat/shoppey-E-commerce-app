@@ -7,32 +7,31 @@ import { SaveItems } from "./ProductDetail.jsx";
 import { CartItems } from "./ProductDetail.jsx";
 
 
-const Saves = ({ saveItemsList, setSaveItemsList }) => {
+const Saves = ({ saveItemsList, setSaveItemsList, cartItemsList, setCartItemsList }) => {
 
 useEffect(() => {
-}, [saveItemsList]);
+    console.log("Saved items updated:", saveItemsList);
+}, [saveItemsList, car]);
 
 const addToCart = (id) => {
-    const item = saveItemsList.find(product => product.id === id);
-        if (item) {
-        if (!CartItems.some(cartItem => cartItem.id === id)) {
-            CartItems.push(item);
-            alert('Added to cart');
-        } else {
-            alert('Already in cart');
-        }
+    const item = cartItemsList.find(product => product.id === id);
+    if (item) {
+        alert(`Already ${item.name} in cart`);
+    }else{
+        cartItemsList.push(item);
+        alert('added to cart');
     }
 };
 
 const removeFromSave = (id) => {
     const itemIndex = saveItemsList.findIndex(product => product.id === id);
-        if (itemIndex !== -1) {
-            const item = saveItemsList[itemIndex];
-            const updatedItems = [...saveItemsList];
-            updatedItems.splice(itemIndex, 1);
-            setSaveItemsList(updatedItems);
-            alert(`Removed ${item.name} from saved items`);
-        }
+    if (itemIndex !== -1) {
+        const item = saveItemsList[itemIndex];
+        const updatedItems = [...saveItemsList];
+        updatedItems.splice(itemIndex, 1);
+        setSaveItemsList(updatedItems);
+        alert(`Removed ${item.name} from saved items`);
+    }
     }
 
     if (saveItemsList.length === 0) {
@@ -70,6 +69,7 @@ const removeFromSave = (id) => {
 
 function Save(){
     const [saveItemsList, setSaveItemsList] = useState(SaveItems || []);
+    const [cartItemsList, setCartItemsList] = useState(CartItems || []);
 
     return(
         <>
@@ -88,7 +88,7 @@ function Save(){
                 <section className="mb-2 flex flex-col items-center justify-center w-[100%] p-8 h-auto bg-linear-to-l from-[#dd957a] to-[#eee2ca]">
                     <h1 className="font-bold text-2xl">Saved Items</h1>
                 </section>
-                <Saves saveItemsList={saveItemsList} setSaveItemsList={setSaveItemsList} />
+                <Saves saveItemsList={saveItemsList} setSaveItemsList={setSaveItemsList} cartItemsList={cartItemsList} setCartItemsList={setCartItemsList} />
                 {/* <section className="w-[100%] h-auto flex flex-col items-center justify-center">
                     <div className="w-auto flex flex-row items-center justify-start py-6 max-[600px]:py-2 gap-4 max-[600px]:gap-2 border-t-2 border-t-gray-400">
                         <img className="w-[8rem] h-[8rem] max-[400px]:w-[6rem] max-[400px]:h-[6rem] rounded-sm" src={img1} />

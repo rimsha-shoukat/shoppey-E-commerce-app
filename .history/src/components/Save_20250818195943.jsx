@@ -10,11 +10,14 @@ import { CartItems } from "./ProductDetail.jsx";
 const Saves = ({ saveItemsList, setSaveItemsList }) => {
 
 useEffect(() => {
+    console.log("Saved items updated:", saveItemsList);
 }, [saveItemsList]);
 
 const addToCart = (id) => {
     const item = saveItemsList.find(product => product.id === id);
-        if (item) {
+    
+    // Add it to CartItems if found
+    if (item) {
         if (!CartItems.some(cartItem => cartItem.id === id)) {
             CartItems.push(item);
             alert('Added to cart');

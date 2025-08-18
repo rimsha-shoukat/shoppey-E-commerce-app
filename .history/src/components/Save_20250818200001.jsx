@@ -10,6 +10,7 @@ import { CartItems } from "./ProductDetail.jsx";
 const Saves = ({ saveItemsList, setSaveItemsList }) => {
 
 useEffect(() => {
+    console.log("Saved items updated:", saveItemsList);
 }, [saveItemsList]);
 
 const addToCart = (id) => {
