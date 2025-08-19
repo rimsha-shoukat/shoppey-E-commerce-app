@@ -45,8 +45,8 @@ const Carts = ({cartItemsList, setCartItemsList}) => {
         <section className="w-[100%] h-auto flex flex-col items-center justify-center">
            {cartItemsList.map((item) => (
             <div key={item.id} className="w-[100%] flex flex-row items-center justify-center py-6 max-[350px]:py-2 gap-4 border-t-2 border-t-gray-400">
-                    <Link key={item.id} to={`/ProductDetail/${item.id}`}>
-                        <img className="w-[6rem] h-[6rem] rounded-sm" src={item.src} />
+                    <Link  key={item.id} to={`/ProductDetail/${item.id}`}>
+                        <img className="w-[5rem] h-[5rem] rounded-sm" src={item.src} />
                     </Link>
                         <div className="flex flex-row items-start justify-between gap-2 max-[350px]:gap-0 max-[500px]:flex-col">
                             <div className="flex flex-col items-start justify-start gap-6 max-[750px]:gap-2 max-[500px]:gap-0">
@@ -78,23 +78,17 @@ function Cart(){
     const [delivery, setDelivery] = useState(cartItemsList.length * 4);
     let total = 0;
     useEffect(() => {
-        if(cartItemsList.length === 0){
-            setDiscount(0);
-            setDelivery(0);
-            setBill(0);
-        }else{
-            for(let i = 0; i < cartItemsList.length; i++){
-            cartItemsList.forEach((item) => {
-                total = total + (item.price * item.quantity);
-            },)}
-            setDiscount(cartItemsList.length * 7);
-            setDelivery(cartItemsList.length * 4);
-            setBill((total + delivery) - discount);
-        }
-        
+        for(let i = 0; i < cartItemsList.length; i++){
+        cartItemsList.forEach((item) => {
+            total = total + (item.price * item.quantity);
+        },)}
+        setDiscount(cartItemsList.length * 7);
+        setDelivery(cartItemsList.length * 4);
+        setBill((total + delivery) - discount);
     }, [cartItemsList]);
 
     const [bill, setBill] = useState( (total + delivery) - discount );
+
 
     return(
         <>

@@ -96,6 +96,7 @@ function Cart(){
 
     const [bill, setBill] = useState( (total + delivery) - discount );
 
+
     return(
         <>
             <div className="w-[100%] h-auto font-serif flex flex-col items-center justify-between select-none px-4 max-[350px]:px-2">

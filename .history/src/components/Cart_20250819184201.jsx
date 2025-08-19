@@ -78,23 +78,18 @@ function Cart(){
     const [delivery, setDelivery] = useState(cartItemsList.length * 4);
     let total = 0;
     useEffect(() => {
-        if(cartItemsList.length === 0){
-            setDiscount(0);
-            setDelivery(0);
-            setBill(0);
-        }else{
-            for(let i = 0; i < cartItemsList.length; i++){
-            cartItemsList.forEach((item) => {
-                total = total + (item.price * item.quantity);
-            },)}
-            setDiscount(cartItemsList.length * 7);
-            setDelivery(cartItemsList.length * 4);
-            setBill((total + delivery) - discount);
-        }
         
+        for(let i = 0; i < cartItemsList.length; i++){
+        cartItemsList.forEach((item) => {
+            total = total + (item.price * item.quantity);
+        },)}
+        setDiscount(cartItemsList.length * 7);
+        setDelivery(cartItemsList.length * 4);
+        setBill((total + delivery) - discount);
     }, [cartItemsList]);
 
     const [bill, setBill] = useState( (total + delivery) - discount );
+
 
     return(
         <>
