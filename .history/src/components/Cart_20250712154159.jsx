@@ -1,1 +1,0 @@
-import eact from 'react';
