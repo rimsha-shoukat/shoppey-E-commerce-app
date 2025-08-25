@@ -4,5 +4,5 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [react(), tailwindcss() ],
-  base: '/shoppey-E-commerce-app/',
+  base: '/shoppey-E-commerc/',
 })
