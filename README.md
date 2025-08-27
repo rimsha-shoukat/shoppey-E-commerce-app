@@ -29,9 +29,7 @@ npm run dev
 
 Open your browser and navigate to `http://localhost:3000` to explore the app.
 
-## Live Demo
-
-You can view the live version of the Shoppey E-commerce App at [https://rimsha-shoukat.github.io/shoppey-E-commerce-app](https://rimsha-shoukat.github.io/shoppey-E-commerce-app).
+## Live demo : [https://rimsha-shoukat.github.io/shoppey-E-commerce-app](https://rimsha-shoukat.github.io/shoppey-E-commerce-app).
 
 ## Contact
 
