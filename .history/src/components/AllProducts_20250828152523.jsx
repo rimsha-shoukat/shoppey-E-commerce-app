@@ -2289,12 +2289,12 @@ function AllProducts() {
         }
       }
     }
-    if(searchTerm !== ""){
+    if(searchTerm.length > 0){
        if(searchProducts.length > 0){
          setFilterProducts(searchProducts);
        }else{
-         alert("Not found");       
-        }
+        return <>
+       }
         
     }else{
         setFilterProducts(Items);
@@ -2325,8 +2325,8 @@ function AllProducts() {
               <h1 className="font-bold text-2xl">Explore All Products</h1>
                 <div className=" flex flex-row items-center justify-center w-[100%] gap-2">
                     <input type="text" value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}  placeholder="Search" className="w-[50%] max-[550px]:w-[90%] h-[2.5rem] px-4 rounded-full  border-none bg-white/50 text-black placeholder:text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#b48068]" />
-                    <BiSearch onClick={() => setSearchTerm(searchTerm)} className="font-bold cursor-pointer text-2xl hover:text-[#b48068]"/>
+                      onChange={(e) => setSearchTerm(e.target.value)} placeholder="Search" className="w-[50%] max-[550px]:w-[90%] h-[2.5rem] px-4 rounded-full  border-none bg-white/50 text-black placeholder:text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#b48068]" />
+                    <BiSearch className="font-bold cursor-pointer text-2xl hover:text-[#b48068]"/>
                 </div>
         </section>
 
