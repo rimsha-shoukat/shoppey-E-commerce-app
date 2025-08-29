@@ -39,12 +39,26 @@ function App(){
         <>
           <Suspense fallback={<div>Loading...</div>}>
             <Landing />
+          </Suspense>
+          <Suspense fallback={<div>Loading...</div>}>
             <Discount />
+          </Suspense>
+          <Suspense fallback={<div>Loading...</div>}>
             <Collection />
+          </Suspense>
+          <Suspense fallback={<div>Loading...</div>}>
             <BestSeller />
+          </Suspense>
+          <Suspense fallback={<div>Loading...</div>}>
             <Deal />
+          </Suspense>
+          <Suspense fallback={<div>Loading...</div>}>
             <Product />
+          </Suspense>
+          <Suspense fallback={<div>Loading...</div>}>
             <About />
+          </Suspense>
+          <Suspense fallback={<div>Loading...</div>}>
             <Social />
           </Suspense>
         </>
@@ -54,31 +68,11 @@ function App(){
               <SignIU />
             </Suspense>
           } />
-      <Route path="/AllProducts" element={
-            <Suspense fallback={<div>Loading...</div>}>
-              <AllProducts />
-            </Suspense>
-          } />
-      <Route path="/AllProducts/:param" element={
-            <Suspense fallback={<div>Loading...</div>}>
-              <AllProducts />
-            </Suspense>
-          } />
-      <Route path="/ProductDetail/:id" element={
-            <Suspense fallback={<div>Loading...</div>}>
-              <ProductDetail />
-            </Suspense>
-          } />
-      <Route path="/Cart" element={
-            <Suspense fallback={<div>Loading...</div>}>
-              <Cart />
-            </Suspense>
-          } />
-      <Route path="/Save" element={
-            <Suspense fallback={<div>Loading...</div>}>
-              <Save />
-            </Suspense>
-          } />
+      <Route path="/AllProducts" element={<AllProducts />} />
+      <Route path="/AllProducts/:param" element={<AllProducts />} />
+      <Route path="/ProductDetail/:id" element={<ProductDetail />} />
+      <Route path="/Cart" element={<Cart />} />
+      <Route path="/Save" element={<Save />} />
      </Routes>
     </>
   )

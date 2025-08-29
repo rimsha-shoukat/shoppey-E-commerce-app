@@ -1,8 +1,10 @@
-import { React, useState, useEffect } from "react";
+import {React, useState, useEffect} from "react";
 import { Link } from 'react-router-dom';
-import { Products } from "./AllProducts.jsx";
+// import { Products } from "./AllProducts.jsx"
 
 function Slider(props){
+  const Products = React.lazy(() => import('./AllProducts'));
+  
   return (
     <section className="flex flex-row items-center justify-center w-[100%] gap-[1.5rem] pt-[2rem] font-serif">
       {props.products.slice(props.start, props.end).map((item) => {

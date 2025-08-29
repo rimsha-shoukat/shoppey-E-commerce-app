@@ -37,48 +37,24 @@ function App(){
      <Routes>
       <Route path="/" element={
         <>
-          <Suspense fallback={<div>Loading...</div>}>
-            <Landing />
-            <Discount />
-            <Collection />
-            <BestSeller />
-            <Deal />
-            <Product />
-            <About />
-            <Social />
+            <Suspense fallback={<div>Loading...</div>}>
+          <Landing />
           </Suspense>
+          <Discount />
+          <Collection />
+          <BestSeller />
+          <Deal />
+          <Product />
+          <About />
+          <Social />
         </>
       } />
-      <Route path="/SignIU" element={
-            <Suspense fallback={<div>Loading...</div>}>
-              <SignIU />
-            </Suspense>
-          } />
-      <Route path="/AllProducts" element={
-            <Suspense fallback={<div>Loading...</div>}>
-              <AllProducts />
-            </Suspense>
-          } />
-      <Route path="/AllProducts/:param" element={
-            <Suspense fallback={<div>Loading...</div>}>
-              <AllProducts />
-            </Suspense>
-          } />
-      <Route path="/ProductDetail/:id" element={
-            <Suspense fallback={<div>Loading...</div>}>
-              <ProductDetail />
-            </Suspense>
-          } />
-      <Route path="/Cart" element={
-            <Suspense fallback={<div>Loading...</div>}>
-              <Cart />
-            </Suspense>
-          } />
-      <Route path="/Save" element={
-            <Suspense fallback={<div>Loading...</div>}>
-              <Save />
-            </Suspense>
-          } />
+      <Route path="/SignIU" element={<SignIU />} />
+      <Route path="/AllProducts" element={<AllProducts />} />
+      <Route path="/AllProducts/:param" element={<AllProducts />} />
+      <Route path="/ProductDetail/:id" element={<ProductDetail />} />
+      <Route path="/Cart" element={<Cart />} />
+      <Route path="/Save" element={<Save />} />
      </Routes>
     </>
   )

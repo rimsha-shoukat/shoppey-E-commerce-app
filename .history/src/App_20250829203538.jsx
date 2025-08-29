@@ -43,8 +43,13 @@ function App(){
             <Collection />
             <BestSeller />
             <Deal />
+          <Suspense fallback={<div>Loading...</div>}>
             <Product />
+          </Suspense>
+          <Suspense fallback={<div>Loading...</div>}>
             <About />
+          </Suspense>
+          <Suspense fallback={<div>Loading...</div>}>
             <Social />
           </Suspense>
         </>

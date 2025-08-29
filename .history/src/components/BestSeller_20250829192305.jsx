@@ -1,6 +1,9 @@
-import { React, useState, useEffect } from "react";
+import {React, useState, useEffect, Suspense} from "react";
 import { Link } from 'react-router-dom';
-import { Products } from "./AllProducts.jsx";
+// import { Products } from "./AllProducts.jsx"
+
+const Products = React.lazy(() => import('./AllProducts'));
+
 
 function Slider(props){
   return (

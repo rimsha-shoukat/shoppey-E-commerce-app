@@ -1,6 +1,6 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, Suspense, lazy } from "react";
 import { Link } from 'react-router-dom';
-import { Products } from "./AllProducts.jsx";
+// import { Products } from "./AllProducts.jsx"
 
 function Slider(props){
   return (
@@ -25,6 +25,7 @@ function BestSeller(){
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(3); 
   const bestSeller = Products.filter((items) => (items.trend == true && items.new == true));
+  
 
   useEffect(() => {
       const updateItemsPerPage = () => {
@@ -61,7 +62,9 @@ function BestSeller(){
                     </Link>
                 </article>
                 <section className="flex flex-col gap-[2rem] w-[65%] max-[1250px]:w-[60%] max-[920px]:w-[90%] overflow-hidden">
-                 <Slider start={currentIndex} end={currentIndex + itemsPerPage} products={bestSeller} />
+                <Suspense fallback={<div>Loading...</div>}>
+                   <Slider start={currentIndex} end={currentIndex + itemsPerPage} products={bestSeller} />
+                 </Suspense>
                 <section className="max-[1185px]:justify-center flex flex-row items-start flex-wrap gap-2 justify-start mt-[2rem]">
                   {Array.from({ length: Math.ceil(bestSeller.length / itemsPerPage) }).map((_, index) => (
                       <button

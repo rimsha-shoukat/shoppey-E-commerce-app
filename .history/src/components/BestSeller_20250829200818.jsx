@@ -1,6 +1,7 @@
-import { React, useState, useEffect } from "react";
+'use client'
+import { React, useState, useEffect, Suspense, lazy } from "react";
 import { Link } from 'react-router-dom';
-import { Products } from "./AllProducts.jsx";
+// import { Products } from "./AllProducts.jsx"
 
 function Slider(props){
   return (
@@ -22,9 +23,10 @@ function Slider(props){
 }
 
 function BestSeller(){
+  const Products = lazy(() => import('./AllProducts'));
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(3); 
-  const bestSeller = Products.filter((items) => (items.trend == true && items.new == true));
+  const bestSeller = await Products.filter((items) => (items.trend == true && items.new == true));
 
   useEffect(() => {
       const updateItemsPerPage = () => {
@@ -48,10 +50,11 @@ function BestSeller(){
 
   const handleClick = (index) => {
     setCurrentIndex(index * itemsPerPage) ;
-  }
+  } 
 
     return (
         <>
+        <Suspense fallback={<div>Loading...</div>}>
            <section className="flex flex-row max-[920px]:flex-col items-center justify-center gap-[2rem] w-[100%] h-auto py-[5rem] bg-[#251201]">
                 <article className="container flex flex-col items-start justify-start gap-[2rem] max-[920px]:pl-0 pl-[2rem] w-[35%] max-[1250px]:w-[40%] max-[920px]:w-[80%] text-white">
                     <h1 className="text-[clamp(2.5rem,4.5vw,5rem)] font-bold select-none leading-14">Best Seller Product</h1>
@@ -61,7 +64,7 @@ function BestSeller(){
                     </Link>
                 </article>
                 <section className="flex flex-col gap-[2rem] w-[65%] max-[1250px]:w-[60%] max-[920px]:w-[90%] overflow-hidden">
-                 <Slider start={currentIndex} end={currentIndex + itemsPerPage} products={bestSeller} />
+                   <Slider start={currentIndex} end={currentIndex + itemsPerPage} products={bestSeller} />
                 <section className="max-[1185px]:justify-center flex flex-row items-start flex-wrap gap-2 justify-start mt-[2rem]">
                   {Array.from({ length: Math.ceil(bestSeller.length / itemsPerPage) }).map((_, index) => (
                       <button
@@ -73,6 +76,7 @@ function BestSeller(){
                   </section>
                 </section>
            </section>
+          </Suspense>
         </>
     )
 }

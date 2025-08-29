@@ -45,6 +45,8 @@ function App(){
             <Deal />
             <Product />
             <About />
+          </Suspense>
+          <Suspense fallback={<div>Loading...</div>}>
             <Social />
           </Suspense>
         </>
