@@ -16,7 +16,7 @@ Welcome to Shoppey, a modern e-commerce application built with React.js! This ap
 
 - **React.js**: For building the user interface and managing state.
 - **CSS**: For styling the components and layout.
-- **Tailwind CSS**: For utility-first CSS styling (if applicable).
+- **Tailwind CSS**: For utility-first CSS styling.
 
 ## Getting Started
 
