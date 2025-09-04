@@ -13,48 +13,44 @@ function SignIU(){
         setLogIn(!logIn);
         setName('');
         setEmail('');
-        setPassword('');
-        setConfirmPassword('');
-    };
+        setPassword('')
+    }
 
     const handleSignIn = (event) => {
         event.preventDefault();
-        let existedUsers = JSON.parse(localStorage.getItem('users')) || [];
-        let user = existedUsers.find(user => user.email === email && user.password === password);
-        if(user){
+        if(users.find(user => user.email === email && user.password === password)){
             alert('login successful');
         }else{
             alert('invalid email or password');
         }
+        console.log(users);
         setEmail('');
         setPassword('');
-        console.log(existedUsers);
-    };
+    }
 
     const handleSignUp = (event) => {
         event.preventDefault();
-        const existedUsers = JSON.parse(localStorage.getItem("users")) || [];
-        if (existedUsers.find((user) => user.email === email)) {
-        alert("User  already exists");
-        } else {
-        if (password === confirmPassword) {
-            const newUser  = {
-            name: name,
+        if(users.find(user => user.email === email)){
+            alert('user already exist');
+        }else {
+            if(password === confirmPassword){
+            users.push({
+            name, name,
             email: email,
-            password: password,
-            };
-            existedUsers.push(newUser);
-            localStorage.setItem("users", JSON.stringify(existedUsers));
-            alert("User  added successfully");
-            setName("");
-            setEmail("");
-            setPassword("");
-            setConfirmPassword("");
-        } else {
-            alert("Password and confirm password do not match");
+            password: password
+            });
+            alert('user added');
+            console.log(users);
+            setName('');
+            setEmail('');
+            setPassword('');
+            setConfirmPassword('');
+            }else{
+                alert('password and confirm password does not matched');
+            }
         }
     }
- };
+
 
     return(
         <>
@@ -64,12 +60,12 @@ function SignIU(){
                 <div className={`${logIn ? 'block' : 'hidden'} relative w-[100%] h-[100%] flex flex-col items-center justify-center gap-2`}>
                 <h1 className="font-bold text-[2.3rem]">Welcome Back!</h1>
                 <p className="font-semibold text-center font-sans">Enter personal details <br/> to sign In your account</p>
-                <button onClick={handleClick} className="cursor-pointer text-[1.5rem] shadow-md px-[3rem] py-[0.55rem] font-bold rounded-full bg-white/50 mt-[3rem]">SIGN UP</button>
+                <button onClick={() => setLogIn(!logIn)} className="cursor-pointer text-[1.5rem] shadow-md px-[3rem] py-[0.55rem] font-bold rounded-full bg-white/50 mt-[3rem]">SIGN UP</button>
                 </div>
                 <div className={`${logIn ? 'hidden' : 'block'} relative w-[100%] h-[100%] flex flex-col items-center justify-center gap-2`}>
                 <h1 className="font-bold text-[2.3rem]">Welcome!</h1>
                 <p className="font-semibold text-center font-sans">Enter personal details <br/> to create your account</p>
-                <button onClick={handleClick} className="cursor-pointer text-[1.5rem] shadow-md px-[3rem] py-[0.55rem] font-bold rounded-full bg-white/50 mt-[3rem]">SIGN IN</button>
+                <button onClick={() => setLogIn(!logIn)} className="cursor-pointer text-[1.5rem] shadow-md px-[3rem] py-[0.55rem] font-bold rounded-full bg-white/50 mt-[3rem]">SIGN IN</button>
                 </div>
             </section>
             <section className="absolute -left-[10.5rem] max-[800px]:left-[2rem] max-[800px]:bottom-[4rem] max-[440px]:left-0 max-[440px]:w-[100vw] w-[22rem] h-[26rem] bg-[#eee2ca] rounded-xl border-0 shadow-xl  z-4">

@@ -15,7 +15,7 @@ function SignIU(){
         setEmail('');
         setPassword('');
         setConfirmPassword('');
-    };
+    }
 
     const handleSignIn = (event) => {
         event.preventDefault();
@@ -28,33 +28,33 @@ function SignIU(){
         }
         setEmail('');
         setPassword('');
-        console.log(existedUsers);
-    };
+    }
 
     const handleSignUp = (event) => {
-        event.preventDefault();
-        const existedUsers = JSON.parse(localStorage.getItem("users")) || [];
-        if (existedUsers.find((user) => user.email === email)) {
-        alert("User  already exists");
-        } else {
-        if (password === confirmPassword) {
-            const newUser  = {
-            name: name,
-            email: email,
-            password: password,
-            };
-            existedUsers.push(newUser);
-            localStorage.setItem("users", JSON.stringify(existedUsers));
-            alert("User  added successfully");
-            setName("");
-            setEmail("");
-            setPassword("");
-            setConfirmPassword("");
-        } else {
-            alert("Password and confirm password do not match");
-        }
+    event.preventDefault();
+    const existedUsers = JSON.parse(localStorage.getItem("users")) || [];
+    if (existedUsers.find((user) => user.email === email)) {
+      alert("User  already exists");
+    } else {
+      if (password === confirmPassword) {
+        const newUser  = {
+          name: name,
+          email: email,
+          password: password,
+        };
+        existedUsers.push(newUser);
+        localStorage.setItem("users", JSON.stringify(existedUsers));
+        alert("User  added successfully");
+        setName("");
+        setEmail("");
+        setPassword("");
+        setConfirmPassword("");
+      } else {
+        alert("Password and confirm password do not match");
+      }
     }
- };
+}
+
 
     return(
         <>

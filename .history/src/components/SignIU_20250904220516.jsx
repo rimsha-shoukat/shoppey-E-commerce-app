@@ -28,7 +28,6 @@ function SignIU(){
         }
         setEmail('');
         setPassword('');
-        console.log(existedUsers);
     };
 
     const handleSignUp = (event) => {
@@ -55,6 +54,9 @@ function SignIU(){
         }
     }
  };
+
+ cons
+
 
     return(
         <>

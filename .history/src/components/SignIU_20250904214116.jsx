@@ -15,46 +15,45 @@ function SignIU(){
         setEmail('');
         setPassword('');
         setConfirmPassword('');
-    };
+    }
 
     const handleSignIn = (event) => {
         event.preventDefault();
         let existedUsers = JSON.parse(localStorage.getItem('users')) || [];
-        let user = existedUsers.find(user => user.email === email && user.password === password);
-        if(user){
+        if(existedUsers.find(user => user.email === email && user.password === password)){
             alert('login successful');
         }else{
             alert('invalid email or password');
         }
         setEmail('');
         setPassword('');
-        console.log(existedUsers);
-    };
+    }
 
     const handleSignUp = (event) => {
         event.preventDefault();
-        const existedUsers = JSON.parse(localStorage.getItem("users")) || [];
-        if (existedUsers.find((user) => user.email === email)) {
-        alert("User  already exists");
-        } else {
-        if (password === confirmPassword) {
-            const newUser  = {
-            name: name,
+        let existedUsers = JSON.parse(localStorage.getItem('users')) || [];
+        if(existedUsers.find(user => user.email === email)){
+            alert('user already exist');
+        }else {
+            if(password === confirmPassword){
+            users.push({
+            name, name,
             email: email,
-            password: password,
-            };
-            existedUsers.push(newUser);
-            localStorage.setItem("users", JSON.stringify(existedUsers));
-            alert("User  added successfully");
-            setName("");
-            setEmail("");
-            setPassword("");
-            setConfirmPassword("");
-        } else {
-            alert("Password and confirm password do not match");
+            password: password
+            });
+            alert('user added');
+            console.log(users);
+            localStorage.setItem('users', JSON.stringify(users));
+            setName('');
+            setEmail('');
+            setPassword('');
+            setConfirmPassword('');
+            }else{
+                alert('password and confirm password does not matched');
+            }
         }
     }
- };
+
 
     return(
         <>

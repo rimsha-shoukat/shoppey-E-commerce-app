@@ -15,7 +15,7 @@ function SignIU(){
         setEmail('');
         setPassword('');
         setConfirmPassword('');
-    };
+    }
 
     const handleSignIn = (event) => {
         event.preventDefault();
@@ -28,8 +28,7 @@ function SignIU(){
         }
         setEmail('');
         setPassword('');
-        console.log(existedUsers);
-    };
+    }
 
     const handleSignUp = (event) => {
         event.preventDefault();
@@ -55,6 +54,7 @@ function SignIU(){
         }
     }
  };
+
 
     return(
         <>
