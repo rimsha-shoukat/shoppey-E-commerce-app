@@ -105,10 +105,10 @@ function Cart(){
                     </Link>
                     <div className="flex flex-row items-center justify-center gap-6 text-xl">
                         <Link to="/Save">
-                            <FaRegHeart className="cursor-pointer hover:text-gray-500" />
+                        <FaRegHeart className="cursor-pointer hover:text-gray-500" />
                         </Link>
                         <Link to="/SignIU">
-                            <FaRegUser className="cursor-pointer hover:text-gray-500" />
+                        <FaRegUser className="cursor-pointer hover:text-gray-500" />
                         </Link>
                     </div>
                 </section>

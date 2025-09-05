@@ -1,5 +1,7 @@
+import React from 'react'
 import { FaArrowRightLong } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
+
 
 function Discount(){
     return(
@@ -10,7 +12,7 @@ function Discount(){
                 <div className='pt-[0.65rem]'>
                 <h1 className="font-bold text-2xl select-none">40% OFF</h1>
                 <p className='font-semibold select-none'>BEAUTY COLLECTION</p>
-                <Link to="/AllProducts/beauty">
+                <Link to="/AllProducts/men">
                  <button className='group font-semibold hover:bg-gray-200 rounded-sm pr-[0.75rem] py-[0.3rem] cursor-pointer transition-all duration-700 ease-in-out delay-150 hover:pl-[0.3rem]'>Go To Collection <FaArrowRightLong className='inline group-hover:translate-x-2 hover:bg-gray-200 transition-all duration-700 ease-in-out delay-150'/></button>
                 </Link>
                 </div>
@@ -19,7 +21,7 @@ function Discount(){
                 <div className="pb-[0.65rem]">
                 <h1 className="font-bold text-2xl select-none">60% OFF</h1>
                 <p className='font-semibold select-none'>FRAGRANCES COLLECTION</p>
-                <Link to="/AllProducts/fragrances">
+                <Link to="/AllProducts/women">
                  <button className='group font-semibold hover:bg-pink-400 rounded-sm pr-[0.75rem] py-[0.3rem] cursor-pointer transition-all duration-700 ease-in-out delay-150 hover:pl-[0.3rem]'>Go To Collection <FaArrowRightLong className='inline group-hover:translate-x-2 hover:bg-gray-200 transition-all duration-700 ease-in-out delay-150'/></button>
                 </Link>
                 </div>
@@ -30,7 +32,7 @@ function Discount(){
                 <div className="pt-[0.65rem]">
                 <h1 className="font-bold text-2xl select-none">30% OFF</h1>
                 <p className='font-semibold select-none'>GROCERIES COLLECTION</p>
-                <Link to="/AllProducts/groceries">
+                <Link to="/AllProducts/GROCERIEgroceries">
                  <button className='group font-semibold hover:bg-yellow-200 rounded-sm pr-[0.75rem] py-[0.3rem] cursor-pointer transition-all duration-700 ease-in-out delay-150 hover:pl-[0.3rem]'>Go To Collection <FaArrowRightLong className='inline group-hover:translate-x-2 hover:bg-gray-200 transition-all duration-700 ease-in-out delay-150'/></button>
                 </Link>
                 </div>

@@ -12,9 +12,10 @@ function AllProducts({Products}) {
   const searchRef = useRef(null);
 
   function handleSearchItems() {
+    console.l
     if (searchRef.current.value !== "") {
       const searchProducts = Products.filter((product) =>
-       product.title.toLowerCase().includes(searchRef.current.value.toLowerCase()));
+       product.name.toLowerCase().includes(searchRef.current.value.toLowerCase()));
       if(searchProducts.length > 0){
         setFilterProducts(searchProducts);
       }else{
@@ -25,6 +26,7 @@ function AllProducts({Products}) {
  
   useEffect( () => {
     let Items = [...Products];
+    console.log(Items)
 
     if(param){
       if(['beauty' , 'fragrances' , 'furniture',  'groceries'].includes(param)){
@@ -57,9 +59,7 @@ function AllProducts({Products}) {
               <Link to="/Cart">
                 <FaCartShopping className="cursor-pointer hover:text-gray-500" />
               </Link>
-              <Link to="/SignIU">
                 <FaRegUser className="cursor-pointer hover:text-gray-500" />
-              </Link>
             </div>
         </section>
 

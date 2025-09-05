@@ -93,6 +93,7 @@ function Save(){
                     <h1 className="font-bold text-2xl">Saved Items</h1>
                 </section>
                 <Saves />
+            
             </div>
         </>
     )

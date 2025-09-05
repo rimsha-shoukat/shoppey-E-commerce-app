@@ -57,9 +57,7 @@ function AllProducts({Products}) {
               <Link to="/Cart">
                 <FaCartShopping className="cursor-pointer hover:text-gray-500" />
               </Link>
-              <Link to="/SignIU">
                 <FaRegUser className="cursor-pointer hover:text-gray-500" />
-              </Link>
             </div>
         </section>
 

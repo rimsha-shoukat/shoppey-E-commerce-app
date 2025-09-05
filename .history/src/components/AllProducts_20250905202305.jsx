@@ -59,7 +59,7 @@ function AllProducts({Products}) {
               </Link>
               <Link to="/SignIU">
                 <FaRegUser className="cursor-pointer hover:text-gray-500" />
-              </Link>
+                </Link>
             </div>
         </section>
 

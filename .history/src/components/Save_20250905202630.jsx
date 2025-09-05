@@ -84,7 +84,7 @@ function Save(){
                       <Link to="/Cart">
                          <FaCartShopping className="cursor-pointer hover:text-gray-500" />
                       </Link>
-                      <Link to="/SignIU">
+                      <Link to="">
                       <FaRegUser className="cursor-pointer hover:text-gray-500" />
                       </Link>
                     </div>
@@ -93,6 +93,7 @@ function Save(){
                     <h1 className="font-bold text-2xl">Saved Items</h1>
                 </section>
                 <Saves />
+                
             </div>
         </>
     )

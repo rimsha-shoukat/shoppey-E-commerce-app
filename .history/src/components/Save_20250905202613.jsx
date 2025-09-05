@@ -84,15 +84,14 @@ function Save(){
                       <Link to="/Cart">
                          <FaCartShopping className="cursor-pointer hover:text-gray-500" />
                       </Link>
-                      <Link to="/SignIU">
                       <FaRegUser className="cursor-pointer hover:text-gray-500" />
-                      </Link>
                     </div>
                 </section>
                 <section className="mb-2 flex flex-col items-center justify-center w-[100%] p-8 h-auto bg-linear-to-l from-[#dd957a] to-[#eee2ca]">
                     <h1 className="font-bold text-2xl">Saved Items</h1>
                 </section>
                 <Saves />
+                
             </div>
         </>
     )

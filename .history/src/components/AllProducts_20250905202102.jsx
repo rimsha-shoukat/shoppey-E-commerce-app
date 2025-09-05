@@ -25,6 +25,7 @@ function AllProducts({Products}) {
  
   useEffect( () => {
     let Items = [...Products];
+    console.log(Items)
 
     if(param){
       if(['beauty' , 'fragrances' , 'furniture',  'groceries'].includes(param)){
@@ -57,9 +58,7 @@ function AllProducts({Products}) {
               <Link to="/Cart">
                 <FaCartShopping className="cursor-pointer hover:text-gray-500" />
               </Link>
-              <Link to="/SignIU">
                 <FaRegUser className="cursor-pointer hover:text-gray-500" />
-              </Link>
             </div>
         </section>
 
