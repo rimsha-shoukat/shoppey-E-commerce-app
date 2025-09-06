@@ -8,7 +8,7 @@ function Slider(props){
     return (
         <div key={item.id} className="w-auto h-auto bg-white">
           <Link key={item.id} to={`/ProductDetail/${item.id}`}>
-           <img loading="lazy" className="w-[16rem] h-[15rem] drop-shadow-lg" src={item.thumbnail} alt={item.title} loading="laz" />
+           <img load className="w-[16rem] h-[15rem] drop-shadow-lg" src={item.thumbnail} alt={item.title} loading="laz" />
           </Link>
           <div className="p-[0.5rem] select-none w-[16rem] h-[5rem]">
             <h1 className="text-[1rem] font-semibold leading-5 pb-[0.25rem]">{item.title}</h1>

@@ -11,7 +11,7 @@ function Landing(){
         <>
            <div className="relative w-[100%] h-screen">
             {/* Background Image */}
-           <img className="absolute w-[100%] h-[100vh]" src="assets/landing-bg.webp" loading="lazy" alt="landing Image"/> 
+           <img className="absolute w-[100%] h-[100vh]" src="assets/landing-bg.webp" alt="landing Image"/> 
            {/* Content */}
            <div className="relative flex flex-col gap-[2rem] pt-[1rem] max-[710px]:pt-[0rem] w-[100%] h-[100vh]">
                 <nav className="flex flex-row items-center justify-between pt-[1rem] px-[3rem] w-[100%] h-[6%]">
@@ -49,7 +49,7 @@ function Landing(){
                         </Link>
                         </div>
                     </section>
-                    <img className="w-[50%] h-[100%] max-[710px]:w-[70%] max-[560px]:w-[90%] max-[360px]:w-[100%] px-[2rem] rounded-bl-[10rem] overflow-hidden" loading="lazy" src="assets/landing-side-img.webp" alt="side-img" />
+                    <img className="w-[50%] h-[100%] max-[710px]:w-[70%] max-[560px]:w-[90%] max-[360px]:w-[100%] px-[2rem] rounded-bl-[10rem] overflow-hidden" loading="" src="assets/landing-side-img.webp" alt="side-img" />
                 </main>
            </div>
            </div>

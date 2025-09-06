@@ -11,7 +11,7 @@ function Landing(){
         <>
            <div className="relative w-[100%] h-screen">
             {/* Background Image */}
-           <img className="absolute w-[100%] h-[100vh]" src="assets/landing-bg.webp" loading="lazy" alt="landing Image"/> 
+           <img className="absolute w-[100%] h-[100vh]" src="assets/landing-bg.webp" loading="laz" alt="landing Image"/> 
            {/* Content */}
            <div className="relative flex flex-col gap-[2rem] pt-[1rem] max-[710px]:pt-[0rem] w-[100%] h-[100vh]">
                 <nav className="flex flex-row items-center justify-between pt-[1rem] px-[3rem] w-[100%] h-[6%]">

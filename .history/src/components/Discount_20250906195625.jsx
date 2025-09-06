@@ -26,7 +26,7 @@ function Discount(){
                 <img className="h-[10rem] w-[100%] scale-105 rotate-x-5 -rotate-y-10" loading="lazy" src="assets/dis2.jpg" alt="fragrances discount" />
             </section>
             <section className='w-[25%] max-[890px]:w-[30%] h-auto bg-yellow-300 p-[1rem] max-[710px]:w-[50%] max-[460px]:w-[70%] max-[320px]:w-[80%]'>
-                <img className="h-[10rem] w-[100%] scale-105 rotate-x-5 -rotate-y-10" loading="lazy" src="assets/dis3.jpg" alt="groceries discount" />
+                <img className="h-[10rem] w-[100%] scale-105 rotate-x-5 -rotate-y-10"  src="assets/dis3.jpg" alt="groceries discount" />
                 <div className="pt-[0.65rem]">
                 <h1 className="font-bold text-2xl select-none">30% OFF</h1>
                 <p className='font-semibold select-none'>GROCERIES COLLECTION</p>

@@ -46,7 +46,7 @@ const Carts = ({cartItemsList, setCartItemsList}) => {
            {cartItemsList.map((item) => (
             <div key={item.id} className="w-[100%] flex flex-row items-center justify-center py-6 max-[350px]:py-2 gap-4 border-t-2 border-t-gray-400">
                     <Link key={item.id} to={`/ProductDetail/${item.id}`}>
-                        <img loading="lazy" className="w-[6rem] h-[6rem] rounded-sm" src={item.thumbnail} alt="cartItem" loading="lazy" />
+                        <img className="w-[6rem] h-[6rem] rounded-sm" src={item.thumbnail} alt="cartItem" loading="lazy" />
                     </Link>
                         <div className="flex flex-row items-start justify-between gap-2 max-[350px]:gap-0 max-[500px]:flex-col">
                             <div className="flex flex-col items-start justify-start gap-6 max-[750px]:gap-2 max-[500px]:gap-0">

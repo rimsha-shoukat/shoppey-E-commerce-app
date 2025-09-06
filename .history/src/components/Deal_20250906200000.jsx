@@ -49,7 +49,7 @@ function Deal({Products}){
         <>
           <section className="relative w-[100%] h-[88vh] max-[1170px]:h-[75vh] overflow-hidden max-[710px]:h-auto">
             {/* background */}
-            <img loading="lazy" className="absolute w-[100%] h-[100%]" src="assets/landing-bg.webp" alt="Image"/> 
+            <img className="absolute w-[100%] h-[100%]" src="assets/landing-bg.webp" alt="Image"/> 
             {/* content */}
             <div className="relative w-[100%] h-[100%] flex flex-row max-[710px]:flex-col items-center justify-between text-[#251201]">
                 {/* content section */}

@@ -75,7 +75,7 @@ function AllProducts({Products}) {
         <section className="columns-5 mt-[1rem] w-[100%] h-auto p-4 max-[900px]:columns-4 max-[660px]:columns-3 max-[500px]:columns-2">
         { filterProducts.map((item) => (
             <Link key={item.id} to={`/ProductDetail/${item.id}`}>
-              <img key={item.id} loading="lazy"  className="w-full rounded-[1rem] mb-6 h-auto shadow-[0.1px_0.1px_0.1rem_#dd957a]" src={item.thumbnail} alt="products" loading="lazy" />
+              <img key={item.id} loa  className="w-full rounded-[1rem] mb-6 h-auto shadow-[0.1px_0.1px_0.1rem_#dd957a]" src={item.thumbnail} alt="products" loading="lazy" />
             </Link>
           ))}
         </section>

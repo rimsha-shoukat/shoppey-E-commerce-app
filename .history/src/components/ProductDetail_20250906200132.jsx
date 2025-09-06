@@ -98,7 +98,7 @@ function ProductDetail({Products}){
                  </section>
                  <section className="grid grid-cols-2 max-[600px]:grid-cols-1 select-none items-center justify-center max-[600px]:w-[60%] max-[500px]:w-[70%] max-[400px]:w-[90%] w-[60%] max-[1140px]:w-[70%] max-[970px]:w-[80%] max-[800px]:w-[90%] h-auto border-2 border-gray-300 rounded-lg gap-[1rem] bg-[#f7ecd6]">
                     <div className="cols-span-1 h-auto flex items-center justify-center">
-                        <img loading="lazy" className='w-[20rem] h-[20rem] rounded-lg' src={image.thumbnail} alt="itemDetail" loading="lazy" />
+                        <img load className='w-[20rem] h-[20rem] rounded-lg' src={image.thumbnail} alt="itemDetail" loading="lazy" />
                     </div>
                     <div className="cols-span-1 h-auto flex flex-col items-start justify-start p-6">
                         <p className="text-sm">{image.category}</p>
