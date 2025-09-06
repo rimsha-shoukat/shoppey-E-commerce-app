@@ -85,6 +85,69 @@ const customers = [
         img: 'assets/c12.webp',
         name: "Sophia Clark",
         rank: "customer"
+    },{
+        id: 12,
+        intro: "Daniel is a tech-savvy shopper.",
+        review: "The app is easy to navigate and shop.",
+        img: 'assets/c13.webp',
+        name: "Daniel Lewis",
+        rank: "customer"
+    },{
+        id: 13,
+        intro: "Olivia is a fashionista.",
+        review: "Shoppey keeps me updated with the latest trends.",
+        img: 'assets/c14.webp',
+        name: "Olivia Walker",
+        rank: "customer"
+    },{
+        id: 14,
+        intro: "Ethan is a loyal customer.",
+        review: "I always return to Shoppey for my clothing needs.",
+        img: 'assets/c15.webp',
+        name: "Ethan Hall",
+        rank: "customer"
+    },{
+        id: 15,
+        intro: "Mia is a bargain hunter.",
+        review: "I love the discounts and sales at Shoppey.",
+        img: 'assets/c16.webp',
+        name: "Mia Allen",
+        rank: "customer"
+    },{
+        id: 16,
+        intro: "Noah is a style influencer.",
+        review: "Shoppey is my go-to for stylish outfits.",
+        img: 'assets/c17.webp',
+        name: "Noah Young",
+        rank: "reseller"
+    },{
+        id: 17,
+        intro: "Ava is a fashion lover.",
+        review: "The variety of styles is impressive!",
+        img: 'assets/c18.webp',
+        name: "Ava King",
+        rank: "customer"
+    },{
+        id: 18,
+        intro: "Liam is a casual shopper.",
+        review: "I found exactly what I was looking for.",
+        img: 'assets/c19.webp',
+        name: "Liam Wright",
+        rank: "customer"
+    },{
+        id: 19,
+        intro: "Isabella enjoys online shopping.",
+        review: "Fast shipping and great customer support.",
+        img: 'assets/c20.webp',
+        name: "Isabella Scott",
+        rank: "customer"
+    },{
+        id: 20,
+        intro: "Lucas is a fashion critic.",
+        review: "Shoppey has a great selection of clothing.",
+        img: 'assets/c21.webp',
+        name: "Lucas Green",
+        rank: "reseller"
     }
 ];
 

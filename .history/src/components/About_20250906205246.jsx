@@ -85,6 +85,34 @@ const customers = [
         img: 'assets/c12.webp',
         name: "Sophia Clark",
         rank: "customer"
+    },{
+        id: 12,
+        intro: "Daniel is a tech-savvy shopper.",
+        review: "The app is easy to navigate and shop.",
+        img: 'assets/c13.webp',
+        name: "Daniel Lewis",
+        rank: "customer"
+    },{
+        id: 13,
+        intro: "Olivia is a fashionista.",
+        review: "Shoppey keeps me updated with the latest trends.",
+        img: 'assets/c14.webp',
+        name: "Olivia Walker",
+        rank: "customer"
+    },{
+        id: 14,
+        intro: "Ethan is a loyal customer.",
+        review: "I always return to Shoppey for my clothing needs.",
+        img: 'assets/c15.webp',
+        name: "Ethan Hall",
+        rank: "customer"
+    },{
+        id: 15,
+        intro: "Mia is a bargain hunter.",
+        review: "I love the discounts and sales at Shoppey.",
+        img: 'assets/c16.webp',
+        name: "Mia Allen",
+        rank: "customer"
     }
 ];
 

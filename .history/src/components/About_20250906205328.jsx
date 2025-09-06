@@ -85,6 +85,20 @@ const customers = [
         img: 'assets/c12.webp',
         name: "Sophia Clark",
         rank: "customer"
+    },{
+        id: 12,
+        intro: "Daniel is a tech-savvy shopper.",
+        review: "The app is easy to navigate and shop.",
+        img: 'assets/c13.webp',
+        name: "Daniel Lewis",
+        rank: "customer"
+    },{
+        id: 13,
+        intro: "Olivia is a fashionista.",
+        review: "Shoppey keeps me updated with the latest trends.",
+        img: 'assets/c14.webp',
+        name: "Olivia Walker",
+        rank: "customer"
     }
 ];
 

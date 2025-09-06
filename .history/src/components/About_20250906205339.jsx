@@ -85,6 +85,13 @@ const customers = [
         img: 'assets/c12.webp',
         name: "Sophia Clark",
         rank: "customer"
+    },{
+        id: 12,
+        intro: "Daniel is a tech-savvy shopper.",
+        review: "The app is easy to navigate and shop.",
+        img: 'assets/c13.webp',
+        name: "Daniel Lewis",
+        rank: "customer"
     }
 ];
 
