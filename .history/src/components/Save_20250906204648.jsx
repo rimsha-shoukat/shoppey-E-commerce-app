@@ -50,7 +50,7 @@ const removeFromSave = (id) => {
             {saveItemsList.map((item) => (
                 <div key={item.id} className="w-auto flex flex-row items-center justify-start py-6 max-[600px]:py-2 gap-4 max-[600px]:gap-2 border-t-2 border-t-gray-400">
                     <Link key={item.id} to={`/ProductDetail/${item.id}`}>
-                        <img loading="lazy" key={item.id} className="w-[8rem] h-[8rem] max-[400px]:w-[6rem] max-[400px]:h-[6rem] rounded-sm" src={item.thumbnail} alt="saveItems"/>
+                        <img loading="lazy" key={item.id} className="w-[8rem] h-[8rem] max-[400px]:w-[6rem] max-[400px]:h-[6rem] rounded-sm" src={item.thumbnail} alt="saveItems" />
                     </Link>
                     <div className="flex flex-row max-[600px]:flex-col max-[600px]:gap-4 items-start justify-between gap-[3rem] ">
                         <div className="flex flex-col items-start justify-start gap-2">
