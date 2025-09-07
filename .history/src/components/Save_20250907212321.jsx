@@ -3,18 +3,23 @@ import { Link } from 'react-router-dom';
 import { FaRegUser } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 
-const Saves = (user) => {
-    const [saveItemsList, setSaveItemsList] = useState(user.saveItems || []);
-    const [cartItems, setCartItems] = useState(user.cartItems || []);
+const Saves = () => {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const [saveItemsList, setSaveItemsList] = useState(currentUser.saveItems || []);
+    const [cartItems, setCartItems] = useState(currentUser.cartItems || []);
 
     useEffect(() => {
-            user.saveItems = saveItemsList;
-            localStorage.setItem('currentUser', JSON.stringify(user));
+        if (currentUser) {
+            currentUser.saveItems = saveItemsList;
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        }
     }, [saveItemsList]);
 
     useEffect(() => {
-            user.cartItems = cartItems;
-            localStorage.setItem('currentUser', JSON.stringify(user));
+        if (currentUser) {
+            currentUser.cartItems = cartItems;
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        }
     }, [cartItems]);
 
     const addToCart = (id) => {
@@ -116,7 +121,7 @@ function Save() {
                         }
                     </div>
                 </section>
-                { isLoggedIn ? (
+                {localStorage.getItem('account') ? (
                     <section className="mb-2 flex flex-col items-center justify-center w-[100%] p-8 h-auto bg-linear-to-l from-[#dd957a] to-[#eee2ca]">
                         <h1 className="font-bold text-2xl">Saved Items</h1>
                     </section>
@@ -125,7 +130,7 @@ function Save() {
                         <h1 className="font-bold text-2xl">Please log in to see your saved items</h1>
                     </section>
                 )}
-                { isLoggedIn && <Saves user={user} />}
+                {localStorage.getItem('account') && <Saves user={} />}
             </div>
         </>
     )

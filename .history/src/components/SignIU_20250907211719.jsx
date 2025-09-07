@@ -45,8 +45,8 @@ function SignIU(){
             name: name,
             email: email,
             password: password,
-            saveItems: [],
-            cartItems: [],
+            save: [],
+            cart: [],
             };
             existedUsers.push(newUser);
             localStorage.setItem("users", JSON.stringify(existedUsers));

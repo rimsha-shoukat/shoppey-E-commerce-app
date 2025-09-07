@@ -15,6 +15,7 @@ const Saves = (user) => {
     useEffect(() => {
             user.cartItems = cartItems;
             localStorage.setItem('currentUser', JSON.stringify(user));
+        }
     }, [cartItems]);
 
     const addToCart = (id) => {

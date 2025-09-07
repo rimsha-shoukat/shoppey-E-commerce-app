@@ -8,13 +8,17 @@ const Saves = (user) => {
     const [cartItems, setCartItems] = useState(user.cartItems || []);
 
     useEffect(() => {
+        if (user) {
             user.saveItems = saveItemsList;
-            localStorage.setItem('currentUser', JSON.stringify(user));
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        }
     }, [saveItemsList]);
 
     useEffect(() => {
-            user.cartItems = cartItems;
-            localStorage.setItem('currentUser', JSON.stringify(user));
+        if (currentUser) {
+            currentUser.cartItems = cartItems;
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        }
     }, [cartItems]);
 
     const addToCart = (id) => {

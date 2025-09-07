@@ -5,16 +5,20 @@ import { FaCartShopping } from "react-icons/fa6";
 
 const Saves = (user) => {
     const [saveItemsList, setSaveItemsList] = useState(user.saveItems || []);
-    const [cartItems, setCartItems] = useState(user.cartItems || []);
+    const [cartItems, setCartItems] = useState(currentUser.cartItems || []);
 
     useEffect(() => {
-            user.saveItems = saveItemsList;
-            localStorage.setItem('currentUser', JSON.stringify(user));
+        if (currentUser) {
+            currentUser.saveItems = saveItemsList;
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        }
     }, [saveItemsList]);
 
     useEffect(() => {
-            user.cartItems = cartItems;
-            localStorage.setItem('currentUser', JSON.stringify(user));
+        if (currentUser) {
+            currentUser.cartItems = cartItems;
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        }
     }, [cartItems]);
 
     const addToCart = (id) => {

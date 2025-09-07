@@ -13,8 +13,10 @@ const Saves = (user) => {
     }, [saveItemsList]);
 
     useEffect(() => {
-            user.cartItems = cartItems;
-            localStorage.setItem('currentUser', JSON.stringify(user));
+            if (currentUser) {
+            currentUser.cartItems = cartItems;
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        }
     }, [cartItems]);
 
     const addToCart = (id) => {

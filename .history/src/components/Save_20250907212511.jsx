@@ -9,12 +9,15 @@ const Saves = (user) => {
 
     useEffect(() => {
             user.saveItems = saveItemsList;
-            localStorage.setItem('currentUser', JSON.stringify(user));
+            localStorage.setItem('currentUser', JSON.stringify(currentU
+                ser));
     }, [saveItemsList]);
 
     useEffect(() => {
-            user.cartItems = cartItems;
-            localStorage.setItem('currentUser', JSON.stringify(user));
+        if (currentUser) {
+            currentUser.cartItems = cartItems;
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        }
     }, [cartItems]);
 
     const addToCart = (id) => {
