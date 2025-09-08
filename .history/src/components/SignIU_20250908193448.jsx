@@ -71,8 +71,7 @@ function SignIU() {
         }
     };
 
-    const handlePasswordButton = (event) => {
-        event.preventDefault();
+    const handlePasswordButton = () => {
         setChangePassword(true);
         setName('');
         setEmail('');
@@ -80,26 +79,8 @@ function SignIU() {
         setConfirmPassword('');
     };
 
-    const handleChangePassword = (event) => {
-        event.preventDefault();
-        if(email === "" || password === "") {
-            setAlert("Email and Password fields are required");
-            setShowAlert(true);
-            return;
-        }else{
-            let existedUsers = JSON.parse(localStorage.getItem('users')) || [];
-            let user = existedUsers.find(user => user.email === email);
-            if(user) {
-                user.password = password;
-                localStorage.setItem('users', JSON.stringify(existedUsers));
-                setAlert("Password Changed Successfully");
-                setShowAlert(true);
-            } else {
-                setAlert("User not found");
-                setShowAlert(true);
-                return;
-            }
-        }
+    const handleChangePassword = () => {
+
     }
 
     return (
@@ -116,7 +97,7 @@ function SignIU() {
                     changePassword && <div className="select-none font-bold font-serif absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#f1f1f1] shadow-[0.1px_0.1px_0.1rem_#dd957a] p-[2rem] rounded-md flex flex-col items-center justify-center gap-4">
                         <input value={email} onChange={(e) => setEmail(e.target.value)} className="w-[70%] bg-white/30 px-[0.5rem] py-[0.35rem] text-[1.1rem]" placeholder="Email" type="email" required />
                         <input value={password} onChange={(e) => setPassword(e.target.value)} className="w-[70%] bg-white/30 px-[0.5rem] py-[0.35rem] text-[1.1rem]" placeholder="New Password" type="text" required />
-                        <button onClick={handleChangePassword} className="cursor-pointer text-[1rem] bg-black text-[#b48068] border-2 border-black hover:text-black hover:bg-[#b48068] hover:transition-all duration-700 ease-in-out px-[1rem] py-[0.35rem]">Confirm</button>
+                        <button onClick={() =} className="cursor-pointer text-[1rem] bg-black text-[#b48068] border-2 border-black hover:text-black hover:bg-[#b48068] hover:transition-all duration-700 ease-in-out px-[1rem] py-[0.35rem]">Confirm</button>
                     </div>
                 }
                 <section className="relative left-[10.5rem] max-[800px]:left-0 max-[800px]:-bottom-[22rem] max-[440px]:w-[100vw] w-[26rem] h-[30rem] rounded-xl border-0 shadow-xl z-2">

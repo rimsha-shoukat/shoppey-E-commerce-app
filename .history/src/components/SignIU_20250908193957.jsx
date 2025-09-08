@@ -88,7 +88,7 @@ function SignIU() {
             return;
         }else{
             let existedUsers = JSON.parse(localStorage.getItem('users')) || [];
-            let user = existedUsers.find(user => user.email === email);
+            let user = existedUsers.find(user => user.email === email && user.password === password);
             if(user) {
                 user.password = password;
                 localStorage.setItem('users', JSON.stringify(existedUsers));
