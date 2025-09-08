@@ -13,8 +13,7 @@ function AllProducts({ Products }) {
   const [userView, setUserView] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(() => JSON.parse(localStorage.getItem('account')) || false);
   const [user, setUser] = useState(() => JSON.parse(localStorage.getItem('currentUser ')) || null);
-  const [showAlert, setShowAlert] = useState(false);
-  const [alert, setAlert] = useState(null);
+  const [showAlert, setShow]
 
   const handleLogout = () => {
     localStorage.setItem('account', JSON.stringify(false));
@@ -31,8 +30,7 @@ function AllProducts({ Products }) {
       if (searchProducts.length > 0) {
         setFilterProducts(searchProducts);
       } else {
-        setAlert("no Item Found");
-        setShowAlert(true);
+        alert("no Item Found");
       }
     }
   }
@@ -90,12 +88,12 @@ function AllProducts({ Products }) {
               ) : (null)
             }
             {
-              showAlert && <div className="select-none font-bold font-serif absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#f1f1f1] shadow-[0.1px_0.1px_0.1rem_#dd957a] p-[2rem] rounded-md flex flex-col items-center justify-center gap-4">
-                <h1 className="text-[1.5rem] text-[#b48068] leading-5">Alert</h1>
-                <h1 className="text-[1.2rem]">{alert}</h1>
-                <button onClick={() => setShowAlert(false)} className="cursor-pointer text-[1rem] bg-black text-[#b48068] border-2 border-black hover:text-black hover:bg-[#b48068] hover:transition-all duration-700 ease-in-out px-[1rem] py-[0.35rem]">Close</button>
-              </div>
-            }
+                    showAlert && <div className="select-none font-bold font-serif absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#f1f1f1] shadow-[0.1px_0.1px_0.1rem_#dd957a] p-[2rem] rounded-md flex flex-col items-center justify-center gap-4">
+                        <h1 className="text-[1.5rem] text-[#b48068] leading-5">Alert</h1>
+                        <h1 className="text-[1.2rem]">{alert}</h1>
+                        <button onClick={() => setShowAlert(false)} className="cursor-pointer text-[1rem] bg-black text-[#b48068] border-2 border-black hover:text-black hover:bg-[#b48068] hover:transition-all duration-700 ease-in-out px-[1rem] py-[0.35rem]">Close</button>
+                    </div>
+                }
 
           </div>
         </section>

@@ -6,8 +6,6 @@ import { FaCartShopping } from "react-icons/fa6";
 const Saves = (user) => {
     const [saveItemsList, setSaveItemsList] = useState(user.saveItems || []);
     const [cartItems, setCartItems] = useState(user.cartItems || []);
-    const [alert, setAlert] = useState(null);
-    const [showAlert, setShowAlert] = useState(false);
 
     useEffect(() => {
         user.saveItems = saveItemsList;
@@ -28,7 +26,7 @@ const Saves = (user) => {
                 setShowAlert(true);
             } else {
                 setAlert('Already in cart');
-                setShowAlert(true);
+                setShowAlert(true)
             }
         }
     };
@@ -40,8 +38,7 @@ const Saves = (user) => {
             const updatedItems = [...saveItemsList];
             updatedItems.splice(itemIndex, 1);
             setSaveItemsList(updatedItems);
-            setAlert(`Removed ${item.title} from saved items`);
-            setShowAlert(true);
+            alert(`Removed ${item.title} from saved items`);
         }
     }
 
@@ -74,13 +71,6 @@ const Saves = (user) => {
                     </div>
                 </div>
             ))}
-            {
-                showAlert && <div className="select-none font-bold font-serif absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#f1f1f1] shadow-[0.1px_0.1px_0.1rem_#dd957a] p-[2rem] rounded-md flex flex-col items-center justify-center gap-4">
-                    <h1 className="text-[1.5rem] text-[#b48068] leading-5">Alert</h1>
-                    <h1 className="text-[1.2rem]">{alert}</h1>
-                    <button onClick={() => setShowAlert(false)} className="cursor-pointer text-[1rem] bg-black text-[#b48068] border-2 border-black hover:text-black hover:bg-[#b48068] hover:transition-all duration-700 ease-in-out px-[1rem] py-[0.35rem]">Close</button>
-                </div>
-            }
         </section>
     );
 }

@@ -20,8 +20,6 @@ function ProductDetail({ Products }) {
     const [userView, setUserView] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(() => JSON.parse(localStorage.getItem('account')) || false);
     const [user, setUser] = useState(() => JSON.parse(localStorage.getItem('currentUser')) || null);
-    const [alert, setAlert] = useState(null);
-    const [showAlert, setShowAlert] = useState(false);
 
     const handleLogout = () => {
         localStorage.setItem('account', JSON.stringify(false));
@@ -96,6 +94,8 @@ function ProductDetail({ Products }) {
         }
     }
 
+    const handleBu
+
     return (
         <>
             <div className="w-[100%] h-auto font-serif flex flex-col items-center justify-center gap-[2rem]">
@@ -128,13 +128,6 @@ function ProductDetail({ Products }) {
                                 </div>
                             ) : (null)
                         }
-                        {
-                            showAlert && <div className="select-none font-bold font-serif absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#f1f1f1] shadow-[0.1px_0.1px_0.1rem_#dd957a] p-[2rem] rounded-md flex flex-col items-center justify-center gap-4">
-                                <h1 className="text-[1.5rem] text-[#b48068] leading-5">Alert</h1>
-                                <h1 className="text-[1.2rem]">{alert}</h1>
-                                <button onClick={() => setShowAlert(false)} className="cursor-pointer text-[1rem] bg-black text-[#b48068] border-2 border-black hover:text-black hover:bg-[#b48068] hover:transition-all duration-700 ease-in-out px-[1rem] py-[0.35rem]">Close</button>
-                            </div>
-                        }
                     </div>
                 </section>
                 <section className="grid grid-cols-2 max-[600px]:grid-cols-1 select-none items-center justify-center max-[600px]:w-[60%] max-[500px]:w-[70%] max-[400px]:w-[90%] w-[60%] max-[1140px]:w-[70%] max-[970px]:w-[80%] max-[800px]:w-[90%] h-auto border-2 border-gray-300 rounded-lg gap-[1rem] bg-[#f7ecd6]">
@@ -157,8 +150,8 @@ function ProductDetail({ Products }) {
                             <button onClick={(e) => selectSize(e)} className={`w-[2.5rem] h-[2.5rem] ${select === 'L' ? 'bg-gray-500 text-white' : ''} hover:shadow-[0.5px_0.5px_3px] hover:shadow-gray-800 rounded-full shadow-[0.5px_0.5px_2px] cursor-pointer`}>L</button>
                         </div>
                         <div className="flex flex-row items-center justify-center gap-[1rem]">
-                            <button onClick={isLoggedIn ? AddedToCart(image) : (setAlert("logIn to add Items"), setShowAlert(true))} className={`px-[2rem] py-[10px] rounded-md text-nowrap shadow-[0.5px_0.5px_2px] hover:shadow-[0.5px_0.5px_3px] hover:shadow-gray-800 hover:bg-gray-500 hover:text-white cursor-pointer`}>{addToCart ? 'Added to cart' : 'Add to cart'}</button>
-                            <button onClick={isLoggedIn ? AddedToSave(image) : (setAlert("logIn to add Items"), setShowAlert(true))} className={`p-[10px] rounded-md shadow-[0.5px_0.5px_2px] hover:shadow-[0.5px_0.5px_3px] hover:shadow-gray-800 hover:bg-gray-500 hover:text-white cursor-pointer font-light text-[1.5rem]`}>{addToSave ? <FaBookmark /> : <FaRegBookmark />}</button>
+                            <button onClick={isLoggedIn ? AddedToCart(image) : setAlert("logIn to add Items")} className={`px-[2rem] py-[10px] rounded-md text-nowrap shadow-[0.5px_0.5px_2px] hover:shadow-[0.5px_0.5px_3px] hover:shadow-gray-800 hover:bg-gray-500 hover:text-white cursor-pointer`}>{addToCart ? 'Added to cart' : 'Add to cart'}</button>
+                            <button onClick={isLoggedIn ? AddedToSave(image) : setAlert("logIn to add Items")} className={`p-[10px] rounded-md shadow-[0.5px_0.5px_2px] hover:shadow-[0.5px_0.5px_3px] hover:shadow-gray-800 hover:bg-gray-500 hover:text-white cursor-pointer font-light text-[1.5rem]`}>{addToSave ? <FaBookmark /> : <FaRegBookmark />}</button>
                         </div>
                     </div>
                 </section>

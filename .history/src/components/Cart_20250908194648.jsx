@@ -8,8 +8,7 @@ import { FaArrowRight } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 
 const Carts = ({ cartItemsList, setCartItemsList, user }) => {
-    const [alert, setAlert] = useState(null);
-    const [showAlert, setShowAlert] = useState(false);
+    
 
     useEffect(() => {
         user.cartItems = cartItemsList;
