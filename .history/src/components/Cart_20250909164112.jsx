@@ -126,12 +126,11 @@ function Cart({ user, setUser }) {
             for(let i = 0; i < codeList.length; i++){
             if(codeList[i] == coupon){
                 setBill(bill / 1.3);
-                setCode(true);
-                setShow(false);
             }else{
                 setShow(true);
             }
         };
+         setCode(true);
         }
     };
 
