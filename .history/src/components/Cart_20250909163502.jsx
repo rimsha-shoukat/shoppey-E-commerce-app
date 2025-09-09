@@ -128,9 +128,9 @@ function Cart({ user, setUser }) {
                 setBill(bill / 1.3);
             }else{
                 setShow(true);
-                setCode(true);
             }
         };
+        setCode(true);
         }
     };
 

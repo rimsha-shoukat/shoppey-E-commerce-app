@@ -131,6 +131,7 @@ function Cart({ user, setUser }) {
                 setCode(true);
             }
         };
+        setCode(true);
         }
     };
 
