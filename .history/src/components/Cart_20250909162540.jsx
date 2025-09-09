@@ -93,7 +93,7 @@ function Cart({ user, setUser }) {
     const [coupon, setCoupon] = useState('');
     const [code, setCode] = useState(false);
     const [show, setShow] = useState(false);
-    const codeList = ["we123", "shop2", "rk7", "code.js", "git511"];
+    const code = ["we123", "shop2", "rk7", "code.js", "git511"];
 
     const handleLogout = () => {
         localStorage.setItem('currentUser', JSON.stringify(null));
@@ -123,14 +123,14 @@ function Cart({ user, setUser }) {
     const handleCoupon = () => {
         if(!code){
             setShow(false);
-            for(let i = 0; i < codeList.length; i++){
-            if(codeList[i] == coupon){
+            for(let i = 0; i < code.length; i++){
+            if(code[i] == coupon){
                 setBill(bill / 1.3);
-            }else{
-                setShow(true);
             }
         };
         setCode(true);
+        }else{
+            setShow(true);
         }
     };
 

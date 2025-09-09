@@ -123,14 +123,14 @@ function Cart({ user, setUser }) {
     const handleCoupon = () => {
         if(!code){
             setShow(false);
-            for(let i = 0; i < codeList.length; i++){
-            if(codeList[i] == coupon){
+            for(let i = 0; i < code.length; i++){
+            if(code[i] == coupon){
                 setBill(bill / 1.3);
-            }else{
-                setShow(true);
             }
         };
         setCode(true);
+        }else{
+            setShow(true);
         }
     };
 

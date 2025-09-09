@@ -90,10 +90,7 @@ function Cart({ user, setUser }) {
     const [discount, setDiscount] = useState(0);
     const [delivery, setDelivery] = useState(0);
     const [bill, setBill] = useState(0);
-    const [coupon, setCoupon] = useState('');
-    const [code, setCode] = useState(false);
-    const [show, setShow] = useState(false);
-    const codeList = ["we123", "shop2", "rk7", "code.js", "git511"];
+    const code = {}
 
     const handleLogout = () => {
         localStorage.setItem('currentUser', JSON.stringify(null));
@@ -120,19 +117,6 @@ function Cart({ user, setUser }) {
         }
     }, [cartItemsList]);
 
-    const handleCoupon = () => {
-        if(!code){
-            setShow(false);
-            for(let i = 0; i < codeList.length; i++){
-            if(codeList[i] == coupon){
-                setBill(bill / 1.3);
-            }else{
-                setShow(true);
-            }
-        };
-        setCode(true);
-        }
-    };
 
     return (
         <>
@@ -178,12 +162,9 @@ function Cart({ user, setUser }) {
                                 <div className="w-[100%] flex flex-col items-start justify-start gap-2">
                                     <h1 className="font-semibold">Do you have a discount?</h1>
                                     <div className="flex flex-row gap-2 items-center justify-center">
-                                        <input type="text" value={coupon} onChange={(e) => setCoupon(e.target.value)} placeholder="Coupon code" className="w-[10rem] h-[2.5rem] px-4 rounded-sm border-gray-300 bg-white/50 text-black placeholder:text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#b48068]" />
-                                        <FaArrowRight onClick={handleCoupon} className="w-[2rem] h-[2rem] text-white cursor-pointer p-2 bg-black rounded-full" />
+                                        <input type="text" placeholder="Coupon code" className="w-[10rem] h-[2.5rem] px-4 rounded-sm border-gray-300 bg-white/50 text-black placeholder:text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#b48068]" />
+                                        <FaArrowRight className="w-[2rem] h-[2rem] text-white cursor-pointer p-2 bg-black rounded-full" />
                                     </div>
-                                   {
-                                    show && <p className="text-sm text-red-500">Code does not exist!</p>
-                                   }
                                 </div>
                                 <div className="w-[100%] flex flex-col gap-2 items-start justify-start">
                                     <h1>Delivery charges: <span className="font-bold">${delivery.toFixed(2)}</span></h1>
