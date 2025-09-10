@@ -10,7 +10,6 @@ Welcome to Shoppey, a modern e-commerce application built with React.js! This ap
 - **User  Authentication**: Secure user registration and login functionality, allowing users to manage their accounts and view order history.
 - **Responsive Design**: Fully responsive layout that works seamlessly on both desktop and mobile devices.
 - **Search and Filter**: Users can quickly find products using search functionality and filter options based on categories, price range, and ratings.
-- **Checkout Process**: A streamlined checkout process that guides users through payment and shipping options.
 
 ## Technologies Used
 
