@@ -131,11 +131,7 @@ function Cart({ user, setUser }) {
             }
         };
         }
-        if(result){
-            setShow(false);
-        }else{
-            setShow(true);
-        }
+        
     };
 
     return (

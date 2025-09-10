@@ -130,11 +130,7 @@ function Cart({ user, setUser }) {
                 setCode(true);
             }
         };
-        }
-        if(result){
-            setShow(false);
-        }else{
-            setShow(true);
+        
         }
     };
 

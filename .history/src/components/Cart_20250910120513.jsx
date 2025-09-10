@@ -128,13 +128,13 @@ function Cart({ user, setUser }) {
                 setBill(bill / 1.3);
                 result = true;
                 setCode(true);
+            }else{
+                setShow(true);
             }
         };
-        }
         if(result){
             setShow(false);
-        }else{
-            setShow(true);
+        }e
         }
     };
 
