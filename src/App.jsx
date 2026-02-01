@@ -1,24 +1,22 @@
 import './App.css';
-import { React, lazy, Suspense, useState, useEffect } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import Landing from './components/Landing.jsx';
+import About from './components/About.jsx';
+import Discount from './components/Discount.jsx';
+import BestSeller from './components/BestSeller.jsx';
+import Deal from './components/Deal.jsx';
+import Product from './components/Product.jsx';
+import Social from './components/Social.jsx';
+import SignIU from './components/SignIU.jsx';
+import AllProducts from './components/AllProducts.jsx';
+import ProductDetail from './components/ProductDetail.jsx';
+import Cart from './components/Cart.jsx';
+import Save from './components/Save.jsx';
 
-// Lazy load components
-const Landing = lazy(() => import('./components/Landing.jsx'));
-const Discount = lazy(() => import('./components/Discount.jsx'));
-const Collection = lazy(() => import('./components/newCollection.jsx'));
-const BestSeller = lazy(() => import('./components/BestSeller.jsx'));
-const Deal = lazy(() => import('./components/Deal.jsx'));
-const Product = lazy(() => import('./components/Product.jsx'));
-const About = lazy(() => import('./components/About.jsx'));
-const Social = lazy(() => import('./components/Social.jsx'));
-const SignIU = lazy(() => import('./components/SignIU.jsx'));
-const AllProducts = lazy(() => import('./components/AllProducts.jsx'));
-const ProductDetail = lazy(() => import('./components/ProductDetail.jsx'));
-const Cart = lazy(() => import('./components/Cart.jsx'));
-const Save = lazy(() => import('./components/Save.jsx'));
 
-function App(){
-  const [Products, setProducts] = useState( [] );
+function App() {
+  const [Products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [user, setUser] = useState(() => JSON.parse(localStorage.getItem('currentUser')) || null);
@@ -41,56 +39,55 @@ function App(){
     fetchData();
   }, []);
   if (loading) return <div>Loading products...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (error) return <div>Error: {error} </div>;
 
-  return(
+  return (
     <>
-     <Routes>
-      <Route path="/" element={
-        <>
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Landing user={user} setUser={setUser} />
+              <Discount />
+              <BestSeller Products={Products.products} />
+              <Deal Products={Products.products} />
+              <Product Products={Products.products} />
+              <About />
+              <Social />
+            </Suspense>
+          </>
+        } />
+        <Route path="/SignIU" element={
           <Suspense fallback={<div>Loading...</div>}>
-            <Landing user={user} setUser={setUser} />
-            <Discount />
-            <Collection Products={ Products.products } />
-            <BestSeller Products={ Products.products } />
-            <Deal Products={ Products.products } />
-            <Product Products={ Products.products } />
-            <About />
-            <Social />
+            <SignIU user={user} setUser={setUser} />
           </Suspense>
-        </>
-      } />
-      <Route path="/SignIU" element={
-            <Suspense fallback={<div>Loading...</div>}>
-              <SignIU user={user} setUser={setUser} />
-            </Suspense>
-          } />
-      <Route path="/AllProducts" element={
-            <Suspense fallback={<div>Loading...</div>}>
-              <AllProducts Products={ Products.products } user={user} setUser={setUser} />
-            </Suspense>
-          } />
-      <Route path="/AllProducts/:param" element={
-            <Suspense fallback={<div>Loading...</div>}>
-              <AllProducts Products={Products.products} user={user} setUser={setUser} />
-            </Suspense>
-          } />
-      <Route path="/ProductDetail/:id" element={
-            <Suspense fallback={<div>Loading...</div>}>
-              <ProductDetail Products={ Products.products } user={user} setUser={setUser} />
-            </Suspense>
-          } />
-      <Route path="/Cart" element={
-            <Suspense fallback={<div>Loading...</div>}>
-              <Cart user={user} setUser={setUser} />
-            </Suspense>
-          } />
-      <Route path="/Save" element={
-            <Suspense fallback={<div>Loading...</div>}>
-              <Save user={user} setUser={setUser} />
-            </Suspense>
-          } />
-     </Routes>
+        } />
+        <Route path="/AllProducts" element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <AllProducts Products={Products.products} user={user} setUser={setUser} />
+          </Suspense>
+        } />
+        <Route path="/AllProducts/:param" element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <AllProducts Products={Products.products} user={user} setUser={setUser} />
+          </Suspense>
+        } />
+        <Route path="/ProductDetail/:id" element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <ProductDetail Products={Products.products} user={user} setUser={setUser} />
+          </Suspense>
+        } />
+        <Route path="/Cart" element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <Cart user={user} setUser={setUser} />
+          </Suspense>
+        } />
+        <Route path="/Save" element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <Save user={user} setUser={setUser} />
+          </Suspense>
+        } />
+      </Routes>
     </>
   )
 }

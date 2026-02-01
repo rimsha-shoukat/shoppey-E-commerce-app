@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { RiArrowRightDoubleFill } from "react-icons/ri";
 import { TbLayoutNavbarExpand } from "react-icons/tb";
 import { Link } from 'react-router-dom';
@@ -69,7 +69,7 @@ function Landing({user, setUser}) {
                                 </Link>
                             </div>
                         </section>
-                        <img className="w-[50%] h-[100%] max-[710px]:w-[70%] max-[560px]:w-[90%] max-[360px]:w-[100%] px-[2rem] rounded-bl-[10rem] overflow-hidden" loading="lazy" src="assets/landing-side-img.webp" alt="side-img" />
+                        <img className="w-[50%] h-[100%] max-[710px]:w-[70%] max-[560px]:w-[90%] max-[360px]:w-[100%] px-[2rem] rounded-bl-[10rem] overflow-hidden" src="assets/landing-side-img.webp" alt="side-img" />
                     </main>
                 </div>
             </div>

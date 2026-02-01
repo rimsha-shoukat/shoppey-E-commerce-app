@@ -34,7 +34,7 @@ function Deal({ Products }) {
 
         const imageInterval = setInterval(() => {
             setImageIndex(prevIndex => (prevIndex + 1) % dealItems.length);
-        }, 2000);
+        }, 5000);
 
         return () => {
             clearInterval(timer);
