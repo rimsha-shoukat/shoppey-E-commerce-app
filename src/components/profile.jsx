@@ -9,7 +9,7 @@ export function Profile({ user, setUser, setUserView, userView }) {
         <>
             {
                 user ? (
-                    userView && <div className="w-1/2 select-none font-bold font-serif absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#f1f1f1] shadow-[0.1px_0.1px_0.1rem_#dd957a] p-[3rem] rounded-md flex flex-col items-start justify-center gap-4">
+                    userView && <div className="w-1/2 max-[850px]:w-full select-none font-bold font-serif absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#f1f1f1] shadow-[0.1px_0.1px_0.1rem_#dd957a] p-[3rem] max-[500px]:p-0 rounded-md flex flex-col items-start justify-center gap-4">
                         <div className="w-full flex flex-row items-center justify-between">
                             <h1 className="text-[1.2rem] text-[#b48068] leading-5">user name!</h1>
                             <p>Customer</p>
