@@ -1,19 +1,7 @@
 import mongoose from "mongoose";
 
-const commentSchema = new mongoose.Schema({
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-    },
-    text: {
-        type: String,
-        required: [true, "Comment can't be empty."],
-        trim: true,
-    },
-}, { timestamps: true });
-const Comment = mongoose.model("Comment", commentSchema);
 
-
+// product schema
 const productSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -63,7 +51,6 @@ const productSchema = new mongoose.Schema({
     comments: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Comment",
-        default: [],
     }],
 }, { timestamps: true });
 
