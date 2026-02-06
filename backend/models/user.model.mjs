@@ -8,7 +8,11 @@ const userSchema = new mongoose.Schema({
         required: [true, "Name is required"],
         trim: true,
         minLength: [3, "Name must be at least 3 characters long"],
-        maxLength: [50, "Name must be less than 24 characters long"],
+        maxLength: [50, "Name must be less than 50 characters long"],
+    },
+    image: {
+        type: String,
+        trim: true,
     },
     email: {
         type: String,
@@ -54,7 +58,7 @@ const userSchema = new mongoose.Schema({
         default: "Customer",
     },
     coupons: {
-        type:[String],
+        type: [String],
         trim: true,
     }
 }, { timestamps: true });
