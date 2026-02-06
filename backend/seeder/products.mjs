@@ -1,7 +1,7 @@
 import connectDB from "../config/db.mjs";
 import Products from "../models/product.model.mjs";
 
-const Products = [
+const productsData = [
     // ===== KIDS =====
     {
         name: "Kids Summer Lookbook Set",
@@ -950,9 +950,9 @@ const products = async () => {
     try {
         await connectDB();
         await Products.deleteMany();
-        await Products.insertMany(Products);
+        await Products.insertMany(productsData);
         console.log("Products seeded successfully.");
-        process.exit(1);
+        process.exit(0);
     } catch (error) {
         console.log("Error while seeding products:", error);
         process.exit(1);
