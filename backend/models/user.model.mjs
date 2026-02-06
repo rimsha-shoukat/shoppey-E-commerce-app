@@ -24,10 +24,6 @@ const userSchema = new mongoose.Schema({
         minLength: [6, "Password must be at least 6 characters long"],
         trim: true,
     },
-    reviews: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Review",
-    }],
     comments: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Comment",
@@ -57,6 +53,10 @@ const userSchema = new mongoose.Schema({
         enum: ["Customer", "Wholesaler"],
         default: "Customer",
     },
+    coupons: {
+        type:[String],
+        trim: true,
+    }
 }, { timestamps: true });
 
 const User = mongoose.model("User", userSchema);
