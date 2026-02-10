@@ -1,7 +1,7 @@
 import User from "../models/user.model.mjs";
 import jwt from "jsonwebtoken";
 
-async function auth(req, res, next) {
+async function getUser(req, res, next) {
     // get token from req.cookies
     let token = req.cookies.token;
     if (!token) {
@@ -22,4 +22,4 @@ async function auth(req, res, next) {
     next();
 }
 
-export default auth;
+export default getUser;
