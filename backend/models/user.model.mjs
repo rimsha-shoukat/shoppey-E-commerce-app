@@ -13,6 +13,7 @@ const userSchema = new mongoose.Schema({
     image: {
         type: String,
         trim: true,
+        default: "",
     },
     email: {
         type: String,
@@ -47,10 +48,12 @@ const userSchema = new mongoose.Schema({
     location: {
         type: String,
         trim: true,
+        default: "",
     },
     number: {
         type: String,
         trim: true,
+        default: "",
     },
     rank: {
         type: String,
@@ -60,6 +63,7 @@ const userSchema = new mongoose.Schema({
     coupons: {
         type: [String],
         trim: true,
+        default: [],
     }
 }, { timestamps: true });
 
