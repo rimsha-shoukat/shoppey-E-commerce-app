@@ -9,4 +9,4 @@ const router = express.Router();
 router.get("/getProduct", getUser, getProduct);
 router.patch("/updateStock", getUser, updateStock);
 
-export default router();
+export default router;

@@ -11,4 +11,4 @@ router.get("/getReview", getUser, getReview);
 router.patch("/updateReview", getUser, updateReview);
 router.delete("/deleteReview", getUser, deleteReview);
 
-export default router();
+export default router;

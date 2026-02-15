@@ -12,4 +12,4 @@ router.get("/getComment", getUser, getComment);
 router.patch("/updateCommet", getUser, updateComment);
 router.delete("/deleteComment", getUser, deleteComment);
 
-export default router();
+export default router;

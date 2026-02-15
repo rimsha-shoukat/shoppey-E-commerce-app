@@ -14,4 +14,4 @@ router.patch("/updateOrder", getUser, updateOrder);
 router.delete("/deleteOrder", getUser, deleteOrder);
 router.patch("/updateOrderStatus", getUser, updateOrderStatus);
 
-export default router();
+export default router;
