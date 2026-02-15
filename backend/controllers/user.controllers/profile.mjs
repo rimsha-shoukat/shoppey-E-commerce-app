@@ -1,4 +1,4 @@
-import User from "../models/user.model.mjs";
+import User from "../../models/user.model.mjs";
 import mongoose from "mongoose";
 
 async function profile(req, res) {

@@ -5,7 +5,11 @@ import connectDB from "./config/db.mjs";
 import cookieParser from "cookie-parser";
 
 // all routes
-import account from "./routes/account.mjs";
+import userRoute from "./routes/user.route.mjs";
+import reviewRoute from "./routes/review.route.mjs";
+import productRoute from "./routes/product.route.mjs";
+import orderRoute from "./routes/order.route.mjs";
+import commentRoute from "./routes/comment.route.mjs";
 
 // cors options
 const corsOptions = {
@@ -28,8 +32,11 @@ try {
 }
 
 // routes
-app.use("/api/account", account);
-
+app.use("/api/user", userRoute);
+app.use("/api/review", reviewRoute);
+app.use("/api/product", productRoute);
+app.use("/api/order", orderRoute);
+app.use("/api/comment", commentRoute);
 
 const Port = process.env.PORT || 4000;
 app.listen(Port, () => { console.log(`Server is running on port ${Port}`); });
