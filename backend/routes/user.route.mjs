@@ -7,6 +7,13 @@ import updateEmail from "../controllers/user.controllers/updateEmail.mjs";
 import updatePassword from "../controllers/user.controllers/updatePassword.mjs";
 import updateSaved from "../controllers/user.controllers/updateSaved.mjs";
 import removeSaved from "../controllers/user.controllers/removeSaved.mjs";
+import updateCart from "../controllers/user.controllers/updateCart.mjs";
+import removeCart from "../controllers/user.controllers/removeCart.mjs";
+import updateLocation from "../controllers/user.controllers/updateLocation.mjs";
+import updateNumber from "../controllers/user.controllers/updateNumber.mjs";
+import updateRank from "../controllers/user.controllers/updateRank.mjs";
+import addCoupons from "../controllers/user.controllers/addCoupons.mjs";
+import removeCoupons from "../controllers/user.controllers/removeCoupons.mjs";
 import getUser from "../middleware/getUser.mjs";
 
 import express from "express";
