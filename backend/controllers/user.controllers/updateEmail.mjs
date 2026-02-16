@@ -1,4 +1,4 @@
-import User from "../../models/User.mjs";
+import User from "../../models/user.model.mjs";
 
 async function updateEmail(req, res) {
     try {

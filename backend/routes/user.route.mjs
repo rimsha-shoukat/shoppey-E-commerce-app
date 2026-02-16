@@ -5,6 +5,8 @@ import updateName from "../controllers/user.controllers/updateName.mjs";
 import updateImage from "../controllers/user.controllers/updateImage.mjs";
 import updateEmail from "../controllers/user.controllers/updateEmail.mjs";
 import updatePassword from "../controllers/user.controllers/updatePassword.mjs";
+import updateSaved from "../controllers/user.controllers/updateSaved.mjs";
+import removeSaved from "../controllers/user.controllers/removeSaved.mjs";
 import getUser from "../middleware/getUser.mjs";
 
 import express from "express";
