@@ -3,9 +3,9 @@ import mongoose from "mongoose";
 
 async function profile(req, res) {
     try {
-
         // convert string Id to object Id
         const userId = new mongoose.Types.ObjectId(req.user._id);
+
         // find user by id and aggregate
         const userProfile = await User.aggregate([
             {
@@ -43,7 +43,7 @@ async function profile(req, res) {
             }
         ]);
 
-        return res.status(200).json({ userProfile });
+        return res.status(200).json({ message: "User profile fetched successfully", user: userProfile[0] });
     } catch (error) {
         console.log("Something went wrong" + error.message);
         return res.status(500).json({ message: "Internal server error" });

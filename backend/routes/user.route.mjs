@@ -1,6 +1,10 @@
 import signin from "../controllers/user.controllers/signin.mjs";
 import signup from "../controllers/user.controllers/signup.mjs";
 import profile from "../controllers/user.controllers/profile.mjs";
+import updateName from "../controllers/user.controllers/updateName.mjs";
+import updateImage from "../controllers/user.controllers/updateImage.mjs";
+import updateEmail from "../controllers/user.controllers/updateEmail.mjs";
+import updatePassword from "../controllers/user.controllers/updatePassword.mjs";
 import getUser from "../middleware/getUser.mjs";
 
 import express from "express";
