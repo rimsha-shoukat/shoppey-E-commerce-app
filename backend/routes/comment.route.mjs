@@ -1,15 +1,14 @@
-import getComment from "../controllers/comment.controllers/getComment.mjs";
+import addComment from "../controllers/comment.controllers/addComment.mjs";
 import deleteComment from "../controllers/comment.controllers/deleteComment.mjs";
-import updateComment from "../controllers/comment.controllers/updateComment.mjs";
-
+import editComment from "../controllers/comment.controllers/editComment.mjs";
 import getUser from "../middleware/getUser.mjs";
 
 import express from "express";
 const router = express.Router();
 
 // routes
-router.get("/getComment", getUser, getComment);
-router.patch("/updateCommet", getUser, updateComment);
+router.patch("/addComment", getUser, addComment);
+router.patch("/editCommet", getUser, editComment);
 router.delete("/deleteComment", getUser, deleteComment);
 
 export default router;

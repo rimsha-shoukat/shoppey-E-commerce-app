@@ -7,6 +7,11 @@ async function updateLocation(req, res) {
             return res.status(400).json({ message: "Location is required" });
         }
         const user = await User.findById(req.user._id);
+        if (user.location === location) {
+            return res.status(400).json({ message: "New location must be different from current" });
+        }
+
+        // update user location and save
         user.location = location;
         await user.save();
         return res.status(200).json({ message: "Location updated successfully", location: user.location });

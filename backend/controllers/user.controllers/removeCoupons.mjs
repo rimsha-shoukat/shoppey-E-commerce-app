@@ -6,6 +6,8 @@ async function removeCoupons(req, res) {
         if (!coupons) {
             return res.status(400).json({ message: "Coupons are required" });
         }
+
+        // find user, remove coupons and save user
         const user = await User.findById(req.user._id);
         user.coupons = user.coupons.filter(coupon => !coupons.includes(coupon));
         await user.save();

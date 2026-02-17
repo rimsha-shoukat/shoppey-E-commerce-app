@@ -7,6 +7,7 @@ async function removeSaved(req, res) {
             return res.status(400).json({ message: "Product ID is required" });
         }
 
+        // find user, update user saved and save user
         const user = await User.findById(req.user._id);
         user.saved = user.saved.filter(id => id.toString() !== productId);
         await user.save();

@@ -7,6 +7,8 @@ async function updateCart(req, res) {
             return res.status(400).json({ message: "Product ID, quantity, and size are required" });
         }
         const user = await User.findById(req.user._id);
+
+        // update cart item if item already exist increase its quantity
         const existingCartItemIndex = user.cart.findIndex(item => item.product.toString() === productId && item.size === size);
         if (existingCartItemIndex >= 0) {
             user.cart[existingCartItemIndex].quantity = quantity;

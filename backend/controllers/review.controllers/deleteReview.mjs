@@ -7,8 +7,10 @@ async function deleteReview(req, res) {
         if (!reviewId) {
             return res.status(400).json({ message: "Review Id is required" });
         }
-        const deletedReview = await Review.deleteOne({ _id: reviewId, user: userId });
-        if (deletedReview.deletedCount === 0) {
+
+        // check if review exist and delete
+        const deletedReview = await Review.findOneAndDelete({ _id: reviewId, user: userId });
+        if (!deletedReview) {
             return res.status(404).json({ message: "Review not found" });
         }
         return res.status(200).json({ message: "Review deleted successfully" });

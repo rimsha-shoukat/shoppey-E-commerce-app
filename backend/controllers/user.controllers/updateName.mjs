@@ -7,7 +7,8 @@ async function updateName(req, res) {
         if (!newName) {
             return res.status(400).json({ message: "New name is required" });
         }
-        
+
+        // find user and update 
         const updatedUser = await User.findByIdAndUpdate(
             req.user._id,
             { name: newName },

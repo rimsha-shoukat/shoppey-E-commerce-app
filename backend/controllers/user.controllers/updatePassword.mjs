@@ -5,6 +5,14 @@ import jwt from "jsonwebtoken";
 async function updatePassword(req, res) {
     try {
         const { currentPassword, newPassword } = req.body;
+        if (!currentPassword || !newPassword) {
+            return res.status(400).json({ message: "Password's can't be empty" });
+        }
+
+        // check if the password is updated
+        if (currentPassword === newPassword) {
+            return res.status(400).json({ message: "New password must be different from current" });
+        }
 
         // check if current password is correct
         const user = await User.findById(req.user._id);

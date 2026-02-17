@@ -6,7 +6,8 @@ async function updateEmail(req, res) {
         if (!newEmail) {
             return res.status(400).json({ message: "New Email is required" });
         }
-        
+
+        //  find user and update email
         const updatedUser = await User.findByIdAndUpdate(
             req.user._id,
             { email: newEmail },

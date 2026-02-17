@@ -6,7 +6,8 @@ async function updateImage(req, res) {
         if (!newImage) {
             return res.status(400).json({ message: "New image is required" });
         }
-        
+
+        // find user and update image
         const updatedUser = await User.findByIdAndUpdate(
             req.user._id,
             { image: newImage },

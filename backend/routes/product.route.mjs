@@ -4,6 +4,7 @@ import express from "express";
 const router = express.Router();
 
 // routes
-router.get("/getProduct", getProduct);
+router.patch("/getProduct", getProduct);
+// we will add differnt routes like kids, women, men, disount etc in future
 
 export default router;

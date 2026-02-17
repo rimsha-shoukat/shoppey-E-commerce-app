@@ -7,7 +7,20 @@ async function addCoupons(req, res) {
             return res.status(400).json({ message: "Coupons are required" });
         }
         const user = await User.findById(req.user._id);
-        user.coupons = [...user.coupons, ...coupons];
+
+        // filter existed coupons
+        const newCoupons = coupons.filter(
+            (coupon) => !user.coupons.includes(coupon)
+        );
+
+        if (newCoupons.length === 0) {
+            return res.status(400).json({
+                message: "All coupons already exist"
+            });
+        }
+
+        // add coupons to user and save
+        user.coupons.push([...newCoupons])
         await user.save();
         return res.status(200).json({ message: "Coupons added successfully" });
     } catch (error) {
