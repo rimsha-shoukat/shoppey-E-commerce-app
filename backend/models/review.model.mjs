@@ -6,6 +6,10 @@ const reviewSchema = new mongoose.Schema({
         type: String,
         trim: true,
     },
+    order: {
+        type: String,
+        trim: true,
+    },
     text: {
         type: String,
         required: [true, "Review can't be empty."],
