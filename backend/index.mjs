@@ -27,7 +27,7 @@ app.use(express.json());
 try {
     await connectDB();
 } catch (error) {
-    console.error("Failed to connect to database:", error);
+    console.error("Failed to connect to database: Network error ", error.message);
     process.exit(1);
 }
 

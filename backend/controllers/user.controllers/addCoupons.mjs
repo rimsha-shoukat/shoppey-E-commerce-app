@@ -20,7 +20,7 @@ async function addCoupons(req, res) {
         }
 
         // add coupons to user and save
-        user.coupons.push([...newCoupons])
+        user.coupons.push(...newCoupons);
         await user.save();
         return res.status(200).json({ message: "Coupons added successfully" });
     } catch (error) {

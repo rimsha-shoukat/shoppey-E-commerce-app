@@ -1,4 +1,4 @@
-import User from "../.../models/user.model.mjs";
+import User from "../../models/user.model.mjs";
 
 async function updateNumber(req, res) {
     try {

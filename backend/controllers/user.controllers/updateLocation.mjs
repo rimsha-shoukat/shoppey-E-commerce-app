@@ -14,7 +14,7 @@ async function updateLocation(req, res) {
         // update user location and save
         user.location = location;
         await user.save();
-        return res.status(200).json({ message: "Location updated successfully", location: user.location });
+        return res.status(200).json({ message: "Location updated successfully"});
     } catch (error) {
         console.log("Error in updateLocation controller:", error.message);
         return res.status(500).json({ message: "Internal server error" });

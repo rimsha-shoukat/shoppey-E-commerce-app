@@ -7,7 +7,7 @@ const connectDB = async () => {
         await mongoose.connect(process.env.MONGO_URI);
         console.log("Connected to Database");
     } catch (error) {
-        console.error("Error connecting to DataBase", error);
+        console.error("Error connecting to DataBase: Network Error ", error.message);
         process.exit(1);
     }
 }
