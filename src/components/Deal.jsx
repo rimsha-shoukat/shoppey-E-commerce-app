@@ -49,7 +49,7 @@ function Deal({ Products }) {
         <>
             <section className="relative w-[100%] h-[88vh] max-[1170px]:h-[75vh] overflow-hidden max-[710px]:h-auto">
                 {/* background */}
-                <img loading="lazy" className="absolute w-[100%] h-[100%]" src="assets/landing-bg.webp" alt="Image" />
+                <img className="absolute w-[100%] h-[100%]" src="assets/landing-bg.webp" alt="Image" />
                 {/* content */}
                 <div className="relative w-[100%] h-[100%] flex flex-row max-[710px]:flex-col items-center justify-between text-[#251201]">
                     {/* content section */}
@@ -79,7 +79,7 @@ function Deal({ Products }) {
                     <section className="w-[45%] max-[1100px]:w-[50%] max-[710px]:w-[60%] max-[460px]:w-[80%] h-[100%] flex items-end justify-end">
                         {/* images */}
 
-                        <img className="w-[100%] h-[100%] px-[4rem] max-[900px]:pl-[2rem] max-[900px]:pr-0 max-[700px]:pl-0 overflow-hidden pt-[6rem] max-[710px]:pt-4" src={dealItems[imageIndex].thumbnail} alt="deal" loading="lazy" />
+                        <img className="w-[100%] h-[100%] px-[4rem] max-[900px]:pl-[2rem] max-[900px]:pr-0 max-[700px]:pl-0 overflow-hidden pt-[6rem] max-[710px]:pt-4" src={dealItems[imageIndex].imageUrl} alt={image.name} />
 
                     </section>
                 </div>

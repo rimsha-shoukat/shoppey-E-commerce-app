@@ -7,11 +7,11 @@ function Slider(props) {
       {props.products.slice(props.start, props.end).map((item) => {
         return (
           <div key={item.id} className="w-auto h-auto bg-white">
-            <Link key={item.id} to={`/ProductDetail/${item.id}`}>
-              <img className="w-[16rem] h-[15rem] drop-shadow-lg" src={item.thumbnail} alt={item.title} loading="laz" />
+            <Link key={item.i_d} to={`/ProductDetail/${item._id}`}>
+              <img className="w-[16rem] h-[15rem] drop-shadow-lg" src={item.imageUrl} alt={item.name} />
             </Link>
             <div className="p-[0.5rem] select-none w-[16rem] h-[5rem]">
-              <h1 className="text-[1rem] font-semibold leading-5 pb-[0.25rem]">{item.title}</h1>
+              <h1 className="text-[1rem] font-semibold leading-5 pb-[0.25rem]">{item.name}</h1>
               <p className='text-[1rem]'>${item.price}</p>
             </div>
           </div>
@@ -24,7 +24,7 @@ function Slider(props) {
 function BestSeller({ Products }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(3);
-  const bestSeller = Products.filter((items) => (items.rating >= 3));
+  const bestSeller = [...Products];
 
   useEffect(() => {
     const updateItemsPerPage = () => {

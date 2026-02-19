@@ -12,7 +12,7 @@ function Landing({ user, setUser }) {
         <>
             <div className="relative w-[100%] h-screen">
                 {/* Background Image */}
-                <img className="absolute w-[100%] h-[100vh]" src="assets/landing-bg.webp" loading="lazy" alt="landing Image" />
+                <img className="absolute w-[100%] h-[100vh]" src="assets/landing-bg.webp" alt="landing Image" />
                 {/* Content */}
                 <div className="relative flex flex-col gap-[2rem] pt-[1rem] max-[710px]:pt-[0rem] w-[100%] h-[100vh]">
                     <nav className="flex flex-row items-center justify-between pt-[1rem] px-[3rem] w-[100%] h-[6%]">
@@ -21,13 +21,16 @@ function Landing({ user, setUser }) {
                             <TbLayoutNavbarExpand onClick={() => setNavView(!navView)} className="hidden cursor-pointer text-2xl max-[710px]:block" />
 
                             <div className={`flex max-[710px]:flex-col text-sm max-[710px]:w-[85%] max-[710px]:h-auto min-[710px]:flex ${navView ? 'block' : 'hidden'} max-[710px]:right-[3rem] max-[710px]:absolute max-[710px]:bg-[#b48068] font-bold font-serif flex-row items-en justify-evenly max-[710px]:gap-[0rem] gap-[1rem]`}>
-                                <Link to="/AllProducts/beauty" className="max-[710px]:w-[100%]">
+                                <Link to="/AllProducts" className="max-[710px]:w-[100%]">
+                                    <button className="cursor-pointer hover:transition-all duration-700 ease-in-out max-[710px]:hover:bg-black max-[710px]:w-[100%] max-[710px]:hover:text-[#b48068] max-[710px]:hover:border-none max-[710px]:py-[1rem] hover:border-b-2 border-b-black">ALL</button>
+                                </Link>
+                                <Link to="/AllProducts/men" className="max-[710px]:w-[100%]">
                                     <button className="cursor-pointer hover:transition-all duration-700 ease-in-out max-[710px]:hover:bg-black max-[710px]:w-[100%] max-[710px]:hover:text-[#b48068] max-[710px]:hover:border-none max-[710px]:py-[1rem] hover:border-b-2 border-b-black">MEN</button>
                                 </Link>
-                                <Link to="/AllProducts/fragrances" className="max-[710px]:w-[100%]">
+                                <Link to="/AllProducts/women" className="max-[710px]:w-[100%]">
                                     <button className="cursor-pointer hover:transition-all duration-700 ease-in-out max-[710px]:hover:bg-black max-[710px]:w-[100%] max-[710px]:hover:text-[#b48068] max-[710px]:hover:border-none max-[710px]:py-[1rem] hover:border-b-2 border-b-black">WOMEN</button>
                                 </Link>
-                                <Link to="/AllProducts/furniture" className="max-[710px]:w-[100%]">
+                                <Link to="/AllProducts/kids" className="max-[710px]:w-[100%]">
                                     <button className="cursor-pointer hover:transition-all duration-700 ease-in-out max-[710px]:hover:bg-black max-[710px]:w-[100%] max-[710px]:hover:text-[#b48068] max-[710px]:hover:border-none max-[710px]:py-[1rem] hover:border-b-2 border-b-black">KIDS</button>
                                 </Link>
                                 {

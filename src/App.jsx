@@ -1,5 +1,5 @@
 import './App.css';
-import { Suspense, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Landing from './components/Landing.jsx';
 import About from './components/About.jsx';
@@ -13,23 +13,24 @@ import AllProducts from './components/AllProducts.jsx';
 import ProductDetail from './components/ProductDetail.jsx';
 import Cart from './components/Cart.jsx';
 import Save from './components/Save.jsx';
+import axios from "axios";
 
 
 function App() {
   const [Products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [user, setUser] = useState(() => JSON.parse(localStorage.getItem('currentUser')) || null);
+  const [page, setPage] = useState(1);
+  const [total, setTotal] = useState(0);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://dummyjson.com/products?limit=42&select=title,price,discountPercentage,rating,category,availabilityStatus,thumbnail');
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const result = await response.json();
-        setProducts(result);
+        const response = await axios.get(`http://localhost:5000/api/products/getproducts?limit=50&page=${page}`);
+        setProducts(response.data.products);
+        setTotal(response.data.total);
+        setPage(response.data.page);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -37,7 +38,7 @@ function App() {
       }
     };
     fetchData();
-  }, []);
+  });
   if (loading) return <div>Loading products...</div>;
   if (error) return <div>Error: {error} </div>;
 
@@ -46,46 +47,32 @@ function App() {
       <Routes>
         <Route path="/" element={
           <>
-            <Suspense fallback={<div>Loading...</div>}>
-              <Landing user={user} setUser={setUser} />
-              <Discount />
-              <BestSeller Products={Products.products} />
-              <Deal Products={Products.products} />
-              <Product Products={Products.products} />
-              <About />
-              <Social />
-            </Suspense>
+            <Landing user={user} setUser={setUser} />
+            <Discount />
+            <BestSeller Products={Products} />
+            <Deal Products={Products} />
+            <Product Products={Products} />
+            <About />
+            <Social />
           </>
         } />
         <Route path="/SignIU" element={
-          <Suspense fallback={<div>Loading...</div>}>
-            <SignIU user={user} setUser={setUser} />
-          </Suspense>
+          <SignIU user={user} setUser={setUser} />
         } />
         <Route path="/AllProducts" element={
-          <Suspense fallback={<div>Loading...</div>}>
-            <AllProducts Products={Products.products} user={user} setUser={setUser} />
-          </Suspense>
+          <AllProducts Products={Products.products} user={user} setUser={setUser} />
         } />
         <Route path="/AllProducts/:param" element={
-          <Suspense fallback={<div>Loading...</div>}>
-            <AllProducts Products={Products.products} user={user} setUser={setUser} />
-          </Suspense>
+          <AllProducts Products={Products.products} user={user} setUser={setUser} />
         } />
         <Route path="/ProductDetail/:id" element={
-          <Suspense fallback={<div>Loading...</div>}>
-            <ProductDetail Products={Products.products} user={user} setUser={setUser} />
-          </Suspense>
+          <ProductDetail Products={Products.products} user={user} setUser={setUser} />
         } />
         <Route path="/Cart" element={
-          <Suspense fallback={<div>Loading...</div>}>
-            <Cart user={user} setUser={setUser} />
-          </Suspense>
+          <Cart user={user} setUser={setUser} />
         } />
         <Route path="/Save" element={
-          <Suspense fallback={<div>Loading...</div>}>
-            <Save user={user} setUser={setUser} />
-          </Suspense>
+          <Save user={user} setUser={setUser} />
         } />
       </Routes>
     </>

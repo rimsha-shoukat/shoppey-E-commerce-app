@@ -10,12 +10,12 @@ const Slider = ({ Items }) => {
       }}
     >
       {Items.map((item) => (
-        <div key={item.id} className="flex flex-col flex-shrink-0 w-auto h-auto shadow-lg">
-          <Link key={item.id} to={`/ProductDetail/${item.id}`}>
-            <img loading="lazy" className="w-[14.5rem] h-[13rem]" src={item.thumbnail} alt={item.title} />
+        <div key={item._id} className="flex flex-col flex-shrink-0 w-auto h-auto shadow-lg">
+          <Link key={item._id} to={`/ProductDetail/${item._id}`}>
+            <img className="w-[14.5rem] h-[13rem]" src={item.imageUrl} alt={item.name} />
           </Link>
           <div className="flex flex-col p-2 pt-2 bg-white w-[14.5rem] h-[6rem]">
-            <h1 className="font-semibold text-[1rem] text-wrap">{item.title}</h1>
+            <h1 className="font-semibold text-[1rem] text-wrap">{item.name}</h1>
             <p>${item.price}</p>
           </div>
         </div>
@@ -28,27 +28,24 @@ function Product({ Products }) {
 
   const [activeButton, setActiveButton] = useState('ALL');
   const [filterProducts, setFilterProducts] = useState(Products);
+  let slide1 = filterProducts.slice(0, filterProducts.length / 2);
+  let slide2 = filterProducts.slice(filterProducts.length / 2, filterProducts.length);
 
   const handleButtonClick = (buttonName) => {
     setActiveButton(buttonName);
 
     let newFilter;
-    if (buttonName === 'BEAUTY') {
-      newFilter = Products.filter(item => item.category === 'beauty');
-    } else if (buttonName == 'FRAGRANCES') {
-      newFilter = Products.filter(item => item.category === "fragrances");
-    } else if (buttonName == 'FURNITURE') {
-      newFilter = Products.filter(item => item.category === "furniture");
-    } else if (buttonName == 'GROCERIES') {
-      newFilter = Products.filter(item => item.category === 'groceries');
+    if (buttonName === 'MEN') {
+      newFilter = Products.filter(item => item.category === 'men');
+    } else if (buttonName == 'WOMEN') {
+      newFilter = Products.filter(item => item.category === "women");
+    } else if (buttonName == 'KIDS') {
+      newFilter = Products.filter(item => item.category === "kids");
     } else {
       newFilter = Products;
     }
     setFilterProducts(newFilter);
   };
-
-  const slide1 = filterProducts.filter(item => item.id % 2 === 0);
-  const slide2 = filterProducts.filter(item => item.id % 2 !== 0);
 
   return (
     <>
@@ -56,7 +53,7 @@ function Product({ Products }) {
         <h1 className="font-bold text-[clamp(2rem,5vw,5rem)]">Our Product</h1>
         {/* categories button section */}
         <section className="flex flex-row items-center justify-center gap-4 max-[565px]:gap-2 leading-4 w-full h-8 max-[565px]:text-sm">
-          {['ALL', 'BEAUTY', 'FRAGRANCES', 'FURNITURE'].map((buttonName) => (
+          {['ALL', 'MEN', 'WOMEN', 'KIDS'].map((buttonName) => (
             <button
               key={buttonName}
               onClick={() => handleButtonClick(buttonName)}

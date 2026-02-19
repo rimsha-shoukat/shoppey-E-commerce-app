@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.15",
+    "axios": "^1.13.5",
     "dotenv": "^17.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.1.0",

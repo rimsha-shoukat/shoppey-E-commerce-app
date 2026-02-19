@@ -42,19 +42,16 @@ function ProductDetail({ Products, user, setUser }) {
             const saveChanged = JSON.stringify(user.saveItems) !== JSON.stringify(saveItems);
             if (cartChanged || saveChanged) {
                 const updatedUser = { ...user, cartItems, saveItems };
-                localStorage.setItem('currentUser  ', JSON.stringify(updatedUser));
                 setUser(updatedUser);
                 let existedUsers = JSON.parse(localStorage.getItem("users")) || [];
                 const updatedUsers = existedUsers.map(u =>
                     u.email === updatedUser.email ? updatedUser : u
                 );
-                localStorage.setItem("users", JSON.stringify(updatedUsers));
             }
         }
     }, [cartItems, saveItems]);
 
     const handleLogout = () => {
-        localStorage.setItem('currentUser ', JSON.stringify(null));
         setUser(null);
         setUserView(false);
     };
@@ -145,11 +142,11 @@ function ProductDetail({ Products, user, setUser }) {
                 </section>
                 <section className="grid grid-cols-2 max-[600px]:grid-cols-1 select-none items-center justify-center w-auto h-auto border-2 border-gray-300 rounded-lg gap-[1rem] bg-[#f7ecd6]">
                     <div className="cols-span-1 h-auto flex items-center justify-center">
-                        <img loading="lazy" className='w-[20rem] h-[20rem] rounded-lg' src={image.thumbnail} alt="itemDetail" />
+                        <img className='w-[20rem] h-[20rem] rounded-lg' src={image.imageUrl} alt={image.imageUrl} />
                     </div>
                     <div className="cols-span-1 h-auto flex flex-col items-start justify-start p-6">
                         <p className="text-sm">{image.category}</p>
-                        <h1 className="text-[1.3rem] font-bold">{image.title}</h1>
+                        <h1 className="text-[1.3rem] font-bold">{image.name}</h1>
                         <p className="mt-4 mb-4">${image.price}</p>
                         <div className="flex flex-row item-center justify-center gap-[1rem] border-y-2 border-white p-2 mb-6 leading-4">
                             <FiMinus onClick={num >= 2 ? () => setNum(num - 1) : null} className="cursor-pointer hover:text-gray-700" />

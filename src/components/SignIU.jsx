@@ -124,7 +124,7 @@ function SignIU({ user, setUser }) {
                 }
                 {/* section with signin or sign up buttons */}
                 <section className="relative left-[10.5rem] max-[800px]:left-0 max-[800px]:-bottom-[22rem] max-[440px]:w-screen w-[26rem] h-[30rem] rounded-xl border-0 shadow-xl z-2">
-                    <img loading="lazy" className="absolute w-[100%] h-[100%] rounded-xl shadow-lg" src="assets/landing-bg.webp" alt="bgImage" />
+                    <img className="absolute w-[100%] h-[100%] rounded-xl shadow-lg" src="assets/landing-bg.webp" alt="bgImage" />
                     <div className={`${logIn ? 'block' : 'hidden'} relative w-[100%] h-[100%] flex flex-col items-center justify-center gap-2`}>
                         <h1 className="font-bold text-[2.2rem]">Welcome Back!</h1>
                         <p className="font-semibold text-center font-sans">Enter personal details <br /> to sign In your account</p>

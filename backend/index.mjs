@@ -34,7 +34,7 @@ try {
 // routes
 app.use("/api/user", userRoute);
 app.use("/api/review", reviewRoute);
-app.use("/api/product", productRoute);
+app.use("/api/products", productRoute);
 app.use("/api/order", orderRoute);
 app.use("/api/comment", commentRoute);
 

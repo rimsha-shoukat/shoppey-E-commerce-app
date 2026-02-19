@@ -10,15 +10,15 @@ const Saves = ({ user, setUser }) => {
     const [showAlert, setShowAlert] = useState(false);
 
     useEffect(() => {
-        const updatedUser  = { ...user, saveItems: saveItemsList };
-        localStorage.setItem('currentUser ', JSON.stringify(updatedUser ));
-        if (setUser ) setUser (updatedUser);
+        const updatedUser = { ...user, saveItems: saveItemsList };
+        localStorage.setItem('currentUser ', JSON.stringify(updatedUser));
+        if (setUser) setUser(updatedUser);
     }, [saveItemsList]);
 
     useEffect(() => {
-        const updatedUser  = { ...user, cartItems: cartItems };
-        localStorage.setItem('currentUser ', JSON.stringify(updatedUser ));
-        if (setUser ) setUser (updatedUser );
+        const updatedUser = { ...user, cartItems: cartItems };
+        localStorage.setItem('currentUser ', JSON.stringify(updatedUser));
+        if (setUser) setUser(updatedUser);
     }, [cartItems]);
 
     const addToCart = (id) => {
@@ -57,13 +57,13 @@ const Saves = ({ user, setUser }) => {
     return (
         <section className="w-[100%] h-auto flex flex-col items-center justify-center">
             {saveItemsList.map((item) => (
-                <div key={item.id} className="w-auto flex flex-row items-center justify-start py-6 max-[600px]:py-2 gap-4 max-[600px]:gap-2 border-t-2 border-t-gray-400">
-                    <Link key={item.id} to={`/ProductDetail/${item.id}`}>
-                        <img loading="lazy" key={item.id} className="w-[8rem] h-[8rem] max-[400px]:w-[6rem] max-[400px]:h-[6rem] rounded-sm" src={item.thumbnail} alt="saveItems" />
+                <div key={item._id} className="w-auto flex flex-row items-center justify-start py-6 max-[600px]:py-2 gap-4 max-[600px]:gap-2 border-t-2 border-t-gray-400">
+                    <Link to={`/ProductDetail/${item._id}`}>
+                        <img className="w-[8rem] h-[8rem] max-[400px]:w-[6rem] max-[400px]:h-[6rem] rounded-sm" src={item.imageUrl} alt={item.imageUrl} />
                     </Link>
                     <div className="flex flex-row max-[600px]:flex-col max-[600px]:gap-4 items-start justify-between gap-[3rem] ">
                         <div className="flex flex-col items-start justify-start gap-2">
-                            <h1 className="text-[1.3rem] leading-7 max-[750px]:text-[1rem] max-[750px]:leading-5 w-[20rem] max-[750px]:w-[14rem] max-[650px]:w-[10rem] max-[600px]:w-[18rem] max-[440px]:w-[15rem] max-[400px]:w-[12rem] max-[320px]:w-[10rem] overflow-hidden font-bold max-[400px]:text-[0.85rem] max-[400px]:font-semibold">{item.title}</h1>
+                            <h1 className="text-[1.3rem] leading-7 max-[750px]:text-[1rem] max-[750px]:leading-5 w-[20rem] max-[750px]:w-[14rem] max-[650px]:w-[10rem] max-[600px]:w-[18rem] max-[440px]:w-[15rem] max-[400px]:w-[12rem] max-[320px]:w-[10rem] overflow-hidden font-bold max-[400px]:text-[0.85rem] max-[400px]:font-semibold">{item.name}</h1>
                             <div className="flex flex-row items-center justify-between gap-4">
                                 <p className="text-md text-nowrap max-[400px]:text-sm">Size: {item.size}</p>
                                 <p className="text-md text-nowrap max-[400px]:text-sm">${item.price}</p>
@@ -87,7 +87,7 @@ const Saves = ({ user, setUser }) => {
     );
 }
 
-function Save({user, setUser}) {
+function Save({ user, setUser }) {
     const [userView, setUserView] = useState(false);
 
     const handleLogout = () => {

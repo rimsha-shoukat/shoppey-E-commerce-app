@@ -13,7 +13,6 @@ const Carts = ({ cartItemsList, setCartItemsList, user, setUser }) => {
 
     useEffect(() => {
         const updatedUser = { ...user, cartItems: cartItemsList };
-        localStorage.setItem('currentUser ', JSON.stringify(updatedUser));
         if (setUser) setUser(updatedUser);
     }, [cartItemsList]);
 
@@ -49,13 +48,13 @@ const Carts = ({ cartItemsList, setCartItemsList, user, setUser }) => {
     return (
         <section className="w-[100%] h-auto flex flex-col items-center justify-center">
             {cartItemsList.map((item) => (
-                <div key={item.id} className="w-[100%] flex flex-row items-center justify-center py-6 max-[350px]:py-2 gap-4 border-t-2 border-t-gray-400">
-                    <Link key={item.id} to={`/ProductDetail/${item.id}`}>
-                        <img loading="lazy" className="w-[6rem] h-[6rem] rounded-sm" src={item.thumbnail} alt="cartItem" />
+                <div key={item._id} className="w-[100%] flex flex-row items-center justify-center py-6 max-[350px]:py-2 gap-4 border-t-2 border-t-gray-400">
+                    <Link to={`/ProductDetail/${item._id}`}>
+                        <img className="w-[6rem] h-[6rem] rounded-sm" src={item.imageUrl} alt={image.name} />
                     </Link>
                     <div className="flex flex-row items-start justify-between gap-2 max-[350px]:gap-0 max-[500px]:flex-col">
                         <div className="flex flex-col items-start justify-start gap-6 max-[750px]:gap-2 max-[500px]:gap-0">
-                            <h1 className="font-bold text-[1.2rem] leading-5 max-[350px]:text-[0.95rem] w-[20rem] max-[760px]:w-[15rem] max-[600px]:w-[10rem] max-[500px]:w-[15rem] max-[370px]:w-[11rem] max-[760px]:text-[1rem]">{item.title}</h1>
+                            <h1 className="font-bold text-[1.2rem] leading-5 max-[350px]:text-[0.95rem] w-[20rem] max-[760px]:w-[15rem] max-[600px]:w-[10rem] max-[500px]:w-[15rem] max-[370px]:w-[11rem] max-[760px]:text-[1rem]">{item.name}</h1>
                             <div className="flex flex-row gap-4">
                                 <p className="text-sm max-[350px]:text-xs">Size: {item.size}</p>
                                 <p className="text-sm max-[350px]:text-xs">${item.price}</p>
@@ -68,7 +67,7 @@ const Carts = ({ cartItemsList, setCartItemsList, user, setUser }) => {
                                 <h1 className="text-[1.2rem] max-[350px]:text-md">{item.quantity}</h1>
                                 <FaPlus onClick={item.quantity < 10 ? () => setItemQuantity(item.id, item.quantity + 1) : null} className="cursor-pointer hover:text-gray-700 max-[350px]:text-sm" />
                             </div>
-                            <RxCross2 onClick={() => remove(item.id)} className="cursor-pointer hover:text-red-800" />
+                            <RxCross2 onClick={() => remove(item._id)} className="cursor-pointer hover:text-red-800" />
                         </div>
                     </div>
                 </div>
@@ -122,18 +121,18 @@ function Cart({ user, setUser }) {
 
     const handleCoupon = () => {
         let result = false;
-        if(!code){
-            for(let i = 0; i < codeList.length; i++){
-            if(codeList[i] == coupon){
-                setBill(bill / 1.3);
-                result = true;
-                setCode(true);
-            }
-        };
+        if (!code) {
+            for (let i = 0; i < codeList.length; i++) {
+                if (codeList[i] == coupon) {
+                    setBill(bill / 1.3);
+                    result = true;
+                    setCode(true);
+                }
+            };
         }
-        if(result){
+        if (result) {
             setShow(false);
-        }else{
+        } else {
             setShow(true);
         }
     };
@@ -185,9 +184,9 @@ function Cart({ user, setUser }) {
                                         <input type="text" value={coupon} onChange={(e) => setCoupon(e.target.value)} placeholder="Coupon code" className="w-[10rem] h-[2.5rem] px-4 rounded-sm border-gray-300 bg-white/50 text-black placeholder:text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#b48068]" />
                                         <FaArrowRight onClick={handleCoupon} className="w-[2rem] h-[2rem] text-white cursor-pointer p-2 bg-black rounded-full" />
                                     </div>
-                                   {
-                                    show && <p className="text-sm text-red-500">Code does not exist!</p>
-                                   }
+                                    {
+                                        show && <p className="text-sm text-red-500">Code does not exist!</p>
+                                    }
                                 </div>
                                 <div className="w-[100%] flex flex-col gap-2 items-start justify-start">
                                     <h1>Delivery charges: <span className="font-bold">${delivery.toFixed(2)}</span></h1>

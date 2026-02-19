@@ -15,7 +15,6 @@ function AllProducts({ Products, user, setUser }) {
   const [alert, setAlert] = useState(null);
 
   const handleLogout = () => {
-    localStorage.setItem('currentUser', JSON.stringify(null));
     setUser(null);
     setUserView(false);
   };
@@ -37,7 +36,7 @@ function AllProducts({ Products, user, setUser }) {
     let Items = [...Products];
 
     if (param) {
-      if (['beauty', 'fragrances', 'furniture', 'groceries'].includes(param)) {
+      if (['men', 'women', 'kids'].includes(param)) {
         Items = Items.filter(item => item.category === param);
       } else if (['rating', 'discountPercentage'].includes(param)) {
         if (param === "rating") {
@@ -107,8 +106,8 @@ function AllProducts({ Products, user, setUser }) {
 
         <section className="columns-5 mt-[1rem] w-[100%] h-auto p-4 max-[900px]:columns-4 max-[660px]:columns-3 max-[500px]:columns-2">
           {filterProducts.map((item) => (
-            <Link key={item.id} to={`/ProductDetail/${item.id}`}>
-              <img key={item.id} loading="lazy" className="w-full rounded-[1rem] mb-6 h-auto shadow-[0.1px_0.1px_0.1rem_#dd957a]" src={item.thumbnail} alt="products" />
+            <Link key={item._id} to={`/ProductDetail/${item._id}`}>
+              <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[0.1px_0.1px_0.1rem_#dd957a]" src={item.imageUrl} alt={item.name} />
             </Link>
           ))}
         </section>
