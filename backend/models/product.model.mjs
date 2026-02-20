@@ -14,16 +14,10 @@ const productSchema = new mongoose.Schema({
         required: [true, "Please provide a price for this product."],
         min: [0, "Price cannot be negative."],
     },
-    discount: {
-        type: Number,
-        default: 0,
-        min: [0, "Discount cannot be negative."],
-        max: [100, "Discount cannot be greater than 100."],
-    },
     category: {
         type: String,
-        required: [true, "Please provide a category for this product."],
-        trim: true,
+        enum: ["Men", "Women", "Kids"],
+        required: [true, "Please provide category of the product"],
     },
     stock: {
         type: Number,

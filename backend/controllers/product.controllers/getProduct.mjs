@@ -14,6 +14,7 @@ async function getProducts(req, res) {
 
         // get total count of products
         const total = await Product.countDocuments({});
+
         return res.status(200).json({ message: "Products fetched successfully", products, total, page: parsePage })
     } catch (error) {
         console.log("Something went wrong" + error.message);

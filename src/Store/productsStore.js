@@ -3,13 +3,14 @@ import axios from "axios";
 
 const URL = "http://localhost:5000/api/products";
 
-export const products = create((set, get) => ({
+export const productsStore = create((set, get) => ({
     products: [],
     loading: false,
     error: "",
     page: 1,
     total: 0,
     message: "",
+    discounts: [],
     fetchProducts: async () => {
         set({ loading: true });
         try {
@@ -42,6 +43,24 @@ export const products = create((set, get) => ({
         try {
             const response = await axios.patch(`${URL}/updatedProduct`, { updatedProduct });
             set({ message: response.data.message, loading: false });
+        } catch (error) {
+            set({ error: error.message, loading: false });
+        }
+    },
+    setDiscount: async (thumbnail, category, discount) => {
+        set({ loading: true });
+        try {
+            const response = await axios.patch(`${URL}/setDiscount`, { thumbnail, category, discount });
+            set({ message: response.data.message, loading: false });
+        } catch (error) {
+            set({ error: error.message, loading: false });
+        }
+    },
+    getDiscount: async () => {
+        set({ loading: true });
+        try {
+            const response = await axios.get(`${URL}/getDiscount`);
+            set({ discounts: response.data.discounts, loading: false });
         } catch (error) {
             set({ error: error.message, loading: false });
         }

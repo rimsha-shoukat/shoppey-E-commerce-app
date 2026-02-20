@@ -12,7 +12,7 @@ import AllProducts from './pages/AllProducts.jsx';
 import ProductDetail from './pages/ProductDetail.jsx';
 import Cart from './pages/Cart.jsx';
 import Save from './pages/Save.jsx';
-
+import Profile from './pages/profile.jsx';
 
 function App() {
   return (
@@ -28,6 +28,9 @@ function App() {
             <About />
             <Social />
           </>
+        } />
+        <Route path="/Profile" element={
+          <SignIU />
         } />
         <Route path="/SignIU" element={
           <SignIU />

@@ -3,7 +3,7 @@ import axios from "axios";
 
 const URL = "http://localhost:5000/api/user";
 
-export const user = create((set, get) => ({
+export const userStore = create((set, get) => ({
     user: [],
     message: "",
     loading: true,
