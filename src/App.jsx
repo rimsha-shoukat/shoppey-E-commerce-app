@@ -1,5 +1,4 @@
 import './App.css';
-import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Landing from './components/Landing.jsx';
 import About from './components/About.jsx';
@@ -8,71 +7,45 @@ import BestSeller from './components/BestSeller.jsx';
 import Deal from './components/Deal.jsx';
 import Product from './components/Product.jsx';
 import Social from './components/Social.jsx';
-import SignIU from './components/SignIU.jsx';
-import AllProducts from './components/AllProducts.jsx';
-import ProductDetail from './components/ProductDetail.jsx';
-import Cart from './components/Cart.jsx';
-import Save from './components/Save.jsx';
-import axios from "axios";
+import SignIU from './pages/SignIU.jsx';
+import AllProducts from './pages/AllProducts.jsx';
+import ProductDetail from './pages/ProductDetail.jsx';
+import Cart from './pages/Cart.jsx';
+import Save from './pages/Save.jsx';
 
 
 function App() {
-  const [Products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [page, setPage] = useState(1);
-  const [total, setTotal] = useState(0);
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`http://localhost:5000/api/products/getproducts?limit=50&page=${page}`);
-        setProducts(response.data.products);
-        setTotal(response.data.total);
-        setPage(response.data.page);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  });
-  if (loading) return <div>Loading products...</div>;
-  if (error) return <div>Error: {error} </div>;
-
   return (
     <>
       <Routes>
         <Route path="/" element={
           <>
-            <Landing user={user} setUser={setUser} />
+            <Landing />
             <Discount />
-            <BestSeller Products={Products} />
-            <Deal Products={Products} />
-            <Product Products={Products} />
+            <BestSeller />
+            <Deal />
+            <Product />
             <About />
             <Social />
           </>
         } />
         <Route path="/SignIU" element={
-          <SignIU user={user} setUser={setUser} />
+          <SignIU />
         } />
         <Route path="/AllProducts" element={
-          <AllProducts Products={Products.products} user={user} setUser={setUser} />
+          <AllProducts />
         } />
         <Route path="/AllProducts/:param" element={
-          <AllProducts Products={Products.products} user={user} setUser={setUser} />
+          <AllProducts />
         } />
         <Route path="/ProductDetail/:id" element={
-          <ProductDetail Products={Products.products} user={user} setUser={setUser} />
+          <ProductDetail />
         } />
         <Route path="/Cart" element={
-          <Cart user={user} setUser={setUser} />
+          <Cart />
         } />
         <Route path="/Save" element={
-          <Save user={user} setUser={setUser} />
+          <Save />
         } />
       </Routes>
     </>

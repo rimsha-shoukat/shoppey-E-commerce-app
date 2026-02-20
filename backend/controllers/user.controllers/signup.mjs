@@ -26,7 +26,7 @@ async function signup(req, res) {
         // set token in cookies
         res.cookie("token", token, { httpOnly: true });
         // return user token
-        return res.status(201).json({ token });
+        return res.status(201).json({ message: "User signup success", token });
     } catch (error) {
         console.log("Something went wrong!!!" + error.message);
         res.status(500).json({ message: "Internal server error" });

@@ -4,7 +4,7 @@ import { TbLayoutNavbarExpand } from "react-icons/tb";
 import { Link } from 'react-router-dom';
 import { Profile } from "./profile.jsx";
 
-function Landing({ user, setUser }) {
+function Landing() {
     const [navView, setNavView] = useState(false);
     const [userView, setUserView] = useState(false);
 

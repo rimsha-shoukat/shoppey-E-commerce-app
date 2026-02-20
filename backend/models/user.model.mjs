@@ -65,7 +65,7 @@ const userSchema = new mongoose.Schema({
     },
     rank: {
         type: String,
-        enum: ["Customer", "Wholesaler"],
+        enum: ["Customer", "Seller", "Admin"],
         default: "Customer",
     },
     coupons: {

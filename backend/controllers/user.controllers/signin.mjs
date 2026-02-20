@@ -24,7 +24,7 @@ async function signin(req, res) {
         // set token in cookies
         res.cookie("token", token, { httpOnly: true });
         // return user token
-        return res.status(200).json({ token });
+        return res.status(200).json({ message: "User signin success", token });
 
     } catch (error) {
         console.log("Something went wrong!!!" + error.message);
