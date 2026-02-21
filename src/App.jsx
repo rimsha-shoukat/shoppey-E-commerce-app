@@ -4,7 +4,6 @@ import Landing from './components/Landing.jsx';
 import About from './components/About.jsx';
 import Discount from './components/Discount.jsx';
 import BestSeller from './components/BestSeller.jsx';
-import Deal from './components/Deal.jsx';
 import Product from './components/Product.jsx';
 import Social from './components/Social.jsx';
 import SignIU from './pages/SignIU.jsx';
@@ -23,14 +22,13 @@ function App() {
             <Landing />
             <Discount />
             <BestSeller />
-            <Deal />
             <Product />
             <About />
             <Social />
           </>
         } />
         <Route path="/Profile" element={
-          <SignIU />
+          <Profile />
         } />
         <Route path="/SignIU" element={
           <SignIU />
