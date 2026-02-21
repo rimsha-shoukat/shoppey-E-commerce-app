@@ -33,6 +33,10 @@ const userSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Comment",
     }],
+    reviews: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Review",
+    }],
     saved: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Product",

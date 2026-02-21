@@ -7,7 +7,7 @@ function Discount() {
 
     return (
         <>
-            <div className="w-[100%] h-auto py-[5rem] max-[710px]:pt-[5rem] max-[710px]:pb-0 flex flex-row overflow-y-hidden overflow-x-scroll max-[710px]:flex-col max-[710px]:gap-[1rem] items-center justify-evenly">
+            <div className="w-[100%] h-auto py-[5rem] max-[710px]:pt-[5rem] max-[710px]:pb-0 flex flex-row overflow-y-hidden overflow-x-scroll [scrollbar-width:none] max-[710px]:flex-col max-[710px]:gap-[1rem] items-center justify-evenly">
                 {
                     discounts.map(discount => (
                         <section className='w-[25%] h-auto bg-gray-300 p-[1rem] max-[460px]:w-[70%] max-[320px]:w-[80%]'>

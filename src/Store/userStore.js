@@ -35,6 +35,24 @@ export const userStore = create((set, get) => ({
             set({ error: error.message, loading: false });
         }
     },
+    logout: async () => {
+        set({ loading: true });
+        try {
+            const response = await axios.post(`${URL}/profile/logout`);
+            set({ message: response.data.message, loading: false });
+        } catch (error) {
+            set({ error: error.message, loading: false });
+        }
+    },
+    deleteAccount: async () => {
+        set({ loading: true });
+        try {
+            const response = await axios.delete(`${URL}/profile/deleteAccount`);
+            set({ message: response.data.message, loading: false });
+        } catch (error) {
+            set({ error: error.message, loading: false });
+        }
+    },
     updateName: async (newName) => {
         set({ loading: true });
         try {

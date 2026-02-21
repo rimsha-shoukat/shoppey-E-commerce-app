@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from 'react-router-dom';
+import { productsStore } from "../Store/productsStore";
 
 const Slider = ({ Items }) => {
   return (
@@ -24,33 +25,25 @@ const Slider = ({ Items }) => {
   )
 }
 
-function Product({ Products }) {
-
+function Product() {
+  const { products, loading, error, fetchProducts } = productsStore();
   const [activeButton, setActiveButton] = useState('ALL');
-  const [filterProducts, setFilterProducts] = useState(Products);
+  const [filterProducts, setFilterProducts] = useState(products);
   let slide1 = filterProducts.slice(0, filterProducts.length / 2);
   let slide2 = filterProducts.slice(filterProducts.length / 2, filterProducts.length);
 
   const handleButtonClick = (buttonName) => {
     setActiveButton(buttonName);
 
-    let newFilter;
-    if (buttonName === 'MEN') {
-      newFilter = Products.filter(item => item.category === 'men');
-    } else if (buttonName == 'WOMEN') {
-      newFilter = Products.filter(item => item.category === "women");
-    } else if (buttonName == 'KIDS') {
-      newFilter = Products.filter(item => item.category === "kids");
-    } else {
-      newFilter = Products;
-    }
+    let newFilter = [...products];
+    newFilter = products.filter(item => item.category === buttonName.tolowerCase());
     setFilterProducts(newFilter);
   };
 
   return (
     <>
       <div className="w-[100%] h-auto p-[3rem] max-[430px]:p-[1rem] flex flex-col items-center justify-center font-serif select-none">
-        <h1 className="font-bold text-[clamp(2rem,5vw,5rem)]">Our Product</h1>
+        <h1 className="font-bold text-[clamp(2rem,5vw,5rem)]">Our Products</h1>
         {/* categories button section */}
         <section className="flex flex-row items-center justify-center gap-4 max-[565px]:gap-2 leading-4 w-full h-8 max-[565px]:text-sm">
           {['ALL', 'MEN', 'WOMEN', 'KIDS'].map((buttonName) => (

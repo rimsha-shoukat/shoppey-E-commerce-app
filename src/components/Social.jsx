@@ -11,7 +11,7 @@ function Social() {
                         <h1 className="cursor-pointer font-semibold">LinkedIn</h1>
                     </a>
                 </div>
-                <h1 className="mt-[2rem]">copyright@rimsha</h1>
+                <a className="mt-[2rem] border-0">copyright@rimsha</a>
             </section>
         </>
     )

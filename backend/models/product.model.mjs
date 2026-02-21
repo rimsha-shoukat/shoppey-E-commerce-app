@@ -16,17 +16,13 @@ const productSchema = new mongoose.Schema({
     },
     category: {
         type: String,
-        enum: ["Men", "Women", "Kids"],
+        enum: ["men", "women", "kids"],
         required: [true, "Please provide category of the product"],
     },
     stock: {
         type: Number,
         required: [true, "Please provide stock for this product."],
         min: [0, "Stock cannot be negative."],
-    },
-    deal: {
-        type: Boolean,
-        default: false,
     },
     orderCount: {
         type: Number,
