@@ -6,26 +6,14 @@ import { FaPlus } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
+import { userStore } from '../Store/userStore.js';
 
 const Carts = ({ cartItemsList, setCartItemsList, user, setUser }) => {
     const [alert, setAlert] = useState(null);
     const [showAlert, setShowAlert] = useState(false);
 
-    useEffect(() => {
-        const updatedUser = { ...user, cartItems: cartItemsList };
-        if (setUser) setUser(updatedUser);
-    }, [cartItemsList]);
-
     const remove = (id) => {
-        const itemIndex = cartItemsList.findIndex(product => product.id === id);
-        if (itemIndex !== -1) {
-            const item = cartItemsList[itemIndex];
-            const updatedItems = [...cartItemsList];
-            updatedItems.splice(itemIndex, 1);
-            setCartItemsList(updatedItems);
-            setAlert(`Removed ${item.name} from cart`);
-            setShowAlert(true);
-        }
+        console.log(id);
     }
 
     if (cartItemsList.length === 0) {
@@ -84,58 +72,12 @@ const Carts = ({ cartItemsList, setCartItemsList, user, setUser }) => {
 }
 
 function Cart({ user, setUser }) {
-    const [userView, setUserView] = useState(false);
-    const [cartItemsList, setCartItemsList] = useState(user?.cartItems || []);
+    const { user } = userStore();
+    const [cartItemsList, setCartItemsList] = useState(user?.cart || []);
     const [discount, setDiscount] = useState(0);
     const [delivery, setDelivery] = useState(0);
     const [bill, setBill] = useState(0);
-    const [coupon, setCoupon] = useState('');
-    const [code, setCode] = useState(false);
     const [show, setShow] = useState(false);
-    const codeList = ["we123", "shop2", "rk7", "code.js", "git511"];
-
-    const handleLogout = () => {
-        localStorage.setItem('currentUser', JSON.stringify(null));
-        setUser(null);
-        setUserView(false);
-    };
-
-    useEffect(() => {
-        if (cartItemsList.length === 0) {
-            setDiscount(0);
-            setDelivery(0);
-            setBill(0);
-        } else {
-            let total = 0;
-            cartItemsList.forEach((item) => {
-                total += item.price * item.quantity;
-            });
-            const newDiscount = cartItemsList.length * 3;
-            const newDelivery = cartItemsList.length * 4;
-            const newBill = (total + newDelivery) - newDiscount;
-            setDiscount(newDiscount);
-            setDelivery(newDelivery);
-            setBill(newBill);
-        }
-    }, [cartItemsList]);
-
-    const handleCoupon = () => {
-        let result = false;
-        if (!code) {
-            for (let i = 0; i < codeList.length; i++) {
-                if (codeList[i] == coupon) {
-                    setBill(bill / 1.3);
-                    result = true;
-                    setCode(true);
-                }
-            };
-        }
-        if (result) {
-            setShow(false);
-        } else {
-            setShow(true);
-        }
-    };
 
     return (
         <>
@@ -148,24 +90,6 @@ function Cart({ user, setUser }) {
                         <Link to="/Save">
                             <FaRegHeart className="cursor-pointer hover:text-gray-500" />
                         </Link>
-                        {
-                            user ? (
-                                <h1 onClick={() => setUserView(!userView)} className="cursor-pointer hover:text-gray-500">{user.name}</h1>
-                            ) : (
-                                <Link to="/SignIU">
-                                    <FaRegUser className="cursor-pointer hover:text-gray-500" />
-                                </Link>
-                            )
-                        }
-                        {
-                            user ? (
-                                userView && <div className="select-none font-bold font-serif absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#f1f1f1] shadow-[0.1px_0.1px_0.1rem_#dd957a] p-[2rem] rounded-md flex flex-col items-center justify-center gap-4">
-                                    <h1 className="text-[1.5rem] text-[#b48068] leading-5">Hello, {user?.name}!</h1>
-                                    <h1 className="text-[1.2rem]">{user?.email}</h1>
-                                    <button onClick={handleLogout} className="cursor-pointer text-[1rem] bg-black text-[#b48068] border-2 border-black hover:text-black hover:bg-[#b48068] hover:transition-all duration-700 ease-in-out px-[1rem] py-[0.35rem]">Logout</button>
-                                </div>
-                            ) : (null)
-                        }
                     </div>
                 </section>
                 <section className="mb-2 flex flex-col items-center justify-center w-[100%] p-8 h-auto bg-linear-to-l from-[#dd957a] to-[#eee2ca]">

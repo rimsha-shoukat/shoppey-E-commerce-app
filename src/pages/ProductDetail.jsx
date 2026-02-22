@@ -8,51 +8,27 @@ import { FaRegBookmark } from "react-icons/fa6";
 import { FaBookmark } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa6";
 import { useParams } from 'react-router-dom';
+import { productsStore } from "../Store/productsStore";
+import { userStore } from "../Store/userStore";
 
-function ProductDetail({ Products, user, setUser }) {
+function ProductDetail() {
     const { id } = useParams();
-    const image = Products.find(img => img.id === parseInt(id));
+    const { products } = productsStore();
+    const { user } = userStore();
+    const image = products.find(img => img._id === parseInt(id));
     const [num, setNum] = useState(1);
     const [select, setSelect] = useState('M');
     const [userView, setUserView] = useState(false);
     const [alert, setAlert] = useState(null);
     const [showAlert, setShowAlert] = useState(false);
 
-    const [cartItems, setCartItems] = useState(user?.cartItems || []);
-    const [saveItems, setSaveItems] = useState(user?.saveItems || []);
+    const [cartItems, setCartItems] = useState(user?.cart || []);
+    const [saveItems, setSaveItems] = useState(user?.saved || []);
 
     const [addToCart, setAddToCart] = useState(false);
     const [addToSave, setAddToSave] = useState(false);
 
-    useEffect(() => {
-        setCartItems(user?.cartItems || []);
-        setSaveItems(user?.saveItems || []);
-    }, [user]);
-
-    useEffect(() => {
-        setNum(1);
-        setSelect('M');
-        setAddToCart(cartItems.some(item => item.id === image.id));
-        setAddToSave(saveItems.some(item => item.id === image.id));
-    }, [id, cartItems, saveItems, image.id]);
-
-    useEffect(() => {
-        if (user) {
-            const cartChanged = JSON.stringify(user.cartItems) !== JSON.stringify(cartItems);
-            const saveChanged = JSON.stringify(user.saveItems) !== JSON.stringify(saveItems);
-            if (cartChanged || saveChanged) {
-                const updatedUser = { ...user, cartItems, saveItems };
-                setUser(updatedUser);
-                let existedUsers = JSON.parse(localStorage.getItem("users")) || [];
-                const updatedUsers = existedUsers.map(u =>
-                    u.email === updatedUser.email ? updatedUser : u
-                );
-            }
-        }
-    }, [cartItems, saveItems]);
-
     const handleLogout = () => {
-        setUser(null);
         setUserView(false);
     };
 
@@ -61,48 +37,17 @@ function ProductDetail({ Products, user, setUser }) {
     };
 
     const AddedToCart = (img) => {
-        if (!addToCart) {
-            setAddToCart(true);
-            setCartItems(prev => [...prev, {
-                id: img.id,
-                title: img.title,
-                price: img.price,
-                thumbnail: img.thumbnail,
-                discountPercentage: img.discountPercentage,
-                size: select,
-                quantity: num
-            }]);
-            setAlert('Added to cart');
-            setShowAlert(true);
-        } else {
-            setAlert('Already added to cart');
-            setShowAlert(true);
-        }
+        console.log(img);
     };
 
     const AddedToSave = (img) => {
-        if (!addToSave) {
-            setAddToSave(true);
-            setSaveItems(prev => [...prev, {
-                id: img.id,
-                title: img.title,
-                price: img.price,
-                thumbnail: img.thumbnail,
-                discountPercentage: img.discountPercentage,
-                size: select,
-                quantity: num
-            }]);
-            setAlert('Added to save');
-            setShowAlert(true);
-        } else {
-            setAlert('Already added to save');
-            setShowAlert(true);
-        }
+        console.log(img);
     };
 
     return (
         <>
             <div className="w-[100%] h-auto font-serif flex flex-col items-center justify-center gap-[2rem]">
+                {/* navbar */}
                 <section className="flex flex-row items-center py-2 px-6 justify-between w-[100%] h-auto">
                     <Link to="/AllProducts">
                         <button className="font-extrabold font-serif text-xl cursor-pointer hover:text-gray-700">shoppey</button>
@@ -123,14 +68,8 @@ function ProductDetail({ Products, user, setUser }) {
                                 </Link>
                             )
                         }
-                        {
-                            user && userView && <div className="select-none font-bold font-serif absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#f1f1f1] shadow-[0.1px_0.1px_0.1rem_#dd957a] p-[2rem] rounded-md flex flex-col items-center justify-center gap-4">
-                                <h1 className="text-[1.5rem] text-[#b48068] leading-5">Hello, {user?.name}!</h1>
-                                <h1 className="text-[1.2rem]">{user?.email}</h1>
-                                <button onClick={handleLogout} className="cursor-pointer text-[1rem] bg-black text-[#b48068] border-2 border-black hover:text-black hover:bg-[#b48068] hover:transition-all duration-700 ease-in-out px-[1rem] py-[0.35rem]">Logout</button>
-                            </div>
 
-                        }
+                        {/* reusable atert */}
                         {
                             showAlert && <div className="select-none font-bold font-serif absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#f1f1f1] shadow-[0.1px_0.1px_0.1rem_#dd957a] p-[2rem] rounded-md flex flex-col items-center justify-center gap-4">
                                 <h1 className="text-[1.5rem] text-[#b48068] leading-5">Alert</h1>
@@ -140,9 +79,10 @@ function ProductDetail({ Products, user, setUser }) {
                         }
                     </div>
                 </section>
+                {/* cart */}
                 <section className="grid grid-cols-2 max-[600px]:grid-cols-1 select-none items-center justify-center w-auto h-auto border-2 border-gray-300 rounded-lg gap-[1rem] bg-[#f7ecd6]">
                     <div className="cols-span-1 h-auto flex items-center justify-center">
-                        <img className='w-[20rem] h-[20rem] rounded-lg' src={image.imageUrl} alt={image.imageUrl} />
+                        <img className='w-[20rem] h-[20rem] rounded-lg' src={image.imageUrl} alt={image.name} />
                     </div>
                     <div className="cols-span-1 h-auto flex flex-col items-start justify-start p-6">
                         <p className="text-sm">{image.category}</p>

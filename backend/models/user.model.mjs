@@ -72,11 +72,16 @@ const userSchema = new mongoose.Schema({
         enum: ["Customer", "Seller", "Admin"],
         default: "Customer",
     },
-    coupons: {
-        type: [String],
-        trim: true,
-        default: [],
-    }
+    coupons: [{
+        name: {
+            type: String,
+            trim: true,
+        },
+        value: {
+            type: Number,
+            trim: true,
+        }
+    }],
 }, { timestamps: true });
 
 const User = mongoose.model("User", userSchema);

@@ -2,49 +2,20 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { FaRegUser } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
+import { userStore } from '../Store/userStore';
 
-const Saves = ({ user, setUser }) => {
-    const [saveItemsList, setSaveItemsList] = useState(user.saveItems || []);
-    const [cartItems, setCartItems] = useState(user.cartItems || []);
+const Saves = ({ user }) => {
+
+    const [saveItemsList, setSaveItemsList] = useState(user.saved);
     const [alert, setAlert] = useState(null);
     const [showAlert, setShowAlert] = useState(false);
 
-    useEffect(() => {
-        const updatedUser = { ...user, saveItems: saveItemsList };
-        localStorage.setItem('currentUser ', JSON.stringify(updatedUser));
-        if (setUser) setUser(updatedUser);
-    }, [saveItemsList]);
-
-    useEffect(() => {
-        const updatedUser = { ...user, cartItems: cartItems };
-        localStorage.setItem('currentUser ', JSON.stringify(updatedUser));
-        if (setUser) setUser(updatedUser);
-    }, [cartItems]);
-
     const addToCart = (id) => {
-        const item = saveItemsList.find(product => product.id === id);
-        if (item) {
-            if (!cartItems.some(cartItem => cartItem.id === id)) {
-                setCartItems([...cartItems, item]);
-                setAlert('Added to cart');
-                setShowAlert(true);
-            } else {
-                setAlert('Already in cart');
-                setShowAlert(true);
-            }
-        }
+        console.log(id);
     };
 
     const removeFromSave = (id) => {
-        const itemIndex = saveItemsList.findIndex(product => product.id === id);
-        if (itemIndex !== -1) {
-            const item = saveItemsList[itemIndex];
-            const updatedItems = [...saveItemsList];
-            updatedItems.splice(itemIndex, 1);
-            setSaveItemsList(updatedItems);
-            setAlert(`Removed ${item.title} from saved items`);
-            setShowAlert(true);
-        }
+        console.log(id);
     }
 
     if (saveItemsList.length === 0) {
@@ -87,14 +58,9 @@ const Saves = ({ user, setUser }) => {
     );
 }
 
-function Save({ user, setUser }) {
+function Save() {
+    const { user } = userStore();
     const [userView, setUserView] = useState(false);
-
-    const handleLogout = () => {
-        localStorage.setItem('currentUser', JSON.stringify(null));
-        setUser(null);
-        setUserView(false);
-    };
 
     return (
         <>
@@ -116,22 +82,14 @@ function Save({ user, setUser }) {
                                 </Link>
                             )
                         }
-                        {
-                            user ? (
-                                userView && <div className="select-none font-bold font-serif absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#f1f1f1] shadow-[0.1px_0.1px_0.1rem_#dd957a] p-[2rem] rounded-md flex flex-col items-center justify-center gap-4">
-                                    <h1 className="text-[1.5rem] text-[#b48068] leading-5">Hello, {user?.name}!</h1>
-                                    <h1 className="text-[1.2rem]">{user?.email}</h1>
-                                    <button onClick={handleLogout} className="cursor-pointer text-[1rem] bg-black text-[#b48068] border-2 border-black hover:text-black hover:bg-[#b48068] hover:transition-all duration-700 ease-in-out px-[1rem] py-[0.35rem]">Logout</button>
-                                </div>
-                            ) : (null)
-                        }
+
                     </div>
                 </section>
                 <section className="mb-2 flex flex-col items-center justify-center w-[100%] p-8 h-auto bg-linear-to-l from-[#dd957a] to-[#eee2ca]">
                     <h1 className="font-bold text-2xl">Saved Items</h1>
                 </section>
 
-                {user ? (<Saves user={user} setUser={setUser} />) :
+                {user ? (<Saves user={user} />) :
                     (
                         <div className="w-[100%] h-auto flex flex-col items-center justify-center">
                             <h1 className="text-2xl font-bold">Please Sign In to view save Items</h1>
