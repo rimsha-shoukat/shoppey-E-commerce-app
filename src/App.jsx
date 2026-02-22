@@ -20,11 +20,11 @@ function App() {
         <Route path="/" element={
           <>
             <Landing />
-            <Discount />
-            <BestSeller />
-            <Product />
-            <About />
-            <Social />
+            {/* <Discount /> */}
+            {/* <BestSeller /> */}
+            {/* <Product /> */}
+            {/* <About /> */}
+            {/* <Social /> */}
           </>
         } />
         <Route path="/Profile" element={
@@ -33,21 +33,21 @@ function App() {
         <Route path="/SignIU" element={
           <SignIU />
         } />
-        <Route path="/AllProducts" element={
+        {/* <Route path="/AllProducts" element={
           <AllProducts />
-        } />
-        <Route path="/AllProducts/:param" element={
+        } /> */}
+        {/* <Route path="/AllProducts/:param" element={
           <AllProducts />
-        } />
-        <Route path="/ProductDetail/:id" element={
+        } /> */}
+        {/* <Route path="/ProductDetail/:id" element={
           <ProductDetail />
-        } />
-        <Route path="/Cart" element={
+        } /> */}
+        {/* <Route path="/Cart" element={
           <Cart />
-        } />
-        <Route path="/Save" element={
+        } /> */}
+        {/* <Route path="/Save" element={
           <Save />
-        } />
+        } /> */}
       </Routes>
     </>
   )

@@ -4,9 +4,9 @@ import axios from "axios";
 const URL = "http://localhost:5000/api/user";
 
 export const userStore = create((set, get) => ({
-    user: [],
+    user: null,
     message: "",
-    loading: true,
+    loading: false,
     error: "",
     fetchUser: async () => {
         set({ loading: true });
@@ -17,19 +17,20 @@ export const userStore = create((set, get) => ({
             set({ error: error.message, setLoading: false });
         }
     },
-    signin: async (user) => {
+    signin: async ({ form }) => {
         set({ loading: true });
         try {
-            const response = await axios.post(`${URL}/signin`, { email: user.email, password: user.password });
+            const response = await axios.post(`${URL}/signin`, { email: form.email, password: form.password });
             set({ message: response.data.message, loading: false });
         } catch (error) {
             set({ error: error.message, loading: false });
         }
     },
-    signup: async (user) => {
+    signup: async ({ form }) => {
         set({ loading: true });
         try {
-            const response = await axios.post(`${URL}/signup`, { name: user.name, email: user.email, password: user.password });
+            console.log(form.name, form.email, form.password);
+            const response = await axios.post(`${URL}/signup`, { name: form.name, email: form.email, password: form.password });
             set({ message: response.data.message, loading: false });
         } catch (error) {
             set({ error: error.message, loading: false });

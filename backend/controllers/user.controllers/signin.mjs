@@ -6,6 +6,7 @@ async function signin(req, res) {
     try {
         // destructure request data
         const { email, password } = req.body;
+
         if (!email || !password) {
             return res.status(400).json({ message: "Please provide email and password" });
         }

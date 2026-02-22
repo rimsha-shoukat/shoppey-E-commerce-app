@@ -12,6 +12,7 @@ async function signup(req, res) {
         // check existied users
         const existedUser = await User.findOne({ email });
         if (existedUser) {
+            console.log("user exist");
             return res.status(400).json({ message: "User already exists" });
         }
         // create salt
