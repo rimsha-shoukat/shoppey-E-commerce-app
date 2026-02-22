@@ -17,7 +17,7 @@ import removeCoupons from "../controllers/user.controllers/removeCoupons.mjs";
 import logout from "../controllers/user.controllers/logout.mjs";
 import deleteAccount from "../controllers/user.controllers/deleteAccount.mjs";
 import getComments from "../controllers/user.controllers/getComments.mjs";
-import getReviews from "../controllers/user.controllers/.mjs";
+import getReviews from "../controllers/user.controllers/getReviews.mjs";
 import getUser from "../middleware/getUser.mjs";
 
 import express from "express";

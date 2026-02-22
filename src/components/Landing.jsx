@@ -44,7 +44,7 @@ function Landing() {
                                     user ? (
                                         <Link to="/Profile">
                                             <button className="font-bold font-serif hover:transition-all duration-700 ease-in-out cursor-pointer max-[710px]:w-[100%] max-[710px]:hover:bg-black max-[710px]:hover:text-[#b48068] max-[710px]:py-[1rem] text-nowrap">
-                                                <image className="rounded-full hover:scale-0.95 transition-transform duration-300 ease-in-out" width={10} height={10} src={user.image} alt={user.name} />
+                                                <img className="rounded-full hover:scale-0.95 transition-transform duration-300 ease-in-out" width={20} height={20} src={user.image} alt={user.name} />
                                             </button>
                                         </Link>
                                     ) : (

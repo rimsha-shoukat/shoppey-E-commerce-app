@@ -1,6 +1,6 @@
-import userStore from "../Store/userStore.js";
+import { userStore } from "../Store/userStore.js";
 
-export function Profile() {
+export default function Profile() {
     const { logout, deleteAccount, user } = userStore();
     const handleLogout = () => {
         logout();

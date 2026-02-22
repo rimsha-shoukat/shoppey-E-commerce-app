@@ -8,7 +8,7 @@ import { FaArrowRight } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 import { userStore } from '../Store/userStore.js';
 
-const Carts = ({ cartItemsList, setCartItemsList, user, setUser }) => {
+const Carts = ({ cartItemsList, setCartItemsList, user }) => {
     const [alert, setAlert] = useState(null);
     const [showAlert, setShowAlert] = useState(false);
 
@@ -71,7 +71,7 @@ const Carts = ({ cartItemsList, setCartItemsList, user, setUser }) => {
     )
 }
 
-function Cart({ user, setUser }) {
+function Cart() {
     const { user } = userStore();
     const [cartItemsList, setCartItemsList] = useState(user?.cart || []);
     const [discount, setDiscount] = useState(0);

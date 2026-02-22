@@ -1,8 +1,7 @@
 import User from "../../models/user.model.mjs";
 
-async function deleteAccount(req, res) {
+async function getComments(req, res) {
     try {
-        const { email, password } = req.body;
         return res.status(200).json({ message: "Coupon added successfully" });
     } catch (error) {
         console.log("Something went wrong!!!", error);
@@ -10,4 +9,4 @@ async function deleteAccount(req, res) {
     }
 }
 
-export default deleteAccount;
+export default getComments;
