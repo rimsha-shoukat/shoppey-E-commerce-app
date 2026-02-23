@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
     image: {
         type: String,
         trim: true,
-        default: "",
+        default: "https://cdn-icons-png.flaticon.com/512/17/17004.png",
     },
     email: {
         type: String,

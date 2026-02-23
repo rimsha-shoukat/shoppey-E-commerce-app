@@ -3,7 +3,7 @@ import axios from "../utils/axios.js";
 import { getErrorMessage } from "../utils/getErrorMessage.js";
 
 export const userStore = create((set, get) => ({
-    user: null,
+    user: [],
     message: "",
     loading: false,
     error: "",
@@ -11,7 +11,8 @@ export const userStore = create((set, get) => ({
         set({ loading: true, error: "", message: "" });
         try {
             const response = await axios.get(`user/profile`);
-            set({ user: response.data.user, loading: false });
+            const userData = response.data.user || null;
+            set({ user: userData, loading: false });
         } catch (error) {
             set({ error: getErrorMessage(error), loading: false });
         }

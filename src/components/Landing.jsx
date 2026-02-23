@@ -6,12 +6,22 @@ import { userStore } from "../Store/userStore.js";
 
 function Landing() {
     const [navView, setNavView] = useState(false);
-    const { fetchUser, user } = userStore();
+    const { fetchUser, user, loading, error } = userStore();
 
-    useEffect((() => {
+    useEffect(() => {
         fetchUser();
-        console.log(user);
-    }), []);
+    }, []);
+
+    if (loading) {
+        return (
+            <>Loading...</>
+        )
+    }
+    if (error) {
+        return (
+            <>{error}</>
+        )
+    }
 
     return (
         <>
@@ -27,7 +37,7 @@ function Landing() {
                             {/* hide or show navbar icon */}
                             <TbLayoutNavbarExpand onClick={() => setNavView(!navView)} className="hidden cursor-pointer text-2xl max-[710px]:block" />
                             {/* navbar buttons */}
-                            <div className={`flex max-[710px]:flex-col text-sm max-[710px]:w-[85%] max-[710px]:h-auto min-[710px]:flex ${navView ? 'block' : 'hidden'} max-[710px]:right-[3rem] max-[710px]:absolute max-[710px]:bg-[#b48068] font-bold font-serif flex-row items-end justify-evenly max-[710px]:gap-[0rem] gap-[1rem]`}>
+                            <div className={`flex max-[710px]:flex-col text-sm max-[710px]:w-[85%] max-[710px]:h-auto min-[710px]:flex ${navView ? 'block' : 'hidden'} max-[710px]:right-[3rem] max-[710px]:absolute max-[710px]:bg-[#b48068] font-bold font-serif flex-row items-center justify-end max-[710px]:gap-[0rem] gap-[3rem]`}>
                                 <Link to="/AllProducts" className="max-[710px]:w-[100%]">
                                     <button className="cursor-pointer hover:transition-all duration-700 ease-in-out max-[710px]:hover:bg-black max-[710px]:w-[100%] max-[710px]:hover:text-[#b48068] max-[710px]:hover:border-none max-[710px]:py-[1rem] hover:border-b-2 border-b-black">ALL</button>
                                 </Link>
@@ -42,11 +52,9 @@ function Landing() {
                                 </Link>
                                 {/* user or signin button */}
                                 {
-                                    user ? (
+                                    user !== null ? (
                                         <Link to="/Profile">
-                                            <button className="font-bold font-serif hover:transition-all duration-700 ease-in-out cursor-pointer max-[710px]:w-[100%] max-[710px]:hover:bg-black max-[710px]:hover:text-[#b48068] max-[710px]:py-[1rem] text-nowrap">
-                                                <img className="rounded-full hover:scale-0.95 transition-transform duration-300 ease-in-out" width={20} height={20} src={user.image} alt={user.name} />
-                                            </button>
+                                            <img className="rounded-full max-[710px]:m-2 hover:opacity-70 hover:transition-all duration-700 ease-in-out width-[40px] h-[40px]" src={user.image} alt={user.name} />
                                         </Link>
                                     ) : (
                                         <Link to="/SignIU" className="max-[710px]:w-[100%]">

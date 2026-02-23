@@ -42,10 +42,10 @@ async function profile(req, res) {
                 }
             }
         ]);
+        const user = userProfile[0] || null;
+        return res.status(200).json({ message: "User profile fetched successfully", user });
 
-        return res.status(200).json({ message: "User profile fetched successfully", user: userProfile[0] });
     } catch (error) {
-        console.log("Something went wrong" + error.message);
         return res.status(500).json({ message: "Internal server error" });
     }
 }
