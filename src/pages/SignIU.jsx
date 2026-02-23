@@ -1,12 +1,14 @@
 import { useState } from "react"
 import { userStore } from "../Store/userStore.js";
 import { validateSignupFields, validateSigninFields } from "../utils/validateFileds.js";
+import { useNavigate } from "react-router-dom";
 
 function SignIU() {
     const { signin, signup, loading } = userStore();
     const [logIn, setLogIn] = useState(true);
     const [form, setForm] = useState({ name: "", email: "", password: "" });
     const [errorMessage, setErrorMessage] = useState("");
+    const navigate = useNavigate();
 
     // choose signin or signup button handler
     const handleClick = () => {
@@ -26,6 +28,7 @@ function SignIU() {
                 setErrorMessage(error);
             } else if (message) {
                 setErrorMessage(message);
+                navigate("/");
             }
         }
     };
@@ -40,7 +43,8 @@ function SignIU() {
             if (error) {
                 setErrorMessage(error);
             } else if (message) {
-                setErrorMessage(error);
+                setErrorMessage(message);
+                navigate("/");
             }
         }
     };
