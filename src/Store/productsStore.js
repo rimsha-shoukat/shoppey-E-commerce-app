@@ -17,7 +17,7 @@ export const productsStore = create((set, get) => ({
             const response = await axios.get(`${URL}/getProducts?limit=20&page=${page}`);
             set({ products: response.data.products, loading: false, page: response.data.page, total: response.data.total });
         } catch (error) {
-            set({ error: error.message, loading: false });
+            set({ error: response.data.message, loading: false });
         }
     },
     addNewProduct: async (newProduct) => {
@@ -26,7 +26,7 @@ export const productsStore = create((set, get) => ({
             const response = await axios.patch(`${URL}/addNewProduct`, { newProduct });
             set({ message: response.data.message, loading: false });
         } catch (error) {
-            set({ error: error.message, loading: false });
+            set({ error: response.data.message, loading: false });
         }
     },
     deleteProduct: async (productId) => {
@@ -35,7 +35,7 @@ export const productsStore = create((set, get) => ({
             const response = await axios.delete(`${URL}/deleteProduct${productId}`);
             set({ message: response.data.message, loading: false });
         } catch (error) {
-            set({ error: error.message, loading: false });
+            set({ error: response.data.message, loading: false });
         }
     },
     updateProduct: async (updatedProduct) => {
@@ -44,7 +44,7 @@ export const productsStore = create((set, get) => ({
             const response = await axios.patch(`${URL}/updatedProduct`, { updatedProduct });
             set({ message: response.data.message, loading: false });
         } catch (error) {
-            set({ error: error.message, loading: false });
+            set({ error: response.data.message, loading: false });
         }
     },
     setDiscount: async (thumbnail, category, discount) => {
@@ -53,7 +53,7 @@ export const productsStore = create((set, get) => ({
             const response = await axios.patch(`${URL}/setDiscount`, { thumbnail, category, discount });
             set({ message: response.data.message, loading: false });
         } catch (error) {
-            set({ error: error.message, loading: false });
+            set({ error: response.data.message, loading: false });
         }
     },
     getDiscount: async () => {
@@ -62,7 +62,7 @@ export const productsStore = create((set, get) => ({
             const response = await axios.get(`${URL}/getDiscount`);
             set({ discounts: response.data.discounts, loading: false });
         } catch (error) {
-            set({ error: error.message, loading: false });
+            set({ error: response.data.message, loading: false });
         }
     }
 }));

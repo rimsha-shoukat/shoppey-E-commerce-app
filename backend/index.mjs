@@ -14,7 +14,7 @@ import commentRoute from "./routes/comment.route.mjs";
 // cors options
 const corsOptions = {
     origin: process.env.CORS_ORIGIN,
-    METHODS: "GET, POST, PUT, DELETE",
+    METHODS: "GET, POST, PUT, DELETE, PATCH",
     credentials: true,
 }
 dotenv.config();

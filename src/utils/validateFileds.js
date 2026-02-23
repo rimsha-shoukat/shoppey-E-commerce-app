@@ -3,20 +3,24 @@ export function validateSignupFields({ form, setErrorMessage }) {
         setErrorMessage("All fields are required.");
         return false;
     }
+    if (form.name.trim().length < 3) {
+        setErrorMessage("Name must be atleast 3 characters long.");
+        return false;
+    }
     if (form.password.trim().length < 8) {
-        setErrorMessage("Your password must be at least 8 characters.");
+        setErrorMessage("Your password must be atleast 8 characters.");
         return false;
     }
     if (!(/[a-z]/).test(form.password)) {
-        setErrorMessage("Your password must contain at least one lowercase letter.");
+        setErrorMessage("Your password must contain atleast one lowercase letter.");
         return false;
     }
     if (!(/[A-Z]/).test(form.password)) {
-        setErrorMessage("Your password must contain at least one uppercase letter.");
+        setErrorMessage("Your password must contain atleast one uppercase letter.");
         return false;
     }
     if (!(/[0-9]/).test(form.password)) {
-        setErrorMessage("Your password must contain at least one digit.");
+        setErrorMessage("Your password must contain atleast one digit.");
         return false;
     }
     return true;

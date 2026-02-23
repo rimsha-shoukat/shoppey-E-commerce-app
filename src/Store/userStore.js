@@ -1,7 +1,6 @@
 import { create } from "zustand";
-import axios from "axios";
-
-const URL = "http://localhost:5000/api/user";
+import axios from "../utils/axios.js";
+import { getErrorMessage } from "../utils/getErrorMessage.js";
 
 export const userStore = create((set, get) => ({
     user: null,
@@ -9,166 +8,166 @@ export const userStore = create((set, get) => ({
     loading: false,
     error: "",
     fetchUser: async () => {
-        set({ loading: true });
+        set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.get(`${URL}/profile`);
-            set({ user: response.data.user, setLoading: false });
+            const response = await axios.get(`user/profile`);
+            set({ user: response.data.user, loading: false });
         } catch (error) {
-            set({ error: error.message, setLoading: false });
+            set({ error: getErrorMessage(error), loading: false });
         }
     },
     signin: async ({ form }) => {
-        set({ loading: true });
+        set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.post(`${URL}/signin`, { email: form.email, password: form.password });
+            const response = await axios.post(`user/signin`, { email: form.email, password: form.password });
             set({ message: response.data.message, loading: false });
         } catch (error) {
-            set({ error: error.message, loading: false });
+            set({ error: getErrorMessage(error), loading: false });
         }
     },
     signup: async ({ form }) => {
-        set({ loading: true });
+        set({ loading: true, error: "", message: "" });
         try {
             console.log(form.name, form.email, form.password);
-            const response = await axios.post(`${URL}/signup`, { name: form.name, email: form.email, password: form.password });
+            const response = await axios.post(`user/signup`, { name: form.name, email: form.email, password: form.password });
             set({ message: response.data.message, loading: false });
         } catch (error) {
-            set({ error: error.message, loading: false });
+            set({ error: getErrorMessage(error), loading: false });
         }
     },
     logout: async () => {
-        set({ loading: true });
+        set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.post(`${URL}/profile/logout`);
+            const response = await axios.post(`user/profile/logout`);
             set({ message: response.data.message, loading: false });
         } catch (error) {
-            set({ error: error.message, loading: false });
+            set({ error: getErrorMessage(error), loading: false });
         }
     },
     deleteAccount: async () => {
-        set({ loading: true });
+        set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.delete(`${URL}/profile/deleteAccount`);
+            const response = await axios.delete(`user/profile/deleteAccount`);
             set({ message: response.data.message, loading: false });
         } catch (error) {
-            set({ error: error.message, loading: false });
+            set({ error: getErrorMessage(error), loading: false });
         }
     },
     updateName: async (newName) => {
-        set({ loading: true });
+        set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.patch(`${URL}/profile/updateName`, { newName });
+            const response = await axios.patch(`user/profile/updateName`, { newName });
             set({ message: response.data.message, loading: false });
         } catch (error) {
-            set({ error: error.message, loading: false });
+            set({ error: getErrorMessage(error), loading: false });
         }
     },
     updateImage: async (newImage) => {
-        set({ loading: true });
+        set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.patch(`${URL}/profile/updateImage`, { newImage });
+            const response = await axios.patch(`user/profile/updateImage`, { newImage });
             set({ message: response.data.message, loading: false });
         } catch (error) {
-            set({ error: error.message, loading: false });
+            set({ error: getErrorMessage(error), loading: false });
         }
     },
     updateEmail: async (newEmail) => {
-        set({ loading: true });
+        set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.patch(`${URL}/profile/updateEmail`, { newEmail });
+            const response = await axios.patch(`user/profile/updateEmail`, { newEmail });
             set({ message: response.data.message, loading: false });
         } catch (error) {
-            set({ error: error.message, loading: false });
+            set({ error: getErrorMessage(error), loading: false });
         }
     },
     updatePassword: async (currentPassword, newPassword) => {
-        set({ loading: true });
+        set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.patch(`${URL}/profile/updatePassword`, { currentPassword, newPassword });
+            const response = await axios.patch(`user/profile/updatePassword`, { currentPassword, newPassword });
             set({ message: response.data.message, loading: false });
         } catch (error) {
-            set({ error: error.message, loading: false });
+            set({ error: getErrorMessage(error), loading: false });
         }
     },
     updateSaved: async (productId) => {
-        set({ loading: true });
+        set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.patch(`${URL}/profile/updateSaved`, { productId });
+            const response = await axios.patch(`user/profile/updateSaved`, { productId });
             set({ message: response.data.message, loading: false });
         } catch (error) {
-            set({ error: error.message, loading: false });
+            set({ error: getErrorMessage(error), loading: false });
         }
     },
     removeSaved: async (productId) => {
-        set({ loading: true });
+        set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.patch(`${URL}/profile/removeSaved`, { productId });
+            const response = await axios.patch(`user/profile/removeSaved`, { productId });
             set({ message: response.data.message, loading: false });
         } catch (error) {
-            set({ error: error.message, loading: false });
+            set({ error: getErrorMessage(error), loading: false });
         }
     },
     updateCart: async (productId) => {
-        set({ loading: true });
+        set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.patch(`${URL}/profile/updateCart`, { productId });
+            const response = await axios.patch(`user/profile/updateCart`, { productId });
             set({ message: response.data.message, loading: false });
         } catch (error) {
-            set({ error: error.message, loading: false });
+            set({ error: getErrorMessage(error), loading: false });
         }
     },
     removeCart: async (productId) => {
-        set({ loading: true });
+        set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.patch(`${URL}/profile/removeCart`, { productId });
+            const response = await axios.patch(`user/profile/removeCart`, { productId });
             set({ message: response.data.message, loading: false });
         } catch (error) {
-            set({ error: error.message, loading: false });
+            set({ error: getErrorMessage(error), loading: false });
         }
     },
     updateLocation: async (location) => {
-        set({ loading: true });
+        set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.patch(`${URL}/profile/updateLocation`, { location });
+            const response = await axios.patch(`user/profile/updateLocation`, { location });
             set({ message: response.data.message, loading: false });
         } catch (error) {
-            set({ error: error.message, loading: false });
+            set({ error: getErrorMessage(error), loading: false });
         }
     },
     updateNumber: async (number) => {
-        set({ loading: true });
+        set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.patch(`${URL}/profile/updateNumber`, { number });
+            const response = await axios.patch(`user/profile/updateNumber`, { number });
             set({ message: response.data.message, loading: false });
         } catch (error) {
-            set({ error: error.message, loading: false });
+            set({ error: getErrorMessage(error), loading: false });
         }
     },
     updateRank: async (rank) => {
-        set({ loading: true });
+        set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.patch(`${URL}/profile/updateRank`, { rank });
+            const response = await axios.patch(`user/profile/updateRank`, { rank });
             set({ message: response.data.message, loading: false });
         } catch (error) {
-            set({ error: error.message, loading: false });
+            set({ error: getErrorMessage(error), loading: false });
         }
     },
     addCoupons: async (coupons) => {
-        set({ loading: true });
+        set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.patch(`${URL}/profile/addCoupons`, { coupons });
+            const response = await axios.patch(`user/profile/addCoupons`, { coupons });
             set({ message: response.data.message, loading: false });
         } catch (error) {
-            set({ error: error.message, loading: false });
+            set({ error: getErrorMessage(error), loading: false });
         }
     },
     removeCoupons: async (coupons) => {
-        set({ loading: true });
+        set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.patch(`${URL}/profile/removeCoupons`, { coupons });
+            const response = await axios.patch(`user/profile/removeCoupons`, { coupons });
             set({ message: response.data.message, loading: false });
         } catch (error) {
-            set({ error: error.message, loading: false });
+            set({ error: getErrorMessage(error), loading: false });
         }
     },
 }));

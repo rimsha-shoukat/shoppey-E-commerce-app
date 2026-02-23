@@ -1,10 +1,9 @@
 import { useState } from "react"
-import { useNavigate } from 'react-router-dom';
 import { userStore } from "../Store/userStore.js";
 import { validateSignupFields, validateSigninFields } from "../utils/validateFileds.js";
 
 function SignIU() {
-    const { signin, signup, loading, error, message } = userStore();
+    const { signin, signup, loading } = userStore();
     const [logIn, setLogIn] = useState(true);
     const [form, setForm] = useState({ name: "", email: "", password: "" });
     const [errorMessage, setErrorMessage] = useState("");
@@ -18,13 +17,15 @@ function SignIU() {
 
     // signin form submission button handler
     const handleSignIn = async (e) => {
+        setErrorMessage("");
         e.preventDefault();
         if (validateSigninFields({ form, setErrorMessage })) {
-            try {
-                await signin({ form });
-                console.log(error);
-            } catch (e) {
+            await signin({ form });
+            const { error, message } = userStore.getState();
+            if (error) {
                 setErrorMessage(error);
+            } else if (message) {
+                setErrorMessage(message);
             }
         }
     };
@@ -32,20 +33,16 @@ function SignIU() {
     // signup form submission button handler
     const handleSignUp = async (e) => {
         e.preventDefault();
+        setErrorMessage("");
         if (validateSignupFields({ form, setErrorMessage })) {
-            try {
-                await signup({ form });
-                console.log(message);
-            } catch (e) {
+            await signup({ form });
+            const { error, message } = userStore.getState();
+            if (error) {
+                setErrorMessage(error);
+            } else if (message) {
                 setErrorMessage(error);
             }
         }
-    };
-
-    // forget password dialog cancel button handler
-    const handlePasswordButton = (e) => {
-        e.preventDefault();
-        setChangePassword(!changePassword);
     };
 
     return (
@@ -59,7 +56,7 @@ function SignIU() {
                         <input value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full bg-white/30 px-[0.5rem] py-[0.35rem] text-[1.1rem]" placeholder="Email" type="email" required />
                         <input value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} className="w-full bg-white/30 px-[0.5rem] py-[0.35rem] text-[1.1rem]" placeholder="Password" type="text" required />
                         <p className="text-red-800 w-full text-start text-xs">{errorMessage}</p>
-                        <button onClick={handlePasswordButton} className="cursor-pointer text-sm text-gray-600 hover:text-red-600 mt-[1rem]">Forget your password!</button>
+                        <button className="cursor-pointer text-sm text-gray-600 hover:text-red-600 mt-[1rem]">Forget your password!</button>
                         <button type="submit" className="cursor-pointer text-[1.5rem] shadow-md px-[3rem] py-[0.55rem] font-bold rounded-full bg-white/50">{loading ? "Loading>>>" : "SIGN IN"}</button>
                         <p className="text-gray-600 text-xs hidden max-[800px]:block">Or</p>
                         <p onClick={handleClick} className="hover:underline cursor-pointer hidden max-[800px]:block">signup</p>

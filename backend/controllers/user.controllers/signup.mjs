@@ -12,7 +12,6 @@ async function signup(req, res) {
         // check existied users
         const existedUser = await User.findOne({ email });
         if (existedUser) {
-            console.log("user exist");
             return res.status(400).json({ message: "User already exists" });
         }
         // create salt
@@ -29,7 +28,6 @@ async function signup(req, res) {
         // return user token
         return res.status(201).json({ message: "User signup success", token });
     } catch (error) {
-        console.log("Something went wrong!!!" + error.message);
         res.status(500).json({ message: "Internal server error" });
     }
 }
