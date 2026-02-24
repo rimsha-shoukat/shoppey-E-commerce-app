@@ -5,6 +5,10 @@ const commentSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
     },
+    product: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Product",
+    },
     text: {
         type: String,
         required: [true, "Comment can't be empty."],

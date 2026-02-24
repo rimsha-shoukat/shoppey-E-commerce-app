@@ -11,7 +11,7 @@ import AllProducts from './pages/AllProducts.jsx';
 import ProductDetail from './pages/ProductDetail.jsx';
 import Cart from './pages/Cart.jsx';
 import Save from './pages/Save.jsx';
-import Profile from './pages/profile.jsx';
+import User from "./pages/User.jsx"
 
 function App() {
   return (
@@ -27,8 +27,8 @@ function App() {
             {/* <Social /> */}
           </>
         } />
-        <Route path="/Profile" element={
-          <Profile />
+        <Route path="/User" element={
+          <User />
         } />
         <Route path="/SignIU" element={
           <SignIU />

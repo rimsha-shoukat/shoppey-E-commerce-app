@@ -6,22 +6,11 @@ import { userStore } from "../Store/userStore.js";
 
 function Landing() {
     const [navView, setNavView] = useState(false);
-    const { fetchUser, user, loading, error } = userStore();
+    const { fetchUser, user } = userStore();
 
     useEffect(() => {
         fetchUser();
     }, []);
-
-    if (loading) {
-        return (
-            <>Loading...</>
-        )
-    }
-    if (error) {
-        return (
-            <>{error}</>
-        )
-    }
 
     return (
         <>
@@ -53,8 +42,8 @@ function Landing() {
                                 {/* user or signin button */}
                                 {
                                     user !== null ? (
-                                        <Link to="/Profile">
-                                            <img className="rounded-full max-[710px]:m-2 hover:opacity-70 hover:transition-all duration-700 ease-in-out width-[40px] h-[40px]" src={user.image} alt={user.name} />
+                                        <Link to="/User">
+                                            <img className="rounded-full max-[710px]:m-2 hover:opacity-70 hover:transition-all duration-700 ease-in-out width-[38px] h-[38px]" src={user.image} alt={user.name} />
                                         </Link>
                                     ) : (
                                         <Link to="/SignIU" className="max-[710px]:w-[100%]">

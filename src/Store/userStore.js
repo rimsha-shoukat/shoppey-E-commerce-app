@@ -11,10 +11,15 @@ export const userStore = create((set, get) => ({
         set({ loading: true, error: "", message: "" });
         try {
             const response = await axios.get(`user/profile`);
+            console.log(response);
             const userData = response.data.user || null;
             set({ user: userData, loading: false });
         } catch (error) {
-            set({ error: getErrorMessage(error), loading: false });
+            if (error.response.status === 401 || error.reponse.status === 404) {
+                set({ user: null, error: "", loading: false });
+            } else {
+                set({ error: getErrorMessage(error), loading: false });
+            }
         }
     },
     signin: async ({ form }) => {
