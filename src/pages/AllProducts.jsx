@@ -1,27 +1,52 @@
 import { useState, useEffect, useRef } from "react";
-import { FaRegUser } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 import { BiSearch } from "react-icons/bi";
 import { Link } from 'react-router-dom';
 import { FaRegHeart } from "react-icons/fa6";
 import { useParams } from 'react-router-dom';
-import { productsStore } from "../Store/productsStore";
+import { productsStore } from "../Store/productsStore.js";
 
 function AllProducts() {
   const { param } = useParams();
-  const { products } = productsStore();
-  const [filterProducts, setFilterProducts] = useState(products);
+  const { products, fetchProducts, loading, error, total } = productsStore();
+  const [filterProducts, setFilterProducts] = useState([]);
   const searchRef = useRef(null);
-  const [userView, setUserView] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
-  const [alert, setAlert] = useState(null);
+  const [pages, setPages] = useState(1);
+  const loaderRef = useRef(null);
 
+  // intersection observer useEffect
+  useEffect(() => {
 
-  const handleLogout = () => {
-    setUser(null);
-    setUserView(false);
-  };
+    // observer
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
 
+      if (entry.isIntersecting && !loading && products.length < total) {
+        setPages(prev => prev + 1);
+      }
+    }, { threshold: 0 });
+
+    //  call observer
+    if (loaderRef.current) {
+      observer.observe(loaderRef.current);
+    }
+
+    // clean up function
+    return () => {
+      if (loaderRef.current) {
+        observer.unobserve(loaderRef.current);
+      }
+    };
+
+  }, [loading]);
+
+  // load products when page number changes
+  useEffect(() => {
+    console.log(total, products.length);
+    fetchProducts(pages);
+  }, [pages]);
+
+  // handle search 
   function handleSearchItems() {
     if (searchRef.current.value !== "") {
       const searchProducts = products.filter((product) =>
@@ -29,15 +54,15 @@ function AllProducts() {
       if (searchProducts.length > 0) {
         setFilterProducts(searchProducts);
       } else {
-        setAlert("no Item Found");
-        setShowAlert(true);
+        // no product found
+        setFilterProducts([]);
       }
     }
   }
 
+  // params filter
   useEffect(() => {
     let Items = [...products];
-
     if (param) {
       if (['men', 'women', 'kids'].includes(param)) {
         Items = Items.filter(item => item.category === param);
@@ -45,10 +70,8 @@ function AllProducts() {
         Items = Items.filter(item => item.rating >= 3);
       }
     }
-
-    setFilterProducts(...Items);
-
-  }, [param]);
+    setFilterProducts(Items);
+  }, [param, products]);
 
   return (
     <>
@@ -65,24 +88,6 @@ function AllProducts() {
             <Link to="/Cart">
               <FaCartShopping className="cursor-pointer hover:text-gray-500" />
             </Link>
-            {
-              user ? (
-                <h1 onClick={() => setUserView(!userView)} className="cursor-pointer hover:text-gray-500">{user.name}</h1>
-              ) : (
-                <Link to="/SignIU">
-                  <FaRegUser className="cursor-pointer hover:text-gray-500" />
-                </Link>
-              )
-            }
-            {/* reusable Alert  */}
-            {
-              showAlert && <div className="select-none font-bold font-serif absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#f1f1f1] shadow-[0.1px_0.1px_0.1rem_#dd957a] p-[2rem] rounded-md flex flex-col items-center justify-center gap-4">
-                <h1 className="text-[1.5rem] text-[#b48068] leading-5">Alert</h1>
-                <h1 className="text-[1.2rem]">{alert}</h1>
-                <button onClick={() => setShowAlert(false)} className="cursor-pointer text-[1rem] bg-black text-[#b48068] border-2 border-black hover:text-black hover:bg-[#b48068] hover:transition-all duration-700 ease-in-out px-[1rem] py-[0.35rem]">Close</button>
-              </div>
-            }
-
           </div>
         </section>
 
@@ -98,12 +103,26 @@ function AllProducts() {
 
         {/* display products */}
         <section className="columns-5 mt-[1rem] w-[100%] h-auto p-4 max-[900px]:columns-4 max-[660px]:columns-3 max-[500px]:columns-2">
-          {filterProducts.map((item) => (
-            <Link key={item._id} to={`/ProductDetail/${item._id}`}>
+          {filterProducts?.map((item, index) => (
+            <Link key={`${item._id}-${index}`} to={`/ProductDetail/${item._id}`}>
               <img className="w-full rounded-[1rem] mb-6 h-auto shadow-[0.1px_0.1px_0.1rem_#dd957a]" src={item.imageUrl} alt={item.name} />
             </Link>
           ))}
         </section>
+
+
+        {/* when div hit fetch more data */}
+        <div ref={loaderRef} className="text-center h-10 w-[100%]">
+          {
+            loading && <p className="text-center font-bold text-md">Loading more...</p>
+          }
+          {
+            error && <p className="text-center font-bold text-md text-red-500">{error}</p>
+          }
+          {
+            products.length >= total && <p className="text-center font-bold text-md text-gray-500">No more products to show</p>
+          }
+        </div>
       </div>
     </>
   );

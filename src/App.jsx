@@ -33,9 +33,9 @@ function App() {
         <Route path="/SignIU" element={
           <SignIU />
         } />
-        {/* <Route path="/AllProducts" element={
+        <Route path="/AllProducts" element={
           <AllProducts />
-        } /> */}
+        } />
         {/* <Route path="/AllProducts/:param" element={
           <AllProducts />
         } /> */}

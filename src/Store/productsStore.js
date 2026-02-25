@@ -1,68 +1,67 @@
 import { create } from "zustand";
-import axios from "axios";
-
-const URL = "http://localhost:5000/api/products";
+import { getErrorMessage } from "../utils/getErrorMessage";
+import axios from "../utils/axios";
 
 export const productsStore = create((set, get) => ({
     products: [],
     loading: false,
     error: "",
-    page: 1,
-    total: 0,
+    limit: 30,
     message: "",
     discounts: [],
-    fetchProducts: async () => {
-        set({ loading: true });
+    total: 0,
+    fetchProducts: async (pages) => {
+        set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.get(`${URL}/getProducts?limit=20&page=${page}`);
-            set({ products: response.data.products, loading: false, page: response.data.page, total: response.data.total });
+            const response = await axios.get(`/products/getProducts?limit=${get().limit}&page=${pages}`);
+            set({ products: [...get().products, ...response.data.products], loading: false, total: response.data.total });
         } catch (error) {
-            set({ error: response.data.message, loading: false });
+            set({ error: getErrorMessage(error), loading: false });
         }
     },
     addNewProduct: async (newProduct) => {
-        set({ loading: true });
+        set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.patch(`${URL}/addNewProduct`, { newProduct });
+            const response = await axios.patch(`/products/addNewProduct`, { newProduct });
             set({ message: response.data.message, loading: false });
         } catch (error) {
-            set({ error: response.data.message, loading: false });
+            set({ error: getErrorMessage(error), loading: false });
         }
     },
     deleteProduct: async (productId) => {
-        set({ loading: true });
+        set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.delete(`${URL}/deleteProduct${productId}`);
+            const response = await axios.delete(`/products/deleteProduct?productId=${productId}`);
             set({ message: response.data.message, loading: false });
         } catch (error) {
-            set({ error: response.data.message, loading: false });
+            set({ error: getErrorMessage(error), loading: false });
         }
     },
     updateProduct: async (updatedProduct) => {
-        set({ loading: true });
+        set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.patch(`${URL}/updatedProduct`, { updatedProduct });
+            const response = await axios.patch(`/products/updateProduct`, { updatedProduct });
             set({ message: response.data.message, loading: false });
         } catch (error) {
-            set({ error: response.data.message, loading: false });
+            set({ error: getErrorMessage(error), loading: false });
         }
     },
     setDiscount: async (thumbnail, category, discount) => {
-        set({ loading: true });
+        set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.patch(`${URL}/setDiscount`, { thumbnail, category, discount });
+            const response = await axios.patch(`/products/setDiscount`, { thumbnail, category, discount });
             set({ message: response.data.message, loading: false });
         } catch (error) {
-            set({ error: response.data.message, loading: false });
+            set({ error: getErrorMessage(error), loading: false });
         }
     },
     getDiscount: async () => {
-        set({ loading: true });
+        set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.get(`${URL}/getDiscount`);
+            const response = await axios.get(`/products/getDiscount`);
             set({ discounts: response.data.discounts, loading: false });
         } catch (error) {
-            set({ error: response.data.message, loading: false });
+            set({ error: getErrorMessage(error), loading: false });
         }
     }
 }));
