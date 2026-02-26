@@ -36,12 +36,12 @@ function App() {
         <Route path="/AllProducts" element={
           <AllProducts />
         } />
-        {/* <Route path="/AllProducts/:param" element={
+        <Route path="/AllProducts/:param" element={
           <AllProducts />
-        } /> */}
-        {/* <Route path="/ProductDetail/:id" element={
+        } />
+        <Route path="/ProductDetail/:id" element={
           <ProductDetail />
-        } /> */}
+        } />
         {/* <Route path="/Cart" element={
           <Cart />
         } /> */}

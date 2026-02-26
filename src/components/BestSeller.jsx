@@ -11,12 +11,12 @@ function BestSeller() {
           <h1 className="text-[clamp(2.5rem,4.5vw,5rem)] font-bold select-none leading-14">Top sales</h1>
           <p className="select-none max-[1343px]:text-sm max-[860px]:text-md text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, quia esse saepe sunt facilis neque Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi, quia esse saepe sunt facilis neque iusto porro rem consequuntur, ab minima iste nemo quidem temporibus iure excepturi ipsam perferendis sequi.</p>
           <Link to="/AllProducts/orderCount">
-            <button className="hover:transition-all mt-2 duration-700 delay-150 ease-in-out hover:text-[#8f5e36] font-bold cursor-pointer">SEE MORE</button>
+            <button className="hover:transition-all mt-2 duration-700 delay-150 ease-in-out hover:text-[#8f5e36] font-bold cursor-default">SEE MORE</button>
           </Link>
         </article>
 
         {/* Slider */}
-        <section className="flex flex-row items-center justify-center w-[100%] overflow-x-scroll [scrollbar-width:none] overflow-y-hidden gap-[1.5rem] pt-[2rem] font-serif">
+        <section className="flex flex-row items-center justify-center w-[100%] overflow-x-scroll [scrollbar-width:none] overflow-y-hidden gap-[1.5rem] pt-[2rem] ">
           {products.map((item) => (
             <div key={item.id} className="w-auto h-auto bg-white">
               <Link key={item.i_d} to={`/ProductDetail/${item._id}`}>

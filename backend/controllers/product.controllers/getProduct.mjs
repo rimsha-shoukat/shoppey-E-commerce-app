@@ -5,7 +5,7 @@ async function getProducts(req, res) {
         const { limit, page } = req.query;
         const parseLimit = parseInt(limit);
         const parsePage = parseInt(page);
-        console.log(parseLimit, parsePage);
+
         // find number of items to skip
         const skip = (parsePage - 1) * parseLimit;
 

@@ -16,7 +16,7 @@ function Discount() {
                                 <h1 className="font-bold text-2xl select-none">${discount.percent}% OFF</h1>
                                 <p className='font-semibold select-none'>${discount.collection.toUpperCase()} COLLECTION</p>
                                 <Link to={`/AllProducts/${discount.collection.toLowerCase()}`}>
-                                    <button className='group font-semibold hover:bg-gray-200 rounded-sm pr-[0.75rem] py-[0.3rem] cursor-pointer transition-all duration-700 ease-in-out delay-150 hover:pl-[0.3rem]'>Go To Collection <FaArrowRightLong className='inline group-hover:translate-x-2 hover:bg-gray-200 transition-all duration-700 ease-in-out delay-150' /></button>
+                                    <button className='group font-semibold hover:bg-gray-200 rounded-sm pr-[0.75rem] py-[0.3rem] cursor-default transition-all duration-700 ease-in-out delay-150 hover:pl-[0.3rem]'>Go To Collection <FaArrowRightLong className='inline group-hover:translate-x-2 hover:bg-gray-200 transition-all duration-700 ease-in-out delay-150' /></button>
                                 </Link>
                             </div>
                         </section>

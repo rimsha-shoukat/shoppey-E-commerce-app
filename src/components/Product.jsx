@@ -42,7 +42,7 @@ function Product() {
 
   return (
     <>
-      <div className="w-[100%] h-auto p-[3rem] max-[430px]:p-[1rem] flex flex-col items-center justify-center font-serif select-none">
+      <div className="w-[100%] h-auto p-[3rem] max-[430px]:p-[1rem] flex flex-col items-center justify-center  select-none">
         <h1 className="font-bold text-[clamp(2rem,5vw,5rem)]">Our Products</h1>
         {/* categories button section */}
         <section className="flex flex-row items-center justify-center gap-4 max-[565px]:gap-2 leading-4 w-full h-8 max-[565px]:text-sm">
@@ -50,7 +50,7 @@ function Product() {
             <button
               key={buttonName}
               onClick={() => handleButtonClick(buttonName)}
-              className={`cursor-pointer hover:text-gray-800 ${activeButton === buttonName ? 'border-b-2 border-black font-medium' : ''
+              className={`cursor-default hover:text-gray-800 ${activeButton === buttonName ? 'border-b-2 border-black font-medium' : ''
                 }`}
             >
               {buttonName}

@@ -41,17 +41,17 @@ const Saves = ({ user }) => {
                             </div>
                         </div>
                         <div className="flex flex-row items-start justify-start gap-4">
-                            <button onClick={() => addToCart(item.id)} className="px-[1rem] py-[0.5rem] hover:font-bold max-[600px]:px-0 max-[600px]:py-0 max-[600px]:text-blue-700 max-[600px]:bg-transparent rounded-md cursor-pointer border-none max-[400px]:text-sm bg-blue-700 hover:bg-transparent hover:text-blue-900 text-nowrap">Add to cart</button>
-                            <button onClick={() => removeFromSave(item.id)} className="px-[1rem] py-[0.5rem] hover:font-bold max-[600px]:px-0 max-[600px]:py-0 max-[600px]:text-red-600 max-[600px]:bg-transparent rounded-md cursor-pointer border-none max-[400px]:text-sm bg-red-600 hover:bg-transparent hover:text-red-800">Remove</button>
+                            <button onClick={() => addToCart(item.id)} className="px-[1rem] py-[0.5rem] hover:font-bold max-[600px]:px-0 max-[600px]:py-0 max-[600px]:text-blue-700 max-[600px]:bg-transparent rounded-md cursor-default border-none max-[400px]:text-sm bg-blue-700 hover:bg-transparent hover:text-blue-900 text-nowrap">Add to cart</button>
+                            <button onClick={() => removeFromSave(item.id)} className="px-[1rem] py-[0.5rem] hover:font-bold max-[600px]:px-0 max-[600px]:py-0 max-[600px]:text-red-600 max-[600px]:bg-transparent rounded-md cursor-default border-none max-[400px]:text-sm bg-red-600 hover:bg-transparent hover:text-red-800">Remove</button>
                         </div>
                     </div>
                 </div>
             ))}
             {
-                showAlert && <div className="select-none font-bold font-serif absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#f1f1f1] shadow-[0.1px_0.1px_0.1rem_#dd957a] p-[2rem] rounded-md flex flex-col items-center justify-center gap-4">
+                showAlert && <div className="select-none font-bold  absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#f1f1f1] shadow-[0.1px_0.1px_0.1rem_#dd957a] p-[2rem] rounded-md flex flex-col items-center justify-center gap-4">
                     <h1 className="text-[1.5rem] text-[#b48068] leading-5">Alert</h1>
                     <h1 className="text-[1.2rem]">{alert}</h1>
-                    <button onClick={() => setShowAlert(false)} className="cursor-pointer text-[1rem] bg-black text-[#b48068] border-2 border-black hover:text-black hover:bg-[#b48068] hover:transition-all duration-700 ease-in-out px-[1rem] py-[0.35rem]">Close</button>
+                    <button onClick={() => setShowAlert(false)} className="cursor-default text-[1rem] bg-black text-[#b48068] border-2 border-black hover:text-black hover:bg-[#b48068] hover:transition-all duration-700 ease-in-out px-[1rem] py-[0.35rem]">Close</button>
                 </div>
             }
         </section>
@@ -64,21 +64,21 @@ function Save() {
 
     return (
         <>
-            <div className="w-[100%] h-auto font-serif flex flex-col items-center justify-between select-none px-4 max-[400px]:px-2">
+            <div className="w-[100%] h-auto  flex flex-col items-center justify-between select-none px-4 max-[400px]:px-2">
                 <section className="flex flex-row items-center py-2 px-2 justify-between w-[100%] h-auto">
                     <Link to="/">
-                        <button className="font-extrabold font-serif text-xl cursor-pointer hover:text-gray-700">shoppey</button>
+                        <button className="font-extrabold  text-xl cursor-default hover:text-gray-700">shoppey</button>
                     </Link>
                     <div className="flex flex-row items-center justify-center gap-6 text-xl">
                         <Link to="/Cart">
-                            <FaCartShopping className="cursor-pointer hover:text-gray-500" />
+                            <FaCartShopping className="cursor-default hover:text-gray-500" />
                         </Link>
                         {
                             user ? (
-                                <h1 onClick={() => setUserView(!userView)} className="cursor-pointer hover:text-gray-500" >{user.name}</h1>
+                                <h1 onClick={() => setUserView(!userView)} className="cursor-default hover:text-gray-500" >{user.name}</h1>
                             ) : (
                                 <Link to="/SignIU">
-                                    <FaRegUser className="cursor-pointer hover:text-gray-500" />
+                                    <FaRegUser className="cursor-default hover:text-gray-500" />
                                 </Link>
                             )
                         }
