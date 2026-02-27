@@ -76,9 +76,9 @@ function AllProducts() {
 
   return (
     <>
-      <div className="w-[100%] h-auto">
+      <div className="w-full h-auto">
         {/* navbar */}
-        <section className="flex flex-row items-center py-2 px-6 justify-between w-[100%] h-auto">
+        <section className="flex flex-row items-center py-2 px-6 justify-between w-full h-auto">
           <Link to="/">
             <button className="font-extrabold  text-xl cursor-default hover:text-gray-500">shoppey</button>
           </Link>
@@ -93,7 +93,7 @@ function AllProducts() {
         </section>
 
         {/* second navbar search field */}
-        <section className="flex flex-col items-center justify-center w-[100%] p-6 h-auto bg-linear-to-l from-[#dd957a] to-[#eee2ca] gap-2">
+        <section className="flex flex-col items-center justify-center w-full p-6 h-auto bg-linear-to-l from-[#dd957a] to-[#eee2ca] gap-2">
           <h1 className="font-bold text-2xl max-[400px]:text-xl">Explore All Products</h1>
           <div className=" flex flex-row items-center justify-center w-[100%] gap-2">
             <input type="text" ref={searchRef}
@@ -125,9 +125,9 @@ function AllProducts() {
         </section>
 
         {/* when div hit fetch more data */}
-        <div ref={loaderRef} className="text-center h-10 w-[100%]">
+        <div ref={loaderRef} className="text-center h-10 w-full">
           {
-            products.length >= total && !loading && <p className="text-center font-bold text-md text-gray-500">No more products to show</p>
+            products.length > total && !loading && <p className="text-center font-bold text-md text-gray-500">No more products to show</p>
           }
           {
             loading && <p className="text-center font-bold text-md text-gray-500">Loading...</p>
