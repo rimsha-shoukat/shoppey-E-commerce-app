@@ -22,7 +22,7 @@ function App() {
             <Landing />
             <Discount />
             <BestSeller />
-            {/* <Product /> */}
+            <Product />
             {/* <About /> */}
             {/* <Social /> */}
           </>
