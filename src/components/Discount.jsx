@@ -13,7 +13,7 @@ function Discount() {
     if(!discounts || discounts.length === 0){
         // return if no discount available
         return (
-            <div className="w-full h-auto py-[3rem] max-[710px]:pt-[3rem] max-[710px]:pb-0 flex flex-row overflow-y-hidden overflow-x-scroll [scrollbar-width:none] max-[710px]:flex-col max-[710px]:gap-[1rem] items-center justify-evenly">
+            <div className="w-full h-auto py-[3rem] max-[710px]:pt-[3rem] flex flex-row overflow-y-hidden overflow-x-scroll [scrollbar-width:none] max-[710px]:flex-col max-[710px]:gap-[1rem] items-center justify-evenly">
                 <marquee className="font-bold text-2xl" behavior="scroll" direction="left">No discounts available at the moment.</marquee>
             </div>
         );

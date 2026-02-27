@@ -21,7 +21,7 @@ function App() {
           <>
             <Landing />
             <Discount />
-            {/* <BestSeller /> */}
+            <BestSeller />
             {/* <Product /> */}
             {/* <About /> */}
             {/* <Social /> */}

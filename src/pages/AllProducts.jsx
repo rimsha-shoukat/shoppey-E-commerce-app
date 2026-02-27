@@ -7,45 +7,17 @@ import { useParams } from 'react-router-dom';
 import { productsStore } from "../Store/productsStore.js";
 import { FaStar } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
+import { GetProducts } from "../utils/observer.js";
 
 function AllProducts() {
   const { param } = useParams();
-  const { products, fetchProducts, loading, error, total } = productsStore();
+  const { products, loading, error, total } = productsStore();
   const [filterProducts, setFilterProducts] = useState([]);
   const searchRef = useRef(null);
-  const [pages, setPages] = useState(1);
   const loaderRef = useRef(null);
 
-  // intersection observer useEffect
-  useEffect(() => {
-
-    // observer
-    const observer = new IntersectionObserver((entries) => {
-      const entry = entries[0];
-
-      if (entry.isIntersecting && !loading && products.length < total) {
-        setPages(prev => prev + 1);
-      }
-    }, { threshold: 0 });
-
-    //  call observer
-    if (loaderRef.current) {
-      observer.observe(loaderRef.current);
-    }
-
-    // clean up function
-    return () => {
-      if (loaderRef.current) {
-        observer.unobserve(loaderRef.current);
-      }
-    };
-
-  }, [loading]);
-
-  // load products when page number changes
-  useEffect(() => {
-    fetchProducts(pages);
-  }, [pages]);
+  // call custom hook for infinite scrolling
+  GetProducts(loaderRef);
 
   // handle search 
   function handleSearchItems() {
