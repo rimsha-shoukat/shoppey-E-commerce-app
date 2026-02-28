@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import { productsStore } from "../Store/productsStore";
-import { useRef } from "react";
-import { GetProducts } from "../utils/observer.js";
+import { ProductsContext } from "../utils/ProductsProvider.jsx";
+import { useContext } from "react";
 
 const Slider = ({ Items }) => {
   return (
@@ -23,39 +22,27 @@ const Slider = ({ Items }) => {
           </div>
         </div>
       ))}
-      
     </div>
     
   )
 }
 
 function Product() {
-  const { products, loading, error } = productsStore();
+  const { products }= useContext(ProductsContext);
   const [activeButton, setActiveButton] = useState('ALL');
-  const loaderRef = useRef(null);
 
-  let slide1 =[];
-  let slide2 =[];
+  console.log("Products in Product.jsx: ", products);
 
+    // Calculate filtered list every render based on the activeButton
+  const currentFiltered = activeButton === 'ALL' 
+    ? products 
+    : products.filter(item => item.category === activeButton.toLowerCase());
 
-  // call custom hook for infinite scrolling
-  GetProducts(loaderRef);
-
-  const [filterProducts, setFilterProducts] = useState(products);
-  if(filterProducts.length > 0){
-    slide1 = filterProducts.slice(0, Math.ceil(filterProducts.length / 2));
-    slide2 = filterProducts.slice(Math.ceil(filterProducts.length / 2));
-  }
-  
-  console.log(filterProducts);
-  console.log(products);
+  const slide1 = currentFiltered.slice(0, Math.ceil(currentFiltered.length / 2));
+  const slide2 = currentFiltered.slice(Math.ceil(currentFiltered.length / 2));
 
   const handleButtonClick = (buttonName) => {
-    setActiveButton(buttonName);
-
-    let newFilter = [...products];
-    newFilter = products.filter(item => item.category === buttonName.toLowerCase());
-    setFilterProducts(newFilter);
+    setActiveButton(buttonName); // Just change the button, the filter happens above
   };
 
   if(products.length <= 0){
@@ -82,15 +69,7 @@ function Product() {
             </button>
           ))}
         </section>
-        {/* when div hit fetch more data */}
-        <div ref={loaderRef} className="text-center h-10 w-full">
-          {
-            loading && <p className="text-center font-semibold text-sm text-gray-500">Loading...</p>
-          }
-          {
-            error && <p className="text-center font-semibold text-sm text-red-600">{error}</p>
-          }
-        </div>
+        
         {/* Product slider */}
         <section className="grid grid-rows-2 gap-2 mt-6 overflow-hidden w-auto p-4 inset-shadow-sm inset-shadow-gray-200">
           <Slider Items={slide1} />

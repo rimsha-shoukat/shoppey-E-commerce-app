@@ -12,19 +12,23 @@ import ProductDetail from './pages/ProductDetail.jsx';
 import Cart from './pages/Cart.jsx';
 import Save from './pages/Save.jsx';
 import User from "./pages/User.jsx"
+import { UserProvider } from './utils/UserProvider.jsx';
+import { ProductsProvider } from './utils/ProductsProvider.jsx';
 
 function App() {
   return (
     <>
-      <Routes>
+    <ProductsProvider>
+      <UserProvider>
+        <Routes>
         <Route path="/" element={
           <>
             <Landing />
             <Discount />
             <BestSeller />
             <Product />
-            {/* <About /> */}
-            {/* <Social /> */}
+            <About />
+            <Social />
           </>
         } />
         <Route path="/User" element={
@@ -49,6 +53,8 @@ function App() {
           <Save />
         } /> */}
       </Routes>
+      </UserProvider>
+    </ProductsProvider>
     </>
   )
 }

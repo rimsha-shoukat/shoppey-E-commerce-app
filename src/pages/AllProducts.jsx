@@ -4,20 +4,16 @@ import { BiSearch } from "react-icons/bi";
 import { Link } from 'react-router-dom';
 import { FaRegHeart } from "react-icons/fa6";
 import { useParams } from 'react-router-dom';
-import { productsStore } from "../Store/productsStore.js";
 import { FaStar } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
-import { GetProducts } from "../utils/observer.js";
+import {useContext} from 'react';
+import { ProductsContext } from "../utils/ProductsProvider.jsx";
 
 function AllProducts() {
+  const { products } = useContext(ProductsContext);
   const { param } = useParams();
-  const { products, loading, error, total } = productsStore();
   const [filterProducts, setFilterProducts] = useState([]);
   const searchRef = useRef(null);
-  const loaderRef = useRef(null);
-
-  // call custom hook for infinite scrolling
-  GetProducts(loaderRef);
 
   // handle search 
   function handleSearchItems() {
@@ -96,19 +92,6 @@ function AllProducts() {
           ))}
         </section>
 
-        {/* when div hit fetch more data */}
-        <div ref={loaderRef} className="text-center h-10 w-full">
-          {
-            products.length > total && !loading && <p className="text-center font-bold text-md text-gray-500">No more products to show</p>
-          }
-          {
-            loading && <p className="text-center font-bold text-md text-gray-500">Loading...</p>
-          }
-          {
-            error && <p className="text-center font-bold text-md text-red-600">{error}</p>
-          }
-
-        </div>
       </div>
     </>
   );

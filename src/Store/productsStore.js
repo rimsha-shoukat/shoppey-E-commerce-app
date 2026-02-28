@@ -6,15 +6,14 @@ export const productsStore = create((set, get) => ({
     products: [],
     loading: false,
     error: "",
-    limit: 30,
     message: "",
     discounts: [],
     total: 0,
-    fetchProducts: async (pages) => {
+    fetchProducts: async () => {
         set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.get(`/products/getProducts?limit=${get().limit}&page=${pages}`);
-            set({ products: [...get().products, ...response.data.products], loading: false, total: response.data.total });
+            const response = await axios.get(`/products/getProducts`);
+            set({ products: response.data.products, loading: false, total: response.data.total });
         } catch (error) {
             set({ error: getErrorMessage(error), loading: false });
         }

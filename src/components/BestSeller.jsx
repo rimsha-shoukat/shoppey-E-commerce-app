@@ -1,14 +1,9 @@
 import { Link } from 'react-router-dom';
-import { productsStore } from "../Store/productsStore";
-import { GetProducts } from "../utils/observer.js";
-import {useRef} from "react";
+import {useContext} from 'react';
+import {ProductsContext} from '../utils/ProductsProvider.jsx';
 
 function BestSeller() {
-  const { products, total, loading, error } = productsStore();
-  const loaderRef = useRef(null);
-
-  // load products
-  GetProducts(loaderRef);
+  const { products } = useContext(ProductsContext);
   const bestSeller = products.filter(item => item.rating >= 3);
 
   return (
@@ -41,16 +36,7 @@ function BestSeller() {
             </div>
           )
           )}
-          {/* when div hit fetch more data */}
-        <div ref={loaderRef} className="text-center h-full w-10">
-          {
-            loading && <p className="text-center font-semibold text-sm text-gray-500">Loading...</p>
-          }
-          {
-            error && <p className="text-center font-semibold text-sm text-red-600">{error}</p>
-          }
-
-        </div>
+         
         </section>
       </section>
     </>

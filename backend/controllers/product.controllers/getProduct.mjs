@@ -2,15 +2,8 @@ import Product from "../../models/product.model.mjs";
 
 async function getProducts(req, res) {
     try {
-        const { limit, page } = req.query;
-        const parseLimit = parseInt(limit);
-        const parsePage = parseInt(page);
-
-        // find number of items to skip
-        const skip = (parsePage - 1) * parseLimit;
-
         // find products
-        const products = await Product.find({}).limit(parseLimit).skip(skip).sort({ createdAt: -1 });
+        const products = await Product.find({});
         // get total count of products
         const total = await Product.countDocuments({});
 

@@ -1,16 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaRegUser } from "react-icons/fa";
 import { FiMinus } from "react-icons/fi";
 import { FaPlus } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
-import { userStore } from '../Store/userStore.js';
+import {useContext} from 'react';
+import { UserContext } from "../utils/UserProvider.jsx";
 
 const Carts = ({ cartItemsList, setCartItemsList, user }) => {
-    const [alert, setAlert] = useState(null);
-    const [showAlert, setShowAlert] = useState(false);
 
     const remove = (id) => {
         console.log(id);
@@ -60,21 +58,13 @@ const Carts = ({ cartItemsList, setCartItemsList, user }) => {
                     </div>
                 </div>
             ))}
-            {
-                showAlert && <div className="select-none font-bold  absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#f1f1f1] shadow-[0.1px_0.1px_0.1rem_#dd957a] p-[2rem] rounded-md flex flex-col items-center justify-center gap-4">
-                    <h1 className="text-[1.5rem] text-[#b48068] leading-5">Alert</h1>
-                    <h1 className="text-[1.2rem]">{alert}</h1>
-                    <button onClick={() => setShowAlert(false)} className="cursor-default text-[1rem] bg-black text-[#b48068] border-2 border-black hover:text-black hover:bg-[#b48068] hover:transition-all duration-700 ease-in-out px-[1rem] py-[0.35rem]">Close</button>
-                </div>
-            }
         </section>
     )
 }
 
 function Cart() {
-    const { user } = userStore();
+    const { user } = useContext(UserContext);
     const [cartItemsList, setCartItemsList] = useState(user?.cart || []);
-    const [discount, setDiscount] = useState(0);
     const [delivery, setDelivery] = useState(0);
     const [bill, setBill] = useState(0);
     const [show, setShow] = useState(false);
@@ -99,7 +89,7 @@ function Cart() {
                     user ? (
                         <section className="w-[100%] h-auto flex flex-col items-center justify-center">
 
-                            <Carts cartItemsList={cartItemsList} setCartItemsList={setCartItemsList} user={user} setUser={setUser} />
+                            <Carts cartItemsList={cartItemsList} setCartItemsList={setCartItemsList} user={user} />
 
                             <div className="w-[100%] flex flex-row max-[500px]:flex-col items-start max-[500px]:items-center gap-2 max-[500px]:gap-4 justify-between py-6 border-t-2 border-t-gray-400">
                                 <div className="w-[100%] flex flex-col items-start justify-start gap-2">

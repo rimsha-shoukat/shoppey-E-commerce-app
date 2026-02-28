@@ -1,14 +1,11 @@
 import { FaArrowRightLong } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
-import { productsStore } from "../Store/productsStore.js";
-import { useEffect } from "react";
+import {useContext} from 'react';
+import { ProductsContext } from '../utils/ProductsProvider.jsx';
 
 function Discount() {
-    const { discounts, getDiscount } = productsStore();
+    const { discounts } = useContext(ProductsContext);
 
-    useEffect(() => {
-        getDiscount();
-    }, []);
 
     if(!discounts || discounts.length === 0){
         // return if no discount available

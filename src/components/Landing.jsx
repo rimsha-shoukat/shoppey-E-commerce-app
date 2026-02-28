@@ -1,16 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { RiArrowRightDoubleFill } from "react-icons/ri";
 import { TbLayoutNavbarExpand } from "react-icons/tb";
 import { Link } from 'react-router-dom';
-import { userStore } from "../Store/userStore.js";
+import {useContext} from 'react';
+import { UserContext } from "../utils/UserProvider.jsx";
 
 function Landing() {
     const [navView, setNavView] = useState(false);
-    const { fetchUser, user } = userStore();
+    const {user} = useContext(UserContext);
 
-    useEffect(() => {
-        fetchUser();
-    }, []);
 
     return (
         <>
