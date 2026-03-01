@@ -23,7 +23,7 @@ const Carts = ({ cartItemsList, setCartItemsList, user }) => {
     }
 
     function setItemQuantity(id, quantity) {
-        const itemIndex = cartItemsList.findIndex(product => product.id === id);
+        const itemIndex = cartItemsList.findIndex(product => product._id == id);
         if (itemIndex !== -1) {
             const updatedItems = [...cartItemsList];
             updatedItems[itemIndex].quantity = quantity;

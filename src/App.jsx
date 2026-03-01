@@ -46,12 +46,12 @@ function App() {
         <Route path="/ProductDetail/:id" element={
           <ProductDetail />
         } />
-        {/* <Route path="/Cart" element={
+        <Route path="/Cart" element={
           <Cart />
-        } /> */}
-        {/* <Route path="/Save" element={
+        } />
+        <Route path="/Save" element={
           <Save />
-        } /> */}
+        } />
       </Routes>
       </UserProvider>
     </ProductsProvider>
