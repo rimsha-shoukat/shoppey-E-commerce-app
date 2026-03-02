@@ -22,8 +22,8 @@ const Slider = ({ Items }) => {
           <Link to={`/ProductDetail/${item._id}`}>
             <img
               className="w-[14.5rem] h-[13rem]"
-              src={item.imageUrl}
-              alt={item.name}
+              src={item?.imageUrl}
+              alt={item?.name}
             />
           </Link>
           <div className="flex flex-col p-2 pt-2 bg-white w-[14.5rem] h-[6rem]">

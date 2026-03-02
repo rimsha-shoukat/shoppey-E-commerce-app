@@ -9,6 +9,7 @@ import { CiStar } from "react-icons/ci";
 import { useContext } from "react";
 import { ProductPrice } from "../utils/productPrice.jsx";
 import { ProductsContext } from "../utils/ProductsProvider.jsx";
+import { BackButton } from "../utils/navItems.jsx";
 
 function AllProducts() {
   const { products } = useContext(ProductsContext);
@@ -51,11 +52,7 @@ function AllProducts() {
       <div className="w-full h-auto">
         {/* navbar */}
         <section className="flex flex-row items-center py-2 px-6 justify-between w-full h-auto">
-          <Link to="/">
-            <button className="font-extrabold  text-xl cursor-default hover:text-gray-500">
-              shoppey
-            </button>
-          </Link>
+          <BackButton />
           <div className="flex flex-row items-center justify-center gap-6 text-xl">
             <Link to="/Save">
               <FaRegHeart className="cursor-default hover:text-gray-500" />
@@ -105,7 +102,7 @@ function AllProducts() {
                     i < item.rating ? <FaStar key={i} /> : <CiStar key={i} />,
                   )}
                 </span>
-                <h2 className="font-semibold line-clamp-2 text-md my-1">
+                <h2 className="font-semibold line-clamp-1 text-md my-1">
                   {item.name}
                 </h2>
 

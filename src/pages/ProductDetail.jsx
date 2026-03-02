@@ -15,6 +15,7 @@ import { UserContext } from "../utils/UserProvider.jsx";
 import { ProductsContext } from "../utils/ProductsProvider.jsx";
 import { useContext } from "react";
 import { ProductPrice } from "../utils/productPrice.jsx";
+import { BackButton } from "../utils/navItems.jsx";
 
 function ProductDetail() {
   const { id } = useParams();
@@ -39,11 +40,7 @@ function ProductDetail() {
       <div className="w-[100%] h-auto flex flex-col items-center justify-center gap-[1rem] mb-4">
         {/* navbar */}
         <section className="flex flex-row items-center py-2 px-6 justify-between w-[100%] h-auto">
-          <Link to="/AllProducts">
-            <button className="font-extrabold  text-xl cursor-default hover:text-gray-700">
-              shoppey
-            </button>
-          </Link>
+          <BackButton />
           <div className="flex flex-row items-center justify-center gap-6 text-xl">
             <Link to="/Save">
               <FaRegHeart className="cursor-default hover:text-gray-500" />
@@ -108,7 +105,7 @@ function ProductDetail() {
                 />
                 <h1 className="text-[1.5rem]">{num}</h1>
                 <FaPlus
-                  onClick={num < 10 ? () => setNum(num + 1) : null}
+                  onClick={num < image?.stock ? () => setNum(num + 1) : null}
                   className="cursor-default hover:text-gray-700"
                 />
               </div>
