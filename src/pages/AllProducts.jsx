@@ -10,9 +10,12 @@ import { useContext } from "react";
 import { ProductPrice } from "../utils/productPrice.jsx";
 import { ProductsContext } from "../utils/ProductsProvider.jsx";
 import { BackButton } from "../utils/navItems.jsx";
+import { HandleSave } from "../utils/handleSave.jsx";
+import { UserContext } from "../utils/UserProvider.jsx";
 
 function AllProducts() {
   const { products } = useContext(ProductsContext);
+  const { user } = useContext(UserContext);
   const { param } = useParams();
   const [filterProducts, setFilterProducts] = useState([]);
   const searchRef = useRef(null);
@@ -86,29 +89,29 @@ function AllProducts() {
         <section className="mt-[1rem] w-[100%] h-auto p-2 flex flex-row items-center justify-center gap-4 flex-wrap">
           {filterProducts?.map((item, index) => (
             <div
-              key={`${item._id}-${index}`}
+              key={`${item?._id}-${index}`}
               className="w-[15rem] h-auto max-[1000px]:w-[12rem] max-[800px]:w-[10rem] max-[360px]:w-[8rem] shadow-[0.1px_0.1px_0.1rem_#dd957a] flex flex-col bg-[#dd957a]/30 rounded-md items-center justify-center gap-1 hover:shadow-[0.1px_0.1px_0.5rem_#dd957a] transition-all duration-300 ease hover:scale-[1.05]"
             >
-              <Link to={`/ProductDetail/${item._id}`}>
+              <Link to={`/ProductDetail/${item?._id}`}>
                 <img
                   className="cover w-[15rem] h-[16rem] max-[1000px]:w-[12rem] max-[1000px]:h-[13rem] max-[800px]:w-[10rem] max-[800px]:h-[11rem] max-[360px]:w-[8rem] max-[360px]:h-[9rem] rounded-t-md border-b border-[#b48068]/20"
-                  src={item.imageUrl}
-                  alt={item.name}
+                  src={item?.imageUrl}
+                  alt={item?.name}
                 />
               </Link>
               <span className="w-full text-start p-2">
                 <span className="w-full flex flex-row">
                   {[...Array(5)].map((_, i) =>
-                    i < item.rating ? <FaStar key={i} /> : <CiStar key={i} />,
+                    i < item?.rating ? <FaStar key={i} /> : <CiStar key={i} />,
                   )}
                 </span>
                 <h2 className="font-semibold line-clamp-1 text-md my-1">
-                  {item.name}
+                  {item?.name}
                 </h2>
 
                 <div className="w-full flex flex-row items-center justify-between">
                   <ProductPrice price={item?.price} />
-                  <FaRegHeart className="text-[1.5rem] text-gray-600 mr-2" />
+                  <HandleSave productId={item?._id} />
                 </div>
               </span>
             </div>

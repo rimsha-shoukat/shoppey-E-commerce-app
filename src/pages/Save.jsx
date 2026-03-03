@@ -1,19 +1,18 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaRegUser } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 import { useContext } from "react";
 import { UserContext } from "../utils/UserProvider.jsx";
 import { UserProfileButton } from "../utils/navItems.jsx";
-import { FaRegUser } from "react-icons/fa";
+import { userStore } from "../Store/userStore.js";
+import { BackButton } from "../utils/navItems.jsx";
 
 const Saves = ({ user }) => {
-  const saveItemsList = user?.save || [];
-  const addToCart = (id) => {
-    console.log(id);
-  };
+  const { updateSave } = userStore();
+  const saveItemsList = user?.saved || [];
+  console.log(user.saved);
 
-  const removeFromSave = (id) => {
+  const addToCart = (id) => {
     console.log(id);
   };
 
@@ -26,16 +25,16 @@ const Saves = ({ user }) => {
   }
   return (
     <section className="w-[100%] h-auto flex flex-col items-center justify-center">
-      {saveItemsList.map((item) => (
+      {saveItemsList.map((item, index) => (
         <div
-          key={item._id}
+          key={`${item?._id}-${index}`}
           className="w-auto flex flex-row items-center justify-start py-6 max-[600px]:py-2 gap-4 max-[600px]:gap-2 border-t-2 border-t-gray-400"
         >
-          <Link to={`/ProductDetail/${item._id}`}>
+          <Link to={`/ProductDetail/${item?._id}`}>
             <img
               className="w-[8rem] h-[8rem] max-[400px]:w-[6rem] max-[400px]:h-[6rem] rounded-sm"
-              src={item.imageUrl}
-              alt={item.imageUrl}
+              src={item?.imageUrl}
+              alt={item?.name}
             />
           </Link>
           <div className="flex flex-row max-[600px]:flex-col max-[600px]:gap-4 items-start justify-between gap-[3rem] ">
@@ -54,13 +53,13 @@ const Saves = ({ user }) => {
             </div>
             <div className="flex flex-row items-start justify-start gap-4">
               <button
-                onClick={() => addToCart(item?.id)}
+                onClick={() => addToCart(item?._id)}
                 className="px-[1rem] py-[0.5rem] hover:font-bold max-[600px]:px-0 max-[600px]:py-0 max-[600px]:text-blue-700 max-[600px]:bg-transparent rounded-md cursor-default border-none max-[400px]:text-sm bg-blue-700 hover:bg-transparent hover:text-blue-900 text-nowrap"
               >
                 Add to cart
               </button>
               <button
-                onClick={() => removeFromSave(item?.id)}
+                onClick={() => updateSave(item?._id)}
                 className="px-[1rem] py-[0.5rem] hover:font-bold max-[600px]:px-0 max-[600px]:py-0 max-[600px]:text-red-600 max-[600px]:bg-transparent rounded-md cursor-default border-none max-[400px]:text-sm bg-red-600 hover:bg-transparent hover:text-red-800"
               >
                 Remove

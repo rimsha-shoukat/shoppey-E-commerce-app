@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ProductsContext } from "../utils/ProductsProvider.jsx";
 import { useContext } from "react";
-import { FaRegHeart } from "react-icons/fa6";
 import { ProductPrice } from "../utils/productPrice.jsx";
+import { HandleSave } from "../utils/handleSave.jsx";
 
 const Slider = ({ Items }) => {
   return (
@@ -28,11 +28,11 @@ const Slider = ({ Items }) => {
           </Link>
           <div className="flex flex-col p-2 pt-2 bg-white w-[14.5rem] h-[6rem]">
             <h1 className="font-semibold text-[1rem] text-wrap line-clamp-1">
-              {item.name}
+              {item?.name}
             </h1>
             <div className="w-full flex flex-row items-center justify-between">
               <ProductPrice price={item?.price} />
-              <FaRegHeart className="text-[1.5rem] text-gray-600 mr-2" />
+              <HandleSave productId={item?._id} />
             </div>
           </div>
         </div>

@@ -16,6 +16,7 @@ import { ProductsContext } from "../utils/ProductsProvider.jsx";
 import { useContext } from "react";
 import { ProductPrice } from "../utils/productPrice.jsx";
 import { BackButton } from "../utils/navItems.jsx";
+import { HandleSave } from "../utils/handleSave.jsx";
 
 function ProductDetail() {
   const { id } = useParams();
@@ -96,7 +97,7 @@ function ProductDetail() {
               </span>
               <div className=" w-full flex flex-row items-center justify-between">
                 <ProductPrice price={image?.price} />
-                <FaRegHeart className="text-[1.5rem] text-gray-600" />
+                <HandleSave productId={image?._id} />
               </div>
               <div className="flex flex-row item-center justify-center gap-[1rem] border-y-2 border-white p-2 mb-2 leading-4">
                 <FiMinus

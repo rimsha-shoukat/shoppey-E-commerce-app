@@ -34,7 +34,6 @@ export const userStore = create((set, get) => ({
     signup: async ({ form }) => {
         set({ loading: true, error: "", message: "" });
         try {
-            console.log(form.name, form.email, form.password);
             const response = await axios.post(`user/signup`, { name: form.name, email: form.email, password: form.password });
             set({ message: response.data.message, loading: false });
         } catch (error) {
@@ -95,10 +94,11 @@ export const userStore = create((set, get) => ({
             set({ error: getErrorMessage(error), loading: false });
         }
     },
-    updateSaved: async (productId) => {
+    updateSave: async (productId) => {
+        console.log("requested");
         set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.patch(`user/profile/updateSaved`, { productId });
+            const response = await axios.patch(`user/profile/updateSaved`, productId);
             set({ message: response.data.message, loading: false });
         } catch (error) {
             set({ error: getErrorMessage(error), loading: false });
@@ -107,7 +107,7 @@ export const userStore = create((set, get) => ({
     removeSaved: async (productId) => {
         set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.patch(`user/profile/removeSaved`, { productId });
+            const response = await axios.patch(`user/profile/removeSaved`, productId);
             set({ message: response.data.message, loading: false });
         } catch (error) {
             set({ error: getErrorMessage(error), loading: false });
