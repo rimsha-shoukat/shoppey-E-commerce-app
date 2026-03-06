@@ -5,7 +5,7 @@ export const ProductsContext = createContext();
 
 export const ProductsProvider = ({ children }) => {
     const { products, fetchProducts, getDiscount, discounts } = productsStore();
-    
+    console.log("requested")
     useEffect(() => {
         fetchProducts();
         getDiscount();

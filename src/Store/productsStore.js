@@ -13,6 +13,7 @@ export const productsStore = create((set, get) => ({
         set({ loading: true, error: "", message: "" });
         try {
             const response = await axios.get(`/products/getProducts`);
+            console.log(response);
             set({ products: response.data.products, loading: false, total: response.data.total });
         } catch (error) {
             set({ error: getErrorMessage(error), loading: false });

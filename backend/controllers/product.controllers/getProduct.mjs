@@ -6,11 +6,10 @@ async function getProducts(req, res) {
         const products = await Product.find({});
         // get total count of products
         const total = await Product.countDocuments({});
-
         return res.status(200).json({ message: "Products fetched successfully", products, total })
     } catch (error) {
         console.log("Something went wrong" + error.message);
-        return res.status(500).json({ mesaage: "Interal server error" });
+        return res.status(500).json({ message: "Internal server error" });
     }
 }
 
