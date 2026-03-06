@@ -3,7 +3,7 @@ import { userStore } from "../Store/userStore.js";
 import {
   validateSignupFields,
   validateSigninFields,
-} from "../utils/validateFileds.js";
+} from "../utils/validateFields.js";
 import { useNavigate } from "react-router-dom";
 import { BackButton } from "../utils/navItems.jsx";
 
@@ -58,7 +58,7 @@ function SignIU() {
       <div className="mt-4">
         <BackButton />
       </div>
-      <main className="relative flex flex-row  items-center justify-center w-[100%] h-[100vh] select-none mt-4">
+      <main className="relative flex flex-row  items-center justify-center w-full mt-2 h-full select-none">
         {/* forms section */}
         <section className="relative max-[440px]:w-screen max-[800px]:h-auto w-[26rem] h-[30rem] bg-[#eee2ca] rounded-xl border-0 shadow-xl">
           {/* signin form */}
@@ -95,7 +95,7 @@ function SignIU() {
               type="submit"
               className="cursor-default text-[1.5rem] shadow-md px-[3rem] py-[0.55rem] font-bold rounded-full bg-white/50"
             >
-              {loading ? "Loading>>>" : "SIGN IN"}
+              {loading ? "Loading..." : "SIGN IN"}
             </button>
             <p className="text-gray-600 text-xs hidden max-[800px]:block">Or</p>
             <p
@@ -147,7 +147,7 @@ function SignIU() {
               type="submit"
               className="cursor-default text-[1.5rem] shadow-md px-[3rem] py-[0.55rem] font-bold rounded-full bg-white/50 mt-[1rem]"
             >
-              {loading ? "Loading>>>" : "SIGN UP"}
+              {loading ? "Loading..." : "SIGN UP"}
             </button>
             <p className="text-gray-600 text-xs hidden max-[800px]:block">Or</p>
             <p

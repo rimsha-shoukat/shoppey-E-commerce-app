@@ -25,3 +25,7 @@ task
 *.njsproj
 *.sln
 *.sw?
+.env
+.node_modules
+.vscode
+.history
