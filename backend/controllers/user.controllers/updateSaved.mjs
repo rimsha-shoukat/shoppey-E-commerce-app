@@ -13,7 +13,6 @@ async function updateSaved(req, res) {
         // check if product is already saved
         if (user.saved.map(id => id.toString()).includes(productIdStr)) {
             user.saved = user.saved.filter(id => id.toString() !== productIdStr);
-            console.log(user.saved)
             await user.save();
             return res.status(200).json({ message: "Product removed saved items" });
         } else {

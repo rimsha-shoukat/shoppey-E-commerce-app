@@ -10,7 +10,7 @@ export const HandleSave = (productId) => {
     <>
       <FaRegHeart
         onClick={() => user ? updateSave(productId) : navigate("/SignIU")}
-        className={`text-[1.5rem] ${isSaved ? "bg-red-800" : ""} text-gray-600 mr-2`}
+        className={`text-[1.5rem] ${isSaved ? "text-red-800" : "text-gray-600"} mr-2`}
       />
     </>
   );
