@@ -3,8 +3,6 @@ import { FaCartShopping } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { FiMinus } from "react-icons/fi";
 import { FaPlus } from "react-icons/fa6";
-import { FaRegBookmark } from "react-icons/fa6";
-import { FaBookmark } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
 import { IoIosArrowDown } from "react-icons/io";
@@ -17,6 +15,7 @@ import { useContext } from "react";
 import { ProductPrice } from "../utils/productPrice.jsx";
 import { BackButton } from "../utils/navItems.jsx";
 import { HandleSave } from "../utils/handleSave.jsx";
+import {HandleCart} from "../utils/handleCart.jsx";
 
 function ProductDetail() {
   const { id } = useParams();
@@ -129,18 +128,14 @@ function ProductDetail() {
                 >
                   Buy now
                 </button>
-                <button
-                  className={`rounded-sm w-1/2 py-1 text-nowrap bg-[#b48068]/60 hover:bg-[#b48068]/70 transition-all duration-500 ease cursor-default`}
-                >
-                  Add to cart
-                </button>
+                <HandleCart productId={image?._id}/>
               </div>
             </div>
           </div>
 
           {/* horizontal line */}
           <div className="w-full border-t-2 border-[#b48068]/50"></div>
-          {/* descrption div */}
+          {/* description div */}
           <div className="w-full h-auto rounded-md p-4">
             <span className="w-full text-[1.3rem] flex flex-row items-center justify-between">
               <h1 className="font-semibold">Product Details</h1>

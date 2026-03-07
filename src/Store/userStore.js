@@ -14,8 +14,9 @@ export const userStore = create((set, get) => ({
             console.log(response);
             const userData = response.data.user || null;
             set({ user: userData, loading: false });
+            console.log(user);
         } catch (error) {
-            if (error.response.status === 401 || error.reponse.status === 404) {
+            if (error.response.status === 401 || error.response.status === 404) {
                 set({ user: null, error: "", loading: false });
             } else {
                 set({ error: getErrorMessage(error), loading: false });
@@ -95,7 +96,7 @@ export const userStore = create((set, get) => ({
         }
     },
     updateSave: async (productId) => {
-        console.log("requested");
+        console.log("requested  "+ productId);
         set({ loading: true, error: "", message: "" });
         try {
             const response = await axios.patch(`user/profile/updateSaved`, productId);
@@ -116,7 +117,7 @@ export const userStore = create((set, get) => ({
     updateCart: async (productId) => {
         set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.patch(`user/profile/updateCart`, { productId });
+            const response = await axios.patch(`user/profile/updateCart`, productId);
             set({ message: response.data.message, loading: false });
         } catch (error) {
             set({ error: getErrorMessage(error), loading: false });

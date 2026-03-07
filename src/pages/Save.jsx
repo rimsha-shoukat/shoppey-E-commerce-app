@@ -1,81 +1,15 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
 import { useContext } from "react";
 import { UserContext } from "../utils/UserProvider.jsx";
 import { UserProfileButton } from "../utils/navItems.jsx";
-import { userStore } from "../Store/userStore.js";
 import { BackButton } from "../utils/navItems.jsx";
-
-const Saves = ({ user }) => {
-  const { updateSave } = userStore();
-  const saveItemsList = user?.saved || [];
-  console.log(user.saved);
-
-  const addToCart = (id) => {
-    console.log(id);
-  };
-
-  if (saveItemsList.length === 0) {
-    return (
-      <div className="w-[100%] h-auto flex flex-col items-center justify-center">
-        <h1 className="text-2xl font-bold">Nothing In Saved Items</h1>
-      </div>
-    );
-  }
-  return (
-    <section className="w-[100%] h-auto flex flex-col items-center justify-center">
-      {saveItemsList.map((item, index) => (
-        <div
-          key={`${item?._id}-${index}`}
-          className="w-auto flex flex-row items-center justify-start py-6 max-[600px]:py-2 gap-4 max-[600px]:gap-2 border-t-2 border-t-gray-400"
-        >
-          <Link to={`/ProductDetail/${item?._id}`}>
-            <img
-              className="w-[8rem] h-[8rem] max-[400px]:w-[6rem] max-[400px]:h-[6rem] rounded-sm"
-              src={item?.imageUrl}
-              alt={item?.name}
-            />
-          </Link>
-          <div className="flex flex-row max-[600px]:flex-col max-[600px]:gap-4 items-start justify-between gap-[3rem] ">
-            <div className="flex flex-col items-start justify-start gap-2">
-              <h1 className="text-[1.3rem] leading-7 max-[750px]:text-[1rem] max-[750px]:leading-5 w-[20rem] max-[750px]:w-[14rem] max-[650px]:w-[10rem] max-[600px]:w-[18rem] max-[440px]:w-[15rem] max-[400px]:w-[12rem] max-[320px]:w-[10rem] overflow-hidden font-bold max-[400px]:text-[0.85rem] max-[400px]:font-semibold">
-                {item?.name}
-              </h1>
-              <div className="flex flex-row items-center justify-between gap-4">
-                <p className="text-md text-nowrap max-[400px]:text-sm">
-                  Size: {item?.size}
-                </p>
-                <p className="text-md text-nowrap max-[400px]:text-sm">
-                  ${item?.price}
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-row items-start justify-start gap-4">
-              <button
-                onClick={() => addToCart(item?._id)}
-                className="px-[1rem] py-[0.5rem] hover:font-bold max-[600px]:px-0 max-[600px]:py-0 max-[600px]:text-blue-700 max-[600px]:bg-transparent rounded-md cursor-default border-none max-[400px]:text-sm bg-blue-700 hover:bg-transparent hover:text-blue-900 text-nowrap"
-              >
-                Add to cart
-              </button>
-              <button
-                onClick={() => updateSave(item?._id)}
-                className="px-[1rem] py-[0.5rem] hover:font-bold max-[600px]:px-0 max-[600px]:py-0 max-[600px]:text-red-600 max-[600px]:bg-transparent rounded-md cursor-default border-none max-[400px]:text-sm bg-red-600 hover:bg-transparent hover:text-red-800"
-              >
-                Remove
-              </button>
-            </div>
-          </div>
-        </div>
-      ))}
-    </section>
-  );
-};
+import {ProductsContext} from "../utils/ProductsProvider.jsx";
+import { Saves } from "../utils/saveList.jsx";
 
 function Save() {
   const { user } = useContext(UserContext);
-  const [userView, setUserView] = useState(false);
-
+  const {products} = useContext(ProductsContext);
   return (
     <>
       <div className="w-[100%] h-auto  flex flex-col items-center justify-between select-none px-4 max-[400px]:px-2">
@@ -93,7 +27,7 @@ function Save() {
         </section>
 
         {user ? (
-          <Saves user={user} />
+          <Saves user={user} products={products} />
         ) : (
           <div className="w-[100%] h-auto flex flex-col items-center justify-center">
             <h1 className="text-2xl font-bold">
