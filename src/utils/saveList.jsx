@@ -1,13 +1,12 @@
 import { userStore } from "../Store/userStore.js";
 import { HandleCart } from "./handleCart.jsx";;
+import { Link } from "react-router-dom";
 
 export const Saves = ({ user, products }) => {
-  console.log(products);
-  const { updateSave } = userStore();
-  const saveItemsList =  products.filter(product => user?.saved?.Include(product?._id)) || [];
-  console.log(saveItemsList);
+  const { updateSave, removeSaved } = userStore();
+  const saveItemsList =  products.filter(product => user?.saved?.includes(product?._id)) || [];
 
-  if (saveItemsList.length === 0) {
+  if (saveItemsList?.length === 0) {
     return (
       <div className="w-full h-auto flex flex-col items-center justify-center">
         <h1 className="text-2xl font-bold">Nothing In Saved Items</h1>
@@ -42,11 +41,11 @@ export const Saves = ({ user, products }) => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-row items-start justify-start gap-4">
+            <div className="flex flex-row items-start justify-start gap-2">
               <HandleCart productId={item?._id}/>
               <button
-                onClick={() => updateSave(item?._id)}
-                className="px-4 py-2 hover:font-bold max-[600px]:px-0 max-[600px]:py-0 max-[600px]:text-red-600 max-[600px]:bg-transparent rounded-md cursor-default border-none max-[400px]:text-sm bg-red-600 hover:bg-transparent hover:text-red-800"
+                onClick={() => updateSave({productId: item?._id})}
+                className="w-auto py-1 px-2 rounded-sm cursor-default bg-red-600 hover:bg-red-600/70"
               >
                 Remove
               </button>
@@ -54,6 +53,7 @@ export const Saves = ({ user, products }) => {
           </div>
         </div>
       ))}
+    <button onClick={() => removeSaved()} className="text-red-700 p-1 hover:text-red-900">remove all</button>
     </section>
   );
 };

@@ -2,6 +2,7 @@ import User from "../../models/user.model.mjs";
 
 async function updateSaved(req, res) {
     try {
+        console.log(req.body)
         const { productId } = req.body;
      
         if (!productId) {

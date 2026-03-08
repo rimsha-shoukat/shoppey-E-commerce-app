@@ -122,13 +122,13 @@ function ProductDetail() {
                   </button>
                 ))}
               </div>
-              <div className="flex flex-row w-full items-center justify-center gap-[1rem]">
+              <div className="flex flex-row w-full items-center justify-start gap-[1rem]">
                 <button
-                  className={`rounded-sm w-1/2 py-1 bg-gray-600/70 hover:bg-gray-600/80 cursor-default transition-all duration-500 ease`}
+                  className={`rounded-sm w-auto py-1 px-3 bg-gray-600 hover:bg-gray-600/80 cursor-default transition-all duration-500 ease`}
                 >
                   Buy now
                 </button>
-                <HandleCart productId={image?._id}/>
+                <HandleCart size={select} quantity={num} productId={image?._id}/>
               </div>
             </div>
           </div>

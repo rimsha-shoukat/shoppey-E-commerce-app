@@ -16,7 +16,7 @@ export const userStore = create((set, get) => ({
             set({ user: userData, loading: false });
             console.log(user);
         } catch (error) {
-            if (error.response.status === 401 || error.response.status === 404) {
+            if (error?.response?.status === 401 || error?.response?.status === 404) {
                 set({ user: null, error: "", loading: false });
             } else {
                 set({ error: getErrorMessage(error), loading: false });
@@ -105,28 +105,31 @@ export const userStore = create((set, get) => ({
             set({ error: getErrorMessage(error), loading: false });
         }
     },
-    removeSaved: async (productId) => {
+    removeSaved: async () => {
         set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.patch(`user/profile/removeSaved`, productId);
+            const response = await axios.patch(`user/profile/removeSaved`);
             set({ message: response.data.message, loading: false });
         } catch (error) {
             set({ error: getErrorMessage(error), loading: false });
         }
     },
-    updateCart: async (productId) => {
+    updateCart: async (size, quantity, productId) => {
+        console.log("request");
         set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.patch(`user/profile/updateCart`, productId);
+            console.log( "In store size, quantity, productId" )
+            const response = await axios.patch(`user/profile/updateCart`, {size, quantity, productId});
             set({ message: response.data.message, loading: false });
         } catch (error) {
+            console.log(error); 
             set({ error: getErrorMessage(error), loading: false });
         }
     },
     removeCart: async (productId) => {
         set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.patch(`user/profile/removeCart`, { productId });
+            const response = await axios.patch(`user/profile/removeCart`, productId );
             set({ message: response.data.message, loading: false });
         } catch (error) {
             set({ error: getErrorMessage(error), loading: false });

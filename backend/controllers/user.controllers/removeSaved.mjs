@@ -2,14 +2,9 @@ import User from "../../models/user.model.mjs";
 
 async function removeSaved(req, res) {
     try {
-        const { productId } = req.body;
-        if (!productId) {
-            return res.status(400).json({ message: "Product ID is required" });
-        }
-
         // find user, update user saved and save user
         const user = await User.findById(req.user._id);
-        user.saved = [];
+        user.saved = undefined;
         await user.save();
         return res.status(200).json({ message: "All products removed from saved items"});
     } catch (error) {
