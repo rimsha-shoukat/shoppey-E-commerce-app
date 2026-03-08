@@ -2,7 +2,8 @@ import User from "../../models/user.model.mjs";
 
 async function updateCart(req, res) {
     try {
-        const { productId, quantity, size } = req.body;
+        const { size = "M", quantity = 1, productId } = req.body;
+ 
         if (!productId || !quantity || !size) {
             return res.status(400).json({ message: "Product ID, quantity, and size are required" });
         }
