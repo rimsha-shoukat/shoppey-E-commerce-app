@@ -9,7 +9,7 @@ async function signup(req, res) {
         if (!name || !email || !password) {
             return res.status(400).json({ message: "Please provide name, email and password" });
         }
-        // check existied users
+        // check existed users
         const existedUser = await User.findOne({ email });
         if (existedUser) {
             return res.status(400).json({ message: "User already exists" });

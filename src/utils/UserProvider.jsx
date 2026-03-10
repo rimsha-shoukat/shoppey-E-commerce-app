@@ -9,11 +9,9 @@ export const UserProvider = ({ children }) => {
     fetchUser();
   }, []);
 
-  const memoizedValue = useMemo(
-    () => ({
+  const memoizedValue = useMemo(() => ({
       user,
-    }),
-    [user],
+    }),[user],
   );
 
   return (

@@ -26,14 +26,13 @@ function SignIU() {
     setErrorMessage("");
     e.preventDefault();
     if (validateSigninFields({ form, setErrorMessage })) {
-      await signin({ form });
-      const { error, message } = userStore.getState();
-      if (error) {
-        setErrorMessage(error);
-      } else if (message) {
-        setErrorMessage(message);
-        navigate("/");
-      }
+      const success = await signin({ form });
+        if (success) {
+            navigate("/");
+        } else {
+            const { error } = userStore.getState();
+            setErrorMessage(error);
+        }
     }
   };
 
@@ -42,14 +41,13 @@ function SignIU() {
     e.preventDefault();
     setErrorMessage("");
     if (validateSignupFields({ form, setErrorMessage })) {
-      await signup({ form });
-      const { error, message } = userStore.getState();
-      if (error) {
-        setErrorMessage(error);
-      } else if (message) {
-        setErrorMessage(message);
-        navigate("/");
-      }
+      const success = await signup({ form });
+        if (success) {
+            navigate("/"); 
+        } else {
+            const { error } = userStore.getState();
+            setErrorMessage(error);
+        }
     }
   };
 

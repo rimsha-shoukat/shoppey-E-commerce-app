@@ -11,11 +11,9 @@ import { ProductPrice } from "../utils/productPrice.jsx";
 import { ProductsContext } from "../utils/ProductsProvider.jsx";
 import { BackButton } from "../utils/navItems.jsx";
 import { HandleSave } from "../utils/handleSave.jsx";
-import { UserContext } from "../utils/UserProvider.jsx";
 
 function AllProducts() {
   const { products } = useContext(ProductsContext);
-  const { user } = useContext(UserContext);
   const { param } = useParams();
   const [filterProducts, setFilterProducts] = useState([]);
   const searchRef = useRef(null);

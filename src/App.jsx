@@ -11,7 +11,7 @@ import AllProducts from './pages/AllProducts.jsx';
 import ProductDetail from './pages/ProductDetail.jsx';
 import Cart from './pages/Cart.jsx';
 import Save from './pages/Save.jsx';
-import User from "./pages/User.jsx"
+import User from "./pages/User.jsx";
 import { UserProvider } from './utils/UserProvider.jsx';
 import { ProductsProvider } from './utils/ProductsProvider.jsx';
 

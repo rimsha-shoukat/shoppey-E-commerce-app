@@ -9,22 +9,23 @@ import { IoIosArrowDown } from "react-icons/io";
 import { BsFillSendFill } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa6";
 import { useParams } from "react-router-dom";
+import { useContext } from "react";
 import { UserContext } from "../utils/UserProvider.jsx";
 import { ProductsContext } from "../utils/ProductsProvider.jsx";
-import { useContext } from "react";
 import { ProductPrice } from "../utils/productPrice.jsx";
 import { BackButton } from "../utils/navItems.jsx";
 import { HandleSave } from "../utils/handleSave.jsx";
-import {HandleCart} from "../utils/handleCart.jsx";
+import { HandleCart } from "../utils/handleCart.jsx";
+import { UserProfileButton } from "../utils/navItems.jsx";
 
 function ProductDetail() {
   const { id } = useParams();
   const { products } = useContext(ProductsContext);
   const { user } = useContext(UserContext);
-  const image = products.find((img) => img._id == id);
+  const image = products.find((img) => String(img._id) == String(id));
   const [comment, setComment] = useState("");
   const [num, setNum] = useState(1);
-  const [select, setSelect] = useState("");
+  const [select, setSelect] = useState("M");
   const [description, setDescription] = useState(true);
 
   if (!image) {
@@ -48,21 +49,7 @@ function ProductDetail() {
             <Link to="/Cart">
               <FaCartShopping className="cursor-default hover:text-gray-500" />
             </Link>
-            {user !== null ? (
-              <Link to="/User">
-                <img
-                  className="rounded-full max-[710px]:m-2 hover:opacity-70 hover:transition-all duration-700 ease-in-out width-[38px] h-[38px]"
-                  src={user.image}
-                  alt={user.name}
-                />
-              </Link>
-            ) : (
-              <Link to="/SignIU" className="max-[710px]:w-[100%]">
-                <button className="font-bold  hover:transition-all duration-700 ease-in-out cursor-default border-2 border-black max-[710px]:w-[100%]  px-[0.5rem] py-[0.2rem] hover:text-[#b48068] hover:bg-black max-[710px]:hover:bg-black max-[710px]:hover:text-[#b48068] max-[710px]:border-none max-[710px]:py-[1rem] text-nowrap">
-                  SIGN IN
-                </button>
-              </Link>
-            )}
+            <UserProfileButton user={user}/>
           </div>
         </section>
 
@@ -83,7 +70,7 @@ function ProductDetail() {
               <div className="flex flex-row items-center justify-between w-full">
                 <span className="w-full flex flex-row">
                   {[...Array(5)].map((_, i) =>
-                    i < image.rating ? <FaStar key={i} /> : <CiStar key={i} />,
+                    i < image?.rating ? <FaStar key={i} /> : <CiStar key={i} />,
                   )}
                 </span>
                 <p className="text-sm font-semibold">
@@ -128,7 +115,11 @@ function ProductDetail() {
                 >
                   Buy now
                 </button>
-                <HandleCart size={select} quantity={num} productId={image?._id}/>
+                <HandleCart
+                  size={select}
+                  quantity={num}
+                  productId={image?._id}
+                />
               </div>
             </div>
           </div>

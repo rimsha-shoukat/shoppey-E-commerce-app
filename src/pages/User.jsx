@@ -3,11 +3,25 @@ import { LuPencilLine } from "react-icons/lu";
 import { useState, useEffect } from "react";
 import { MdFileDownloadDone } from "react-icons/md";
 import { BackButton } from "../utils/navItems.jsx";
+import { useContext } from "react";
+import { UserContext } from "../utils/UserProvider.jsx";
+import { Link, useNavigate } from "react-router-dom";
+import { UpdateImage } from "../utils/updateImage.jsx";
 
 export default function User() {
-  const { logout, deleteAccount, user, fetchUser } = userStore();
+  const { user } = useContext(UserContext);
+  const {
+    logout,
+    deleteAccount,
+    updateName,
+    updateEmail,
+    updateNumber,
+    updateLocation,
+    updateRank,
+  } = userStore();
   const [active, setActive] = useState("comments");
   const [enableEdit, setEnableEdit] = useState("");
+  const navigate = useNavigate();
   const [userState, setUserState] = useState({
     name: user?.name || "",
     email: user?.email || "",
@@ -16,26 +30,23 @@ export default function User() {
   });
 
   useEffect(() => {
-    fetchUser();
-  }, []);
-
-  useEffect(() => {
     if (user) {
       setUserState({
-        name: user.name || "",
-        email: user.email || "",
-        number: user.number || "",
-        location: user.location || "",
+        name: user?.name || "",
+        email: user?.email || "",
+        number: user?.number || "",
+        location: user?.location || "",
       });
     }
   }, [user]);
 
-  console.log(user);
   const handleLogout = () => {
     logout();
+    navigate("/");
   };
   const handleDeleteAccount = () => {
     deleteAccount();
+    navigate("/");
   };
 
   return (
@@ -47,11 +58,9 @@ export default function User() {
       <div className="w-full h-full flex flex-col items-start justify-center p-6 mt-4 bg-[#b48068]/10 gap-4">
         <div className="w-full flex flex-row items-center justify-between gap-4">
           <div className="w-auto flex flex-row items-end gap-1">
-            <img
-              className="w-[2rem] h-[2rem] cursor-default scale-[1.2] transition-all duration-300 ease-in-out mr-2 hover:opacity-[0.5]"
-              src={user?.image}
-              alt={user?.name}
-            />
+            {/* allow user to change image */}
+            <UpdateImage/>
+            {/* update user name */}
             <input
               disabled={enableEdit !== "name"}
               autoFocus={enableEdit === "name"}
@@ -67,14 +76,31 @@ export default function User() {
             <button className="cursor-default pb-1 text-[0.8rem] text-[#b48068] hover:text-black hover:transition-all duration-700 ease-in-out">
               {" "}
               {enableEdit === "name" ? (
-                <MdFileDownloadDone onClick={() => setEnableEdit("")} />
+                <MdFileDownloadDone
+                  onMouseDown={(e) => e.preventDefault()}
+                  onClick={() => {
+                    updateName(userState.name);
+                    setEnableEdit("");
+                  }}
+                />
               ) : (
                 <LuPencilLine onClick={() => setEnableEdit("name")} />
               )}{" "}
             </button>
           </div>
-          <p>{user?.rank}</p>
+
+          {/* update user rank */}
+          <select
+            value={user?.rank || "customer"}
+            onChange={(e) => updateRank(e.target.value)}
+            className="cursor-default text-[#b48068] border border-[#b48068] rounded-sm px-2 py-1 bg-white text-[0.9rem] focus:outline-none"
+          >
+            <option value="customer">customer</option>
+            <option value="wholesaler">wholesaler</option>
+          </select>
         </div>
+
+        {/* update user email */}
         <div className="flex flex-row items-center justify-between w-full mt-4">
           <input
             disabled={enableEdit !== "email"}
@@ -90,12 +116,19 @@ export default function User() {
           />
           <button className="cursor-default text-[0.8rem] text-[#b48068] hover:text-black hover:transition-all duration-700 ease-in-out">
             {enableEdit === "email" ? (
-              <MdFileDownloadDone onClick={() => setEnableEdit("")} />
+              <MdFileDownloadDone
+                onMouseDown={(e) => e.preventDefault()}
+                onClick={() => {
+                  updateEmail(userState.email);
+                  setEnableEdit("");
+                }}
+              />
             ) : (
               <LuPencilLine onClick={() => setEnableEdit("email")} />
             )}
           </button>
         </div>
+        {/* update user number */}
         <div className="w-full flex flex-row items-center justify-between">
           <input
             disabled={enableEdit !== "number"}
@@ -111,12 +144,20 @@ export default function User() {
           />
           <button className="cursor-default text-[0.8rem] text-[#b48068] hover:text-black hover:transition-all duration-700 ease-in-out">
             {enableEdit === "number" ? (
-              <MdFileDownloadDone onClick={() => setEnableEdit("")} />
+              <MdFileDownloadDone
+                onMouseDown={(e) => e.preventDefault()}
+                onClick={() => {
+                  updateNumber(userState.number);
+                  setEnableEdit("");
+                }}
+              />
             ) : (
               <LuPencilLine onClick={() => setEnableEdit("number")} />
             )}
           </button>
         </div>
+
+        {/* update user location */}
         <div className="flex flex-row items-center justify-between w-full">
           <input
             disabled={enableEdit !== "location"}
@@ -132,22 +173,35 @@ export default function User() {
           />
           <button className="cursor-default text-[0.8rem] text-[#b48068] hover:text-black hover:transition-all duration-700 ease-in-out">
             {enableEdit === "location" ? (
-              <MdFileDownloadDone onClick={() => setEnableEdit("")} />
+              <MdFileDownloadDone
+                onMouseDown={(e) => e.preventDefault()}
+                onClick={() => {
+                  updateLocation(userState.location);
+                  setEnableEdit("");
+                }}
+              />
             ) : (
               <LuPencilLine onClick={() => setEnableEdit("location")} />
             )}
           </button>
         </div>
+        {/* user saved items count */}
         <div className="text-[1rem] flex flex-row items-center justify-start gap-4 w-full">
-          <span className="flex flex-row gap-3 items-end justify-start">
-            <h1 className="font-semibold cursor-default">Wish List</h1>
-            <p className="text-[#b48068]">{user?.saved?.length || "0"}</p>
-          </span>
-          <span className="flex flex-row gap-3 items-end justify-start">
-            <h1 className="font-semibold cursor-default">Cart</h1>
-            <p className="text-[#b48068]">{user?.cart?.length || "0"}</p>
-          </span>
+          <Link to="/Save">
+            <span className="flex flex-row gap-3 items-end justify-start">
+              <h1 className="font-semibold cursor-default">Wish List</h1>
+              <p className="text-[#b48068]">{user?.saved?.length || "0"}</p>
+            </span>
+          </Link>
+          {/* user cart items count */}
+          <Link to="/Cart">
+            <span className="flex flex-row gap-3 items-end justify-start">
+              <h1 className="font-semibold cursor-default">Cart</h1>
+              <p className="text-[#b48068]">{user?.cart?.length || "0"}</p>
+            </span>
+          </Link>
         </div>
+        {/* user (history) comments reviews and orders */}
         <div className="w-full flex flex-col gap-2">
           <div>
             <button
@@ -222,6 +276,7 @@ export default function User() {
               ))}
           </div>
         </div>
+        {/* logout and delete account button */}
         <div>
           <button
             onClick={handleLogout}

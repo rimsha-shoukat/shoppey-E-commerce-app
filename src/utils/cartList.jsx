@@ -4,7 +4,8 @@ import { FaPlus } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { ProductsContext } from "../utils/ProductsProvider.jsx";
-import { userStore } from "../Store/userStore";;
+import { userStore } from "../Store/userStore";
+import { setItemQuantity } from "./cartUtils.jsx";
 
 export const Carts = (user) => {
   const { products } = useContext(ProductsContext);
@@ -32,10 +33,10 @@ export const Carts = (user) => {
     <section className="w-full h-auto flex flex-col items-center justify-center">
       {cartItemsList?.map((item) => (
         <div
-          key={item._id}
+          key={item?._id}
           className="w-full flex flex-row items-center justify-center py-6 max-[350px]:py-2 gap-4 border-t-2 border-t-gray-400"
         >
-          <Link to={`/ProductDetail/${item._id}`}>
+          <Link to={`/ProductDetail/${item?.product}`}>
             <img
               className="w-24 h-24 rounded-sm"
               src={item?.imageUrl}
@@ -61,7 +62,7 @@ export const Carts = (user) => {
               <div className="flex flex-row item-center justify-center gap-4 max-[500px]:gap-2 border-y-2 border-white p-2 max-[350px]:p-0 max-[350px]:border-none leading-4">
                 <FiMinus
                   onClick={
-                    item.quantity >= 2
+                    item?.quantity >= 2
                       ? () => setItemQuantity(item?._id, item?.quantity - 1)
                       : null
                   }
