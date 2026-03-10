@@ -11,10 +11,8 @@ export const userStore = create((set, get) => ({
         set({ loading: true, error: "", message: "" });
         try {
             const response = await axios.get(`user/profile`);
-            console.log(response);
             const userData = response.data.user || null;
             set({ user: userData, loading: false });
-            console.log(user);
         } catch (error) {
             if (error?.response?.status === 401 || error?.response?.status === 404) {
                 set({ user: null, error: "", loading: false });
@@ -28,8 +26,11 @@ export const userStore = create((set, get) => ({
         try {
             const response = await axios.post(`user/signin`, { email: form.email, password: form.password });
             set({ message: response.data.message, loading: false });
+            await get().fetchUser();
+            return true;
         } catch (error) {
             set({ error: getErrorMessage(error), loading: false });
+            return false;
         }
     },
     signup: async ({ form }) => {
@@ -37,15 +38,18 @@ export const userStore = create((set, get) => ({
         try {
             const response = await axios.post(`user/signup`, { name: form.name, email: form.email, password: form.password });
             set({ message: response.data.message, loading: false });
+            await get().fetchUser();
+            return true;
         } catch (error) {
             set({ error: getErrorMessage(error), loading: false });
+            return false;
         }
     },
     logout: async () => {
         set({ loading: true, error: "", message: "" });
         try {
             const response = await axios.post(`user/profile/logout`);
-            set({ message: response.data.message, loading: false });
+            set({ user: null, message: response.data.message, loading: false });
         } catch (error) {
             set({ error: getErrorMessage(error), loading: false });
         }
@@ -54,7 +58,7 @@ export const userStore = create((set, get) => ({
         set({ loading: true, error: "", message: "" });
         try {
             const response = await axios.delete(`user/profile/deleteAccount`);
-            set({ message: response.data.message, loading: false });
+            set({ user: null, message: response.data.message, loading: false });
         } catch (error) {
             set({ error: getErrorMessage(error), loading: false });
         }
@@ -64,6 +68,7 @@ export const userStore = create((set, get) => ({
         try {
             const response = await axios.patch(`user/profile/updateName`, { newName });
             set({ message: response.data.message, loading: false });
+            await get().fetchUser();
         } catch (error) {
             set({ error: getErrorMessage(error), loading: false });
         }
@@ -73,6 +78,7 @@ export const userStore = create((set, get) => ({
         try {
             const response = await axios.patch(`user/profile/updateImage`, { newImage });
             set({ message: response.data.message, loading: false });
+            await get().fetchUser();
         } catch (error) {
             set({ error: getErrorMessage(error), loading: false });
         }
@@ -82,6 +88,7 @@ export const userStore = create((set, get) => ({
         try {
             const response = await axios.patch(`user/profile/updateEmail`, { newEmail });
             set({ message: response.data.message, loading: false });
+            await get().fetchUser();
         } catch (error) {
             set({ error: getErrorMessage(error), loading: false });
         }
@@ -91,16 +98,17 @@ export const userStore = create((set, get) => ({
         try {
             const response = await axios.patch(`user/profile/updatePassword`, { currentPassword, newPassword });
             set({ message: response.data.message, loading: false });
+            await get().fetchUser();
         } catch (error) {
             set({ error: getErrorMessage(error), loading: false });
         }
     },
     updateSave: async (productId) => {
-        console.log("requested  "+ productId);
         set({ loading: true, error: "", message: "" });
         try {
             const response = await axios.patch(`user/profile/updateSaved`, productId);
             set({ message: response.data.message, loading: false });
+            await get().fetchUser();
         } catch (error) {
             set({ error: getErrorMessage(error), loading: false });
         }
@@ -110,19 +118,18 @@ export const userStore = create((set, get) => ({
         try {
             const response = await axios.patch(`user/profile/removeSaved`);
             set({ message: response.data.message, loading: false });
+            await get().fetchUser();
         } catch (error) {
             set({ error: getErrorMessage(error), loading: false });
         }
     },
     updateCart: async (size, quantity, productId) => {
-        console.log("request");
         set({ loading: true, error: "", message: "" });
         try {
-            console.log( "In store size, quantity, productId" )
             const response = await axios.patch(`user/profile/updateCart`, {size, quantity, productId});
             set({ message: response.data.message, loading: false });
+            await get().fetchUser();
         } catch (error) {
-            console.log(error); 
             set({ error: getErrorMessage(error), loading: false });
         }
     },
@@ -131,6 +138,7 @@ export const userStore = create((set, get) => ({
         try {
             const response = await axios.patch(`user/profile/removeCart`, productId );
             set({ message: response.data.message, loading: false });
+            await get().fetchUser();
         } catch (error) {
             set({ error: getErrorMessage(error), loading: false });
         }
@@ -140,6 +148,7 @@ export const userStore = create((set, get) => ({
         try {
             const response = await axios.patch(`user/profile/updateLocation`, { location });
             set({ message: response.data.message, loading: false });
+            await get().fetchUser();
         } catch (error) {
             set({ error: getErrorMessage(error), loading: false });
         }
@@ -149,6 +158,7 @@ export const userStore = create((set, get) => ({
         try {
             const response = await axios.patch(`user/profile/updateNumber`, { number });
             set({ message: response.data.message, loading: false });
+            await get().fetchUser();
         } catch (error) {
             set({ error: getErrorMessage(error), loading: false });
         }
@@ -157,7 +167,8 @@ export const userStore = create((set, get) => ({
         set({ loading: true, error: "", message: "" });
         try {
             const response = await axios.patch(`user/profile/updateRank`, { rank });
-            set({ message: response.data.message, loading: false });
+            set({ message: response.data.message, loading: false })
+            await get().fetchUser();
         } catch (error) {
             set({ error: getErrorMessage(error), loading: false });
         }
@@ -167,6 +178,7 @@ export const userStore = create((set, get) => ({
         try {
             const response = await axios.patch(`user/profile/addCoupons`, { coupons });
             set({ message: response.data.message, loading: false });
+            await get().fetchUser();
         } catch (error) {
             set({ error: getErrorMessage(error), loading: false });
         }
@@ -176,6 +188,7 @@ export const userStore = create((set, get) => ({
         try {
             const response = await axios.patch(`user/profile/removeCoupons`, { coupons });
             set({ message: response.data.message, loading: false });
+            await get().fetchUser();
         } catch (error) {
             set({ error: getErrorMessage(error), loading: false });
         }
