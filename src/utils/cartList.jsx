@@ -1,25 +1,24 @@
 import { RxCross2 } from "react-icons/rx";
-import { FiMinus } from "react-icons/fi";
-import { FaPlus } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { ProductsContext } from "../utils/ProductsProvider.jsx";
 import { userStore } from "../Store/userStore";
-import { setItemQuantity } from "./cartUtils.jsx";
 
 export const Carts = (user) => {
   const { products } = useContext(ProductsContext);
-  const { removeCart } = userStore();
+  const { removeCart, setItemQuantity } = userStore();
   const cartItemsList = user?.user?.cart?.map((item) => {
-  const productDetails = products.find(p => String(p._id) == String(item.product));
+    const productDetails = products.find(
+      (p) => String(p._id) == String(item.product),
+    );
     return {
       ...item,
       name: productDetails?.name,
       imageUrl: productDetails?.imageUrl,
       price: productDetails?.price,
       stock: productDetails?.stock,
-    }
-  }) 
+    };
+  });
 
   if (cartItemsList?.length === 0) {
     return (
@@ -59,29 +58,23 @@ export const Carts = (user) => {
               <h1 className="font-bold max-[350px]:font-semibold max-[350px]:text-sm">
                 ${(item?.quantity * item.price).toFixed(2)}
               </h1>
-              <div className="flex flex-row item-center justify-center gap-4 max-[500px]:gap-2 border-y-2 border-white p-2 max-[350px]:p-0 max-[350px]:border-none leading-4">
-                <FiMinus
-                  onClick={
-                    item?.quantity >= 2
-                      ? () => setItemQuantity(item?._id, item?.quantity - 1)
-                      : null
+              <div className="flex flex-row item-center justify-center leading-4">
+                <select
+                  value={item?.quantity}
+                  onChange={(e) =>
+                    setItemQuantity(item?._id, e.target.value)
                   }
-                  className="cursor-default hover:text-gray-700 max-[350px]:text-sm"
-                />
-                <h1 className="text-[1.2rem] max-[350px]:text-md">
-                  {item?.quantity}
-                </h1>
-                <FaPlus
-                  onClick={
-                    item?.quantity < item?.stock
-                      ? () => setItemQuantity(item?._id, item?.quantity + 1)
-                      : null
-                  }
-                  className="cursor-default hover:text-gray-700 max-[350px]:text-sm"
-                />
+                  className="cursor-default text-[#b48068] border border-[#b48068] rounded-sm px-2 py-1 bg-white text-[0.9rem] focus:outline-none"
+                >
+                  {Array.from({ length: item?.stock }, (_, i) => (
+                    <option key={i + 1} value={i + 1}>
+                      {i + 1}
+                    </option>
+                  ))}
+                </select>
               </div>
               <RxCross2
-                onClick={() => removeCart({productId:item?._id})}
+                onClick={() => removeCart({ productId: item?._id })}
                 className="cursor-default hover:text-red-800"
               />
             </div>

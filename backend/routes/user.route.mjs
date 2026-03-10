@@ -19,7 +19,7 @@ import deleteAccount from "../controllers/user.controllers/deleteAccount.mjs";
 import getComments from "../controllers/user.controllers/getComments.mjs";
 import getReviews from "../controllers/user.controllers/getReviews.mjs";
 import getUser from "../middleware/getUser.mjs";
-
+import setItemQuantity from "../controllers/user.controllers/setItemQuantity.mjs";
 import express from "express";
 const router = express.Router();
 
@@ -46,5 +46,5 @@ router.patch("/profile/addCoupons", getUser, addCoupons);
 router.patch("/profile/removeCoupons", getUser, removeCoupons);
 router.get("/profile/getComments", getUser, getComments);
 router.get("/profile/getReviews", getUser, getReviews);
-
+router.patch("/profile/setItemQuantity", getUser, setItemQuantity);
 export default router;

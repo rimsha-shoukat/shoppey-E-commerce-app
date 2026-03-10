@@ -193,4 +193,14 @@ export const userStore = create((set, get) => ({
             set({ error: getErrorMessage(error), loading: false });
         }
     },
+    setItemQuantity: async(itemId, quantity) => {
+        set({ loading: true, error: "", message: "" });
+        try {
+            const response = await axios.patch(`user/profile/setItemQuantity`, { itemId, quantity });
+            set({ message: response.data.message, loading: false });
+            await get().fetchUser();
+        } catch (error) {
+            set({ error: getErrorMessage(error), loading: false });
+        }
+    }
 }));
