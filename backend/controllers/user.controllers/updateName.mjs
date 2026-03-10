@@ -8,14 +8,13 @@ async function updateName(req, res) {
         }
 
         // find user and update 
-        const updatedUser = await User.findByIdAndUpdate(
+         await User.findByIdAndUpdate(
             req.user._id,
             { name: newName },
             { new: true, runValidators: true }
-        ).select("-password -__v");
-        return res.status(200).json({ message: "Name updated successfully", user: updatedUser });
+        )
+        return res.status(200).json({ message: "Name updated successfully"});
     } catch (error) {
-        console.log("Something went wrong" + error.message);
         return res.status(500).json({ message: "Internal server error" });
     }
 };

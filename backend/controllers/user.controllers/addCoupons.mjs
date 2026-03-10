@@ -8,7 +8,7 @@ async function addCoupons(req, res) {
         }
         const user = await User.findById(req.user._id);
 
-        // ffind existed coupon
+        // find existed coupon
         const existedCouponIndex = user.coupons.findIndex(coupon => coupon.name === name && coupon.value === value);
 
         if (existedCouponIndex < 0) {
@@ -22,7 +22,6 @@ async function addCoupons(req, res) {
         await user.save();
         return res.status(200).json({ message: "Coupon added successfully" });
     } catch (error) {
-        console.log("Something went wrong in addCoupons controller", error);
         return res.status(500).json({ message: "Internal Server Error" });
     }
 }

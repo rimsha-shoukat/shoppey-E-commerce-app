@@ -2,6 +2,7 @@ import User from "../../models/user.model.mjs";
 
 async function updateNumber(req, res) {
     try {
+
         const { number } = req.body;
         if (!number) {
             return res.status(400).json({ message: "Number is required" });

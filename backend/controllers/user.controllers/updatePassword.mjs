@@ -31,7 +31,6 @@ async function updatePassword(req, res) {
 
         return res.status(200).json({ message: "Password updated successfully" });
     } catch (error) {
-        console.log("Something went wrong" + error.message);
         return res.status(500).json({ message: "Internal server error" });
     }
 };

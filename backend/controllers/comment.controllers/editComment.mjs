@@ -24,7 +24,6 @@ async function addComment(req, res) {
         await existedComment.save();
         return res.status(201).json({ message: "Comment added successfully" });
     } catch (error) {
-        console.log("Something went wrong" + error.message);
         return res.status(500).json({ message: "Internal server error" });
     }
 }

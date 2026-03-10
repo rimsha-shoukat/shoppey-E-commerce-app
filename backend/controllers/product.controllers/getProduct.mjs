@@ -8,7 +8,6 @@ async function getProducts(req, res) {
         const total = await Product.countDocuments({});
         return res.status(200).json({ message: "Products fetched successfully", products, total })
     } catch (error) {
-        console.log("Something went wrong" + error.message);
         return res.status(500).json({ message: "Internal server error" });
     }
 }

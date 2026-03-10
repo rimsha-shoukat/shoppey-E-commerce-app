@@ -8,14 +8,13 @@ async function updateImage(req, res) {
         }
 
         // find user and update image
-        const updatedUser = await User.findByIdAndUpdate(
+       await User.findByIdAndUpdate(
             req.user._id,
             { image: newImage },
             { new: true, runValidators: true }
-        ).select("-password -__v");
-        return res.status(200).json({ message: "Image updated successfully", user: updatedUser });
+        )
+        return res.status(200).json({ message: "Image updated successfully"});
     } catch (error) {
-        console.log("Something went wrong" + error.message);
         return res.status(500).json({ message: "Internal server error" });
     }
 }

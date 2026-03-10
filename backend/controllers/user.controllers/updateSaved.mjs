@@ -2,7 +2,6 @@ import User from "../../models/user.model.mjs";
 
 async function updateSaved(req, res) {
     try {
-        console.log(req.body)
         const { productId } = req.body;
      
         if (!productId) {
@@ -24,7 +23,6 @@ async function updateSaved(req, res) {
            return res.status(200).json({ message: "Product added to saved items"});
         }
     } catch (error) {
-        console.log("Something went wrong" + error.message);
         return res.status(500).json({ message: "Internal server error" });
     }
 }

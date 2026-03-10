@@ -13,7 +13,6 @@ async function placeOrder(req, res) {
         await order.save();
         return res.status(201).json({ message: "User order placed successfully" });
     } catch (error) {
-        console.log("Something went wrong" + error.message);
         return res.status(500).json({ message: "Internal server error" });
     }
 }

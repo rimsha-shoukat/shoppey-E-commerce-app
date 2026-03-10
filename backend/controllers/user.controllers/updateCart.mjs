@@ -17,10 +17,9 @@ async function updateCart(req, res) {
             user.cart.push({ product: productId, quantity, size });
         }
         await user.save();
-        return res.status(200).json({ message: "Cart updated successfully", user });
+        return res.status(200).json({ message: "Cart updated successfully" });
 
     } catch (error) {
-        console.log("Error in updateCart controller:", error);
         res.status(500).json({ message: "Internal server error" });
     }
 }

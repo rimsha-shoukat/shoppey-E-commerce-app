@@ -30,3 +30,4 @@ task
 .vscode
 .history
 tempCodeRunnerFile
+*.env

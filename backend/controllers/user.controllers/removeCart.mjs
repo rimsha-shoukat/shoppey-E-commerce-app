@@ -10,12 +10,11 @@ async function removeCart(req, res) {
         if (existingCartItemIndex >= 0) {
             user.cart.splice(existingCartItemIndex, 1);
             await user.save();
-            return res.status(200).json({ message: "Item removed from cart successfully", user });
+            return res.status(200).json({ message: "Item removed from cart successfully"});
         } else {
             return res.status(404).json({ message: "Item not found in cart" });
         }
     } catch (error) {
-        console.log("Something went wrong:", error);
         res.status(500).json({ message: "Internal server error" });
     }
 }

@@ -28,7 +28,6 @@ async function addReview(req, res) {
         await newReview.save();
         return res.status(201).json({ message: "Review added successfully" });
     } catch (error) {
-        console.log("Something went wrong" + error.message);
         return res.status(500).json({ message: "Internal server error" });
     }
 }
