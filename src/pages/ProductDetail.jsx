@@ -17,6 +17,7 @@ import { BackButton } from "../utils/navItems.jsx";
 import { HandleSave } from "../utils/handleSave.jsx";
 import { HandleCart } from "../utils/handleCart.jsx";
 import { UserProfileButton } from "../utils/navItems.jsx";
+import { PopUp } from "../utils/popupMessage.jsx";
 
 function ProductDetail() {
   const { id } = useParams();
@@ -27,7 +28,8 @@ function ProductDetail() {
   const [num, setNum] = useState(1);
   const [select, setSelect] = useState("M");
   const [description, setDescription] = useState(true);
-
+  const [popupMsg, setPopupMsg] = useState(null);
+  
   if (!image) {
     return (
       <div className="w-full h-screen flex items-center justify-center">
@@ -39,6 +41,8 @@ function ProductDetail() {
   return (
     <>
       <div className="w-[100%] h-auto flex flex-col items-center justify-center gap-[1rem] mb-4">
+        {/* pop up message */}
+        {popupMsg && <PopUp popupMsg={popupMsg} setPopupMsg={setPopupMsg}/>}
         {/* navbar */}
         <section className="flex flex-row items-center py-2 px-6 justify-between w-[100%] h-auto">
           <BackButton />
@@ -49,7 +53,7 @@ function ProductDetail() {
             <Link to="/Cart">
               <FaCartShopping className="cursor-default hover:text-gray-500" />
             </Link>
-            <UserProfileButton user={user}/>
+            <UserProfileButton user={user} />
           </div>
         </section>
 
@@ -119,11 +123,11 @@ function ProductDetail() {
                   size={select}
                   quantity={num}
                   productId={image?._id}
+                  setPopupMsg={setPopupMsg}
                 />
               </div>
             </div>
           </div>
-
           {/* horizontal line */}
           <div className="w-full border-t-2 border-[#b48068]/50"></div>
           {/* description div */}

@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { userStore } from "../Store/userStore.js";
 import { HandleCart } from "./handleCart.jsx";;
 import { Link } from "react-router-dom";
+import { PopUp } from "./popupMessage.jsx";
 
 export const Saves = ({ user, products }) => {
   const { updateSave, removeSaved } = userStore();
+    const [popupMsg, setPopupMsg] = useState(null);
   const saveItemsList =  products.filter(product => user?.saved?.includes(product?._id)) || [];
 
   if (saveItemsList?.length === 0) {
@@ -15,6 +18,8 @@ export const Saves = ({ user, products }) => {
   }
   return (
     <section className="w-full h-auto flex flex-col items-center justify-center">
+      {/* pop up message */}
+        {popupMsg && <PopUp popupMsg={popupMsg} setPopupMsg={setPopupMsg}/>}
       {saveItemsList.map((item, index) => (
         <div
           key={`${item?._id}-${index}`}
@@ -32,17 +37,12 @@ export const Saves = ({ user, products }) => {
               <h1 className="text-[1.3rem] leading-7 max-[750px]:text-[1rem] max-[750px]:leading-5 w-[20rem] max-[750px]:w-56 max-[650px]:w-40 max-[600px]:w-[18rem] max-[440px]:w-60 max-[400px]:w-48 max-[320px]:w-40 overflow-hidden font-bold max-[400px]:text-[0.85rem] max-[400px]:font-semibold">
                 {item?.name}
               </h1>
-              <div className="flex flex-row items-center justify-between gap-4">
-                <p className="text-md text-nowrap max-[400px]:text-sm">
-                  Size: {item?.size}
-                </p>
                 <p className="text-md text-nowrap max-[400px]:text-sm">
                   ${item?.price}
                 </p>
-              </div>
             </div>
             <div className="flex flex-row items-start justify-start gap-2">
-              <HandleCart productId={item?._id}/>
+              <HandleCart productId={item?._id} setPopupMsg={setPopupMsg}/>
               <button
                 onClick={() => updateSave({productId: item?._id})}
                 className="w-auto py-1 px-2 rounded-sm cursor-default bg-red-600 hover:bg-red-600/70"
