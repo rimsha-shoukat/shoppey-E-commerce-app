@@ -13,6 +13,10 @@ const discountSchema = new mongoose.Schema({
         enum: ["Men", "Women", "Kids"],
         required: [true, "Please provide category for Product"],
     },
+    thumbnail: {
+        type: String,
+        required: true,
+    }
 }, { timestamps: true });
 
 

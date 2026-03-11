@@ -108,7 +108,7 @@ function AllProducts() {
                 </h2>
 
                 <div className="w-full flex flex-row items-center justify-between">
-                  <ProductPrice price={item?.price} />
+                  <ProductPrice price={item?.price} category={item?.category} />
                   <HandleSave productId={item?._id} />
                 </div>
               </span>
