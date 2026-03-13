@@ -70,7 +70,7 @@ function ProductDetail() {
             </div>
 
             {/* details div */}
-            <div className="w-1/2 max-[600px]:w-full h-full flex flex-col items-start justify-start px-6 py-8 gap-4">
+            <div className="w-1/2 max-[600px]:w-full h-full flex flex-col items-start justify-start px-6 py-4 gap-4">
               <div className="flex flex-row items-center justify-between w-full">
                 <span className="w-full flex flex-row">
                   {[...Array(5)].map((_, i) =>
@@ -83,7 +83,7 @@ function ProductDetail() {
               </div>
               <span>
                 <p className="text-sm">{image?.category}</p>
-                <h1 className="text-[1.3rem] font-bold">{image?.name}</h1>
+                <h1 className="text-[1.3rem] font-bold line-clamp-2">{image?.name}</h1>
               </span>
               <div className=" w-full flex flex-row items-center justify-between">
                 <ProductPrice price={image?.price} />
@@ -156,7 +156,7 @@ function ProductDetail() {
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
               />
-              <BsFillSendFill
+              <BsFillSendFill onClick={handleComment(image._id)}
                 className={`${comment ? "cursor-default text-gray-700" : "cursor-not-allowed text-gray-400"} absolute right-7 top-3 text-[1.6rem]`}
               />
             </div>

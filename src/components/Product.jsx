@@ -27,7 +27,7 @@ const Slider = ({ Items }) => {
             />
           </Link>
           <div className="flex flex-col p-2 pt-2 bg-white w-[14.5rem] h-[6rem]">
-            <h1 className="font-semibold text-[1rem] text-wrap line-clamp-1">
+            <h1 className="font-semibold text-[1rem] line-clamp-1">
               {item?.name}
             </h1>
             <div className="w-full flex flex-row items-center justify-between">
@@ -44,8 +44,6 @@ const Slider = ({ Items }) => {
 function Product() {
   const { products } = useContext(ProductsContext);
   const [activeButton, setActiveButton] = useState("ALL");
-
-  console.log("Products in Product.jsx: ", products);
 
   // Calculate filtered list
   const currentFiltered =
@@ -74,7 +72,7 @@ function Product() {
   }
   return (
     <>
-      <div className="w-[100%] h-auto p-[3rem] max-[430px]:p-[1rem] flex flex-col items-center justify-center select-none">
+      <div className="w-[100%] h-auto p-[2rem] max-[430px]:p-[1rem] flex flex-col items-center justify-center select-none">
         <h1 className="font-bold text-[clamp(2rem,5vw,5rem)]">Our Products</h1>
         {/* categories button section */}
         <section className="flex flex-row items-center justify-center gap-4 max-[565px]:gap-2 leading-4 w-full h-8 max-[565px]:text-sm">

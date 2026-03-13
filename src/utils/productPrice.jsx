@@ -12,7 +12,7 @@ export function ProductPrice({ price, category }) {
   return (
     <div className="flex flex-col">
       <h2 className="text-[1.2rem] font-semibold text-[#b48068]">
-        {discount?.percent == 0 ? price : (price - discountedPrice).toFixed(3)}
+        {discount?.percent == 0 ? price : discountedPrice}
       </h2>
       {discount?.percent == 0 ? <p className="text-gray-500">No discount available</p> : <span className="flex flex-row">
         <h3 className="text-gray-500 line-through">{price}</h3>
