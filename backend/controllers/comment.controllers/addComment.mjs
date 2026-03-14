@@ -7,8 +7,8 @@ async function addComment(req, res) {
         if (!comment || !productId) {
             return res.status(400).json({ message: "Comment and ProductId both are required" });
         }
-
-        // create new comment
+         
+        // create new comment and save
         const newComment = new Comment({ user: userId, product: productId, text: comment });
         await newComment.save();
         return res.status(201).json({ message: "Comment added successfully" });

@@ -29,14 +29,6 @@ const userSchema = new mongoose.Schema({
         minLength: [6, "Password must be at least 6 characters long"],
         trim: true,
     },
-    comments: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Comment",
-    }],
-    reviews: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Review",
-    }],
     saved: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Product",
@@ -52,10 +44,6 @@ const userSchema = new mongoose.Schema({
             type: String,
             trim: true,
         }
-    }],
-    orders: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Order",
     }],
     location: {
         type: String,

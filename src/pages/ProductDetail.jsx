@@ -6,7 +6,6 @@ import { FaPlus } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
 import { IoIosArrowDown } from "react-icons/io";
-import { BsFillSendFill } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa6";
 import { useParams } from "react-router-dom";
 import { useContext } from "react";
@@ -18,18 +17,17 @@ import { HandleSave } from "../utils/handleSave.jsx";
 import { HandleCart } from "../utils/handleCart.jsx";
 import { UserProfileButton } from "../utils/navItems.jsx";
 import { PopUp } from "../utils/popupMessage.jsx";
+import { Comments } from "../utils/Comments.jsx";
 
 function ProductDetail() {
   const { id } = useParams();
   const { products } = useContext(ProductsContext);
   const { user } = useContext(UserContext);
   const image = products.find((img) => String(img._id) == String(id));
-  const [comment, setComment] = useState("");
   const [num, setNum] = useState(1);
   const [select, setSelect] = useState("M");
-  const [description, setDescription] = useState(true);
   const [popupMsg, setPopupMsg] = useState(null);
-  
+
   if (!image) {
     return (
       <div className="w-full h-screen flex items-center justify-center">
@@ -42,7 +40,7 @@ function ProductDetail() {
     <>
       <div className="w-[100%] h-auto flex flex-col items-center justify-center gap-[1rem] mb-4">
         {/* pop up message */}
-        {popupMsg && <PopUp popupMsg={popupMsg} setPopupMsg={setPopupMsg}/>}
+        {popupMsg && <PopUp popupMsg={popupMsg} setPopupMsg={setPopupMsg} />}
         {/* navbar */}
         <section className="flex flex-row items-center py-2 px-6 justify-between w-[100%] h-auto">
           <BackButton />
@@ -129,49 +127,10 @@ function ProductDetail() {
             </div>
           </div>
           {/* horizontal line */}
-          <div className="w-full border-t-2 border-[#b48068]/50"></div>
-          {/* description div */}
-          <div className="w-full h-auto rounded-md p-4">
-            <span className="w-full text-[1.3rem] flex flex-row items-center justify-between">
-              <h1 className="font-semibold">Product Details</h1>
-              <IoIosArrowDown
-                className={`${description ? "rotate-180" : ""} transition-transform duration-300 ease`}
-                onClick={() => setDescription(!description)}
-              />
-            </span>
-            <p
-              className={`${description ? "block" : "hidden"} mt-3 text-justify text-md leading-6 transition-transform duration-500 ease`}
-            >
-              {image?.description}
-            </p>
-          </div>
+          <div className="w-full border-t-2 mb-2 border-[#b48068]/50"></div>
 
-          {/* comments div */}
-          <div className="w-full h-auto px-2 relative">
-            <div className="w-full">
-              <input
-                className="px-6 py-2 rounded-full w-full bg-gray-100 border-1 border-gray-500 text-[1.3rem]"
-                placeholder="Comments"
-                type="text"
-                value={comment}
-                onChange={(e) => setComment(e.target.value)}
-              />
-              <BsFillSendFill onClick={handleComment(image._id)}
-                className={`${comment ? "cursor-default text-gray-700" : "cursor-not-allowed text-gray-400"} absolute right-7 top-3 text-[1.6rem]`}
-              />
-            </div>
-            <div className="w-full h-auto p-4">
-              {products?.comments?.length > 0 ? (
-                products?.comments?.map((comment, index) => (
-                  <div key={index} className="mt-2">
-                    <p className="text-sm">{comment.text}</p>
-                  </div>
-                ))
-              ) : (
-                <p className="text-sm">No comments yet.</p>
-              )}
-            </div>
-          </div>
+          {/* comments section */}
+          <Comments image={image} user={user}/>
         </section>
       </div>
     </>

@@ -14,31 +14,31 @@ async function profile(req, res) {
             {
                 $lookup: {
                     from: "orders",
-                    localField: "orders",
-                    foreignField: "_id",
+                    localField: "_id",     
+                    foreignField: "user",    
                     as: "userOrders"
                 }
             },
             {
                 $lookup: {
                     from: "comments",
-                    localField: "comments",
-                    foreignField: "_id",
+                    localField: "_id",       
+                    foreignField: "user",   
                     as: "userComments"
                 }
             },
             {
                 $lookup: {
                     from: "reviews",
-                    localField: "reviews",
-                    foreignField: "_id",
+                    localField: "_id",      
+                    foreignField: "user",     
                     as: "userReviews"
                 }
             },
             {
                 $project: {
                     password: 0,
-                    __v: 0
+                    __v: 0,
                 }
             }
         ]);

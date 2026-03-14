@@ -9,7 +9,7 @@ async function deleteComment(req, res) {
         }
 
         // delete comment
-        const deletedComment = await Comment.findOneAndDelete({ user: userId, comment: commentId, product: productId });
+        const deletedComment = await Comment.findOneAndDelete({ user: userId, _id: commentId, product: productId });
         if (!deletedComment) {
             return res.status(400).json({ message: "User have no such comment" });
         }

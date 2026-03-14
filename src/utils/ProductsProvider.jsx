@@ -12,7 +12,7 @@ export const ProductsProvider = ({ children }) => {
 
     const memoizedValue = useMemo(() => ({ 
         products, 
-        discounts 
+        discounts,
     }), [products, discounts]);
 
     return (
