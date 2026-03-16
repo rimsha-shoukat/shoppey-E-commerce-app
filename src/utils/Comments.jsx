@@ -48,7 +48,7 @@ export const Comments = ({ image, user }) => {
                     onKeyDown={(e) => e.key === "Enter" && handleAdd()}
                 />
                 <BsFillSendFill
-                    onClick={!user ? () => navigate("/SignIn") : handleAdd}
+                    onClick={!user ? () => navigate("/SignIU") : handleAdd}
                     className={`${
                         comment.trim()
                             ? "cursor-pointer text-gray-700"

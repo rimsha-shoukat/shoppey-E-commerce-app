@@ -9,7 +9,9 @@ async function removeCoupons(req, res) {
 
         // find user, remove coupons and save user
         const user = await User.findById(req.user._id);
-        user.coupons = user.coupons.filter(coupon => !coupons.includes(coupon));
+        user.coupons = user.coupons.filter(
+            coupon => !coupons.some(c => c.code === coupon.code) 
+        );
         await user.save();
         return res.status(200).json({ message: "Coupons removed successfully" });
     } catch (error) {

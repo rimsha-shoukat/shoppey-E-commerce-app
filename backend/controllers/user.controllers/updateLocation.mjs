@@ -2,8 +2,6 @@ import User from "../../models/user.model.mjs";
 
 async function updateLocation(req, res) {
     try {
-                console.log(req.body);
-
         const { location } = req.body;
         if (!location) {
             return res.status(400).json({ message: "Location is required" });

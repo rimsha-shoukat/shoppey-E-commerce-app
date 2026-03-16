@@ -1,6 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { FaCartShopping } from "react-icons/fa6";
-import { BiSearch } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { FaRegHeart } from "react-icons/fa6";
 import { useParams } from "react-router-dom";
@@ -11,42 +10,57 @@ import { ProductPrice } from "../utils/productPrice.jsx";
 import { ProductsContext } from "../utils/ProductsProvider.jsx";
 import { BackButton } from "../utils/navItems.jsx";
 import { HandleSave } from "../utils/handleSave.jsx";
+import { FilterPanel } from "../utils/filterPanel.jsx";
+import { SearchBar } from "../utils/searchBar.jsx";
 
 function AllProducts() {
   const { products } = useContext(ProductsContext);
   const { param } = useParams();
   const [filterProducts, setFilterProducts] = useState([]);
-  const searchRef = useRef(null);
+  const [activeSearch, setActiveSearch] = useState("");
+  const [activeFilters, setActiveFilters] = useState({});
+  const applyFilters = (allProducts, search = "", filters = {}) => {
+    let items = [...allProducts];
 
-  // handle search
-  function handleSearchItems() {
-    if (searchRef.current.value !== "") {
-      const searchProducts = products.filter((product) =>
-        product.name
-          .toLowerCase()
-          .includes(searchRef.current.value.toLowerCase()),
+    // param filter (men/women/kids from URL)
+    if (param && ["men", "women", "kids"].includes(param)) {
+      items = items.filter((p) => p.category === param);
+    }
+
+    // search
+    if (search) {
+      items = items.filter((p) =>
+        p.name.toLowerCase().includes(search.toLowerCase())
       );
-      if (searchProducts.length > 0) {
-        setFilterProducts(searchProducts);
-      } else {
-        // no product found
-        setFilterProducts([]);
-      }
     }
-  }
 
-  // params filter
-  useEffect(() => {
-    let Items = [...products];
-    if (param) {
-      if (["men", "women", "kids"].includes(param)) {
-        Items = Items.filter((item) => item.category === param);
-      } else if (param === "rating") {
-        Items = Items.filter((item) => item.rating >= 3);
-      }
+    // category filter
+    if (filters.category) {
+      items = items.filter((p) => p.category === filters.category);
     }
-    setFilterProducts(Items);
-  }, [param, products]);
+
+    // price range
+    if (filters.minPrice) {
+      items = items.filter((p) => p.price >= Number(filters.minPrice));
+    }
+    if (filters.maxPrice) {
+      items = items.filter((p) => p.price <= Number(filters.maxPrice));
+    }
+
+    // rating
+    if (filters.rating) {
+      items = items.filter((p) => p.rating >= filters.rating);
+    }
+
+    return items;
+  };
+
+  useEffect(() => {
+    setFilterProducts(applyFilters(products, activeSearch, activeFilters));
+  }, [param, products, activeSearch, activeFilters]);
+
+  const handleSearch = (value) => setActiveSearch(value);
+  const handleFilter = (filters) => setActiveFilters(filters);
 
   return (
     <>
@@ -65,21 +79,12 @@ function AllProducts() {
         </section>
 
         {/* second navbar search field */}
-        <section className="flex flex-col items-center justify-center w-full p-6 h-auto bg-linear-to-l from-[#dd957a] to-[#eee2ca] gap-2">
-          <h1 className="font-bold text-2xl max-[400px]:text-xl">
-            Explore All Products
-          </h1>
-          <div className=" flex flex-row items-center justify-center w-[100%] gap-2">
-            <input
-              type="text"
-              ref={searchRef}
-              placeholder="Search"
-              className="w-[50%] max-[550px]:w-[90%] h-[2.5rem] px-4 rounded-full  border-none bg-white/50 text-black placeholder:text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#b48068]"
-            />
-            <BiSearch
-              onClick={() => handleSearchItems()}
-              className="font-bold cursor-default text-2xl hover:text-[#b48068]"
-            />
+
+        <section className="flex flex-col items-center justify-center w-full p-6 h-auto bg-linear-to-l from-[#dd957a] to-[#eee2ca] gap-3">
+          <h1 className="font-bold text-2xl max-[400px]:text-xl">Explore All Products</h1>
+          <div className="flex flex-row items-center gap-3 w-full justify-center">
+            <SearchBar onSearch={handleSearch} />
+            <FilterPanel onFilter={handleFilter} />
           </div>
         </section>
 

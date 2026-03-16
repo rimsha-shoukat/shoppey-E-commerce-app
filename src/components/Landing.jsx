@@ -1,93 +1,135 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { RiArrowRightDoubleFill } from "react-icons/ri";
-import { TbLayoutNavbarExpand } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../utils/UserProvider.jsx";
 import { UserProfileButton } from "../utils/navItems.jsx";
 
 function Landing() {
-  const [navView, setNavView] = useState(false);
+  const [navOpen, setNavOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { user } = useContext(UserContext);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const navLinks = [
+    { to: "/AllProducts", label: "ALL" },
+    { to: "/AllProducts/men", label: "MEN" },
+    { to: "/AllProducts/women", label: "WOMEN" },
+    { to: "/AllProducts/kids", label: "KIDS" },
+  ];
+
   return (
-    <>
-      <div className="relative w-[100%] h-screen">
-        {/* Background Image */}
-        <img
-          className="absolute w-[100%] h-[100vh]"
-          src="assets/landing-bg.webp"
-          alt="landing Image"
-        />
-        {/* Content */}
-        <div className="relative flex flex-col gap-[2rem] pt-[1rem] max-[710px]:pt-[0rem] w-[100%] h-[100vh]">
-          <nav className="flex flex-row items-center justify-between px-[3rem] w-[100%] h-[6%]">
-            {/* shop logo or name */}
-            <button className="font-extrabold  text-lg max-[710px]:text-md">
-              shoppey
+    <div className="relative w-full h-screen max-[710px]:h-auto overflow-hidden">
+      {/* Background */}
+      <img
+        className="absolute inset-0 w-full h-full object-cover"
+        src="assets/landing-bg.webp"
+        alt="landing"
+      />
+      {/* Light overlay */}
+      <div className="absolute inset-0 bg-white/20" />
+
+      {/* ── NAVBAR ── */}
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled
+            ? "bg-white/80 backdrop-blur-md shadow-sm py-3"
+            : "bg-transparent py-5"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+
+          {/* Logo */}
+          <span className="text-2xl font-extrabold tracking-wide select-none text-gray-900">
+            shoppey
+          </span>
+
+          <div className="hidden min-[710px]:flex items-center gap-10">
+            {navLinks.map(({ to, label }) => (
+              <Link key={to} to={to}>
+                <span className="text-xs font-semibold tracking-widest text-gray-800 hover:text-[#b48068] border-b-2 border-transparent hover:border-[#b48068] pb-0.5 transition-all duration-300">
+                  {label}
+                </span>
+              </Link>
+            ))}
+          </div>
+
+          <div className="hidden min-[710px]:flex items-center">
+            <UserProfileButton user={user} />
+          </div>
+
+          <div className="flex min-[710px]:hidden items-center gap-4">
+            <UserProfileButton user={user} />
+            <button
+              onClick={() => setNavOpen(!navOpen)}
+              className="flex flex-col gap-[5px] p-1 cursor-default group"
+            >
+              <span className={`block w-5 h-[1.5px] bg-gray-900 transition-all duration-300 origin-center ${navOpen ? "translate-y-[6.5px] rotate-45" : ""}`} />
+              <span className={`block w-5 h-[1.5px] bg-gray-900 transition-all duration-300 ${navOpen ? "opacity-0 scale-x-0" : ""}`} />
+              <span className={`block w-5 h-[1.5px] bg-gray-900 transition-all duration-300 origin-center ${navOpen ? "-translate-y-[6.5px] -rotate-45" : ""}`} />
             </button>
-            <div className="static max-[710px]:w-auto w-[80%]">
-              {/* hide or show navbar icon */}
-              <TbLayoutNavbarExpand
-                onClick={() => setNavView(!navView)}
-                className="hidden cursor-default text-2xl max-[710px]:block"
-              />
-              {/* navbar buttons */}
-              <div
-                className={`flex max-[710px]:flex-col text-sm max-[710px]:w-[85%] max-[710px]:h-auto min-[710px]:flex ${navView ? "block" : "hidden"} max-[710px]:right-[3rem] max-[710px]:absolute max-[710px]:bg-[#b48068] font-bold  flex-row items-center justify-end max-[710px]:gap-[0rem] gap-[3rem]`}
-              >
-                <Link to="/AllProducts" className="max-[710px]:w-[100%]">
-                  <button className="cursor-default hover:transition-all duration-700 ease-in-out max-[710px]:hover:bg-black max-[710px]:w-[100%] max-[710px]:hover:text-[#b48068] max-[710px]:hover:border-none max-[710px]:py-[1rem] hover:border-b-2 border-b-black">
-                    ALL
-                  </button>
-                </Link>
-                <Link to="/AllProducts/men" className="max-[710px]:w-[100%]">
-                  <button className="cursor-default hover:transition-all duration-700 ease-in-out max-[710px]:hover:bg-black max-[710px]:w-[100%] max-[710px]:hover:text-[#b48068] max-[710px]:hover:border-none max-[710px]:py-[1rem] hover:border-b-2 border-b-black">
-                    MEN
-                  </button>
-                </Link>
-                <Link to="/AllProducts/women" className="max-[710px]:w-[100%]">
-                  <button className="cursor-default hover:transition-all duration-700 ease-in-out max-[710px]:hover:bg-black max-[710px]:w-[100%] max-[710px]:hover:text-[#b48068] max-[710px]:hover:border-none max-[710px]:py-[1rem] hover:border-b-2 border-b-black">
-                    WOMEN
-                  </button>
-                </Link>
-                <Link to="/AllProducts/kids" className="max-[710px]:w-[100%]">
-                  <button className="cursor-default hover:transition-all duration-700 ease-in-out max-[710px]:hover:bg-black max-[710px]:w-[100%] max-[710px]:hover:text-[#b48068] max-[710px]:hover:border-none max-[710px]:py-[1rem] hover:border-b-2 border-b-black">
-                    KIDS
-                  </button>
-                </Link>
-                <UserProfileButton user={user} />
-              </div>
-            </div>
-          </nav>
-
-          {/* landing main content */}
-          <main className="flex flex-row max-[710px]:flex-col max-[710px]:gap-[1rem] overflow-hidden items-center justify-between w-[100%] h-[94%]">
-            <section className="w-[50%] h-[100%] max-[710px]:h-auto flex items-center justify-center">
-              <div className="w-auto h-auto flex flex-col items-start justify-start max-[710px]:gap-[1rem] gap-[2rem]">
-                <h1 className="text-[clamp(2.2rem,3.5vw,5rem)] font-semibold  text-nowrap max-[360px]:text-[1.8rem] select-none">
-                  Picked Every Item <br /> With Care, You <br /> Must Try
-                </h1>
-                {/* button to navigate */}
-                <Link to="/AllProducts">
-                  <button className="group hover:transition-all duration-700 ease-in-out text-[1.3rem] text-nowrap font-bold  cursor-default border-2 border-black px-[0.5rem] text-[#b48068] hover:bg-transparent hover:text-black bg-black">
-                    see collection
-                    <RiArrowRightDoubleFill className="inline text-[1.6rem] group-hover:translate-x-2 transition-all duration-700 ease-in-out" />
-                  </button>
-                </Link>
-              </div>
-            </section>
-
-            {/* side image */}
-            <img
-              className="w-[50%] h-[100%] max-[710px]:w-[70%] max-[560px]:w-[90%] max-[360px]:w-[100%] px-[2rem] rounded-bl-[10rem] overflow-hidden"
-              src="assets/landing-side-img.webp"
-              alt="side-img"
-            />
-          </main>
+          </div>
         </div>
+
+        {/* dropdown menu */}
+        {navOpen && (
+          <div className="min-[710px]:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-100 shadow-lg flex flex-col py-2">
+            {navLinks.map(({ to, label }) => (
+              <Link key={to} to={to} onClick={() => setNavOpen(false)}>
+                <span className="block px-8 py-4 text-xs font-bold tracking-widest text-gray-800 hover:text-[#b48068] hover:bg-[#b48068]/5 transition-colors duration-200 border-b border-gray-50">
+                  {label}
+                </span>
+              </Link>
+            ))}
+          </div>
+        )}
+      </nav>
+
+      {/* ── CONTENT ── */}
+      <div className="relative z-10 flex flex-col h-full pt-20">
+        <main className="flex flex-row max-[710px]:flex-col items-center justify-between w-full h-full px-8 max-[710px]:px-4 max-[710px]:gap-6 max-[710px]:pt-6 max-[710px]:pb-4">
+
+          {/* Left: text */}
+          <section className="w-1/2 max-[710px]:w-full flex items-center justify-center">
+            <div className="flex flex-col items-start gap-6 max-[710px]:gap-4">
+              <span className="flex items-center gap-2 text-[0.7rem] font-semibold tracking-widest uppercase text-[#b48068] border border-[#b48068]/50 px-3 py-1.5 rounded-full">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#b48068] animate-pulse" />
+                New Collection
+              </span>
+
+              <h1 className="text-[clamp(2rem,3.5vw,4.5rem)] font-semibold leading-tight select-none text-gray-900 max-[360px]:text-[1.8rem]">
+                Picked Every Item <br />
+                With Care, You <br />
+                Must Try
+              </h1>
+
+              <p className="text-sm text-gray-500 font-normal max-w-xs max-[710px]:hidden">
+                Curated fashion for every moment — shop men, women & kids.
+              </p>
+
+              <Link to="/AllProducts">
+                <button className="group flex items-center gap-2 text-sm font-bold tracking-widest uppercase cursor-default border-2 border-gray-900 px-6 py-3 text-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-300">
+                  See Collection
+                  <RiArrowRightDoubleFill className="text-xl group-hover:translate-x-1.5 transition-transform duration-300" />
+                </button>
+              </Link>
+            </div>
+          </section>
+
+          {/* Right: image */}
+          <img
+            className="w-[44%] h-[100%] max-[710px]:w-[70%] max-[560px]:w-[90%] max-[360px]:w-full object-cover px-4 rounded-bl-[6rem] shadow-2xl"
+            src="assets/landing-side-img.webp"
+            alt="side-img"
+          />
+        </main>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -7,7 +7,7 @@ export function ProductPrice({ price, category }) {
 
   const discountedPrice = discount?.percent
     ? (price - (price * discount?.percent) / 100).toFixed(2)
-    : price.toFixed(2);
+    : price?.toFixed(2);
 
   return (
     <div className="flex flex-col">

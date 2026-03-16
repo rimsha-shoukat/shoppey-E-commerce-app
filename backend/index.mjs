@@ -6,7 +6,6 @@ import cookieParser from "cookie-parser";
 
 // all routes
 import userRoute from "./routes/user.route.mjs";
-import reviewRoute from "./routes/review.route.mjs";
 import productRoute from "./routes/product.route.mjs";
 import orderRoute from "./routes/order.route.mjs";
 import commentRoute from "./routes/comment.route.mjs";
@@ -33,7 +32,6 @@ try {
 
 // routes
 app.use("/api/user", userRoute);
-app.use("/api/review", reviewRoute);
 app.use("/api/products", productRoute);
 app.use("/api/order", orderRoute);
 app.use("/api/comment", commentRoute);

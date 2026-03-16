@@ -12,49 +12,53 @@ import ProductDetail from './pages/ProductDetail.jsx';
 import Cart from './pages/Cart.jsx';
 import Save from './pages/Save.jsx';
 import User from "./pages/User.jsx";
+import Checkout from "./pages/Checkout.jsx";
+import OrderDetail from "./pages/OrderDetail.jsx";
 import { UserProvider } from './utils/UserProvider.jsx';
 import { ProductsProvider } from './utils/ProductsProvider.jsx';
 
 function App() {
   return (
     <>
-    <ProductsProvider>
-      <UserProvider>
-        <Routes>
-        <Route path="/" element={
-          <>
-            <Landing />
-            <Discount />
-            <BestSeller />
-            <Product />
-            <About />
-            <Social />
-          </>
-        } />
-        <Route path="/User" element={
-          <User />
-        } />
-        <Route path="/SignIU" element={
-          <SignIU />
-        } />
-        <Route path="/AllProducts" element={
-          <AllProducts />
-        } />
-        <Route path="/AllProducts/:param" element={
-          <AllProducts />
-        } />
-        <Route path="/ProductDetail/:id" element={
-          <ProductDetail />
-        } />
-        <Route path="/Cart" element={
-          <Cart />
-        } />
-        <Route path="/Save" element={
-          <Save />
-        } />
-      </Routes>
-      </UserProvider>
-    </ProductsProvider>
+      <ProductsProvider>
+        <UserProvider>
+          <Routes>
+            <Route path="/" element={
+              <>
+                <Landing />
+                <Discount />
+                <BestSeller />
+                <Product />
+                <About />
+                <Social />
+              </>
+            } />
+            <Route path="/User" element={
+              <User />
+            } />
+            <Route path="/SignIU" element={
+              <SignIU />
+            } />
+            <Route path="/AllProducts" element={
+              <AllProducts />
+            } />
+            <Route path="/AllProducts/:param" element={
+              <AllProducts />
+            } />
+            <Route path="/ProductDetail/:id" element={
+              <ProductDetail />
+            } />
+            <Route path="/Cart" element={
+              <Cart />
+            } />
+            <Route path="/Save" element={
+              <Save />
+            } />
+            <Route path="/Checkout" element={<Checkout />} />
+            <Route path="/OrderDetail" element={<OrderDetail />} />
+          </Routes>
+        </UserProvider>
+      </ProductsProvider>
     </>
   )
 }

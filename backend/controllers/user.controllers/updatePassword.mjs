@@ -1,25 +1,15 @@
 import User from "../../models/user.model.mjs";
 import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
 
 async function updatePassword(req, res) {
     try {
-        const { currentPassword, newPassword } = req.body;
-        if (!currentPassword || !newPassword) {
+        const { email, newPassword } = req.body;
+        if (!email || !newPassword) {
             return res.status(400).json({ message: "Password's can't be empty" });
-        }
-
-        // check if the password is updated
-        if (currentPassword === newPassword) {
-            return res.status(400).json({ message: "New password must be different from current" });
         }
 
         // check if current password is correct
         const user = await User.findById(req.user._id);
-        const isMatch = await bcrypt.compare(currentPassword, user.password);
-        if (!isMatch) {
-            return res.status(400).json({ message: "Current password is incorrect" });
-        }
 
         // hash password
         const salt = await bcrypt.genSalt(10);

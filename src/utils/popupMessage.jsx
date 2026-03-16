@@ -11,7 +11,7 @@ export const PopUp = ({ popupMsg, setPopupMsg }) => {
 
     return (
         <span
-            className="border border-amber-50 p-2 bg-[#b48068] text-white rounded-sm text-sm absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50"
+            className="border border-amber-50 p-2 bg-[#b48068] text-white rounded-sm text-sm fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50"
         >
             {popupMsg}
         </span>

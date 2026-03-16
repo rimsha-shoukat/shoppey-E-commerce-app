@@ -28,14 +28,6 @@ async function profile(req, res) {
                 }
             },
             {
-                $lookup: {
-                    from: "reviews",
-                    localField: "_id",      
-                    foreignField: "user",     
-                    as: "userReviews"
-                }
-            },
-            {
                 $project: {
                     password: 0,
                     __v: 0,

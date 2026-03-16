@@ -1,14 +1,21 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { userStore } from "../Store/userStore.js";
 import { HandleCart } from "./handleCart.jsx";;
 import { Link } from "react-router-dom";
 import { PopUp } from "./popupMessage.jsx";
+import { ProductsContext } from "./ProductsProvider.jsx";
 
 export const Saves = ({ user, products }) => {
   const { updateSave, removeSaved } = userStore();
     const [popupMsg, setPopupMsg] = useState(null);
+    const { discounts } = useContext(ProductsContext);
   const saveItemsList =  products.filter(product => user?.saved?.includes(product?._id)) || [];
-
+  const getDiscountedPrice = (price, category) => {
+    const discount = discounts?.find(dis => dis.category == category);
+    return discount?.percent
+      ? parseFloat((price - (price * discount.percent) / 100).toFixed(2))
+      : parseFloat(price?.toFixed(2));
+  };
   if (saveItemsList?.length === 0) {
     return (
       <div className="w-full h-auto flex flex-col items-center justify-center">
@@ -34,11 +41,11 @@ export const Saves = ({ user, products }) => {
           </Link>
           <div className="flex flex-row max-[600px]:flex-col max-[600px]:gap-4 items-start justify-between gap-12 ">
             <div className="flex flex-col items-start justify-start gap-2">
-              <h1 className="text-[1.3rem] leading-7 max-[750px]:text-[1rem] max-[750px]:leading-5 w-[20rem] max-[750px]:w-56 max-[650px]:w-40 max-[600px]:w-[18rem] max-[440px]:w-60 max-[400px]:w-48 max-[320px]:w-40 overflow-hidden font-bold max-[400px]:text-[0.85rem] max-[400px]:font-semibold">
+              <h1 className="text-[1.3rem] leading-7 line-clamp-1 max-[750px]:text-[1rem] max-[750px]:leading-5 w-[20rem] max-[750px]:w-56 max-[650px]:w-40 max-[600px]:w-[18rem] max-[440px]:w-60 max-[400px]:w-48 max-[320px]:w-40 overflow-hidden font-bold max-[400px]:text-[0.85rem] max-[400px]:font-semibold">
                 {item?.name}
               </h1>
                 <p className="text-md text-nowrap max-[400px]:text-sm">
-                  ${item?.price}
+                   ${getDiscountedPrice(item?.price, item?.category).toFixed(2)}
                 </p>
             </div>
             <div className="flex flex-row items-start justify-start gap-2">

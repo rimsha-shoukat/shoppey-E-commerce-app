@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaRegHeart } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
 import { useContext } from "react";
@@ -7,14 +7,29 @@ import { UserContext } from "../utils/UserProvider.jsx";
 import { UserProfileButton } from "../utils/navItems.jsx";
 import { BackButton } from "../utils/navItems.jsx";
 import { Carts } from "../utils/cartList.jsx";
+import { userStore } from "../Store/userStore.js";
 
 function Cart() {
   const { user } = useContext(UserContext);
   const [discount, setDiscount] = useState(0);
-  const [delivery, setDelivery] = useState(0);
   const [bill, setBill] = useState(0);
   const [show, setShow] = useState(false);
   const [coupon, setCoupon] = useState("");
+  const navigate = useNavigate();
+  const { removeCoupons, setCartDiscount } = userStore();
+
+  const setCouponDiscount = async () => {
+    const existedCoupon = user?.coupons?.find(c => c.code === coupon);
+    if (existedCoupon) {
+      setDiscount(prev => prev + existedCoupon.price);
+      setCartDiscount(existedCoupon.price);
+      setShow(false);
+      setCoupon("");
+      await removeCoupons([existedCoupon]); 
+    } else {
+      setShow(true);
+    }
+  };
 
   return (
     <>
@@ -32,9 +47,10 @@ function Cart() {
           <h1 className="font-bold text-2xl">Shopping Cart</h1>
         </section>
         {user ? (
-          <section className="w-[100%] h-auto flex flex-col items-center justify-center">
+          <section className="w-auto h-auto flex flex-col items-center justify-center">
             <Carts
               user={user}
+              setBill={setBill}
             />
 
             <div className="w-[100%] flex flex-row max-[500px]:flex-col items-start max-[500px]:items-center gap-2 max-[500px]:gap-4 justify-between py-6 border-t-2 border-t-gray-400">
@@ -48,7 +64,9 @@ function Cart() {
                     placeholder="Coupon code"
                     className="w-[10rem] h-[2.5rem] px-4 rounded-sm border-gray-300 bg-white/50 text-black placeholder:text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#b48068]"
                   />
-                  <FaArrowRight className="w-[2rem] h-[2rem] text-white cursor-default p-2 bg-black rounded-full" />
+                  <FaArrowRight
+                    onClick={setCouponDiscount}
+                    className="w-[2rem] h-[2rem] text-white cursor-default p-2 bg-black rounded-full" />
                 </div>
                 {show && (
                   <p className="text-sm text-red-500">Code does not exist!</p>
@@ -57,16 +75,16 @@ function Cart() {
               <div className="w-[100%] flex flex-col gap-2 items-start justify-start">
                 <h1>
                   Delivery charges:{" "}
-                  <span className="font-bold">${delivery?.toFixed(2)}</span>
+                  <span className="font-bold">${20}</span>
                 </h1>
                 <h1>
-                  Discount:{" "}
+                  Coupon discount:{" "}
                   <span className="font-bold">${discount?.toFixed(2)}</span>
                 </h1>
                 <h1 className="text-[2rem] max-[350px]:text-[1rem]">
-                  Total: <span className="font-bold">${bill?.toFixed(2)}</span>
+                  Total: <span className="font-bold">${(bill + 20 - discount).toFixed(3)}</span>
                 </h1>
-                <button className="w-[100%] bg-black text-white rounded-sm cursor-default py-2">
+                <button onClick={() => navigate("/Checkout")} className="w-[100%] bg-black text-white rounded-sm cursor-default py-2">
                   Proceed to checkout
                 </button>
               </div>

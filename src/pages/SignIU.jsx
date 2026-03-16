@@ -53,10 +53,10 @@ function SignIU() {
 
   return (
     <>
-      <div className="mt-4 ml-4">
+      <div className="m-4">
         <BackButton />
       </div>
-      <main className="relative flex flex-row  items-center justify-center w-full mt-2 h-full select-none">
+      <main className="relative flex flex-row  items-center justify-center w-full h-auto select-none">
         {/* forms section */}
         <section className="relative max-[440px]:w-screen max-[800px]:h-auto w-[26rem] h-[30rem] bg-[#eee2ca] rounded-xl border-0 shadow-xl">
           {/* signin form */}

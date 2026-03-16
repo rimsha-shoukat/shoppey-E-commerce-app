@@ -84,7 +84,7 @@ function ProductDetail() {
                 <h1 className="text-[1.3rem] font-bold line-clamp-2">{image?.name}</h1>
               </span>
               <div className=" w-full flex flex-row items-center justify-between">
-                <ProductPrice price={image?.price} />
+                <ProductPrice price={image?.price} category={image?.category} />
                 <HandleSave productId={image?._id} />
               </div>
               <div className="flex flex-row item-center justify-center gap-[1rem] border-y-2 border-white p-2 mb-2 leading-4">

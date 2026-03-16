@@ -12,7 +12,6 @@ import removeCart from "../controllers/user.controllers/removeCart.mjs";
 import updateLocation from "../controllers/user.controllers/updateLocation.mjs";
 import updateNumber from "../controllers/user.controllers/updateNumber.mjs";
 import updateRank from "../controllers/user.controllers/updateRank.mjs";
-import addCoupons from "../controllers/user.controllers/addCoupons.mjs";
 import removeCoupons from "../controllers/user.controllers/removeCoupons.mjs";
 import logout from "../controllers/user.controllers/logout.mjs";
 import deleteAccount from "../controllers/user.controllers/deleteAccount.mjs";
@@ -20,6 +19,7 @@ import getComments from "../controllers/user.controllers/getComments.mjs";
 import getReviews from "../controllers/user.controllers/getReviews.mjs";
 import getUser from "../middleware/getUser.mjs";
 import setItemQuantity from "../controllers/user.controllers/setItemQuantity.mjs";
+import clearCart from "../controllers/user.controllers/clearCart.mjs";
 import express from "express";
 const router = express.Router();
 
@@ -27,7 +27,7 @@ const router = express.Router();
 router.post("/signin", signin);
 router.post("/signup", signup);
 router.post("/profile/logout", getUser, logout);
-router.delete("/profile/deleteAccount", getUser, deleteAccount);
+router.patch("/profile/deleteAccount", getUser, deleteAccount);
 
 // user routes
 router.get("/profile", getUser, profile);
@@ -39,10 +39,10 @@ router.patch("/profile/updateSaved", getUser, updateSaved);
 router.patch("/profile/removeSaved", getUser, removeSaved);
 router.patch("/profile/updateCart", getUser, updateCart);
 router.patch("/profile/removeCart", getUser, removeCart);
+router.patch("/profile/clearCart", getUser, clearCart);
 router.patch("/profile/updateLocation", getUser, updateLocation);
 router.patch("/profile/updateNumber", getUser, updateNumber);
 router.patch("/profile/updateRank", getUser, updateRank);
-router.patch("/profile/addCoupons", getUser, addCoupons);
 router.patch("/profile/removeCoupons", getUser, removeCoupons);
 router.get("/profile/getComments", getUser, getComments);
 router.get("/profile/getReviews", getUser, getReviews);

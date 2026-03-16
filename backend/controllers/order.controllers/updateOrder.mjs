@@ -1,18 +1,24 @@
 import Order from "../../models/order.model.mjs";
 
-async function updateOrder(req, res) {
+async function updateOrderStatus(req, res) {
     try {
-        const userId = req.user._id;
         const { orderId, status } = req.body;
-
-        // find order and update status
-        const order = await Order.findOne({ _id: orderId, user: userId });
-        order.status = status;
-        order.save();
-        return res.status(200).json({ message: "User order updated successfully" });
+        await Order.findByIdAndUpdate({ _id: orderId }, { status });
+        if (status === "delivered") {
+            const couponCode = `SHOP${Date.now().toString().slice(-6)}`
+            await User.findByIdAndUpdate(req.user._id, {
+                $push: {
+                    coupons: {
+                        code: couponCode,
+                        price: 10,
+                    }
+                }
+            });
+        }
+        return res.status(200).json({ message: "Order status updated" });
     } catch (error) {
         return res.status(500).json({ message: "Internal server error" });
     }
 }
 
-export default updateOrder;
+export default updateOrderStatus;

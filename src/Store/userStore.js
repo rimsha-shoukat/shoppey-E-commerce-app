@@ -7,6 +7,7 @@ export const userStore = create((set, get) => ({
     message: "",
     loading: false,
     error: "",
+    cartDiscount: 0,
     fetchUser: async () => {
         set({ loading: true, error: "", message: "" });
         try {
@@ -54,10 +55,10 @@ export const userStore = create((set, get) => ({
             set({ error: getErrorMessage(error), loading: false });
         }
     },
-    deleteAccount: async () => {
+    deleteAccount: async ({ email, password }) => {
         set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.delete(`user/profile/deleteAccount`);
+            const response = await axios.patch(`user/profile/deleteAccount`, { email, password });
             set({ user: null, message: response.data.message, loading: false });
         } catch (error) {
             set({ error: getErrorMessage(error), loading: false });
@@ -93,10 +94,10 @@ export const userStore = create((set, get) => ({
             set({ error: getErrorMessage(error), loading: false });
         }
     },
-    updatePassword: async (currentPassword, newPassword) => {
+    forgotPassword: async (email, newPassword) => {
         set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.patch(`user/profile/updatePassword`, { currentPassword, newPassword });
+            const response = await axios.patch(`user/profile/updatePassword`, { email, newPassword });
             set({ message: response.data.message, loading: false });
             await get().fetchUser();
         } catch (error) {
@@ -126,7 +127,7 @@ export const userStore = create((set, get) => ({
     updateCart: async (size, quantity, productId) => {
         set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.patch(`user/profile/updateCart`, {size, quantity, productId});
+            const response = await axios.patch(`user/profile/updateCart`, { size, quantity, productId });
             set({ message: response.data.message, loading: false });
             await get().fetchUser();
         } catch (error) {
@@ -136,7 +137,7 @@ export const userStore = create((set, get) => ({
     removeCart: async (productId) => {
         set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.patch(`user/profile/removeCart`, productId );
+            const response = await axios.patch(`user/profile/removeCart`, productId);
             set({ message: response.data.message, loading: false });
             await get().fetchUser();
         } catch (error) {
@@ -173,16 +174,6 @@ export const userStore = create((set, get) => ({
             set({ error: getErrorMessage(error), loading: false });
         }
     },
-    addCoupons: async (coupons) => {
-        set({ loading: true, error: "", message: "" });
-        try {
-            const response = await axios.patch(`user/profile/addCoupons`, { coupons });
-            set({ message: response.data.message, loading: false });
-            await get().fetchUser();
-        } catch (error) {
-            set({ error: getErrorMessage(error), loading: false });
-        }
-    },
     removeCoupons: async (coupons) => {
         set({ loading: true, error: "", message: "" });
         try {
@@ -193,7 +184,7 @@ export const userStore = create((set, get) => ({
             set({ error: getErrorMessage(error), loading: false });
         }
     },
-    setItemQuantity: async(itemId, quantity) => {
+    setItemQuantity: async (itemId, quantity) => {
         set({ loading: true, error: "", message: "" });
         try {
             const response = await axios.patch(`user/profile/setItemQuantity`, { itemId, quantity });
@@ -202,5 +193,36 @@ export const userStore = create((set, get) => ({
         } catch (error) {
             set({ error: getErrorMessage(error), loading: false });
         }
-    }
+    },
+    clearCart: async () => {
+        set({ loading: true, error: "", message: "" });
+        try {
+            const response = await axios.patch(`user/profile/clearCart`);
+            set({ message: response.data.message, loading: false });
+            await get().fetchUser();
+        } catch (error) {
+            set({ error: getErrorMessage(error), loading: false });
+        }
+    },
+
+    addOrder: async (order) => {
+        set({ loading: true, error: "", message: "" });
+        try {
+            const response = await axios.patch(`order/placeOrder`, { order });
+            set({ message: response.data.message, loading: false });
+            await get().fetchUser();
+        } catch (error) {
+            set({ error: getErrorMessage(error), loading: false });
+        }
+    },
+    updateOrderStatus: async (orderId, status) => {
+        try {
+            await axios.patch(`user/profile/updateOrderStatus`, { orderId, status });
+            await get().fetchUser();
+        } catch (error) {
+            set({ error: getErrorMessage(error) });
+        }
+    },
+    setCartDiscount: (amount) => set({ cartDiscount: amount }),
+    clearCartDiscount: () => set({ cartDiscount: 0 }),
 }));

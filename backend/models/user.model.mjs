@@ -61,7 +61,7 @@ const userSchema = new mongoose.Schema({
         default: "customer",
     },
     coupons: [{
-        name: {
+        code: {
             type: String,
             trim: true,
         },
