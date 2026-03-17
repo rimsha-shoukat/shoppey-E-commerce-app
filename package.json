@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "description": "Welcome to Shoppey, a modern e-commerce application built with React.js! This app provides users with a seamless shopping experience, allowing them to browse products, add items to their cart, and complete purchases with ease.",
-  "homepage": "https://rimsha-shoukat.github.io/shoppey-E-commerce-app",
   "bugs": {
     "url": "https://github.com/rimsha-shoukat/shoppey-E-commerce-app/issues"
   },
@@ -19,9 +18,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@cloudinary/react": "^1.14.4",
