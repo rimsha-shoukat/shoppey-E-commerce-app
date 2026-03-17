@@ -33,3 +33,23 @@ export function validateSigninFields({ form, setErrorMessage }) {
     }
     return true;
 }
+
+export function validatePassword({ password, setErrorMessage }) {
+    if (password.trim().length < 8) {
+        setErrorMessage("Your password must be atleast 8 characters.");
+        return false;
+    }
+    if (!(/[a-z]/).test(password)) {
+        setErrorMessage("Your password must contain atleast one lowercase letter.");
+        return false;
+    }
+    if (!(/[A-Z]/).test(password)) {
+        setErrorMessage("Your password must contain atleast one uppercase letter.");
+        return false;
+    }
+    if (!(/[0-9]/).test(password)) {
+        setErrorMessage("Your password must contain atleast one digit.");
+        return false;
+    }
+    return true;
+}

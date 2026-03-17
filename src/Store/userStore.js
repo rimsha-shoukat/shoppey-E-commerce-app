@@ -94,10 +94,10 @@ export const userStore = create((set, get) => ({
             set({ error: getErrorMessage(error), loading: false });
         }
     },
-    forgotPassword: async (email, newPassword) => {
+    updatePassword: async ({ oldPassword, newPassword }) => {
         set({ loading: true, error: "", message: "" });
         try {
-            const response = await axios.patch(`user/profile/updatePassword`, { email, newPassword });
+            const response = await axios.patch(`user/profile/updatePassword`, { oldPassword, newPassword });
             set({ message: response.data.message, loading: false });
             await get().fetchUser();
         } catch (error) {

@@ -86,9 +86,6 @@ function SignIU() {
             <p className="text-red-800 w-full text-start text-xs">
               {errorMessage}
             </p>
-            <button className="cursor-default text-sm text-gray-600 hover:text-red-600 mt-[1rem]">
-              Forget your password!
-            </button>
             <button
               type="submit"
               className="cursor-default text-[1.5rem] shadow-md px-[3rem] py-[0.55rem] font-bold rounded-full bg-white/50"

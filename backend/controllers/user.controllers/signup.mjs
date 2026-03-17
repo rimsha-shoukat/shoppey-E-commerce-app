@@ -22,9 +22,14 @@ async function signup(req, res) {
         const user = new User({ name, email, password: hashedPassword });
         await user.save();
         // create token
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "24h" });
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "365d" });
         // set token in cookies
-        res.cookie("token", token, { httpOnly: true });
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: "strict",
+            maxAge: 365 * 24 * 60 * 60 * 1000
+        });
         // return user token
         return res.status(201).json({ message: "User signup success", token });
     } catch (error) {

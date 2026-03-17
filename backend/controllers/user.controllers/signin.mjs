@@ -20,10 +20,16 @@ async function signin(req, res) {
         if (!isMatch) {
             return res.status(400).json({ message: "Invalid email or password" });
         }
-        // create token
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "24h" });
+        // create token and save in user
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "365d" });
+
         // set token in cookies
-        res.cookie("token", token, { httpOnly: true });
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: "strict",
+            maxAge: 365 * 24 * 60 * 60 * 1000
+        });
         // return user token
         return res.status(200).json({ message: "User signin success", token });
 

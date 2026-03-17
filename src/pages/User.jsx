@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { UpdateImage } from "../utils/updateImage.jsx";
 import { timeAgo } from "../utils/timeAgo.js";
 import { getSimulatedStatus, STATUS_COLOR, STATUS_LABELS } from "../utils/orderStatus.js";
+import { UpdatePassword } from "../utils/updatePassword.jsx";
 
 // Reusable editable field row
 const EditableField = ({ label, value, field, enableEdit, setEnableEdit, onChange, onSave, type = "text", placeholder }) => {
@@ -51,6 +52,7 @@ export default function User() {
   const [enableEdit, setEnableEdit] = useState("");
   const navigate = useNavigate();
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showUpdatePassword, setShowUpdatePassword] = useState(false);
 
   const [userState, setUserState] = useState({
     name: user?.name || "",
@@ -81,7 +83,7 @@ export default function User() {
         <span className="text-xs font-semibold uppercase tracking-widest text-gray-400">My Profile</span>
       </div>
       {showDeleteModal && <DeleteAccount onClose={() => setShowDeleteModal(false)} />}
-
+      {showUpdatePassword && <UpdatePassword onClose={() => setShowUpdatePassword(false)} />}
       <div className="w-full max-w-lg px-4 flex flex-col gap-4">
 
         {/* Profile Card */}
@@ -294,7 +296,13 @@ export default function User() {
               ))}
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-3 gap-3">
+          <button
+            onClick={() => setShowUpdatePassword(true)}
+            className="cursor-default py-3 rounded-xl text-sm font-bold tracking-wide border-2 border-[#b48068] text-[#b48068] hover:bg-[#b48068] hover:text-white transition-all duration-300"
+          >
+            Password
+          </button>
           <button
             onClick={handleLogout}
             className="cursor-default py-3 rounded-xl text-sm font-bold tracking-wide border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-300"
@@ -305,7 +313,7 @@ export default function User() {
             onClick={() => setShowDeleteModal(true)}
             className="cursor-default py-3 rounded-xl text-sm font-bold tracking-wide border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition-all duration-300"
           >
-            Delete Account
+            Delete
           </button>
         </div>
 
