@@ -76,7 +76,7 @@ function ProductDetail() {
                   )}
                 </span>
                 <p className="text-sm font-semibold">
-                  Stock:{image?.stock - image?.orderCount}
+                  Stock:{image?.stock}
                 </p>
               </div>
               <span>
