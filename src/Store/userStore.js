@@ -216,8 +216,9 @@ export const userStore = create((set, get) => ({
         }
     },
     updateOrderStatus: async (orderId, status) => {
+        console.log(orderId, status);
         try {
-            await axios.patch(`user/profile/updateOrderStatus`, { orderId, status });
+            await axios.patch(`/order/updateOrder`, { orderId, status });
             await get().fetchUser();
         } catch (error) {
             set({ error: getErrorMessage(error) });

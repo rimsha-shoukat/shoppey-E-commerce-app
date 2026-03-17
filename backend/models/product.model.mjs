@@ -24,11 +24,6 @@ const productSchema = new mongoose.Schema({
         required: [true, "Please provide stock for this product."],
         min: [0, "Stock cannot be negative."],
     },
-    orderCount: {
-        type: Number,
-        default: 0,
-        min: 0,
-    },
     rating: {
         type: Number,
         default: 0,

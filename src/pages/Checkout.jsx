@@ -83,7 +83,8 @@ function Checkout() {
         await addOrder(newOrder);
         await clearCart();
         clearCartDiscount();
-        const savedOrder = userStore.getState().user?.userOrders?.[0];
+        const orders = userStore.getState().user?.userOrders;
+        const savedOrder = orders?.[orders.length - 1];
         navigate("/OrderDetail", {
             state: {
                 order: savedOrder || newOrder,

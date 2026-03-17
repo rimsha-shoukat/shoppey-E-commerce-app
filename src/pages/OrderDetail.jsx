@@ -192,24 +192,6 @@ function OrderDetail() {
                         </div>
                     </div>
                 )}
-                {/* Coupon reward */}
-                {status === "delivered" && (
-                    <div className="bg-gradient-to-r from-[#b48068] to-[#eee2ca] rounded-xl p-5 flex flex-col gap-3">
-                        <div className="flex items-center gap-2">
-                            <span className="text-2xl">🎁</span>
-                            <h2 className="font-bold text-white text-base">You earned a coupon!</h2>
-                        </div>
-                        <p className="text-sm text-white/80">
-                            As a thank you for your order, a <span className="font-bold text-white">$10 coupon</span> has been added to your profile.
-                        </p>
-                        <button
-                            onClick={() => navigate("/User")}
-                            className="cursor-default self-start text-xs font-bold bg-white text-[#b48068] px-4 py-2 rounded-full hover:bg-white/90 transition-colors"
-                        >
-                            View in Profile →
-                        </button>
-                    </div>
-                )}
                 {/* Delivery address */}
                 <div className="bg-white rounded-xl border border-gray-200 p-5">
                     <h2 className="font-bold text-base mb-3">Delivery Address</h2>

@@ -111,12 +111,7 @@ function ProductDetail() {
                   </button>
                 ))}
               </div>
-              <div className="flex flex-row w-full items-center justify-start gap-[1rem]">
-                <button
-                  className={`rounded-sm w-auto py-1 px-3 bg-gray-600 hover:bg-gray-600/80 cursor-default transition-all duration-500 ease`}
-                >
-                  Buy now
-                </button>
+              <div className="flex flex-row w-full items-start justify-start">
                 <HandleCart
                   size={select}
                   quantity={num}
@@ -130,7 +125,7 @@ function ProductDetail() {
           <div className="w-full border-t-2 mb-2 border-[#b48068]/50"></div>
 
           {/* comments section */}
-          <Comments image={image} user={user}/>
+          <Comments image={image} user={user} />
         </section>
       </div>
     </>
