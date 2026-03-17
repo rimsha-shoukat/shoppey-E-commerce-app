@@ -27,12 +27,12 @@ function SignIU() {
     e.preventDefault();
     if (validateSigninFields({ form, setErrorMessage })) {
       const success = await signin({ form });
-        if (success) {
-            navigate("/");
-        } else {
-            const { error } = userStore.getState();
-            setErrorMessage(error);
-        }
+      if (success) {
+        navigate("/");
+      } else {
+        const { error } = userStore.getState();
+        setErrorMessage(error);
+      }
     }
   };
 
@@ -42,12 +42,12 @@ function SignIU() {
     setErrorMessage("");
     if (validateSignupFields({ form, setErrorMessage })) {
       const success = await signup({ form });
-        if (success) {
-            navigate("/"); 
-        } else {
-            const { error } = userStore.getState();
-            setErrorMessage(error);
-        }
+      if (success) {
+        navigate("/");
+      } else {
+        const { error } = userStore.getState();
+        setErrorMessage(error);
+      }
     }
   };
 
