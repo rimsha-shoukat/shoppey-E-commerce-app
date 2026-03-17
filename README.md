@@ -1,37 +1,155 @@
-# Shoppey E-commerce App
+# 🛍️ Shoppey — Full Stack E-Commerce App
 
-Welcome to Shoppey, a modern e-commerce application built with React.js! This app provides users with a seamless shopping experience, allowing them to browse products, add items to their cart, and complete purchases with ease.
+A modern, full-stack e-commerce application built with **React.js** and **Node.js**. Shoppey offers a seamless shopping experience with secure authentication, cloud-based user profile image uploads, and a fully responsive design.
 
-## Features
+**Live Demo:** [https://shoppey-e-commerce-app.vercel.app](https://shoppey-e-commerce-app.vercel.app)
 
-- **User -Friendly Interface**: Designed with a clean and intuitive layout, making it easy for users to navigate through products and categories.
-- **Product Listings**: Display a wide range of products with detailed descriptions, images, and pricing information.
-- **Shopping Cart**: Users can easily add, remove, and update items in their shopping cart, with real-time updates on total prices.
-- **User  Authentication**: Secure user registration and login functionality, allowing users to manage their accounts and view order history.
-- **Responsive Design**: Fully responsive layout that works seamlessly on both desktop and mobile devices.
-- **Search and Filter**: Users can quickly find products using search functionality and filter options based on categories, price range, and ratings.
+---
 
-## Technologies Used
+## ✨ Features
 
-- **React.js**: For building the user interface and managing state.
-- **CSS**: For styling the components and layout.
-- **Tailwind CSS**: For utility-first CSS styling.
+- **User Authentication** — Secure registration and login with JWT-based sessions
+- **Product Listings** — Browse products with images, descriptions, and pricing
+- **Shopping Cart** — Add, remove, and update items with real-time price totals
+- **Cloud Image Uploads** — Product images hosted via Cloudinary
+- **Search & Filter** — Find products by category, price range, and ratings
+- **Responsive Design** — Works seamlessly on desktop and mobile
 
-## Getting Started
+---
 
-To run the Shoppey E-commerce App locally, clone the repository and execute the following commands:
+## 🛠️ Tech Stack
 
+### Frontend
+- **React.js** — UI and state management
+- **Tailwind CSS** — Utility-first styling
+- **Zustand** — Global state management
+- **Axios** — HTTP requests
+- **React Router DOM** — Client-side routing
+- **Cloudinary** — User Profile display
+
+### Backend
+- **Node.js + Express** — REST API
+- **MongoDB + Mongoose** — Database
+- **JWT** — Authentication
+- **Cloudinary** — User Profile storage
+
+---
+
+## 📁 Project Structure
+
+```
+shoppey/
+├── backend/
+│   ├── index.mjs         # Express server entry point
+│   ├── routes/           # API routes
+│   ├── models/           # Mongoose models
+│   └── controllers/      # Route controllers
+├── src/                  # React frontend
+│   ├── components/
+│   ├── pages/
+│   ├── store/            # Zustand store
+│   └── utils/
+├── vite.config.js
+├── vercel.json
+└── package.json
+```
+
+---
+
+## 🚀 Getting Started Locally
+
+### Prerequisites
+- Node.js v18+
+- MongoDB database (local or Atlas)
+- Cloudinary account
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/rimsha-shoukat/shoppey-E-commerce-app.git
+cd shoppey-E-commerce-app
+```
+
+### 2. Install Frontend Dependencies
 ```bash
 npm install
+```
+
+### 3. Install Backend Dependencies
+```bash
+cd backend
+npm install
+cd ..
+```
+
+### 4. Set Up Environment Variables
+
+Create a `.env` file in the **root folder** (frontend):
+```env
+VITE_API_URL=http://localhost:5000/api
+VITE_CLOUD_NAME=your_cloudinary_cloud_name
+VITE_PRESET_NAME=your_cloudinary_preset_name
+```
+
+Create a `.env` file in the **backend folder**:
+```env
+MONGO_URI=your_mongodb_connection_string
+PORT=5000
+JWT_SECRET=your_jwt_secret
+CORS_ORIGIN=http://localhost:5173
+```
+
+### 5. Run the App
+
+Start the backend:
+```bash
+cd backend
+node index.mjs
+```
+
+Start the frontend (in a new terminal):
+```bash
 npm run dev
 ```
 
-## Live demo : [https://rimsha-shoukat.github.io/shoppey-E-commerce-app](https://rimsha-shoukat.github.io/shoppey-E-commerce-app/)
-
-## Contact
-
-Feel free to reach out to me via [LinkedIn](https://www.linkedin.com/in/rimsha-shoukat).
-
-Thank you for checking out Shoppey!
+App runs at `http://localhost:5173`
 
 ---
+
+## ☁️ Deploying to Vercel
+
+### Environment Variables (Vercel Dashboard)
+
+| Variable | Where Used |
+|---|---|
+| `VITE_API_URL` | Frontend — set to your Vercel URL + `/api` |
+| `VITE_CLOUD_NAME` | Frontend |
+| `VITE_PRESET_NAME` | Frontend |
+| `PORT` | Backend |
+| `MONGO_URI` | Backend |
+| `JWT_SECRET` | Backend |
+| `CORS_ORIGIN` | Backend — set to your Vercel frontend URL |
+
+---
+
+## 📬 Contact
+
+Built by **Rimsha Shoukat**
+
+- GitHub: [@rimsha-shoukat](https://github.com/rimsha-shoukat)
+- LinkedIn: [Connect with me](https://www.linkedin.com/in/rimsha-shoukat/)
+
+---
+
+> Thank you for checking out Shoppey! ⭐ If you like it, consider giving it a star on GitHub.
+
+## 🤝 Contributing
+
+Contributions are welcome and appreciated! Here's how you can help:
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/your-feature-name`)
+3. Commit your changes (`git commit -m 'Add some feature'`)
+4. Push to the branch (`git push origin feature/your-feature-name`)
+5. Open a Pull Request
+
+Whether it's fixing a bug, improving the UI, or adding a new feature — all contributions are welcome. Feel free to open an issue first to discuss what you'd like to change!
