@@ -9,7 +9,7 @@ export const SearchBar = ({ onSearch }) => {
 
         timerRef.current = setTimeout(() => {
             onSearch(searchRef.current.value);
-        }, 2000);
+        }, 1000);
     };
 
     const handleKeyDown = (e) => {
